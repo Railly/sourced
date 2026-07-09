@@ -72,7 +72,7 @@ async function main(): Promise<void> {
 
   const retrieval = await retrieve(context, ddinterCsvPath, now);
   const draftReport = await synthesize(context, retrieval.evidence, now);
-  const report = verify(draftReport, retrieval.evidence);
+  const report = await verify(draftReport, retrieval.evidence);
   const auditLedger = buildAuditLedger(report);
 
   await mkdir(outDir, { recursive: true });
