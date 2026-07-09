@@ -71,6 +71,20 @@ async function main(): Promise<void> {
   }
 
   const retrieval = await retrieve(context, ddinterCsvPath, now);
+
+  const hasKey = Boolean(process.env.ANTHROPIC_API_KEY);
+  const hasCli = Bun.which("claude") !== null;
+  if (!hasKey && !hasCli) {
+    console.error(
+      "\nThe synthesize/verify steps need Claude Opus 4.8. Set ANTHROPIC_API_KEY,",
+    );
+    console.error(
+      "or install the `claude` CLI and log in. To see the pre-generated result",
+    );
+    console.error("without credentials, run: bun run demo:cached\n");
+    process.exit(1);
+  }
+
   const draftReport = await synthesize(context, retrieval.evidence, now);
   const report = await verify(draftReport, retrieval.evidence);
   const auditLedger = buildAuditLedger(report);

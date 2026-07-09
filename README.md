@@ -16,7 +16,8 @@ Medication-related harm is a leading preventable cause of hospitalization. The m
 
 ```bash
 bun install
-bun run demo          # runs the golden discharge case end to end
+bun run demo:cached   # see the pre-generated result instantly (no credentials)
+bun run demo          # run the live pipeline end to end (needs Claude Opus 4.8)
 ```
 
 You get a ranked, source-cited safety review for a heart-failure / atrial-fibrillation patient discharged on warfarin + amiodarone + cotrimoxazole. Top finding: the warfarin–amiodarone CYP2C9 interaction, with the mechanism named, the FDA boxed warning quoted, and an INR monitoring action — every line one click from its source.

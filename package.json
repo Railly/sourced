@@ -6,7 +6,8 @@
   "scripts": {
     "demo": "bun run src/cli.ts data/fixtures/discharge-hf-afib.json",
     "typecheck": "tsc --noEmit",
-    "reviewer-demo": "bun run src/verify/reviewer-demo.ts"
+    "reviewer-demo": "bun run src/verify/reviewer-demo.ts",
+    "demo:cached": "bun run src/demo-cached.ts"
   },
   "devDependencies": {
     "@types/bun": "latest",
