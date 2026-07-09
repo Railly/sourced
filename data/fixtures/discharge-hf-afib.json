@@ -1,0 +1,25 @@
+{
+  "_meta": {
+    "kind": "synthetic-realistic",
+    "note": "Synthetic patient, no PHI. To be reviewed by a licensed pharmacist for plausibility before demo. Med list intentionally in Spanish (LATAM pharmacist workflow) with one brand name to exercise normalization.",
+    "scenario": "Heart failure + atrial fibrillation patient at hospital discharge on anticoagulation, with an interacting antiarrhythmic and an antibiotic started at discharge."
+  },
+  "note": "Paciente de 72 anos, insuficiencia cardiaca con fraccion de eyeccion reducida y fibrilacion auricular. Alta hospitalaria tras descompensacion. Se inicia amiodarona por FA de reciente diagnostico y cotrimoxazol por ITU. Anticoagulado con warfarina de larga data. Control de INR pendiente.",
+  "medications": [
+    { "raw": "warfarina 5mg" },
+    { "raw": "amiodarona 200mg" },
+    { "raw": "cotrimoxazol 800/160mg" },
+    { "raw": "furosemida 40mg" },
+    { "raw": "Coumadin (reconciliar duplicidad?)" }
+  ],
+  "allergies": ["penicilina"],
+  "diagnoses": [
+    "Insuficiencia cardiaca (FEVI reducida)",
+    "Fibrilacion auricular",
+    "Infeccion del tracto urinario"
+  ],
+  "labs": [
+    { "name": "INR", "value": 2.6, "unit": "", "refLow": 2.0, "refHigh": 3.0 },
+    { "name": "Creatinina", "value": 1.4, "unit": "mg/dL", "refLow": 0.7, "refHigh": 1.3 }
+  ]
+}

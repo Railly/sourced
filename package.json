@@ -1,0 +1,14 @@
+{
+  "name": "sourced",
+  "version": "0.1.0",
+  "description": "Medication safety review where every claim resolves to a cited source. Never asks the model for a clinical fact.",
+  "type": "module",
+  "scripts": {
+    "demo": "bun run src/cli.ts data/fixtures/discharge-hf-afib.json",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5"
+  }
+}
