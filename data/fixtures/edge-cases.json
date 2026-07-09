@@ -1,0 +1,14 @@
+{
+  "_meta": { "kind": "edge-case-stress", "note": "Adversarial: gibberish drug, empty med, typo, English name, missing labs." },
+  "note": "Stress test.",
+  "medications": [
+    { "raw": "not-a-real-drug-xyz123" },
+    { "raw": "" },
+    { "raw": "metforminaa (typo) 500mg" },
+    { "raw": "aspirin 100mg" },
+    { "raw": "   " }
+  ],
+  "allergies": [],
+  "diagnoses": [],
+  "labs": []
+}

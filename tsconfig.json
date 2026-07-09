@@ -9,5 +9,7 @@
     "noUncheckedIndexedAccess": true,
     "skipLibCheck": true,
     "types": ["bun-types"]
-  }
+  },
+  "include": ["src", "data"],
+  "exclude": ["web", "node_modules"]
 }
