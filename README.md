@@ -68,6 +68,8 @@ All public, all cited in output.
 | [openFDA FAERS](https://open.fda.gov/apis/drug/event/) | Real-world adverse-event signal (not causation) |
 | [RxNorm / RxNav](https://lhncbc.nlm.nih.gov/RxNav/) | Drug-name normalization to RxCUI |
 
+Full provenance and honest per-source limitations: [SOURCES.md](SOURCES.md).
+
 ## Not a diagnosis tool
 
 Sourced produces a **review packet for a licensed clinician or pharmacist**. It does not diagnose or prescribe. Patient context is processed locally; only public structured sources are queried outward. Demo patient is synthetic (no PHI), reviewed by a licensed pharmacist for plausibility.
