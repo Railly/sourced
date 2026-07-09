@@ -1,5 +1,6 @@
 import { ClinicianQuestions } from "@/components/clinician-questions";
 import { FindingCard } from "@/components/finding-card";
+import { PairwiseContrast } from "@/components/pairwise-contrast";
 import { PatientHeader } from "@/components/patient-header";
 import { ReportFooter } from "@/components/report-footer";
 import { VerificationPanel } from "@/components/verification-panel";
@@ -51,6 +52,8 @@ export default function ReviewPage() {
             </p>
           )}
         </section>
+
+        <PairwiseContrast />
 
         <ClinicianQuestions questions={report.questions_for_clinician} />
       </main>
