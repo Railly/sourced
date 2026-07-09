@@ -1,4 +1,46 @@
 import { ingest } from "./ingest/index.ts";
+import { retrieve } from "./retrieve/index.ts";
+import { synthesize } from "./synthesize/index.ts";
+import { verify } from "./verify/index.ts";
+import type { EvidenceObject, Finding, SafetyReport } from "./types/index.ts";
+import { mkdir } from "node:fs/promises";
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+
+interface AuditEntry {
+  finding: Finding;
+  evidence: (EvidenceObject & { query: string; timestamp: string })[];
+}
+
+interface AuditLedger {
+  generated_at: string;
+  findings: AuditEntry[];
+  unverified_removed: SafetyReport["unverified_removed"];
+  report: SafetyReport;
+}
+
+function buildAuditLedger(report: SafetyReport): AuditLedger {
+  const evidenceById = new Map(report.evidence.map((item) => [item.id, item]));
+  return {
+    generated_at: report.generated_at,
+    findings: report.findings.map((finding) => ({
+      finding,
+      evidence: finding.evidence_ids.map((id) => {
+        const item = evidenceById.get(id);
+        if (!item) {
+          throw new Error(`audit: verified finding referenced missing evidence_id ${id}`);
+        }
+        return {
+          ...item,
+          query: item.retrieval_query,
+          timestamp: item.retrieved_at,
+        };
+      }),
+    })),
+    unverified_removed: report.unverified_removed,
+    report,
+  };
+}
 
 async function main(): Promise<void> {
   const fixturePath = process.argv[2];
@@ -9,15 +51,17 @@ async function main(): Promise<void> {
 
   const file = Bun.file(fixturePath);
   if (!(await file.exists())) {
-    console.error(`ingest: file not found: ${fixturePath}`);
+    console.error(`cli: file not found: ${fixturePath}`);
     process.exit(1);
   }
 
+  const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+  const ddinterCsvPath = resolve(repoRoot, "data/sources/ddinter_B.csv");
+  const outDir = resolve(repoRoot, "out");
+  const outPath = resolve(outDir, "report.json");
+  const now = process.env.SOURCED_NOW ?? new Date().toISOString();
   const raw = await file.json();
   const context = await ingest(raw);
-
-  console.log(JSON.stringify(context, null, 2));
-
   const unresolved = context.medications.filter((m) => m.resolution === "unresolved");
   if (unresolved.length > 0) {
     console.error(`\n${unresolved.length} medication(s) unresolved:`);
@@ -25,9 +69,19 @@ async function main(): Promise<void> {
       console.error(`  - "${med.raw}"`);
     }
   }
+
+  const retrieval = await retrieve(context, ddinterCsvPath, now);
+  const draftReport = await synthesize(context, retrieval.evidence, now);
+  const report = verify(draftReport, retrieval.evidence);
+  const auditLedger = buildAuditLedger(report);
+
+  await mkdir(outDir, { recursive: true });
+  await Bun.write(outPath, `${JSON.stringify(auditLedger, null, 2)}\n`);
+
+  console.log(JSON.stringify(report, null, 2));
 }
 
 main().catch((error) => {
-  console.error("ingest failed:", error);
+  console.error("cli failed:", error);
   process.exit(1);
 });
