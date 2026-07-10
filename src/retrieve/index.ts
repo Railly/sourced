@@ -65,7 +65,7 @@ async function labelInteractions(med: Medication, now: string): Promise<Evidence
   return evidence;
 }
 
-interface DdinterRow {
+export interface DdinterRow {
   drugA: string;
   drugB: string;
   level: string;
@@ -94,18 +94,26 @@ export async function loadDdinter(csvPath: string): Promise<DdinterRow[]> {
 }
 
 /** DDInter severity for a specific pair, as an EvidenceObject. */
-function ddinterPair(
+function medicationComponents(medication: Medication): string[] {
+  return medication.name
+    .toLowerCase()
+    .split("/")
+    .map((name) => name.trim())
+    .filter(Boolean);
+}
+
+export function ddinterPair(
   a: Medication,
   b: Medication,
   rows: DdinterRow[],
   now: string,
 ): EvidenceObject | null {
-  const an = a.name.toLowerCase();
-  const bn = b.name.toLowerCase();
+  const aNames = new Set(medicationComponents(a));
+  const bNames = new Set(medicationComponents(b));
   const hit = rows.find((r) => {
     const ra = r.drugA.toLowerCase();
     const rb = r.drugB.toLowerCase();
-    return (ra === an && rb === bn) || (ra === bn && rb === an);
+    return (aNames.has(ra) && bNames.has(rb)) || (aNames.has(rb) && bNames.has(ra));
   });
   if (!hit) return null;
   return {

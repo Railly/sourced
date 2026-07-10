@@ -9,14 +9,28 @@ interface AuditLedger {
 const ledger = (await Bun.file(
   new URL("../out/report.json", import.meta.url),
 ).json()) as AuditLedger;
+const webReport = (await Bun.file(
+  new URL("../web/public/data/report.json", import.meta.url),
+).json()) as SafetyReport;
+
+test("cached web report is the exact audited report", () => {
+  expect(webReport).toEqual(ledger.report);
+});
 
 test("cached report renders only findings with resolvable evidence", () => {
   const evidenceIds = new Set(ledger.report.evidence.map((item) => item.id));
-  expect(ledger.report.unverified_removed).toEqual([]);
 
   for (const finding of ledger.report.findings) {
     expect(finding.evidence_ids.length).toBeGreaterThan(0);
+    expect(`${finding.headline} ${finding.mechanism}`).not.toMatch(
+      /no (?:concrete )?(?:interaction|claim).*(?:supported|established)/i,
+    );
     for (const id of finding.evidence_ids) expect(evidenceIds.has(id)).toBe(true);
+  }
+
+  for (const removed of ledger.report.unverified_removed) {
+    expect(removed.claim_text.length).toBeGreaterThan(0);
+    expect(removed.reason.length).toBeGreaterThan(0);
   }
 });
 
@@ -33,8 +47,9 @@ test("audit ledger mirrors every rendered finding and its cited evidence", () =>
 
 test("patient-specific INR language preserves uncertainty", () => {
   const context = ledger.report.findings.map((finding) => finding.why_this_patient).join(" ");
-  expect(context).toMatch(/INR may (?:climb|rise)/i);
-  expect(context).not.toMatch(/INR will (?:climb|rise)/i);
+  expect(context).toMatch(/INR.{0,120}may (?:climb|rise)/i);
+  expect(context).not.toMatch(/INR.{0,120}will (?:climb|rise)/i);
+  expect(context).not.toMatch(/(?:top|bottom) of (?:the )?\d+(?:\.\d+)?[-–]\d+(?:\.\d+)? range/i);
 });
 
 test("cached evidence uses secure, judge-resolvable citation targets", () => {

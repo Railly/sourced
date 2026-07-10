@@ -2,70 +2,98 @@
 // This is not disguised as natural output. Its purpose: prove the reviewer
 // rejects a claim that goes beyond its cited source, on camera and in CI.
 //
-// We hand the verifier a finding that cites a REAL evidence object (the warfarin
-// FDA label) but asserts a specific number the label does not contain. A correct
-// reviewer must flag it as unsupported and remove it.
+// We hand the verifier findings that cite the same real source set, but one
+// asserts specific details those sources do not contain. A correct reviewer must
+// flag it as unsupported and remove it.
 
-import type { EvidenceObject, Finding, SafetyReport } from "../types/index.ts";
+import type { EvidenceObject, Finding, PatientContext, SafetyReport } from "../types/index.ts";
 import { verify } from "./index.ts";
 
 const NOW = "2026-07-09T18:00:00.000Z";
 
-const warfarinLabel: EvidenceObject = {
-  id: "label:11289:interactions",
-  claim_text: "FDA label drug-interactions section for warfarin",
+const amiodaroneLabel: EvidenceObject = {
+  id: "label:703:interactions",
+  claim_text: "FDA label drug-interactions section for amiodarone",
   source_name: "openFDA-label",
-  source_id: "0cbce382-9c88-4f58-ae0f-532a841e8f95",
-  source_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0cbce382-9c88-4f58-ae0f-532a841e8f95",
+  source_id: "02f4a736-63ed-4ad4-a1f1-b21a71e928bd",
+  source_url:
+    "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=02f4a736-63ed-4ad4-a1f1-b21a71e928bd",
   exact_field: "drug_interactions",
   quoted_text:
-    "Inhibitors of CYP2C9, 1A2, and/or 3A4 have the potential to increase the effect (increase INR) of warfarin by increasing the exposure of warfarin. Table 2: Examples of CYP450 Interactions with Warfarin — CYP2C9 Inhibitors: amiodarone, capecitabine, cotrimoxazole, fluconazole, metronidazole, miconazole, voriconazole. More frequent INR monitoring should be performed when starting or stopping other drugs. Closely monitor INR if a concomitant drug is a CYP2C9, 1A2, and/or 3A4 inhibitor or inducer.",
-  retrieval_query: 'https://api.fda.gov/drug/label.json?search=openfda.generic_name:"warfarin"&limit=1',
+    "Warfarin: Potentiates anticoagulant response and can result in serious or fatal bleeding. Coadministration increases prothrombin time by 100% after 3 to 4 days. Reduce warfarin dose by one-third to one-half and monitor prothrombin times. Amiodarone inhibits CYP2C9, increasing exposure to other drugs.",
+  retrieval_query:
+    'https://api.fda.gov/drug/label.json?search=openfda.generic_name:"amiodarone"&limit=1',
   retrieved_at: NOW,
+};
+
+const ddinterSeverity: EvidenceObject = {
+  id: "ddinter:DDInter1951:DDInter76",
+  claim_text: "DDInter severity for warfarin + amiodarone: Major",
+  source_name: "DDInter",
+  source_id: "DDInter1951/DDInter76",
+  source_url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
+  exact_field: "Level",
+  quoted_text: "Major",
+  retrieval_query: "local DDInter CSV row: DDInter1951 (Warfarin) x DDInter76 (Amiodarone)",
+  retrieved_at: NOW,
+};
+
+const patient: PatientContext = {
+  note: "Amiodarone was newly started at discharge. The patient takes chronic warfarin.",
+  medications: [
+    { raw: "warfarina 5mg", name: "warfarin", rxcui: "11289", resolution: "exact" },
+    { raw: "amiodarona 200mg", name: "amiodarone", rxcui: "703", resolution: "exact" },
+  ],
+  allergies: [],
+  diagnoses: ["Atrial fibrillation"],
+  labs: [{ name: "INR", value: 2.6, unit: "", refLow: 2, refHigh: 3 }],
 };
 
 // A well-supported finding — should survive.
 const supportedFinding: Finding = {
   status: "flagged",
   severity: "major",
-  drugs: ["warfarin", "cotrimoxazole"],
-  headline: "Cotrimoxazole is a CYP2C9 inhibitor that can increase warfarin's effect and INR",
+  drugs: ["warfarin", "amiodarone"],
+  headline: "Amiodarone can potentiate warfarin's anticoagulant response",
   mechanism:
-    "The warfarin label's Table 2 lists cotrimoxazole among CYP2C9 inhibitors, and states inhibitors of CYP2C9 can increase the effect (increase INR) of warfarin; it advises closely monitoring INR when a concomitant drug is a CYP2C9 inhibitor.",
-  monitoring: "Closely monitor INR when a concomitant CYP2C9 inhibitor is present.",
-  why_this_patient: "Antibiotic newly started on chronic warfarin.",
-  evidence_ids: ["label:11289:interactions"],
+    "The amiodarone label says it inhibits CYP2C9 and potentiates warfarin's anticoagulant response.",
+  monitoring: "Reduce the warfarin dose by one-third to one-half and monitor prothrombin times.",
+  why_this_patient: "Amiodarone was newly started while the patient takes chronic warfarin.",
+  evidence_ids: ["label:703:interactions", "ddinter:DDInter1951:DDInter76"],
 };
 
-// An over-asserted finding — cites the SAME real label but invents a specific
+// An over-asserted finding — cites the SAME real sources but invents a specific
 // numeric claim ("increases INR by exactly 3 points within 48 hours") that the
 // quoted text does not contain. A correct reviewer must reject this.
 const overAssertedFinding: Finding = {
   status: "red-flag",
   severity: "major",
-  drugs: ["warfarin", "cotrimoxazole"],
-  headline: "Cotrimoxazole increases INR by exactly 3 points within 48 hours",
+  drugs: ["warfarin", "amiodarone"],
+  headline: "Amiodarone increases INR by exactly 3 points within 48 hours",
   mechanism:
-    "Per the FDA warfarin label, cotrimoxazole raises the INR by exactly 3.0 points within 48 hours and requires halving the warfarin dose immediately.",
+    "Per the FDA amiodarone label, amiodarone raises the INR by exactly 3.0 points within 48 hours and requires halving the warfarin dose immediately.",
   monitoring: "Halve the warfarin dose within 48 hours.",
-  why_this_patient: "Antibiotic newly started on chronic warfarin.",
-  evidence_ids: ["label:11289:interactions"],
+  why_this_patient: "Amiodarone was newly started while the patient takes chronic warfarin.",
+  evidence_ids: ["label:703:interactions", "ddinter:DDInter1951:DDInter76"],
 };
 
 const draft: SafetyReport = {
   patient_summary: "Reviewer demo.",
   findings: [supportedFinding, overAssertedFinding],
   questions_for_clinician: [],
-  evidence: [warfarinLabel],
+  evidence: [amiodaroneLabel, ddinterSeverity],
   unverified_removed: [],
   generated_at: NOW,
 };
 
-const result = await verify(draft, [warfarinLabel]);
+const evidence = [amiodaroneLabel, ddinterSeverity];
+const result = await verify(draft, evidence, { patient, narrative: false });
 
 console.log("=== Reviewer demo (labeled test, not natural output) ===\n");
-console.log("Two findings cite the SAME real FDA warfarin label.");
-console.log("One stays within the source. One invents a specific number the label does not contain.\n");
+console.log("Two findings cite the SAME real source set.");
+console.log(
+  "One stays within the source. One invents a specific number the label does not contain.\n",
+);
 console.log("SURVIVED (claims trace to the cited source):");
 for (const f of result.findings) console.log(`  ✓ ${f.headline}`);
 console.log("\nREJECTED (claim goes beyond the cited source — not asserted):");
@@ -77,7 +105,9 @@ for (const r of result.unverified_removed) {
 const rejectedTheFabrication = result.unverified_removed.some((r) =>
   r.claim_text.includes("exactly 3 points"),
 );
-const keptTheSupported = result.findings.some((f) => f.headline.startsWith("Cotrimoxazole is a CYP2C9"));
+const keptTheSupported = result.findings.some((f) =>
+  f.headline.startsWith("Amiodarone can potentiate"),
+);
 if (!rejectedTheFabrication || !keptTheSupported) {
   console.error("\nREVIEWER DEMO FAILED: verifier did not behave as expected.");
   process.exit(1);

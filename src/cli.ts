@@ -59,6 +59,7 @@ async function main(): Promise<void> {
   const ddinterCsvPath = resolve(repoRoot, "data/sources/ddinter_B.csv");
   const outDir = resolve(repoRoot, "out");
   const outPath = resolve(outDir, "report.json");
+  const webReportPath = resolve(repoRoot, "web/public/data/report.json");
   const now = process.env.SOURCED_NOW ?? new Date().toISOString();
   const raw = await file.json();
   const context = await ingest(raw);
@@ -75,22 +76,19 @@ async function main(): Promise<void> {
   const hasKey = Boolean(process.env.ANTHROPIC_API_KEY);
   const hasCli = Bun.which("claude") !== null;
   if (!hasKey && !hasCli) {
-    console.error(
-      "\nThe synthesize/verify steps need Claude Opus 4.8. Set ANTHROPIC_API_KEY,",
-    );
-    console.error(
-      "or install the `claude` CLI and log in. To see the pre-generated result",
-    );
+    console.error("\nThe synthesize/verify steps need Claude Opus 4.8. Set ANTHROPIC_API_KEY,");
+    console.error("or install the `claude` CLI and log in. To see the pre-generated result");
     console.error("without credentials, run: bun run demo:cached\n");
     process.exit(1);
   }
 
   const draftReport = await synthesize(context, retrieval.evidence, now);
-  const report = await verify(draftReport, retrieval.evidence);
+  const report = await verify(draftReport, retrieval.evidence, { patient: context });
   const auditLedger = buildAuditLedger(report);
 
   await mkdir(outDir, { recursive: true });
   await Bun.write(outPath, `${JSON.stringify(auditLedger, null, 2)}\n`);
+  await Bun.write(webReportPath, `${JSON.stringify(report, null, 2)}\n`);
 
   console.log(JSON.stringify(report, null, 2));
 }

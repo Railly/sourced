@@ -27,7 +27,7 @@ You get a ranked, source-cited safety review for a heart-failure / atrial-fibril
 See the reviewer agent reject a fabricated claim:
 
 ```bash
-bun run reviewer-demo # a labeled test: two findings cite the same FDA label;
+bun run reviewer-demo # a labeled test: two findings cite the same source set;
                       # one stays within the source, one invents a number; the
                       # reviewer keeps the first and rejects the second.
 ```
@@ -57,7 +57,7 @@ patient (ES/EN, messy) ──▶ INGEST ──▶ RETRIEVE ──▶ SYNTHESIZE 
 
 3. **Synthesize** (`src/synthesize`): Claude Opus 4.8 receives *only* the patient context and the retrieved evidence objects. It emits a visible plan, then ranks and contextualizes findings against this patient's labs/diagnoses. Hard contract: it may not introduce any claim not present in the evidence; if it cannot cite an evidence id, it omits the claim.
 
-4. **Verify** (`src/verify`): a two-level reviewer. Level 1 is deterministic: every cited evidence id must resolve. Level 2 is adversarial: Opus re-reads each finding against the *verbatim quoted text* of its sources and rejects unsupported assertions, including severities, numbers, and monitoring instructions. If the adversarial review cannot complete, the finding is not rendered. Only findings whose claim-vs-source review succeeds appear in the report.
+4. **Verify** (`src/verify`): three fail-closed gates. The deterministic gate requires every evidence id to resolve and prevents patient-specific medication reasoning from escaping a finding's declared drug scope. The adversarial finding reviewer re-reads each finding against the *verbatim quoted text* of only its cited sources and rejects unsupported severities, numbers, and monitoring instructions. A final narrative reviewer checks the patient summary and every clinician question against the exact patient context and evidence. If a model review cannot complete, the affected claims are not rendered.
 
 Every report ships with a machine-readable **audit ledger** (`out/report.json`): every finding → its evidence → the exact query that produced it → timestamp. A reviewer can independently verify any single claim.
 

@@ -1,4 +1,11 @@
-import type { EvidenceObject, Finding, PatientContext, SafetyReport, Severity, Status } from "../types/index.ts";
+import type {
+  EvidenceObject,
+  Finding,
+  PatientContext,
+  SafetyReport,
+  Severity,
+  Status,
+} from "../types/index.ts";
 
 const MODEL = "claude-opus-4-8";
 const ANTHROPIC_MESSAGES_URL = "https://api.anthropic.com/v1/messages";
@@ -81,11 +88,19 @@ function buildSystemPrompt(evidenceIds: string[]): string {
     "HARD CONTRACT: You may only reason over the provided evidence objects. You may not introduce any interaction, adverse-effect, severity, or monitoring claim not present in the retrieved sources. If you cannot cite an evidence_id for a claim, omit the claim.",
     "The model receives only PatientContext and EvidenceObject array. Do not use outside medical knowledge.",
     "Your jobs are: emit a visible PLAN first, screen each pair against interaction evidence, screen each drug against the patient's labs/allergies/diagnoses, rank findings highest severity first, and contextualize why_this_patient against this patient's context.",
-    "Every Finding must have non-empty evidence_ids. Every evidence_id must be one of these ids: " + evidenceIds.join(", "),
+    "Every Finding must have non-empty evidence_ids. Every evidence_id must be one of these ids: " +
+      evidenceIds.join(", "),
     "Patient medication names, RxCUIs, labs, diagnoses, allergies, and note text are patient context only. They are not clinical evidence for an interaction, adverse effect, therapeutic equivalence, severity, or monitoring claim.",
+    "When mentioning a lab, preserve the exact value and reference bounds. Do not call a value top, bottom, high, low, near, or borderline unless that description follows exactly from the supplied bounds.",
+    "Use conservative patient-context language. Do not call the context an exact or classic scenario for a source; state only the specific facts that match.",
+    "When cited timing makes a current patient value clinically relevant, explain the possible future change with may or could language and never state that the outcome will occur.",
+    "Use one uncertainty word, not combinations such as may or could.",
     "Do not create medication-reconciliation or duplicate-therapy findings unless an EvidenceObject explicitly supports the therapeutic-equivalence claim.",
     "Do not create findings for DDInter Unknown pairs unless another EvidenceObject supports a concrete interaction, adverse effect, severity, or monitoring claim for that pair.",
+    "A Finding must assert a concrete, supported safety issue. A statement that no interaction or no concrete claim is supported is not a Finding; omit it entirely.",
     "Questions for the clinician must not introduce dosing, monitoring, interaction, adverse-effect, or renal-adjustment claims unsupported by the provided EvidenceObjects.",
+    "Do not ask whether to adjust a medication based only on a lab value unless cited evidence explicitly connects that medication, lab, and action.",
+    "Questions must not assume their answer. Ask whether duplicate-looking entries are one order or separate orders rather than assuming a single intended order.",
     "JSON schema: " + JSON.stringify(outputSchema),
     "Return only JSON matching the provided schema. Do not wrap JSON in markdown.",
   ].join("\n");
@@ -116,7 +131,10 @@ function parseJsonObject(text: string): unknown {
 }
 
 function asStringArray(value: unknown, field: string): string[] {
-  if (!Array.isArray(value) || !value.every((item) => typeof item === "string" && item.trim().length > 0)) {
+  if (
+    !Array.isArray(value) ||
+    !value.every((item) => typeof item === "string" && item.trim().length > 0)
+  ) {
     throw new Error(`synthesize: invalid ${field}`);
   }
   return value;
@@ -171,7 +189,10 @@ function parseSynthesisOutput(text: string): SynthesisOutput {
     plan: asStringArray(record.plan, "plan"),
     patient_summary: record.patient_summary,
     findings: record.findings.map((finding, index) => asFinding(finding, index)),
-    questions_for_clinician: asStringArray(record.questions_for_clinician, "questions_for_clinician"),
+    questions_for_clinician: asStringArray(
+      record.questions_for_clinician,
+      "questions_for_clinician",
+    ),
   };
 }
 
