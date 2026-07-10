@@ -47,7 +47,7 @@ test("audit ledger mirrors every rendered finding and its cited evidence", () =>
 
 test("patient-specific INR language preserves uncertainty", () => {
   const context = ledger.report.findings.map((finding) => finding.why_this_patient).join(" ");
-  expect(context).toMatch(/INR.{0,120}may (?:climb|rise)/i);
+  expect(context).toMatch(/INR.{0,120}(?:may|could) (?:climb|rise)/i);
   expect(context).not.toMatch(/INR.{0,120}will (?:climb|rise)/i);
   expect(context).not.toMatch(/(?:top|bottom) of (?:the )?\d+(?:\.\d+)?[-–]\d+(?:\.\d+)? range/i);
 });

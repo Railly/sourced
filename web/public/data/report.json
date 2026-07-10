@@ -1,5 +1,5 @@
 {
-  "patient_summary": "72-year-old patient with heart failure (reduced ejection fraction), atrial fibrillation, and a urinary tract infection, discharged after decompensation. Long-standing warfarin anticoagulation, with amiodarone newly started for recently diagnosed atrial fibrillation and cotrimoxazole started for the UTI. Current INR is 2.6 (ref 2-3) and creatinine is 1.4 mg/dL (ref 0.7-1.3). An INR check is pending. Medication list also includes a Coumadin entry flagged for possible duplication with warfarin.",
+  "patient_summary": "72-year-old patient with heart failure with reduced ejection fraction and atrial fibrillation, discharged after decompensation. Long-standing warfarin anticoagulation, with amiodarone newly started for recently diagnosed atrial fibrillation and cotrimoxazole started for a urinary tract infection. Also on furosemide. Documented penicillin allergy. INR is 2.6 (reference 2 to 3) and creatinine is 1.4 mg/dL (reference 0.7 to 1.3). The note states an INR check is pending, and the medication list flags a possible warfarin/Coumadin duplicate entry to reconcile.",
   "findings": [
     {
       "status": "flagged",
@@ -8,17 +8,16 @@
         "warfarin",
         "amiodarone"
       ],
-      "headline": "Amiodarone can potentiate warfarin anticoagulant response with risk of serious or fatal bleeding",
-      "mechanism": "The amiodarone label states amiodarone potentiates warfarin's anticoagulant response and can result in serious or fatal bleeding, increasing prothrombin time by 100% after 3 to 4 days, and advises reducing the warfarin dose by one-third to one-half and monitoring prothrombin times (label:703:interactions). Amiodarone is also listed as a CYP2C9 and CYP3A4 inhibitor for warfarin, which can increase warfarin exposure and INR (label:11289:interactions). Warfarin can cause major or fatal bleeding (label:11289:boxed). DDInter grades this pair as Major (ddinter:DDInter1951:DDInter76).",
-      "why_this_patient": "Amiodarone was newly started while this patient continues long-standing warfarin. The cited amiodarone timing describes prothrombin time increasing by 100% after 3 to 4 days, so the current INR of 2.6 (ref 2-3) may rise over the coming days; the note records an INR check as pending.",
+      "headline": "Amiodarone can potentiate warfarin and raise bleeding risk",
+      "mechanism": "The amiodarone label states amiodarone potentiates the anticoagulant response to warfarin and can result in serious or fatal bleeding, increasing prothrombin time by 100% after 3 to 4 days, and advises reducing the warfarin dose by one-third to one-half and monitoring prothrombin times. The warfarin label lists amiodarone as a CYP2C9 inhibitor that can increase the effect and INR of warfarin. This pair is rated Major.",
+      "why_this_patient": "Amiodarone was newly started in a patient on long-standing warfarin, and the current INR is 2.6 within the reference range of 2 to 3. Because the cited label describes a prothrombin time increase after 3 to 4 days, the INR could rise after this recent start, and an INR check is documented as pending.",
       "evidence_ids": [
         "label:703:interactions",
         "label:11289:interactions",
-        "label:11289:boxed",
         "ddinter:DDInter1951:DDInter76",
-        "faers:11289:haemorrhage"
+        "label:11289:boxed"
       ],
-      "monitoring": "The warfarin label directs more frequent INR monitoring when starting other drugs, and the amiodarone label advises monitoring prothrombin times with a warfarin dose reduction of one-third to one-half (label:11289:interactions, label:703:interactions)."
+      "monitoring": "Per the amiodarone label, reduce the warfarin dose by one-third to one-half and monitor prothrombin times; the warfarin label advises more frequent INR monitoring when starting other drugs."
     },
     {
       "status": "flagged",
@@ -27,21 +26,20 @@
         "warfarin",
         "sulfamethoxazole / trimethoprim"
       ],
-      "headline": "Cotrimoxazole is a CYP2C9 inhibitor that can increase warfarin effect and INR",
-      "mechanism": "The warfarin label lists cotrimoxazole among CYP2C9 inhibitors that have the potential to increase the effect (increase INR) of warfarin by increasing warfarin exposure, and notes antibiotics as an interaction category requiring more frequent INR monitoring (label:11289:interactions). Warfarin can cause major or fatal bleeding (label:11289:boxed). DDInter grades this pair as Major (ddinter:DDInter1951:DDInter1724).",
-      "why_this_patient": "Cotrimoxazole was newly started for this patient's UTI while warfarin is continued, and the note records an INR check as pending; the current INR is 2.6 (ref 2-3). Per the cited label mechanism, this may increase warfarin effect.",
+      "headline": "Cotrimoxazole can increase warfarin effect and bleeding risk",
+      "mechanism": "The warfarin label lists cotrimoxazole among CYP2C9 inhibitors, which have the potential to increase the effect and INR of warfarin by increasing warfarin exposure, and states more frequent INR monitoring should be performed when starting antibiotics. This pair is rated Major.",
+      "why_this_patient": "Cotrimoxazole was newly started for a urinary tract infection in a patient on long-standing warfarin whose current INR is 2.6 within the reference range of 2 to 3. Because the label ties starting antibiotics to increased warfarin effect, the INR could rise, and an INR check is documented as pending.",
       "evidence_ids": [
         "label:11289:interactions",
-        "label:11289:boxed",
         "ddinter:DDInter1951:DDInter1724",
-        "faers:11289:haemorrhage"
+        "label:11289:boxed"
       ],
-      "monitoring": "The warfarin label advises more frequent INR monitoring when starting drugs including antibiotics and closely monitoring INR with a CYP2C9 inhibitor (label:11289:interactions, label:11289:boxed)."
+      "monitoring": "Per the warfarin label, perform more frequent INR monitoring when starting or stopping antibiotics such as this one."
     }
   ],
   "questions_for_clinician": [
-    "The medication list includes both a warfarin entry and a Coumadin entry marked 'reconciliar duplicidad?' - are these one order or two separate orders?",
-    "With amiodarone and cotrimoxazole both newly started alongside warfarin, when is the pending INR recheck planned?"
+    "The medication list contains both warfarin and Coumadin with a note questioning duplication; are these two separate orders or a single intended warfarin order that needs reconciliation?",
+    "Given the pending INR check noted at discharge, when is the next INR draw scheduled following the recent starts of amiodarone and cotrimoxazole?"
   ],
   "evidence": [
     {
@@ -53,7 +51,7 @@
       "exact_field": "drug_interactions",
       "quoted_text": "7 DRUG INTERACTIONS Concomitant use of drugs that increase bleeding risk, antibiotics, antifungals, botanical (herbal) products, and inhibitors and inducers of CYP2C9, 1A2, or 3A4. ( 7 ) Consult labeling of all concurrently used drugs for complete information about interactions with warfarin sodium or increased risks for bleeding. ( 7 ) 7.1 General Information Drugs may interact with warfarin sodium through pharmacodynamic or pharmacokinetic mechanisms. Pharmacodynamic mechanisms for drug interactions with warfarin sodium are synergism (impaired hemostasis, reduced clotting factor synthesis), competitive antagonism (vitamin K), and alteration of the physiologic control loop for vitamin K metabolism (hereditary resistance). Pharmacokinetic mechanisms for drug interactions with warfarin sodium are mainly enzyme induction, enzyme inhibition, and reduced plasma protein binding. It is important to note that some drugs may interact by more than one mechanism. More frequent INR monitoring should be performed when starting or stopping other drugs, including botanicals, or when changing dosages of other drugs, including drugs intended for short-term use (e.g., antibiotics, antifungals, corticosteroids) [ see Boxed Warning ]. Consult the labeling of all concurrently used drugs to obtain further information about interactions with warfarin sodium or adverse reactions pertaining to bleeding. 7.2 CYP450 Interactions CYP450 isozymes involved in the metabolism of warfarin include CYP2C9, 2C19, 2C8, 2C18, 1A2, and 3A4. The more potent warfarin S -enantiomer is metabolized by CYP2C9 while the R -enantiomer is metabolized by CYP1A2 and 3A4. Inhibitors of CYP2C9, 1A2, and/or 3A4 have the potential to increase the effect (increase INR) of warfarin by increasing the exposure of warfarin. Inducers of CYP2C9, 1A2, and/or 3A4 have the potential to decrease the effect (decrease INR) of warfarin by decreasing the exposure of warfarin. Examples of inhibitors and inducers of CYP2C9, 1A2, and 3A4 are below in Table 2 ; however, this list should not be considered all-inclusive. Consult the labeling of all concurrently used drugs to obtain further information about CYP450 interaction potential. The CYP450 inhibition and induction potential should be considered when starting, stopping, or changing dose of concomitant medications. Closely monitor INR if a concomitant drug is a CYP2C9, 1A2, and/or 3A4 inhibitor or inducer. Table 2: Examples of CYP450 Interactions with Warfarin Enzyme Inhibitors Inducers CYP2C9 amiodarone, capecitabine, cotrimoxazole, etravirine, fluconazole, fluvastatin, fluvoxamine, metronidazole, miconazole, oxandrolone, sulfinpyrazone, tigecycline, voriconazole, zafirlukast aprepitant, bosentan, carbamazepine, phenobarbital, rifampin CYP1A2 acyclovir, allopurinol, caffeine, cimetidine, ciprofloxacin, disulfiram, enoxacin, famotidine, fluvoxamine, methoxsalen, mexiletine, norfloxacin, oral contraceptives, phenylpropanolamine, propafenone, propranolol, terbinafine, thiabendazole, ticlopidine, verapamil, zileuton montelukast, moricizine, omeprazole, phenobarbital, phenytoin, cigarette smoking CYP3A4 alprazolam, amiodarone, amlodipine, amprenavir, aprepitant, atorvastatin, atazanavir, bicalutamide, cilostazol, cimetidine, ciprofloxacin, clarithromycin, conivaptan, cyclosporine, darunavir/ritonavir, diltiazem, erythromycin, fluconazole, fluoxetine, fluvoxamine, fosamprenavir, imatinib, indinavir, isoniazid, itraconazole, ketoconazole, lopinavir/ritonavir, nefazodone, nelfinavir, nilotinib, oral contraceptives, posaconazole, ranitidine, ranolazine, ritonavir, saquinavir, telithromycin, tipranavir, voriconazole, zileuton armodafinil, amprenavir, aprepitant, bosentan, carbamazepine, efavirenz, etravirine, modafinil, nafcillin, phenytoin, pioglitazone, prednisone, rifampin, rufinamide 7.3 Drugs that Increase Bleeding Risk Examples of drugs known to increase the risk of bleeding are presented in Table 3 . Because bleeding risk is increased when these",
       "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"warfarin\"&limit=1",
-      "retrieved_at": "2026-07-10T20:30:00.000Z"
+      "retrieved_at": "2026-07-10T21:30:00.000Z"
     },
     {
       "id": "label:11289:boxed",
@@ -64,7 +62,7 @@
       "exact_field": "boxed_warning",
       "quoted_text": "WARNING: BLEEDING RISK Warfarin sodium can cause major or fatal bleeding [see Warnings and Precautions ( 5.1 )] . Perform regular monitoring of INR in all treated patients [see Dosage and Administration ( 2.1 )] . Drugs, dietary changes, and other factors affect INR levels achieved with warfarin sodium therapy [see Drug Interactions ( 7 )] . Instruct patients about prevention measures to minimize risk of bleeding and to report signs and symptoms of bleeding [see Patient Counseling Information ( 17 )] . WARNING: BLEEDING RISK See full prescribing information for complete boxed warning. Warfarin sodium can cause major or fatal bleeding. ( 5.1 ) Perform regular monitoring of INR in all treated patients. ( 2.1 ) Drugs, dietary changes, and other factors affect INR levels achieved with warfarin sodium therapy. ( 7 ) Instruct patients about prevention measures to minimize risk of bleeding and to report signs and symptoms of bleeding. ( 17 )",
       "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"warfarin\"&limit=1",
-      "retrieved_at": "2026-07-10T20:30:00.000Z"
+      "retrieved_at": "2026-07-10T21:30:00.000Z"
     },
     {
       "id": "label:703:interactions",
@@ -75,7 +73,7 @@
       "exact_field": "drug_interactions",
       "quoted_text": "7 DRUG INTERACTIONS Because of amiodarone's long half-life, expect drug interactions to persist for weeks to months after discontinuation of amiodarone. Drug interactions with amiodarone are described in Table 1 below. Table 1: Amiodarone Drug Interactions Concomitant Drug Class/Name Examples Clinical Comment Pharmacodynamic Interactions QT Prolonging Drugs class I and III antiarrhythmics, lithium, certain phenothiazines, tricyclic antidepressants, certain fluoroquinolone and macrolide antibiotics, azole antifungals, halogenated inhalation anesthetic agents Increased risk of Torsade de Pointes. Avoid concomitant use. Negative Chronotropes digoxin, beta blockers, verapamil, diltiazem, clonidine, ivabradine Potentiates the electrophysiologic and hemodynamic effects of amiodarone, resulting in bradycardia, sinus arrest, and AV block. Monitor heart rate. Pharmacokinetic Interactions CYP450 Inhibitors grapefruit juice, certain fluoroquinolone and macrolide antibiotics, azole antifungals, cimetidine, certain protease inhibitors Increased exposure of amiodarone. Avoid concomitant use. CYP450 Inducers St. John's Wort Reduced amiodarone serum levels. Cyclosporine Increased plasma levels of cyclosporine have been reported resulting in elevated creatinine, despite reduction of cyclosporine dose. Monitor cyclosporine drug levels and renal function with concomitant use. Cholestyramine Reduced amiodarone serum levels. Antiarrhythmics quinidine, procainamide, flecainide Reserve concomitant use for patients who are unresponsive to a single agent. Antiarrhythmic metabolism inhibited by amiodarone. Initiate antiarrhythmic at a lower than usual dose and monitor patient carefully. Reduce dose levels of previously administered antiarrhythmic by 30% to 50% for several days after transitioning to oral amiodarone. Evaluate continued need for antiarrhythmic. Digoxin Increased digoxin concentration. Reduce digoxin by half or discontinue. If continued, monitor for evidence of toxicity. HMG-CoA Reductase Inhibitors simvastatin, lovastatin, atorvastatin Increased plasma concentration of HMG-CoA reductase inhibitor. Limit the dose of lovastatin to 40 mg. Limit the coadministered dose of simvastatin to 20 mg. Lower starting dose of other CYP3A4 substrates may be required. Warfarin Potentiates anticoagulant response and can result in serious or fatal bleeding. Coadministration increases prothrombin time by 100% after 3 to 4 days. Reduce warfarin dose by one-third to one-half and monitor prothrombin times. Phenytoin Increased steady-state levels of phenytoin. Monitor phenytoin levels. Hepatitis C Direct Acting Antiviral sofosbuvir Cases of symptomatic bradyarrhythmia requiring pacemaker insertion have been reported in patients on oral maintenance amiodarone who initiated therapy with sofosbuvir. CYP3A Substrate lidocaine Sinus bradycardia has been reported with oral amiodarone in combination with lidocaine given for local anesthesia. Monitor heart rate. A lower starting dose of lidocaine may be required. CYP3A Substrate fentanyl Fentanyl in combination with amiodarone may cause hypotension, bradycardia, and decreased cardiac output. Avoid coadministration of amiodarone with other antiarrhythmics and drugs known to prolong the QT interval. ( 7 ) Amiodarone is a substrate for CYP3A and CYP2C8, so inhibitors and inducers affect amiodarone exposure. ( 7 ) Amiodarone inhibits P-glycoprotein and CYP1A2, CYP2C9, CYP2D6, and CYP3A, increasing exposure to other drugs. ( 7 )",
       "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"amiodarone\"&limit=1",
-      "retrieved_at": "2026-07-10T20:30:00.000Z"
+      "retrieved_at": "2026-07-10T21:30:00.000Z"
     },
     {
       "id": "label:703:boxed",
@@ -86,7 +84,7 @@
       "exact_field": "boxed_warning",
       "quoted_text": "WARNING: PULMONARY, HEPATIC and CARDIAC TOXICITY Pacerone is intended for use only in patients with the indicated life-threatening arrhythmias because its use is accompanied by substantial toxicity [see Indications and Usage (1) ] . Pacerone can cause pulmonary toxicity (hypersensitivity pneumonitis or interstitial/alveolar pneumonitis) that has resulted in clinically manifest disease at rates as high as 17% in some series of patients. Pulmonary toxicity has been fatal about 10% of the time . Obtain a baseline chest X-ray and pulmonary-function tests, including diffusion capacity, when Pacerone therapy is initiated. Repeat history, physical exam, and chest X-ray every 3 to 6 months [see Warnings and Precautions 5.2) ] . Pacerone can cause hepatoxicity, which can be fatal. Obtain baseline and periodic liver transaminases and discontinue or reduce dose if the increase exceeds three times normal, or doubles in a patient with an elevated baseline. Discontinue Pacerone if the patient experiences signs or symptoms of clinical liver injury [see Warnings and Precautions (5.3) ] . Pacerone can exacerbate arrhythmias. Initiate amiodarone hydrochloride in a clinical setting where continuous electrocardiograms and cardiac resuscitation are available [see Warnings and Precautions (5.4) ] . WARNING: PULMONARY, HEPATIC, and CARDIAC TOXICITY See full prescribing information for complete boxed warning. Reserve Pacerone for patients with the indicated life-threatening arrhythmias because its use is accompanied by substantial toxicity, some also life-threatening. Utilize alternative agents first. ( 1 ) Pacerone' s life-threatening toxicities include pulmonary ( 5.2 ), hepatic ( 5.3 ), and proarrhythmic ( 5.4 ). Initiate under hospital or specialist supervision. ( 5 )",
       "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"amiodarone\"&limit=1",
-      "retrieved_at": "2026-07-10T20:30:00.000Z"
+      "retrieved_at": "2026-07-10T21:30:00.000Z"
     },
     {
       "id": "label:4603:interactions",
@@ -97,7 +95,7 @@
       "exact_field": "drug_interactions",
       "quoted_text": "Drug Interactions Furosemide may increase the ototoxic potential of aminoglycoside antibiotics, especially in the presence of impaired renal function. Except in life-threatening situations, avoid this combination. Furosemide should not be used concomitantly with ethacrynic acid because of the possibility of ototoxicity. Patients receiving high doses of salicylates concomitantly with furosemide, as in rheumatic disease, may experience salicylate toxicity at lower doses because of competitive renal excretory sites. There is a risk of ototoxic effects if cisplatin and furosemide are given concomitantly. In addition, nephrotoxicity of nephrotoxic drugs such as cisplatin may be enhanced if furosemide is not given in lower doses and with positive fluid balance when used to achieve forced diuresis during cisplatin treatment. Furosemide has a tendency to antagonize the skeletal muscle relaxing effect of tubocurarine and may potentiate the action of succinylcholine. Lithium generally should not be given with diuretics because they reduce lithium's renal clearance and add a high risk of lithium toxicity. Furosemide combined with angiotensin converting enzyme inhibitors or angiotensin II receptor blockers may lead to severe hypotension and deterioration in renal function, including renal failure. An interruption or reduction in the dosage of furosemide, angiotensin converting enzyme inhibitors, or angiotensin receptor blockers may be necessary. Potentiation occurs with ganglionic or peripheral adrenergic blocking drugs. Furosemide may decrease arterial responsiveness to norepinephrine. However, norepinephrine may still be used effectively. Simultaneous administration of sucralfate and furosemide tablets may reduce the natriuretic and antihypertensive effects of furosemide. Patients receiving both drugs should be observed closely to determine if the desired diuretic and/or antihypertensive effect of furosemide is achieved. The intake of furosemide and sucralfate should be separated by at least two hours. In isolated cases, intravenous administration of furosemide within 24 hours of taking chloral hydrate may lead to flushing, sweating attacks, restlessness, nausea, increase in blood pressure, and tachycardia. Use of furosemide concomitantly with chloral hydrate is therefore not recommended. Phenytoin interferes directly with renal action of furosemide. There is evidence that treatment with phenytoin leads to decrease intestinal absorption of furosemide, and consequently to lower peak serum furosemide concentrations. Methotrexate and other drugs that, like furosemide, undergo significant renal tubular secretion may reduce the effect of furosemide. Conversely, furosemide may decrease renal elimination of other drugs that undergo tubular secretion. High-dose treatment of both furosemide and these other drugs may result in elevated serum levels of these drugs and may potentiate their toxicity as well as the toxicity of furosemide. Furosemide can increase the risk of cephalosporin-induced nephrotoxicity even in the setting of minor or transient renal impairment. Concomitant use of cyclosporine and furosemide is associated with increased risk of gouty arthritis secondary to furosemide-induced hyperurecemia and cyclosporine impairment of renal urate excretion. High doses (> 80 mg) of furosemide may inhibit the binding of thyroid hormones to carrier proteins and result in transient increase in free thyroid hormones, followed by an overall decrease in total thyroid hormone levels. One study in six subjects demonstrated that the combination of furosemide and acetylsalicylic acid temporarily reduced creatinine clearance in patients with chronic renal insufficiency. There are case reports of patients who developed increased BUN, serum creatinine and serum potassium levels, and weight gain when furosemide was used in conjunction with NSAIDs. Literature reports indicate that coadministration of indomethacin may reduce the natriuretic and antihypertensi",
       "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"furosemide\"&limit=1",
-      "retrieved_at": "2026-07-10T20:30:00.000Z"
+      "retrieved_at": "2026-07-10T21:30:00.000Z"
     },
     {
       "id": "ddinter:DDInter1951:DDInter76",
@@ -108,7 +106,7 @@
       "exact_field": "Level",
       "quoted_text": "Major",
       "retrieval_query": "local DDInter CSV row: DDInter1951 (Warfarin) x DDInter76 (Amiodarone)",
-      "retrieved_at": "2026-07-10T20:30:00.000Z"
+      "retrieved_at": "2026-07-10T21:30:00.000Z"
     },
     {
       "id": "ddinter:DDInter1951:DDInter1724",
@@ -119,7 +117,7 @@
       "exact_field": "Level",
       "quoted_text": "Major",
       "retrieval_query": "local DDInter CSV row: DDInter1951 (Warfarin) x DDInter1724 (Sulfamethoxazole)",
-      "retrieved_at": "2026-07-10T20:30:00.000Z"
+      "retrieved_at": "2026-07-10T21:30:00.000Z"
     },
     {
       "id": "ddinter:DDInter1951:DDInter790",
@@ -130,7 +128,7 @@
       "exact_field": "Level",
       "quoted_text": "Unknown",
       "retrieval_query": "local DDInter CSV row: DDInter1951 (Warfarin) x DDInter790 (Furosemide)",
-      "retrieved_at": "2026-07-10T20:30:00.000Z"
+      "retrieved_at": "2026-07-10T21:30:00.000Z"
     },
     {
       "id": "faers:11289:haemorrhage",
@@ -141,9 +139,14 @@
       "exact_field": "meta.results.total",
       "quoted_text": "19773",
       "retrieval_query": "https://api.fda.gov/drug/event.json?search=patient.drug.medicinalproduct:\"warfarin\"+AND+patient.reaction.reactionmeddrapt:\"haemorrhage\"&limit=1",
-      "retrieved_at": "2026-07-10T20:30:00.000Z"
+      "retrieved_at": "2026-07-10T21:30:00.000Z"
     }
   ],
-  "unverified_removed": [],
-  "generated_at": "2026-07-10T20:30:00.000Z"
+  "unverified_removed": [
+    {
+      "claim_text": "Warfarin carries a boxed warning for major or fatal bleeding",
+      "reason": "Patient-specific reasoning imports plural medication context into a single-drug finding."
+    }
+  ],
+  "generated_at": "2026-07-10T21:30:00.000Z"
 }

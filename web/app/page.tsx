@@ -17,9 +17,19 @@ export default function ReviewPage() {
 
   return (
     <div className="flex min-h-full flex-col">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-paper-raised focus:px-3 focus:py-2 focus:text-sm focus:font-semibold focus:text-ink focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-info"
+      >
+        Skip to main content
+      </a>
       <PatientHeader summary={report.patient_summary} drugs={drugs} />
 
-      <main className="flex-1 mx-auto w-full max-w-3xl px-5 sm:px-8 py-8 sm:py-10 flex flex-col gap-8">
+      <main
+        id="main-content"
+        tabIndex={-1}
+        className="flex-1 mx-auto w-full max-w-3xl px-5 sm:px-8 py-8 sm:py-10 flex flex-col gap-8"
+      >
         <VerificationPanel rejected={report.unverified_removed} />
 
         <section aria-labelledby="findings-heading" className="flex flex-col gap-4">
@@ -53,7 +63,7 @@ export default function ReviewPage() {
           )}
         </section>
 
-        <PairwiseContrast />
+        <PairwiseContrast finding={findings[0]} />
 
         <ClinicianQuestions questions={report.questions_for_clinician} />
       </main>

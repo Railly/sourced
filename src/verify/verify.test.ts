@@ -95,6 +95,23 @@ test("level 1 removes patient reasoning that names a medication outside finding 
   expect(result.unverified_removed[0]?.reason).toContain("outside finding.drugs: amiodarone");
 });
 
+test("level 1 removes plural medication context from a single-drug finding", async () => {
+  const patient: PatientContext = {
+    medications: [{ raw: "warfarin", name: "warfarin", rxcui: "1", resolution: "exact" }],
+    allergies: [],
+    diagnoses: [],
+    labs: [],
+  };
+  const report = draft({
+    drugs: ["warfarin"],
+    why_this_patient: "Two newly started drugs may affect this patient.",
+    evidence_ids: ["label:1:interactions"],
+  });
+  const result = await verify(report, evidence, { adversarial: false, patient });
+  expect(result.findings).toEqual([]);
+  expect(result.unverified_removed[0]?.reason).toContain("plural medication context");
+});
+
 test("level 2 fails closed when the adversarial reviewer is unavailable", async () => {
   const result = await verify(draft({ evidence_ids: ["label:1:interactions"] }), evidence, {
     reviewer: async () => {

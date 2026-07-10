@@ -52,6 +52,19 @@ function level1(
     }
     if (patient) {
       const findingDrugs = new Set(finding.drugs.flatMap(medicationComponents));
+      if (
+        findingDrugs.size === 1 &&
+        /\b(?:two|2|multiple|other|interacting|concurrent|newly started)\b[^.]{0,40}\b(?:drugs|medications|agents)\b/i.test(
+          finding.why_this_patient,
+        )
+      ) {
+        removed.push({
+          claim_text: findingClaimText(finding),
+          reason:
+            "Patient-specific reasoning imports plural medication context into a single-drug finding.",
+        });
+        continue;
+      }
       const outsideScope = [
         ...new Set(
           patient.medications
@@ -105,6 +118,7 @@ const LEVEL2_SYSTEM = [
   "Be strict: a specific number, dose, severity level, or monitoring instruction must appear in or be directly entailed by the quoted text.",
   "Check arithmetic and comparisons. Reject qualitative numeric descriptions such as top, bottom, high, low, near, or borderline unless they follow exactly from the supplied value and bounds.",
   "A rendered Finding must assert a concrete safety issue. If it only says no interaction or no concrete claim is supported, reject it as a non-finding.",
+  "Patient context may prove that medications were started, but it cannot prove that unnamed or out-of-scope medications interact. Reject plural medication context in a single-drug finding unless those medications are declared in finding.drugs and supported by the cited sources.",
   "Return supported=true only if nothing in the finding goes beyond the sources. List every unsupported assertion in unsupported_claims.",
   "Return only JSON matching the schema. No markdown.",
 ].join("\n");

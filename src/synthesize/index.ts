@@ -90,6 +90,7 @@ function buildSystemPrompt(evidenceIds: string[]): string {
     "Your jobs are: emit a visible PLAN first, screen each pair against interaction evidence, screen each drug against the patient's labs/allergies/diagnoses, rank findings highest severity first, and contextualize why_this_patient against this patient's context.",
     "Every Finding must have non-empty evidence_ids. Every evidence_id must be one of these ids: " +
       evidenceIds.join(", "),
+    "Put source identifiers only in evidence_ids. Do not write evidence ids, source ids, or parenthetical citation tokens inside the patient summary, headline, mechanism, monitoring, why_this_patient, or clinician questions.",
     "Patient medication names, RxCUIs, labs, diagnoses, allergies, and note text are patient context only. They are not clinical evidence for an interaction, adverse effect, therapeutic equivalence, severity, or monitoring claim.",
     "When mentioning a lab, preserve the exact value and reference bounds. Do not call a value top, bottom, high, low, near, or borderline unless that description follows exactly from the supplied bounds.",
     "Use conservative patient-context language. Do not call the context an exact or classic scenario for a source; state only the specific facts that match.",

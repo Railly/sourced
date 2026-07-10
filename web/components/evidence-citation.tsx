@@ -13,13 +13,7 @@ const SOURCE_LABEL: Record<EvidenceObject["source_name"], string> = {
   MedlinePlus: "MedlinePlus",
 };
 
-export function EvidenceCitation({
-  evidence,
-  index,
-}: {
-  evidence: EvidenceObject;
-  index: number;
-}) {
+export function EvidenceCitation({ evidence, index }: { evidence: EvidenceObject; index: number }) {
   const [open, setOpen] = useState(false);
   const panelId = useId();
 
@@ -48,7 +42,7 @@ export function EvidenceCitation({
           aria-hidden="true"
           viewBox="0 0 20 20"
           fill="none"
-          className={`shrink-0 h-4 w-4 text-ink-faint transition-transform duration-200 ${
+          className={`shrink-0 h-4 w-4 text-ink-faint transition-transform duration-200 motion-reduce:transition-none ${
             open ? "rotate-180" : "rotate-0"
           }`}
         >
@@ -65,7 +59,9 @@ export function EvidenceCitation({
       <div
         id={panelId}
         role="region"
-        className={`grid transition-[grid-template-rows] duration-200 ease-out ${
+        aria-hidden={!open}
+        inert={!open}
+        className={`grid transition-[grid-template-rows] duration-200 ease-out motion-reduce:transition-none ${
           open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
         }`}
       >
