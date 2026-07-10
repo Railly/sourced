@@ -1,5 +1,7 @@
 # Sourced
 
+[![CI](https://github.com/Railly/sourced/actions/workflows/ci.yml/badge.svg)](https://github.com/Railly/sourced/actions/workflows/ci.yml)
+
 **Medication safety you can verify. Every claim traces to a cited source.**
 
 Sourced reviews a patient's medication list for dangerous interactions, adverse effects, and missing monitoring. Every clinical claim in its output resolves to a specific FDA label field, interaction-database row, or adverse-event record. Its core principle is a hard line:
