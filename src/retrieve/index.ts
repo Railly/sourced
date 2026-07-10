@@ -11,7 +11,9 @@ const FETCH_TIMEOUT_MS = 12_000;
 
 async function getJSON(url: string): Promise<any | null> {
   try {
-    const res = await fetch(url, { signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) });
+    const res = await fetch(url, {
+      signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+    });
     if (!res.ok) return null;
     return await res.json();
   } catch {
@@ -20,10 +22,7 @@ async function getJSON(url: string): Promise<any | null> {
 }
 
 /** openFDA drug_interactions section (PLR §7) for one drug. Verbatim, citable. */
-async function labelInteractions(
-  med: Medication,
-  now: string,
-): Promise<EvidenceObject[]> {
+async function labelInteractions(med: Medication, now: string): Promise<EvidenceObject[]> {
   const query = `${OPENFDA_LABEL}?search=openfda.generic_name:"${encodeURIComponent(med.name)}"&limit=1`;
   const data = await getJSON(query);
   const result = data?.results?.[0];
@@ -34,8 +33,7 @@ async function labelInteractions(
   const evidence: EvidenceObject[] = [];
 
   const field =
-    result.drug_interactions?.[0] ??
-    result.drug_and_or_laboratory_test_interactions?.[0];
+    result.drug_interactions?.[0] ?? result.drug_and_or_laboratory_test_interactions?.[0];
   if (field) {
     evidence.push({
       id: `label:${med.rxcui}:interactions`,
@@ -84,7 +82,13 @@ export async function loadDdinter(csvPath: string): Promise<DdinterRow[]> {
     if (!line.trim()) continue;
     const [idA, drugA, idB, drugB, level] = line.split(",");
     if (!drugA || !drugB || !level) continue;
-    rows.push({ idA: idA ?? "", drugA, idB: idB ?? "", drugB, level: level.trim() });
+    rows.push({
+      idA: idA ?? "",
+      drugA,
+      idB: idB ?? "",
+      drugB,
+      level: level.trim(),
+    });
   }
   return rows;
 }
@@ -109,10 +113,10 @@ function ddinterPair(
     claim_text: `DDInter severity for ${a.name} + ${b.name}: ${hit.level}`,
     source_name: "DDInter",
     source_id: `${hit.idA}/${hit.idB}`,
-    source_url: "https://ddinter.scbdd.com/",
+    source_url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
     exact_field: "Level",
     quoted_text: hit.level,
-    retrieval_query: `DDInter pair lookup: ${a.name} x ${b.name}`,
+    retrieval_query: `local DDInter CSV row: ${hit.idA} (${hit.drugA}) x ${hit.idB} (${hit.drugB})`,
     retrieved_at: now,
   };
 }

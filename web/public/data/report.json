@@ -132,10 +132,10 @@
       "claim_text": "DDInter severity for warfarin + amiodarone: Major",
       "source_name": "DDInter",
       "source_id": "DDInter1951/DDInter76",
-      "source_url": "https://ddinter.scbdd.com/",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
       "exact_field": "Level",
       "quoted_text": "Major",
-      "retrieval_query": "DDInter pair lookup: warfarin x amiodarone",
+      "retrieval_query": "local DDInter CSV row: DDInter1951 (Warfarin) x DDInter76 (Amiodarone)",
       "retrieved_at": "2026-07-09T18:00:00.000Z"
     },
     {
@@ -143,10 +143,10 @@
       "claim_text": "DDInter severity for warfarin + furosemide: Unknown",
       "source_name": "DDInter",
       "source_id": "DDInter1951/DDInter790",
-      "source_url": "https://ddinter.scbdd.com/",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
       "exact_field": "Level",
       "quoted_text": "Unknown",
-      "retrieval_query": "DDInter pair lookup: warfarin x furosemide",
+      "retrieval_query": "local DDInter CSV row: DDInter1951 (Warfarin) x DDInter790 (Furosemide)",
       "retrieved_at": "2026-07-09T18:00:00.000Z"
     },
     {

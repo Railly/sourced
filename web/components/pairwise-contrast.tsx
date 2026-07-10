@@ -12,8 +12,8 @@ export function PairwiseContrast() {
           Why not just a pairwise checker?
         </h2>
         <p className="mt-1.5 text-[13.5px] leading-relaxed text-ink-muted text-pretty">
-          A traditional interaction lookup and Sourced start from the same top finding. One stops
-          at the fact. The other explains what it means for this patient.
+          A traditional interaction lookup and Sourced start from the same top finding. One stops at
+          the fact. The other explains what it means for this patient.
         </p>
       </div>
 
@@ -42,7 +42,7 @@ function PairwiseColumn() {
       </div>
 
       <p className="mt-4 text-[12px] leading-relaxed text-ink-faint">
-        Correct, but static — no patient context, no mechanism, no source, no next step.
+        Correct, but static. No patient context, no mechanism, no source, no next step.
       </p>
     </div>
   );
@@ -78,8 +78,9 @@ function SourcedColumn() {
             Why this patient
           </p>
           <p className="mt-1.5 text-[13.5px] leading-relaxed text-ink">
-            INR 2.6 in-range today, but amiodarone was just started — prothrombin time typically
-            climbs over 3&ndash;4 days after coadministration begins.
+            INR 2.6 is in range today. Amiodarone was just started, and the label describes a
+            prothrombin-time increase after 3 to 4 days. The current INR may not yet reflect the
+            interaction.
           </p>
         </div>
 
@@ -103,8 +104,8 @@ function SourcedColumn() {
               Recommended monitoring
             </p>
             <p className="mt-1 text-[13px] leading-relaxed text-ink">
-              Reduce warfarin dose by one-third to one-half; monitor prothrombin time / INR more
-              frequently.
+              FDA label: reduce warfarin dose by one-third to one-half and monitor prothrombin time
+              / INR more frequently.
             </p>
           </div>
         </div>

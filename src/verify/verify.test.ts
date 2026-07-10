@@ -1,6 +1,6 @@
 import { expect, test } from "bun:test";
-import { verify } from "./index.ts";
 import type { EvidenceObject, SafetyReport } from "../types/index.ts";
+import { verify } from "./index.ts";
 
 const evidence: EvidenceObject[] = [
   {
@@ -42,7 +42,9 @@ function draft(overrides: Partial<SafetyReport["findings"][number]>): SafetyRepo
 // adversarial so these are hermetic (no model call).
 
 test("level 1 removes a finding with no evidence_ids", async () => {
-  const result = await verify(draft({ evidence_ids: [] }), evidence, { adversarial: false });
+  const result = await verify(draft({ evidence_ids: [] }), evidence, {
+    adversarial: false,
+  });
   expect(result.findings).toHaveLength(0);
   expect(result.unverified_removed).toHaveLength(1);
   expect(result.unverified_removed[0]?.reason).toContain("no evidence_ids");
@@ -71,4 +73,34 @@ test("level 1 dedupes repeated evidence_ids", async () => {
     { adversarial: false },
   );
   expect(result.findings[0]?.evidence_ids).toEqual(["label:1:interactions"]);
+});
+
+test("level 2 fails closed when the adversarial reviewer is unavailable", async () => {
+  const result = await verify(draft({ evidence_ids: ["label:1:interactions"] }), evidence, {
+    reviewer: async () => {
+      throw new Error("reviewer unavailable");
+    },
+  });
+  expect(result.findings).toHaveLength(0);
+  expect(result.unverified_removed).toHaveLength(1);
+  expect(result.unverified_removed[0]?.reason).toContain("not rendered");
+});
+
+test("level 2 removes a finding that goes beyond its cited source", async () => {
+  const result = await verify(draft({ evidence_ids: ["label:1:interactions"] }), evidence, {
+    reviewer: async () => ({
+      supported: false,
+      unsupported_claims: ["exact numeric increase is absent"],
+    }),
+  });
+  expect(result.findings).toHaveLength(0);
+  expect(result.unverified_removed[0]?.reason).toContain("exact numeric increase is absent");
+});
+
+test("level 2 keeps a finding fully supported by its cited source", async () => {
+  const result = await verify(draft({ evidence_ids: ["label:1:interactions"] }), evidence, {
+    reviewer: async () => ({ supported: true, unsupported_claims: [] }),
+  });
+  expect(result.findings).toHaveLength(1);
+  expect(result.unverified_removed).toHaveLength(0);
 });

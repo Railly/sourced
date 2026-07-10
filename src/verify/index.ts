@@ -1,11 +1,11 @@
-import type { EvidenceObject, Finding, SafetyReport } from "../types/index.ts";
 import { callOpus, parseJsonObject } from "../llm.ts";
+import type { EvidenceObject, Finding, SafetyReport } from "../types/index.ts";
 
 function findingClaimText(finding: Finding): string {
   return finding.headline || finding.mechanism || finding.drugs.join(" + ") || "untitled finding";
 }
 
-// ---- Level 1: deterministic — do the cited evidence_ids exist? ----
+// ---- Level 1: deterministic citation resolution ----
 
 interface Level1Result {
   survivors: Finding[];
@@ -19,7 +19,10 @@ function level1(report: SafetyReport, evidence: EvidenceObject[]): Level1Result 
 
   for (const finding of report.findings) {
     if (finding.evidence_ids.length === 0) {
-      removed.push({ claim_text: findingClaimText(finding), reason: "Finding has no evidence_ids." });
+      removed.push({
+        claim_text: findingClaimText(finding),
+        reason: "Finding has no evidence_ids.",
+      });
       continue;
     }
     const missing = finding.evidence_ids.filter((id) => !evidenceById.has(id));
@@ -30,12 +33,15 @@ function level1(report: SafetyReport, evidence: EvidenceObject[]): Level1Result 
       });
       continue;
     }
-    survivors.push({ ...finding, evidence_ids: [...new Set(finding.evidence_ids)] });
+    survivors.push({
+      ...finding,
+      evidence_ids: [...new Set(finding.evidence_ids)],
+    });
   }
   return { survivors, removed };
 }
 
-// ---- Level 2: adversarial — does the cited quoted_text actually support the claim? ----
+// ---- Level 2: adversarial claim-vs-source review ----
 // This is the reviewer agent. It catches the real, dangerous failure: a finding
 // that cites a valid evidence object but asserts something that object does not say.
 
@@ -62,7 +68,7 @@ const LEVEL2_SYSTEM = [
   "Return only JSON matching the schema. No markdown.",
 ].join("\n");
 
-interface Level2Verdict {
+export interface Level2Verdict {
   supported: boolean;
   unsupported_claims: string[];
 }
@@ -106,6 +112,7 @@ async function level2Check(finding: Finding, evidence: EvidenceObject[]): Promis
 export interface VerifyOptions {
   /** Run the adversarial claim-vs-source pass. Default true. */
   adversarial?: boolean;
+  reviewer?: (finding: Finding, evidence: EvidenceObject[]) => Promise<Level2Verdict>;
 }
 
 export async function verify(
@@ -114,21 +121,29 @@ export async function verify(
   options: VerifyOptions = {},
 ): Promise<SafetyReport> {
   const adversarial = options.adversarial ?? true;
+  const reviewer = options.reviewer ?? level2Check;
   const { survivors, removed } = level1(report, evidence);
 
   if (!adversarial) {
-    return { ...report, findings: survivors, evidence, unverified_removed: removed };
+    return {
+      ...report,
+      findings: survivors,
+      evidence,
+      unverified_removed: removed,
+    };
   }
 
   const findings: Finding[] = [];
   for (const finding of survivors) {
     let verdict: Level2Verdict;
     try {
-      verdict = await level2Check(finding, evidence);
+      verdict = await reviewer(finding, evidence);
     } catch {
-      // If the reviewer call fails, fail safe: keep the finding but it stays
-      // level-1 verified. We do not silently assert an unreviewed claim as reviewed.
-      findings.push(finding);
+      removed.push({
+        claim_text: findingClaimText(finding),
+        reason:
+          "Adversarial reviewer unavailable; finding was not rendered because claim-vs-source verification did not complete.",
+      });
       continue;
     }
     if (verdict.supported) {
@@ -136,7 +151,7 @@ export async function verify(
     } else {
       removed.push({
         claim_text: findingClaimText(finding),
-        reason: `Reviewer: claim not supported by cited sources — ${verdict.unsupported_claims.join("; ")}`,
+        reason: `Reviewer: claim not supported by cited sources: ${verdict.unsupported_claims.join("; ")}`,
       });
     }
   }
