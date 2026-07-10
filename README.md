@@ -82,7 +82,7 @@ The demo uses a synthetic patient and no PHI. Independent pharmacist review is s
 
 ## Not a diagnosis tool
 
-Sourced produces a **review packet for a licensed clinician or pharmacist**. It does not diagnose or prescribe. Patient context is processed locally; only public structured sources are queried outward. The demo patient is synthetic and contains no PHI. See [VALIDATION.md](VALIDATION.md) for the current pharmacist-review status.
+Sourced produces a **review packet for a licensed clinician or pharmacist**. It does not diagnose or prescribe. The live path sends the supplied patient context to the configured Claude service for synthesis and verification. Retrieval APIs receive medication and reaction terms, not the patient note. The demo patient is synthetic and contains no PHI; any production deployment would require an approved clinical privacy architecture. See [VALIDATION.md](VALIDATION.md) for the current pharmacist-review status.
 
 ## Stack
 
