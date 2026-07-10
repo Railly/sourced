@@ -91,3 +91,7 @@ bun test              # deterministic, ingest, and cached-artifact checks
 bun run demo          # end-to-end golden case
 bun run reviewer-demo # adversarial reviewer test
 ```
+
+## License
+
+Sourced code is available under the [MIT License](LICENSE). The bundled DDInter snapshot retains its CC BY-NC 4.0 terms; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

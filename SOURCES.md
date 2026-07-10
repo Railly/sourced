@@ -13,7 +13,7 @@ Sourced never asks the model for a clinical fact. Every interaction, adverse-eff
 
 - **Dataset paper:** https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/
 - **Authoritative for:** structured drug-pair interaction **severity** (Major / Moderate / Minor / Unknown), which the FDA label does not provide in a normalized field.
-- **License:** CC BY-NC 4.0 (non-commercial; cited here). Used as a local snapshot (`data/sources/`).
+- **License:** CC BY-NC 4.0 (non-commercial). Used as a local snapshot (`data/sources/`). See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 - **Limitations:** the bulk CSV carries the severity level only, not mechanism or management text; we take mechanism from the FDA label, not DDInter. "Unknown" pairs are not asserted as safe; they are simply not flagged. The original DDInter host currently presents an expired TLS certificate, so judge-facing citations resolve to the open-access paper while the audit ledger preserves the exact local CSV row identity.
 
 ## openFDA FAERS (Adverse Event Reporting System)
