@@ -4,6 +4,7 @@ export function VerificationPanel({ rejected }: { rejected: UnverifiedClaim[] })
   if (rejected.length === 0) {
     return (
       <section
+        id="verification-status"
         aria-label="Verification status"
         className="rounded-xl border border-verified-border bg-verified-bg px-5 py-4 flex items-start gap-3"
       >
@@ -22,9 +23,7 @@ export function VerificationPanel({ rejected }: { rejected: UnverifiedClaim[] })
           />
         </svg>
         <div>
-          <p className="text-[14px] font-semibold text-verified">
-            All claims traced to source
-          </p>
+          <p className="text-[14px] font-semibold text-verified">All claims traced to source</p>
           <p className="mt-0.5 text-[13px] leading-relaxed text-ink-muted">
             A reviewer agent verified every claim in this report against its cited source before
             publication. Nothing here was asserted from model memory.
@@ -36,6 +35,7 @@ export function VerificationPanel({ rejected }: { rejected: UnverifiedClaim[] })
 
   return (
     <section
+      id="verification-status"
       aria-label="Claims rejected by reviewer"
       className="rounded-xl border border-hairline bg-paper-raised px-5 py-4"
     >
@@ -57,8 +57,8 @@ export function VerificationPanel({ rejected }: { rejected: UnverifiedClaim[] })
         <div>
           <p className="text-[14px] font-semibold text-ink">Claims the reviewer rejected</p>
           <p className="mt-0.5 text-[13px] leading-relaxed text-ink-muted">
-            Before publication, a reviewer agent checked every claim against its source and
-            removed anything it could not verify.
+            Before publication, a reviewer agent checked every claim against its source and removed
+            anything it could not verify.
           </p>
         </div>
       </div>

@@ -113,3 +113,7 @@ if (!rejectedTheFabrication || !keptTheSupported) {
   process.exit(1);
 }
 console.log("\nReviewer correctly kept the supported finding and rejected the fabricated one.");
+console.log("\n=== Camera summary ===");
+console.log("SUPPORTED: cited interaction, severity, monitoring, and patient context");
+console.log("REJECTED: exact 3-point INR increase, 48-hour timing, and immediate dose halving");
+console.log("RESULT: unsupported claim never rendered");
