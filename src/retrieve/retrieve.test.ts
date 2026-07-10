@@ -6,6 +6,13 @@ const NOW = "2026-07-10T17:00:00.000Z";
 
 const rows: DdinterRow[] = [
   {
+    idA: "DDInter1874",
+    drugA: "Trimethoprim",
+    idB: "DDInter1951",
+    drugB: "Warfarin",
+    level: "Moderate",
+  },
+  {
     idA: "DDInter1951",
     drugA: "Warfarin",
     idB: "DDInter76",
@@ -13,11 +20,11 @@ const rows: DdinterRow[] = [
     level: "Major",
   },
   {
-    idA: "DDInter1874",
-    drugA: "Trimethoprim",
-    idB: "DDInter1951",
-    drugB: "Warfarin",
-    level: "Moderate",
+    idA: "DDInter1951",
+    drugA: "Warfarin",
+    idB: "DDInter1724",
+    drugB: "Sulfamethoxazole",
+    level: "Major",
   },
 ];
 
@@ -31,15 +38,15 @@ test("matches an exact DDInter pair in reverse order", () => {
   expect(evidence?.source_id).toBe("DDInter1951/DDInter76");
 });
 
-test("matches a DDInter component inside a combination medication", () => {
+test("uses the strongest DDInter component match for a combination medication", () => {
   const evidence = ddinterPair(
     medication("sulfamethoxazole / trimethoprim"),
     medication("warfarin"),
     rows,
     NOW,
   );
-  expect(evidence?.quoted_text).toBe("Moderate");
-  expect(evidence?.source_id).toBe("DDInter1874/DDInter1951");
+  expect(evidence?.quoted_text).toBe("Major");
+  expect(evidence?.source_id).toBe("DDInter1951/DDInter1724");
 });
 
 test("returns null when no exact component pair exists", () => {

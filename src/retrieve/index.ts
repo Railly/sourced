@@ -110,11 +110,21 @@ export function ddinterPair(
 ): EvidenceObject | null {
   const aNames = new Set(medicationComponents(a));
   const bNames = new Set(medicationComponents(b));
-  const hit = rows.find((r) => {
+  const severityRank: Record<string, number> = {
+    Major: 4,
+    Moderate: 3,
+    Minor: 2,
+    Unknown: 1,
+  };
+  const matches = rows.filter((r) => {
     const ra = r.drugA.toLowerCase();
     const rb = r.drugB.toLowerCase();
     return (aNames.has(ra) && bNames.has(rb)) || (aNames.has(rb) && bNames.has(ra));
   });
+  const hit = matches.reduce<DdinterRow | null>((strongest, row) => {
+    if (!strongest) return row;
+    return (severityRank[row.level] ?? 0) > (severityRank[strongest.level] ?? 0) ? row : strongest;
+  }, null);
   if (!hit) return null;
   return {
     id: `ddinter:${hit.idA}:${hit.idB}`,
