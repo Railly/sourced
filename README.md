@@ -30,6 +30,8 @@ bun run reviewer-demo # a labeled test: two findings cite the same FDA label;
                       # reviewer keeps the first and rejects the second.
 ```
 
+The live reviewer demo needs either `ANTHROPIC_API_KEY` or an authenticated `claude` CLI. Without credentials, `bun test` runs the hermetic fail-closed and supported/unsupported reviewer cases, while `bun run demo:cached` renders the previously generated, audited report.
+
 Web UI (the review packet):
 
 ```bash
