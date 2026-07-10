@@ -1,11 +1,3 @@
-// Reviewer demo — an EXPLICIT, labeled test of the adversarial verifier.
-// This is not disguised as natural output. Its purpose: prove the reviewer
-// rejects a claim that goes beyond its cited source, on camera and in CI.
-//
-// We hand the verifier findings that cite the same real source set, but one
-// asserts specific details those sources do not contain. A correct reviewer must
-// flag it as unsupported and remove it.
-
 import type { EvidenceObject, Finding, PatientContext, SafetyReport } from "../types/index.ts";
 import { verify } from "./index.ts";
 
@@ -62,9 +54,6 @@ const supportedFinding: Finding = {
   evidence_ids: ["label:703:interactions", "ddinter:DDInter1951:DDInter76"],
 };
 
-// An over-asserted finding — cites the SAME real sources but invents a specific
-// numeric claim ("increases INR by exactly 3 points within 48 hours") that the
-// quoted text does not contain. A correct reviewer must reject this.
 const overAssertedFinding: Finding = {
   status: "red-flag",
   severity: "major",
