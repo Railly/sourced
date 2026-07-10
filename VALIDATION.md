@@ -13,7 +13,7 @@ The review uses only the synthetic HF/AFib discharge fixture in `data/fixtures/d
 The pharmacist will assess:
 
 1. Whether the synthetic case is clinically plausible.
-2. Whether the four findings are factually and clinically framed without overstatement.
+2. Whether the ranked findings are factually and clinically framed without overstatement.
 3. Whether warfarin plus newly started amiodarone is reasonably ranked first for this case.
 4. Whether the monitoring language works as a review prompt and does not read as an autonomous prescription.
 5. Whether a clinically important concern is missing or incorrectly prioritized.
