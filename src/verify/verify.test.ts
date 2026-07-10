@@ -142,6 +142,17 @@ test("level 2 keeps a finding fully supported by its cited source", async () => 
   expect(result.unverified_removed).toHaveLength(0);
 });
 
+test("level 2 rejects a contradictory supported verdict", async () => {
+  const result = await verify(draft({ evidence_ids: ["label:1:interactions"] }), evidence, {
+    reviewer: async () => ({
+      supported: true,
+      unsupported_claims: ["claim still exceeds source"],
+    }),
+  });
+  expect(result.findings).toEqual([]);
+  expect(result.unverified_removed[0]?.reason).toContain("claim still exceeds source");
+});
+
 test("level 2 receives the exact patient context", async () => {
   const patient: PatientContext = {
     note: "new medication",
@@ -210,4 +221,33 @@ test("narrative review fails closed when unavailable", async () => {
   expect(result.patient_summary).toContain("Only verified findings");
   expect(result.questions_for_clinician).toEqual([]);
   expect(result.unverified_removed[0]?.reason).toContain("Narrative reviewer unavailable");
+});
+
+test("narrative review rejects contradictory supported fields", async () => {
+  const patient: PatientContext = {
+    medications: [],
+    allergies: [],
+    diagnoses: [],
+    labs: [],
+  };
+  const report = draft({ evidence_ids: ["label:1:interactions"] });
+  report.questions_for_clinician = ["question?"];
+  const result = await verify(report, evidence, {
+    patient,
+    reviewer: async () => ({ supported: true, unsupported_claims: [] }),
+    narrativeReviewer: async () => ({
+      summary_supported: true,
+      unsupported_summary_claims: ["summary contradiction"],
+      supported_question_indexes: [0],
+      unsupported_questions: [{ index: 0, unsupported_claims: ["question contradiction"] }],
+    }),
+  });
+  expect(result.patient_summary).toContain("Only verified findings");
+  expect(result.questions_for_clinician).toEqual([]);
+  expect(result.unverified_removed.map((item) => item.reason).join(" ")).toContain(
+    "summary contradiction",
+  );
+  expect(result.unverified_removed.map((item) => item.reason).join(" ")).toContain(
+    "question contradiction",
+  );
 });

@@ -330,7 +330,7 @@ export async function verify(
       });
       continue;
     }
-    if (verdict.supported) {
+    if (verdict.supported && verdict.unsupported_claims.length === 0) {
       findings.push(finding);
     } else {
       removed.push({
@@ -354,14 +354,17 @@ export async function verify(
     } else {
       try {
         const verdict = await narrativeReviewer(report, evidence, options.patient);
-        if (!verdict.summary_supported) {
+        if (!verdict.summary_supported || verdict.unsupported_summary_claims.length > 0) {
           removed.push({
             claim_text: report.patient_summary,
             reason: `Narrative reviewer: ${verdict.unsupported_summary_claims.join("; ") || "summary not fully supported"}`,
           });
           patientSummary = "Patient context received. Only verified findings are shown.";
         }
-        const supportedIndexes = new Set(verdict.supported_question_indexes);
+        const unsupportedIndexes = new Set(verdict.unsupported_questions.map((item) => item.index));
+        const supportedIndexes = new Set(
+          verdict.supported_question_indexes.filter((index) => !unsupportedIndexes.has(index)),
+        );
         questions = report.questions_for_clinician.filter((question, index) => {
           if (supportedIndexes.has(index)) return true;
           const unsupported = verdict.unsupported_questions.find((item) => item.index === index);
