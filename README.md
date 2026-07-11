@@ -34,11 +34,13 @@ bun run reviewer-demo # a labeled test: two findings cite the same source set;
 
 The live reviewer demo needs either `ANTHROPIC_API_KEY` or an authenticated `claude` CLI. Without credentials, `bun test` runs the hermetic fail-closed and supported/unsupported reviewer cases, while `bun run demo:cached` renders the previously generated, audited report.
 
-Web UI (the review packet):
+Web UI (the clinical command center):
 
 ```bash
-cd web && bun run dev
+cd web && portless source bun run dev
 ```
+
+Open `https://source.localhost/`. The command center extracts PDFs or notes into an editable patient packet, preserves medication chronology, streams the live audited pipeline, highlights the exact source passage behind each claim, and exposes a searchable gallery of 12 licensed PMC Open Access case PDFs. English is the default UI; clinicians can switch to persistent Spanish, including source-grounded clarification questions and verified report narrative, without translating medication names or exact source passages.
 
 ## How it works
 
@@ -51,13 +53,13 @@ patient (ES/EN, messy) ──▶ INGEST ──▶ RETRIEVE ──▶ SYNTHESIZE 
                           (no LLM)     (no LLM)       (cited only)  untraceable
 ```
 
-1. **Ingest + normalize** (`src/ingest`): parses the patient context and resolves every drug to a canonical RxNorm RxCUI via RxNav. Handles Spanish names (`amiodarona` → amiodarone) and brand names (`Coumadin`); fails loudly on anything it can't resolve, never guesses.
+1. **Ingest + normalize** (`src/ingest`): parses the patient context, preserves whether each medication was active in the reviewed safety episode, historical, held, stopped beforehand, one-time rescue, or uncertain, and resolves names to canonical RxNorm RxCUIs. Only overlapping episode exposures reach interaction retrieval. Approximate and unresolved mappings are surfaced for review and never guessed into evidence.
 
-2. **Deterministic retrieval** (`src/retrieve`): for each drug and drug pair, queries **openFDA drug labels** for interaction mechanisms and boxed warnings, **DDInter** for interaction severity, and **openFDA FAERS** for a real-world adverse-event signal that is explicitly labeled as spontaneous-report data, not causation. Plain code, no LLM. Each hit becomes an **evidence object**: `{claim_text, source_name, source_id, source_url, exact_field, quoted_text, retrieval_query, retrieved_at}`.
+2. **Deterministic retrieval** (`src/retrieve`): for each drug and drug pair, ranks current matching **openFDA drug labels** for interaction mechanisms and boxed warnings, queries the complete eight-file **DDInter v1 public download bundle** for interaction severity, and uses **openFDA FAERS** for a real-world adverse-event signal that is explicitly labeled as spontaneous-report data, not causation. Plain code, no LLM. Each hit becomes an **evidence object** with the exact field, short supporting passage, full quoted source, source version, retrieval query, and timestamp.
 
 3. **Synthesize** (`src/synthesize`): Claude Opus 4.8 receives *only* the patient context and the retrieved evidence objects. It emits a visible plan, then ranks and contextualizes findings against this patient's labs/diagnoses. Hard contract: it may not introduce any claim not present in the evidence; if it cannot cite an evidence id, it omits the claim.
 
-4. **Verify** (`src/verify`): three fail-closed gates. The deterministic gate requires every evidence id to resolve and prevents patient-specific medication reasoning from escaping a finding's declared drug scope. The adversarial finding reviewer re-reads each finding against the *verbatim quoted text* of only its cited sources and rejects unsupported severities, numbers, and monitoring instructions. A final narrative reviewer checks the patient summary and every clinician question against the exact patient context and evidence. If a model review cannot complete, the affected claims are not rendered.
+4. **Verify** (`src/verify`): three fail-closed gates. The deterministic gate requires every evidence id to resolve, binds DDInter severity to its exact two-drug row, binds label evidence to its anchor medication, rejects non-active drugs, and prevents patient-specific reasoning from escaping a finding's declared scope. The adversarial finding reviewer re-reads each finding against the *verbatim quoted text* and structured source identity of only its citations. A final narrative reviewer checks the patient summary and every clinician question. If verification cannot complete, the affected claims are not rendered.
 
 Every report ships with a machine-readable **audit ledger** (`out/report.json`): every finding → its evidence → the exact query that produced it → timestamp. A reviewer can independently verify any single claim.
 
@@ -68,21 +70,23 @@ All public, all cited in output.
 | Source | Role |
 |---|---|
 | [openFDA Drug Label](https://open.fda.gov/apis/drug/label/) | Interaction mechanism + boxed warnings (FDA-authoritative) |
-| [DDInter](https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/) | Drug-pair interaction severity (CC BY-NC) |
+| [DDInter](https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/) | Drug-pair interaction severity (CC BY-NC-SA 4.0) |
 | [openFDA FAERS](https://open.fda.gov/apis/drug/event/) | Real-world adverse-event signal (not causation) |
 | [RxNorm / RxNav](https://lhncbc.nlm.nih.gov/RxNav/) | Drug-name normalization to RxCUI |
 
 Full provenance and honest per-source limitations: [SOURCES.md](SOURCES.md).
 
+The published-case dataset contains 12 real PMC OA PDFs across 10 medication-safety domains: serotonergic, anticoagulation, renal-electrolyte, combination-brand, QT, anticholinergic, allergy, pregnancy, hidden-ingredient, and indirect exposure. Every build archives the NCBI OA license response plus SHA-256 hashes for the excerpt and public PDF.
+
 Project framing is grounded in the WHO [Medication Without Harm policy brief](https://www.who.int/publications/i/item/9789240062764) and [Medication safety in transitions of care](https://www.who.int/publications-detail-redirect/WHO-UHC-SDS-2019.9).
 
 ## Clinical validation
 
-The demo uses a synthetic patient and no PHI. Independent pharmacist review is scheduled before submission. The validation scope, current status, acceptance criteria, and results template are public in [VALIDATION.md](VALIDATION.md). The repository will not claim completed pharmacist validation until that review has occurred and its outcome is recorded.
+The default demo uses a synthetic patient and the published gallery contains de-identified open-access reports. Independent pharmacist review is scheduled before submission. The validation scope, current status, acceptance criteria, and results template are public in [VALIDATION.md](VALIDATION.md). The repository will not claim completed pharmacist validation until that review has occurred and its outcome is recorded.
 
 ## Not a diagnosis tool
 
-Sourced produces a **review packet for a licensed clinician or pharmacist**. It does not diagnose or prescribe. The live path sends the supplied patient context to the configured Claude service for synthesis and verification. Retrieval APIs receive medication and reaction terms, not the patient note. The demo patient is synthetic and contains no PHI; any production deployment would require an approved clinical privacy architecture. See [VALIDATION.md](VALIDATION.md) for the current pharmacist-review status.
+Sourced produces a **review packet for a licensed clinician or pharmacist**. It does not diagnose or prescribe. The live path sends the supplied patient context to the configured Claude service for synthesis and verification. Retrieval APIs receive medication and reaction terms, not the patient note. Sourced is private and stateless by default in this build. The opt-in Neon persistence design, retention policy, tenant boundary, encryption plan, and PHI gate are documented in [PRODUCTION.md](PRODUCTION.md). See [VALIDATION.md](VALIDATION.md) for pharmacist-review status.
 
 ## Stack
 
@@ -92,10 +96,15 @@ Bun · TypeScript (strict) · Claude Opus 4.8 · Next.js (web)
 bun install
 bunx tsc --noEmit     # typecheck
 bun test              # deterministic, ingest, and cached-artifact checks
+bun run data:health   # verify all 8 DDInter files, hashes, counts, and coverage
+bun run ops:health    # memory, disk, task-process, and E2E concurrency gate
 bun run demo          # end-to-end golden case
 bun run reviewer-demo # adversarial reviewer test
+bun run scripts/e2e-browser.ts --mode full --locale es
 ```
+
+Timeouts, concurrency limits, workflow-state cleanup, and soak resource guards are documented in [OPERATIONS.md](OPERATIONS.md).
 
 ## License
 
-Sourced code is available under the [MIT License](LICENSE). The bundled DDInter snapshot retains its CC BY-NC 4.0 terms; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+Sourced code is available under the [MIT License](LICENSE). The bundled DDInter snapshot retains its CC BY-NC-SA 4.0 terms; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
