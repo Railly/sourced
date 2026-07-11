@@ -1,0 +1,137 @@
+{
+  "generated_at": "2026-07-11T06:37:47.385Z",
+  "cases": [
+    {
+      "id": "sertraline-dextromethorphan-serotonin-syndrome",
+      "pdf": "pdfs/sertraline-dextromethorphan-serotonin-syndrome.pdf",
+      "text": "text/sertraline-dextromethorphan-serotonin-syndrome.md",
+      "bytes": 18720,
+      "excerpt_sha256": "2203f58acadf5e84e15486d9449f38b1c4ea3e80d4ea398ad1e29ab09425b7a8",
+      "excerpt_characters": 1756,
+      "pdf_sha256": "c49690d4b7a919806ac27947795b2613a35104f20e3b9329cd28c6854402186d",
+      "license_evidence": "licenses/sertraline-dextromethorphan-serotonin-syndrome.xml",
+      "license_sha256": "cff7a9db62c640fb2782c6c57afef2d27d5094759f99edd12534ae9eb8fbca93"
+    },
+    {
+      "id": "apixaban-amiodarone-hemopericardium",
+      "pdf": "pdfs/apixaban-amiodarone-hemopericardium.pdf",
+      "text": "text/apixaban-amiodarone-hemopericardium.md",
+      "bytes": 28964,
+      "excerpt_sha256": "2933f4d0858ae456a1a406f2d6c00f62b0eeae47d549b3c02c0ef19c10a42d85",
+      "excerpt_characters": 4270,
+      "pdf_sha256": "f3e9649ec861c33716e8fc6b51dd85177807fabc2acb19c35106a05eef606da7",
+      "license_evidence": "licenses/apixaban-amiodarone-hemopericardium.xml",
+      "license_sha256": "cb55372a85df2be9c7ab16c4ae50a3aef3e5819918f23c47414f0d8753efc9e6"
+    },
+    {
+      "id": "rivaroxaban-amiodarone-cardiac-tamponade",
+      "pdf": "pdfs/rivaroxaban-amiodarone-cardiac-tamponade.pdf",
+      "text": "text/rivaroxaban-amiodarone-cardiac-tamponade.md",
+      "bytes": 19359,
+      "excerpt_sha256": "8db6e9b0b62bc355687514b3233976766229787c64f613a0b08e17ead9054b26",
+      "excerpt_characters": 1166,
+      "pdf_sha256": "0203102d3bf633b1cab6aa0ea98d23b0bfa51e17aecf58d54729232de2b0f82d",
+      "license_evidence": "licenses/rivaroxaban-amiodarone-cardiac-tamponade.xml",
+      "license_sha256": "787c0d2e362828401c6055d38e122dc5cd852fb7e9d43f240b37f814c4d63f15"
+    },
+    {
+      "id": "acei-spironolactone-dietary-potassium-hyperkalemia",
+      "pdf": "pdfs/acei-spironolactone-dietary-potassium-hyperkalemia.pdf",
+      "text": "text/acei-spironolactone-dietary-potassium-hyperkalemia.md",
+      "bytes": 28583,
+      "excerpt_sha256": "f03b30839272dd30716efa73252185c8f649a4cbe6f3499acdad834736bc2905",
+      "excerpt_characters": 5419,
+      "pdf_sha256": "c7f0d3d52fe19988354d7f64170da27d0c3ba5065e5cec8a920d7e221973390c",
+      "license_evidence": "licenses/acei-spironolactone-dietary-potassium-hyperkalemia.xml",
+      "license_sha256": "535c3f5a79251d596c6d1c40d988b7f528df5a95adbad62a15531003fa4e90d3"
+    },
+    {
+      "id": "tamoxifen-warfarin-inr-elevation",
+      "pdf": "pdfs/tamoxifen-warfarin-inr-elevation.pdf",
+      "text": "text/tamoxifen-warfarin-inr-elevation.md",
+      "bytes": 24594,
+      "excerpt_sha256": "0cec7f3b876fb12cf0d63820cc1e6c89a6e88c7fbe38d2a8bcf120f986eacc26",
+      "excerpt_characters": 3940,
+      "pdf_sha256": "633681983e5561ae280fbabc773b79d5dcae3a1702c7f365f4d493108c04e8c2",
+      "license_evidence": "licenses/tamoxifen-warfarin-inr-elevation.xml",
+      "license_sha256": "a41c0c7f9d91008ff7f2c354e8b18445c04bb96a6ee146d7be8e5cf7d272c923"
+    },
+    {
+      "id": "genvoya-simvastatin-rhabdomyolysis",
+      "pdf": "pdfs/genvoya-simvastatin-rhabdomyolysis.pdf",
+      "text": "text/genvoya-simvastatin-rhabdomyolysis.md",
+      "bytes": 20198,
+      "excerpt_sha256": "af832a2ba8073d55b5a346bc8a79e396b9a9313c78c8a44ade45a8bc0e4f1577",
+      "excerpt_characters": 521,
+      "pdf_sha256": "b67ad09fd1078d93a706b3659c7db95a07e83b78eeec7b6150f1486586c243f2",
+      "license_evidence": "licenses/genvoya-simvastatin-rhabdomyolysis.xml",
+      "license_sha256": "ab00f2593f813a039210eee8d68fd5b93563d8e25f210ef26915558dc1da539b"
+    },
+    {
+      "id": "methadone-metoclopramide-metronidazole-torsades",
+      "pdf": "pdfs/methadone-metoclopramide-metronidazole-torsades.pdf",
+      "text": "text/methadone-metoclopramide-metronidazole-torsades.md",
+      "bytes": 21614,
+      "excerpt_sha256": "5f05d7e075ecfac315e5d21206036112628cf55e5afcb0750d6285271a99cc73",
+      "excerpt_characters": 2297,
+      "pdf_sha256": "ba67d320eb878a1afcc9b9c2bdf62da702725ca4e467fcee8b4b7c319c5a300a",
+      "license_evidence": "licenses/methadone-metoclopramide-metronidazole-torsades.xml",
+      "license_sha256": "ab8f8395f1a8d890e10e110eb46d3a59c428b79ba6e362821ee015ed4d505767"
+    },
+    {
+      "id": "clozapine-anticholinergic-hypoganglionosis",
+      "pdf": "pdfs/clozapine-anticholinergic-hypoganglionosis.pdf",
+      "text": "text/clozapine-anticholinergic-hypoganglionosis.md",
+      "bytes": 25658,
+      "excerpt_sha256": "0f490cbabd4eb45069dc569c442ef0cbd1c57c4a3e799001b0d293400b7d7466",
+      "excerpt_characters": 5173,
+      "pdf_sha256": "5423bf66e0dfe0a1b4c7c5d534c8f853d9068708b329db8e8ed56fe2fc25a5a0",
+      "license_evidence": "licenses/clozapine-anticholinergic-hypoganglionosis.xml",
+      "license_sha256": "fb64d0d905be71455d759a72ffb2c3b3ec2e5a4417ac32a178d78cabf5ddddad"
+    },
+    {
+      "id": "aspirin-nsaid-anaphylaxis",
+      "pdf": "pdfs/aspirin-nsaid-anaphylaxis.pdf",
+      "text": "text/aspirin-nsaid-anaphylaxis.md",
+      "bytes": 18915,
+      "excerpt_sha256": "1abdbf55f1ac0a7f3a2051dd4cd90cbf74257594cde4801d7ab101cb24df66ea",
+      "excerpt_characters": 814,
+      "pdf_sha256": "7f85d38565e9baab1e6c6eb1168ce3a375a870dc855043d5578a807968b7e675",
+      "license_evidence": "licenses/aspirin-nsaid-anaphylaxis.xml",
+      "license_sha256": "f46b81bbfcf3d906d088330b54f3ecb841bdbbe6608831ce518b28776b3e7350"
+    },
+    {
+      "id": "pembrolizumab-pregnancy-exposure",
+      "pdf": "pdfs/pembrolizumab-pregnancy-exposure.pdf",
+      "text": "text/pembrolizumab-pregnancy-exposure.md",
+      "bytes": 26097,
+      "excerpt_sha256": "a97af80c33ae8325158a1c459f6cd6b33bd96957d9b873e5c3dd3e9556c775f1",
+      "excerpt_characters": 4120,
+      "pdf_sha256": "8ef98fa042d51dc93fd55cbba36f0cf14a64e8fd7befedc89749d1c9ec7acc16",
+      "license_evidence": "licenses/pembrolizumab-pregnancy-exposure.xml",
+      "license_sha256": "fde866189cd83941ec4432286154591ee9bac78351a35af5b894ac5d2f7c1fe5"
+    },
+    {
+      "id": "topricin-belladonna-anticholinergic-toxicity",
+      "pdf": "pdfs/topricin-belladonna-anticholinergic-toxicity.pdf",
+      "text": "text/topricin-belladonna-anticholinergic-toxicity.md",
+      "bytes": 21230,
+      "excerpt_sha256": "54cc5811d62fee8186ede33e8864891a91d0c9ce9fccb5c884ffa3e20c8db48f",
+      "excerpt_characters": 2747,
+      "pdf_sha256": "54628c3e8992005aba96756edf872d05f27cedc912c7e15a747b3f3d365baefb",
+      "license_evidence": "licenses/topricin-belladonna-anticholinergic-toxicity.xml",
+      "license_sha256": "a12675c3dc45f21c88ee8619b5a6a52ec2fce04d7abb1d92beae55c4240f2807"
+    },
+    {
+      "id": "amoxicillin-allergy-by-proxy",
+      "pdf": "pdfs/amoxicillin-allergy-by-proxy.pdf",
+      "text": "text/amoxicillin-allergy-by-proxy.md",
+      "bytes": 22126,
+      "excerpt_sha256": "ae6e554218e08ec76be3a4497f0bb9b9c90b09751c841aa7880fe9a99b4fdfe9",
+      "excerpt_characters": 2286,
+      "pdf_sha256": "8c94952eb8663222472bb10d25283f0e23be2537e8001cf394eec6316e6b63f3",
+      "license_evidence": "licenses/amoxicillin-allergy-by-proxy.xml",
+      "license_sha256": "d7ba908807892c86aadb8f4b715bcfcb7e194bc349110db584e98c632c813892"
+    }
+  ]
+}

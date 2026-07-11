@@ -1,0 +1,124 @@
+{
+  "cases": [
+    {
+      "id": "sertraline-dextromethorphan-serotonin-syndrome",
+      "pmcid": "PMC12638710",
+      "title": "Serotonin syndrome induced by Bromfed DM in a patient on sertraline",
+      "domain": "serotonergic",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12638710/",
+      "license": "CC BY",
+      "pdf_url": "/cases/sertraline-dextromethorphan-serotonin-syndrome.pdf",
+      "safety_focus": "sertraline + Bromfed DM + dextromethorphan"
+    },
+    {
+      "id": "apixaban-amiodarone-hemopericardium",
+      "pmcid": "PMC7990001",
+      "title": "A Possible Drug-Drug Interaction Between Eliquis and Amiodarone Resulting in Hemopericardium",
+      "domain": "anticoagulation",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7990001/",
+      "license": "CC BY",
+      "pdf_url": "/cases/apixaban-amiodarone-hemopericardium.pdf",
+      "safety_focus": "apixaban + amiodarone"
+    },
+    {
+      "id": "rivaroxaban-amiodarone-cardiac-tamponade",
+      "pmcid": "PMC6109521",
+      "title": "A Rare Case of Spontaneous Cardiac Tamponade Induced by Concomitant Use of Rivaroxaban and Amiodarone",
+      "domain": "anticoagulation",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6109521/",
+      "license": "CC BY",
+      "pdf_url": "/cases/rivaroxaban-amiodarone-cardiac-tamponade.pdf",
+      "safety_focus": "rivaroxaban + amiodarone"
+    },
+    {
+      "id": "acei-spironolactone-dietary-potassium-hyperkalemia",
+      "pmcid": "PMC6489390",
+      "title": "Hyperkalemia in Ambulant Postcardiac Surgery Patients during Combined Therapy with Angiotensin-converting Enzyme Inhibitor, Spironolactone, and Diet Rich in Potassium",
+      "domain": "renal-electrolyte",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6489390/",
+      "license": "CC BY-NC-SA",
+      "pdf_url": "/cases/acei-spironolactone-dietary-potassium-hyperkalemia.pdf",
+      "safety_focus": "spironolactone + ramipril + furosemide"
+    },
+    {
+      "id": "tamoxifen-warfarin-inr-elevation",
+      "pmcid": "PMC7292708",
+      "title": "Hypercoagulation from Concomitant Administration of Tamoxifen and Warfarin",
+      "domain": "anticoagulation",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7292708/",
+      "license": "CC BY",
+      "pdf_url": "/cases/tamoxifen-warfarin-inr-elevation.pdf",
+      "safety_focus": "tamoxifen + warfarin"
+    },
+    {
+      "id": "genvoya-simvastatin-rhabdomyolysis",
+      "pmcid": "PMC6390564",
+      "title": "Severe rhabdomyolysis-induced acute kidney injury following concomitant use of Genvoya and simvastatin",
+      "domain": "combination-brand",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6390564/",
+      "license": "CC BY",
+      "pdf_url": "/cases/genvoya-simvastatin-rhabdomyolysis.pdf",
+      "safety_focus": "Genvoya + simvastatin"
+    },
+    {
+      "id": "methadone-metoclopramide-metronidazole-torsades",
+      "pmcid": "PMC7931031",
+      "title": "Methadone, Metoclopramide and Metronidazole Interaction Causing Torsades de Pointes",
+      "domain": "qt-prolongation",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7931031/",
+      "license": "CC BY",
+      "pdf_url": "/cases/methadone-metoclopramide-metronidazole-torsades.pdf",
+      "safety_focus": "methadone + metoclopramide + metronidazole"
+    },
+    {
+      "id": "clozapine-anticholinergic-hypoganglionosis",
+      "pmcid": "PMC7333039",
+      "title": "Atypical Presentation of Acquired Hypoganglionosis in a Patient Taking Clozapine",
+      "domain": "anticholinergic",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7333039/",
+      "license": "CC BY",
+      "pdf_url": "/cases/clozapine-anticholinergic-hypoganglionosis.pdf",
+      "safety_focus": "clozapine"
+    },
+    {
+      "id": "aspirin-nsaid-anaphylaxis",
+      "pmcid": "PMC10492403",
+      "title": "A case of possible anaphylaxis to ASA and structurally unrelated NSAIDs",
+      "domain": "allergy",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10492403/",
+      "license": "CC BY",
+      "pdf_url": "/cases/aspirin-nsaid-anaphylaxis.pdf",
+      "safety_focus": "ibuprofen + ASA"
+    },
+    {
+      "id": "pembrolizumab-pregnancy-exposure",
+      "pmcid": "PMC11761911",
+      "title": "Successful Pregnancy Outcome in a Patient Treated with Pembrolizumab and Exposed to Fluoro-Deoxyglucose PET/CT",
+      "domain": "pregnancy",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11761911/",
+      "license": "CC BY",
+      "pdf_url": "/cases/pembrolizumab-pregnancy-exposure.pdf",
+      "safety_focus": "pembrolizumab + insulin lispro + insulin glargine"
+    },
+    {
+      "id": "topricin-belladonna-anticholinergic-toxicity",
+      "pmcid": "PMC5935428",
+      "title": "Anticholinergic Toxicity Secondary to Overuse of Topricin Cream, a Homeopathic Medication",
+      "domain": "otc-hidden-ingredient",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5935428/",
+      "license": "CC BY",
+      "pdf_url": "/cases/topricin-belladonna-anticholinergic-toxicity.pdf",
+      "safety_focus": "Topricin + belladonna"
+    },
+    {
+      "id": "amoxicillin-allergy-by-proxy",
+      "pmcid": "PMC12695512",
+      "title": "Allergy by Proxy to Penicillins Presenting as Recurrent Idiopathic Anaphylaxis Within the Household",
+      "domain": "indirect-exposure",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12695512/",
+      "license": "CC BY",
+      "pdf_url": "/cases/amoxicillin-allergy-by-proxy.pdf",
+      "safety_focus": "amoxicillin"
+    }
+  ]
+}
