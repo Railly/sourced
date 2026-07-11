@@ -16,6 +16,9 @@
 # next.js
 /.next/
 /out/
+/.eve/
+/.output/
+/.workflow-data/
 
 # production
 /build
