@@ -1,13 +1,38 @@
 // Shared Opus caller. Prefers the Anthropic API when ANTHROPIC_API_KEY is set,
 // falls back to `claude -p` (Max plan, no key). Used by synthesize and verify.
 
+import { spawn } from "node:child_process";
+import { generateObject, jsonSchema } from "ai";
+
 const MODEL = "claude-opus-4-8";
+const GATEWAY_MODEL = "anthropic/claude-opus-4.8";
 const ANTHROPIC_MESSAGES_URL = "https://api.anthropic.com/v1/messages";
 const ANTHROPIC_VERSION = "2023-06-01";
+const GATEWAY_TIMEOUT_MS = 55_000;
+const API_TIMEOUT_MS = 120_000;
+const CLI_TIMEOUT_MS = 180_000;
+const MAX_PROCESS_OUTPUT = 2_000_000;
 
 interface TextBlock {
   type: string;
   text?: string;
+}
+
+async function callGateway(
+  system: string,
+  user: string,
+  schema: unknown,
+): Promise<string> {
+  const result = await generateObject({
+    model: GATEWAY_MODEL,
+    abortSignal: AbortSignal.timeout(GATEWAY_TIMEOUT_MS),
+    maxRetries: 1,
+    schema: jsonSchema(schema as Parameters<typeof jsonSchema>[0]),
+    system,
+    prompt: user,
+    temperature: 0,
+  });
+  return JSON.stringify(result.object);
 }
 
 async function callAnthropic(
@@ -19,6 +44,7 @@ async function callAnthropic(
   if (!key) throw new Error("ANTHROPIC_API_KEY missing");
 
   const response = await fetch(ANTHROPIC_MESSAGES_URL, {
+    signal: AbortSignal.timeout(API_TIMEOUT_MS),
     method: "POST",
     headers: {
       "anthropic-version": ANTHROPIC_VERSION,
@@ -54,9 +80,9 @@ async function callClaudePrint(
   user: string,
   schema: unknown,
 ): Promise<string> {
-  const proc = Bun.spawn(
+  const proc = spawn(
+    "claude",
     [
-      "claude",
       "-p",
       "--model",
       MODEL,
@@ -68,24 +94,47 @@ async function callClaudePrint(
       "--json-schema",
       JSON.stringify(schema),
     ],
-    { stdin: "pipe", stdout: "pipe", stderr: "pipe" },
+    { stdio: ["pipe", "pipe", "pipe"] },
   );
 
-  proc.stdin.write(user);
-  proc.stdin.end();
+  let stdout = "";
+  let stderr = "";
+  let timedOut = false;
+  proc.stdout.setEncoding("utf8");
+  proc.stderr.setEncoding("utf8");
+  proc.stdout.on("data", (chunk: string) => {
+    stdout = `${stdout}${chunk}`.slice(-MAX_PROCESS_OUTPUT);
+  });
+  proc.stderr.on("data", (chunk: string) => {
+    stderr = `${stderr}${chunk}`.slice(-MAX_PROCESS_OUTPUT);
+  });
 
-  const [stdout, stderr, exitCode] = await Promise.all([
-    new Response(proc.stdout).text(),
-    new Response(proc.stderr).text(),
-    proc.exited,
-  ]);
+  const exitCode = await new Promise<number>((resolve, reject) => {
+    const timeout = setTimeout(() => {
+      timedOut = true;
+      proc.kill("SIGTERM");
+    }, CLI_TIMEOUT_MS);
+    proc.once("error", (error) => {
+      clearTimeout(timeout);
+      reject(error);
+    });
+    proc.once("close", (code) => {
+      clearTimeout(timeout);
+      resolve(code ?? 1);
+    });
+    proc.stdin.end(user);
+  });
 
+  if (timedOut) throw new Error(`claude -p timed out after ${CLI_TIMEOUT_MS}ms`);
   if (exitCode !== 0) throw new Error(`claude -p failed: ${stderr || stdout}`);
   return stdout.trim();
 }
 
 /** Call Opus, API first then CLI fallback, returning raw text (JSON expected). */
 export async function callOpus(system: string, user: string, schema: unknown): Promise<string> {
+  if (process.env.AI_GATEWAY_API_KEY || process.env.VERCEL_OIDC_TOKEN) {
+    return callGateway(system, user, schema);
+  }
   try {
     return await callAnthropic(system, user, schema);
   } catch {
