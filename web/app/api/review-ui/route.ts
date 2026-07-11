@@ -1,5 +1,6 @@
 import { runVerifiedReview, type ReviewStageEvent } from "@core/review";
 import { z } from "zod";
+import { hasModelAccess, modelAccessMessage } from "@/lib/intake-extract";
 import { reviewCaseInputSchema } from "@/lib/intake";
 
 export const runtime = "nodejs";
@@ -30,6 +31,9 @@ export async function POST(request: Request): Promise<Response> {
   const parsed = requestSchema.safeParse(body);
   if (!parsed.success) {
     return Response.json({ error: locale === "es" ? "Confirma una ficha válida, sintética o desidentificada." : "Confirm a valid synthetic or de-identified patient packet." }, { status: 400 });
+  }
+  if (!hasModelAccess()) {
+    return Response.json({ error: modelAccessMessage(locale) }, { status: 503 });
   }
 
   let cancelled = false;

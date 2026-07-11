@@ -14,6 +14,7 @@ import {
 } from "@phosphor-icons/react";
 import { useEveAgent, type EveMessage } from "eve/react";
 import { useMemo, useState } from "react";
+import { buildCompletedReviewSpec, buildRunningReviewSpec } from "@/lib/genui/completed-spec";
 import { LiveReviewCanvas, reportFromLiveSpec } from "@/components/genui/live-review-canvas";
 import { SafeReviewLens, buildFallbackSpec } from "@/components/genui/review-lens";
 import { MultimodalComposer } from "@/components/multimodal-composer";
@@ -22,7 +23,7 @@ import { PublishedCaseGallery, type PublishedCase } from "@/components/published
 import { WorkspaceStageRail, type WorkspacePhase } from "@/components/workspace-stage-rail";
 import type { LensMode } from "@/lib/genui/spec";
 import { languageInstruction, type Locale, useI18n } from "@/lib/i18n";
-import { intakeExtractionSchema, type IntakeAmbiguity } from "@/lib/intake";
+import { intakeExtractionSchema, type IntakeAmbiguity, type IntakeExtraction } from "@/lib/intake";
 import {
   draftFromCase,
   emptyReviewCase,
@@ -54,6 +55,27 @@ function latestAgentText(messages: readonly EveMessage[]): string | null {
     if (text) return text;
   }
   return null;
+}
+
+interface PrecomputedReview {
+  intake: IntakeExtraction | null;
+  report: SafetyReport;
+}
+
+async function loadPrecomputedReview(id: string, locale: Locale): Promise<PrecomputedReview | null> {
+  try {
+    const response = await fetch(`/data/reviews/${id}.${locale}.json`);
+    if (!response.ok) return null;
+    const payload = (await response.json()) as PrecomputedReview;
+    if (!payload?.report) return null;
+    return payload;
+  } catch {
+    return null;
+  }
+}
+
+function delay(milliseconds: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, milliseconds));
 }
 
 function latestToolSpec(messages: readonly EveMessage[]): unknown {
@@ -185,6 +207,8 @@ export function AgentWorkspace({
   const [mobilePane, setMobilePane] = useState<"eve" | "canvas">("eve");
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [editingPacket, setEditingPacket] = useState(false);
+  const [precomputedReport, setPrecomputedReport] = useState<SafetyReport | null>(null);
+  const [staticSpec, setStaticSpec] = useState<Spec | null>(null);
   const agent = useEveAgent();
   const agentBusy = agent.status === "submitted" || agent.status === "streaming";
   const ui = useUIStream({
@@ -207,14 +231,15 @@ export function AgentWorkspace({
       setPhase("confirming");
     },
   });
-  const report = reportFromLiveSpec(ui.spec);
+  const report = reportFromLiveSpec(staticSpec) ?? reportFromLiveSpec(ui.spec);
+  const offline = precomputedReport !== null;
   const agentText = latestAgentText(agent.data.messages);
   const generatedLens = latestToolSpec(agent.data.messages);
   const fallbackLens = useMemo(
     () => (report ? buildFallbackSpec(report, lensMode) : null),
     [lensMode, report],
   );
-  const working = phase === "extracting" || ui.isStreaming || agentBusy;
+  const working = phase === "extracting" || phase === "reviewing" || ui.isStreaming || agentBusy;
   const confirmationBlocker = packetConfirmationBlocker(draft, ambiguities.length, working, locale);
   const split = phase !== "empty";
   const actions = quickActions(t);
@@ -318,6 +343,30 @@ export function AgentWorkspace({
     setDeidentified(true);
     setInput("");
     setError(null);
+    setFile(null);
+    agent.reset();
+    ui.clear();
+    setStaticSpec(null);
+
+    // Published cases are precomputed and served as static, audited artifacts:
+    // the review is deterministic and needs no runtime model call or API key.
+    const precomputed = await loadPrecomputedReview(item.id, locale);
+    if (precomputed?.intake) {
+      setPhase("extracting");
+      setSourceName(`${item.id}.pdf`);
+      await delay(320);
+      setDraft(draftFromCase(precomputed.intake.case));
+      setAmbiguities(precomputed.intake.ambiguities);
+      setPrecomputedReport(precomputed.report);
+      const next = precomputed.intake.ambiguities[0];
+      setPhase(next ? "clarifying" : "confirming");
+      setMobilePane(next ? "eve" : "canvas");
+      // The clarification text is already in the precomputed intake; the panel
+      // renders it directly, so no live Eve turn is needed offline.
+      return;
+    }
+
+    // Fallback to the live extraction path if a precomputed artifact is absent.
     try {
       const response = await fetch(item.pdf_url);
       if (!response.ok) throw new Error(t("error.publishedPdf"));
@@ -333,6 +382,7 @@ export function AgentWorkspace({
   async function loadDemo(): Promise<void> {
     agent.reset();
     ui.clear();
+    setStaticSpec(null);
     const reviewCase = goldenCase;
     const ambiguity = demoAmbiguity(locale);
     setDraft(draftFromCase(reviewCase));
@@ -347,8 +397,12 @@ export function AgentWorkspace({
     setMobilePane("eve");
     setGalleryOpen(false);
     setEditingPacket(false);
+    const precomputed = await loadPrecomputedReview("golden", locale);
+    setPrecomputedReport(precomputed?.report ?? null);
     setPhase("clarifying");
-    await askEve(ambiguity, reviewCase);
+    // Offline demo renders the seeded clarification directly; only the live
+    // fallback (no precomputed golden for this locale) asks Eve to phrase it.
+    if (!precomputed) await askEve(ambiguity, reviewCase);
   }
 
   async function submitComposer(answerOverride?: string, options?: { omitFromClinicalContext?: boolean }): Promise<void> {
@@ -374,7 +428,9 @@ export function AgentWorkspace({
       const next = remaining[0];
       if (next) {
         setPhase("clarifying");
-        await askEve(next, serializeReviewCase(nextDraft));
+        // Offline showcase reviews render the next precomputed clarification
+        // directly; only the live path asks Eve to phrase it.
+        if (!offline) await askEve(next, serializeReviewCase(nextDraft));
       } else {
         setEditingPacket(false);
         setPhase("confirming");
@@ -387,6 +443,9 @@ export function AgentWorkspace({
       if (!prompt) return;
       setLensRequested(true);
       setInput("");
+      // Offline showcase reviews cannot run a live agent turn; the deterministic
+      // fallback lens already covers packet exploration without a runtime key.
+      if (offline) return;
       await agent.send({ message: prompt, clientContext: { locale, verifiedReportIndex: reportIndex(report) } });
     }
   }
@@ -394,6 +453,22 @@ export function AgentWorkspace({
   async function confirmPacket(): Promise<void> {
     setError(null);
     setLensRequested(false);
+
+    // Showcase cases render their precomputed, audited report offline. The
+    // stages animate locally so the demo keeps the live feel without a runtime
+    // model call, then the verified packet is revealed deterministically.
+    if (precomputedReport) {
+      setPhase("reviewing");
+      setMobilePane("canvas");
+      for (const stage of ["ingest", "retrieve", "synthesize", "verify"] as const) {
+        setStaticSpec(buildRunningReviewSpec(stage, locale));
+        await delay(420);
+      }
+      setStaticSpec(buildCompletedReviewSpec(precomputedReport, locale));
+      setPhase("complete");
+      return;
+    }
+
     try {
       const reviewCase = serializeReviewCase(draft);
       setPhase("reviewing");
@@ -413,6 +488,10 @@ export function AgentWorkspace({
     if (!report || agentBusy) return;
     setLensMode(action.mode);
     setLensRequested(true);
+    // Offline showcase reviews use the deterministic fallback lens (built from
+    // the verified report) instead of a live agent call, so no runtime key is
+    // needed to explore the packet.
+    if (offline) return;
     await agent.send({
       message: action.prompt,
       clientContext: { locale, verifiedReportIndex: reportIndex(report) },
@@ -422,6 +501,8 @@ export function AgentWorkspace({
   function reset(): void {
     agent.reset();
     ui.clear();
+    setStaticSpec(null);
+    setPrecomputedReport(null);
     setPhase("empty");
     setDraft(emptyReviewCase());
     setInput("");
@@ -799,7 +880,7 @@ export function AgentWorkspace({
                   )
                 ) : (
                   <div data-testid={phase === "complete" ? "verified-review" : "review-canvas"}>
-                    <LiveReviewCanvas spec={ui.spec as Spec | null} streaming={ui.isStreaming} />
+                    <LiveReviewCanvas spec={(staticSpec ?? ui.spec) as Spec | null} streaming={ui.isStreaming || (phase === "reviewing" && offline)} />
                     {phase === "reviewing" && error ? (
                       <button
                         type="button"
