@@ -1,0 +1,16 @@
+{
+  "soakId": "2026-07-11T18-49-06.153Z",
+  "codeFingerprint": "dd4e62381f19cbd7c3024ddd48c0049c6378d94e3d7706c5dea3d20ac490c328",
+  "pid": 53934,
+  "status": "running",
+  "startedAt": "2026-07-11T18:49:06.153Z",
+  "endsAt": "2026-07-12T02:49:06.153Z",
+  "updatedAt": "2026-07-11T21:12:06.199Z",
+  "elapsedSeconds": 8580,
+  "checks": 21,
+  "failures": 1,
+  "passedFullCases": [
+    "sertraline-dextromethorphan-serotonin-syndrome",
+    "apixaban-amiodarone-hemopericardium"
+  ]
+}

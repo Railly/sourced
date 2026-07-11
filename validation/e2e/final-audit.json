@@ -1,0 +1,231 @@
+{
+  "auditedAt": "2026-07-11T18:46:19.407Z",
+  "passed": false,
+  "codeFingerprint": "dd4e62381f19cbd7c3024ddd48c0049c6378d94e3d7706c5dea3d20ac490c328",
+  "corpusCases": 12,
+  "qualifyingCases": [
+    "sertraline-dextromethorphan-serotonin-syndrome",
+    "apixaban-amiodarone-hemopericardium",
+    "rivaroxaban-amiodarone-cardiac-tamponade",
+    "acei-spironolactone-dietary-potassium-hyperkalemia",
+    "tamoxifen-warfarin-inr-elevation"
+  ],
+  "currentBrowserEvents": 67,
+  "soak": null,
+  "resources": {
+    "at": "2026-07-11T18:46:19.407Z",
+    "memoryFreePercent": 76,
+    "diskAvailableGiB": 103.8,
+    "taskProcesses": [
+      {
+        "pid": 18000,
+        "rssMiB": 1.7,
+        "command": "/opt/homebrew/opt/node/bin/node /opt/homebrew/bin/agent-browser mcp"
+      },
+      {
+        "pid": 18094,
+        "rssMiB": 1.8,
+        "command": "/opt/homebrew/Cellar/agent-browser/0.31.1/libexec/lib/node_modules/agent-browser/bin/agent-browser-darwin-arm64 mcp"
+      },
+      {
+        "pid": 31031,
+        "rssMiB": 1.7,
+        "command": "/opt/homebrew/opt/node/bin/node /opt/homebrew/bin/agent-browser mcp"
+      },
+      {
+        "pid": 31039,
+        "rssMiB": 1.8,
+        "command": "/opt/homebrew/Cellar/agent-browser/0.31.1/libexec/lib/node_modules/agent-browser/bin/agent-browser-darwin-arm64 mcp"
+      },
+      {
+        "pid": 31414,
+        "rssMiB": 3.8,
+        "command": "/opt/homebrew/opt/node/bin/node /opt/homebrew/bin/agent-browser mcp"
+      },
+      {
+        "pid": 31424,
+        "rssMiB": 1.8,
+        "command": "/opt/homebrew/Cellar/agent-browser/0.31.1/libexec/lib/node_modules/agent-browser/bin/agent-browser-darwin-arm64 mcp"
+      },
+      {
+        "pid": 32746,
+        "rssMiB": 15.4,
+        "command": "/opt/homebrew/Cellar/agent-browser/0.31.1/libexec/lib/node_modules/agent-browser/bin/agent-browser-darwin-arm64"
+      },
+      {
+        "pid": 32747,
+        "rssMiB": 237.9,
+        "command": "/Users/raillyhugo/.agent-browser/browsers/chrome-150.0.7871.24/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --remote-debugging-port=0 --no-first-run --no-default-browser-check --disable-background-networking --disa"
+      },
+      {
+        "pid": 32749,
+        "rssMiB": 8.8,
+        "command": "/Users/raillyhugo/.agent-browser/browsers/chrome-150.0.7871.24/Google Chrome for Testing.app/Contents/Frameworks/Google Chrome for Testing Framework.framework/Versions/150.0.7871.24/Helpers/chrome_crashpad_handler --monitor-self --monitor-s"
+      },
+      {
+        "pid": 32751,
+        "rssMiB": 7.6,
+        "command": "/Users/raillyhugo/.agent-browser/browsers/chrome-150.0.7871.24/Google Chrome for Testing.app/Contents/Frameworks/Google Chrome for Testing Framework.framework/Versions/150.0.7871.24/Helpers/chrome_crashpad_handler --no-periodic-tasks --moni"
+      },
+      {
+        "pid": 32755,
+        "rssMiB": 151.6,
+        "command": "/Users/raillyhugo/.agent-browser/browsers/chrome-150.0.7871.24/Google Chrome for Testing.app/Contents/Frameworks/Google Chrome for Testing Framework.framework/Versions/150.0.7871.24/Helpers/Google Chrome for Testing Helper (GPU).app/Content"
+      },
+      {
+        "pid": 32756,
+        "rssMiB": 110.9,
+        "command": "/Users/raillyhugo/.agent-browser/browsers/chrome-150.0.7871.24/Google Chrome for Testing.app/Contents/Frameworks/Google Chrome for Testing Framework.framework/Versions/150.0.7871.24/Helpers/Google Chrome for Testing Helper.app/Contents/MacO"
+      },
+      {
+        "pid": 32757,
+        "rssMiB": 74.1,
+        "command": "/Users/raillyhugo/.agent-browser/browsers/chrome-150.0.7871.24/Google Chrome for Testing.app/Contents/Frameworks/Google Chrome for Testing Framework.framework/Versions/150.0.7871.24/Helpers/Google Chrome for Testing Helper.app/Contents/MacO"
+      },
+      {
+        "pid": 32759,
+        "rssMiB": 136.7,
+        "command": "/Users/raillyhugo/.agent-browser/browsers/chrome-150.0.7871.24/Google Chrome for Testing.app/Contents/Frameworks/Google Chrome for Testing Framework.framework/Versions/150.0.7871.24/Helpers/Google Chrome for Testing Helper (Renderer).app/Co"
+      },
+      {
+        "pid": 32760,
+        "rssMiB": 276.1,
+        "command": "/Users/raillyhugo/.agent-browser/browsers/chrome-150.0.7871.24/Google Chrome for Testing.app/Contents/Frameworks/Google Chrome for Testing Framework.framework/Versions/150.0.7871.24/Helpers/Google Chrome for Testing Helper (Renderer).app/Co"
+      },
+      {
+        "pid": 32761,
+        "rssMiB": 167.6,
+        "command": "/Users/raillyhugo/.agent-browser/browsers/chrome-150.0.7871.24/Google Chrome for Testing.app/Contents/Frameworks/Google Chrome for Testing Framework.framework/Versions/150.0.7871.24/Helpers/Google Chrome for Testing Helper (Renderer).app/Co"
+      },
+      {
+        "pid": 32763,
+        "rssMiB": 126,
+        "command": "/Users/raillyhugo/.agent-browser/browsers/chrome-150.0.7871.24/Google Chrome for Testing.app/Contents/Frameworks/Google Chrome for Testing Framework.framework/Versions/150.0.7871.24/Helpers/Google Chrome for Testing Helper (Renderer).app/Co"
+      },
+      {
+        "pid": 32766,
+        "rssMiB": 91.1,
+        "command": "/Users/raillyhugo/.agent-browser/browsers/chrome-150.0.7871.24/Google Chrome for Testing.app/Contents/Frameworks/Google Chrome for Testing Framework.framework/Versions/150.0.7871.24/Helpers/Google Chrome for Testing Helper (Renderer).app/Co"
+      },
+      {
+        "pid": 32879,
+        "rssMiB": 91.1,
+        "command": "/Users/raillyhugo/.agent-browser/browsers/chrome-150.0.7871.24/Google Chrome for Testing.app/Contents/Frameworks/Google Chrome for Testing Framework.framework/Versions/150.0.7871.24/Helpers/Google Chrome for Testing Helper (Renderer).app/Co"
+      },
+      {
+        "pid": 33906,
+        "rssMiB": 3.8,
+        "command": "/opt/homebrew/opt/node/bin/node /opt/homebrew/bin/agent-browser mcp"
+      },
+      {
+        "pid": 33940,
+        "rssMiB": 1.8,
+        "command": "/opt/homebrew/Cellar/agent-browser/0.31.1/libexec/lib/node_modules/agent-browser/bin/agent-browser-darwin-arm64 mcp"
+      },
+      {
+        "pid": 38008,
+        "rssMiB": 3.2,
+        "command": "/bin/zsh -c source /Users/raillyhugo/.claude/shell-snapshots/snapshot-zsh-1783793251886-4qtawi.sh 2>/dev/null || true && export CODEX_COMPANION_SESSION_ID='d58ff4de-95c7-4dce-81b8-e30f928a061c'\\012export CLAUDE_PLUGIN_DATA='/Users/raillyhug"
+      },
+      {
+        "pid": 49927,
+        "rssMiB": 4.2,
+        "command": "/opt/homebrew/opt/node/bin/node /opt/homebrew/bin/agent-browser mcp"
+      },
+      {
+        "pid": 50078,
+        "rssMiB": 2.6,
+        "command": "/opt/homebrew/Cellar/agent-browser/0.31.1/libexec/lib/node_modules/agent-browser/bin/agent-browser-darwin-arm64 mcp"
+      },
+      {
+        "pid": 50322,
+        "rssMiB": 5.9,
+        "command": "/opt/homebrew/opt/node/bin/node /opt/homebrew/bin/agent-browser mcp"
+      },
+      {
+        "pid": 50451,
+        "rssMiB": 2.6,
+        "command": "/opt/homebrew/Cellar/agent-browser/0.31.1/libexec/lib/node_modules/agent-browser/bin/agent-browser-darwin-arm64 mcp"
+      },
+      {
+        "pid": 51298,
+        "rssMiB": 5.8,
+        "command": "/opt/homebrew/opt/node/bin/node /opt/homebrew/bin/agent-browser mcp"
+      },
+      {
+        "pid": 51321,
+        "rssMiB": 2.6,
+        "command": "/opt/homebrew/Cellar/agent-browser/0.31.1/libexec/lib/node_modules/agent-browser/bin/agent-browser-darwin-arm64 mcp"
+      },
+      {
+        "pid": 55477,
+        "rssMiB": 5.8,
+        "command": "/opt/homebrew/opt/node/bin/node /opt/homebrew/bin/agent-browser mcp"
+      },
+      {
+        "pid": 55523,
+        "rssMiB": 2.6,
+        "command": "/opt/homebrew/Cellar/agent-browser/0.31.1/libexec/lib/node_modules/agent-browser/bin/agent-browser-darwin-arm64 mcp"
+      },
+      {
+        "pid": 55876,
+        "rssMiB": 4.1,
+        "command": "/opt/homebrew/opt/node/bin/node /opt/homebrew/bin/agent-browser mcp"
+      },
+      {
+        "pid": 56089,
+        "rssMiB": 2.6,
+        "command": "/opt/homebrew/Cellar/agent-browser/0.31.1/libexec/lib/node_modules/agent-browser/bin/agent-browser-darwin-arm64 mcp"
+      },
+      {
+        "pid": 56495,
+        "rssMiB": 3.8,
+        "command": "/opt/homebrew/opt/node/bin/node /opt/homebrew/bin/agent-browser mcp"
+      },
+      {
+        "pid": 56638,
+        "rssMiB": 1.8,
+        "command": "/opt/homebrew/Cellar/agent-browser/0.31.1/libexec/lib/node_modules/agent-browser/bin/agent-browser-darwin-arm64 mcp"
+      },
+      {
+        "pid": 68832,
+        "rssMiB": 3.8,
+        "command": "node /Users/raillyhugo/Programming/railly/sourced/web/node_modules/.bin/next dev"
+      },
+      {
+        "pid": 68872,
+        "rssMiB": 205.2,
+        "command": "/opt/homebrew/Cellar/node/26.4.0/bin/node /Users/raillyhugo/Programming/railly/sourced/web/node_modules/eve/bin/eve.js dev --no-ui --port 0"
+      },
+      {
+        "pid": 80633,
+        "rssMiB": 1.7,
+        "command": "/opt/homebrew/opt/node/bin/node /opt/homebrew/bin/agent-browser mcp"
+      },
+      {
+        "pid": 80699,
+        "rssMiB": 1.8,
+        "command": "/opt/homebrew/Cellar/agent-browser/0.31.1/libexec/lib/node_modules/agent-browser/bin/agent-browser-darwin-arm64 mcp"
+      },
+      {
+        "pid": 92099,
+        "rssMiB": 8,
+        "command": "node /Users/raillyhugo/Programming/railly/sourced/web/.next/dev/build/19766593429ae77f.js 51245"
+      },
+      {
+        "pid": 92802,
+        "rssMiB": 3.8,
+        "command": "/opt/homebrew/opt/node/bin/node /opt/homebrew/bin/agent-browser mcp"
+      },
+      {
+        "pid": 92936,
+        "rssMiB": 1.8,
+        "command": "/opt/homebrew/Cellar/agent-browser/0.31.1/libexec/lib/node_modules/agent-browser/bin/agent-browser-darwin-arm64 mcp"
+      }
+    ],
+    "activeE2EProcesses": 0
+  },
+  "failures": [
+    "No passing eight-hour soak exists for the current fingerprint"
+  ]
+}
