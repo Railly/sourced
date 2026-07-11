@@ -222,11 +222,14 @@ async function waitUntil(check: (value: BrowserState) => boolean, timeoutMs: num
   throw new Error(`${label} timed out after ${timeoutMs}ms: ${JSON.stringify(latest)}`);
 }
 
-async function auditBrowser(expectedEndpoints: string[] = []): Promise<{ console: string; errors: string; requests: string }> {
+async function auditBrowser(
+  expectedEndpoints: string[] = [],
+  forbiddenEndpoints: string[] = [],
+): Promise<{ console: string; errors: string; requests: string }> {
   const [consoleOutput, errors, requests] = await Promise.all([
     browser(["console"]),
     browser(["errors"]),
-    browser(["network", "requests", "--filter", "/api/"]),
+    browser(["network", "requests"]),
   ]);
   if (/^\[error\]/m.test(consoleOutput)) throw new Error(`Console error: ${consoleOutput}`);
   if (errors && !/no page errors/i.test(errors)) throw new Error(`Page errors: ${errors}`);
@@ -237,6 +240,11 @@ async function auditBrowser(expectedEndpoints: string[] = []): Promise<{ console
     const status = Number(request.match(/\s(\d{3})\s*$/)?.[1]);
     if (!Number.isInteger(status) || status < 200 || status >= 300) {
       throw new Error(`Expected successful browser request for ${endpoint}: ${request}`);
+    }
+  }
+  for (const endpoint of forbiddenEndpoints) {
+    if (requests.split("\n").some((line) => line.includes(endpoint))) {
+      throw new Error(`Offline showcase must not call ${endpoint}, but a request was observed.`);
     }
   }
   return { console: consoleOutput, errors, requests };
@@ -326,7 +334,7 @@ async function run(): Promise<void> {
   });
   if (intake.overflow > 0) throw new Error(`Document overflow after intake: ${intake.overflow}px`);
   if (selected.pmcid === "PMC6489390" && intake.activeAmbiguityId !== "source-scope") throw new Error("Multi-patient source did not expose the source-scope clarification");
-  const intakeAudit = await auditBrowser(["/api/intake"]);
+  const intakeAudit = await auditBrowser([`/data/reviews/${selected.id}.`], ["/api/intake"]);
   await record("intake_passed", {
     medications: intake.meds,
     activeMedications: intake.activeMeds,
@@ -373,7 +381,7 @@ async function run(): Promise<void> {
     reportFindingCount: review.reportFindingCount,
   });
   if (review.overflow > 0) throw new Error(`Document overflow after review: ${review.overflow}px`);
-  const audit = await auditBrowser(["/api/intake", "/api/review-ui"]);
+  const audit = await auditBrowser([`/data/reviews/${selected.id}.`], ["/api/intake", "/api/review-ui"]);
   let screenshot = "";
   let screenshotError = "";
   if (process.env.E2E_SCREENSHOTS === "1") {
