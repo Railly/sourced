@@ -8,11 +8,24 @@
     "typecheck": "tsc --noEmit",
     "reviewer-demo": "bun run src/verify/reviewer-demo.ts",
     "demo:cached": "bun run src/demo-cached.ts",
+    "data:manifest": "bun run src/data/build-ddinter-manifest.ts",
+    "data:health": "bun run src/data/health.ts",
+    "data:cases": "bun run scripts/build-case-report-dataset.ts",
+    "e2e": "bun run scripts/e2e-browser.ts",
+    "e2e:corpus": "bun run scripts/e2e-corpus.ts",
+    "e2e:edges": "bun run scripts/e2e-edges.ts",
+    "e2e:audit": "bun run scripts/e2e-audit.ts",
+    "e2e:soak": "bun run scripts/e2e-soak.ts",
+    "ops:health": "bun run scripts/resource-health.ts",
+    "test:e2e-oracles": "bun test scripts/e2e-oracles.test.ts",
     "test": "bun test",
     "test:all": "bun test"
   },
   "devDependencies": {
     "@types/bun": "latest",
     "typescript": "^5"
+  },
+  "dependencies": {
+    "ai": "^7.0.22"
   }
 }
