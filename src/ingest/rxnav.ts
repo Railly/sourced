@@ -1,4 +1,5 @@
 import type { Medication, MedicationStatus } from "../types/index.ts";
+import { getCachedRxNav, isRxNavOffline, putCachedRxNav } from "./rxnav-cache.ts";
 
 const RXNAV_BASE = "https://rxnav.nlm.nih.gov/REST";
 const REQUEST_TIMEOUT_MS = 10_000;
@@ -59,6 +60,10 @@ interface RelatedResponse {
 }
 
 async function fetchJson<T>(url: string): Promise<T> {
+  const cached = getCachedRxNav(url);
+  if (cached !== undefined) return cached as T;
+  if (isRxNavOffline()) throw new Error(`RxNav offline: uncached request ${url}`);
+
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
   try {
@@ -66,7 +71,9 @@ async function fetchJson<T>(url: string): Promise<T> {
     if (!response.ok) {
       throw new Error(`RxNav request failed: ${response.status} ${response.statusText}`);
     }
-    return (await response.json()) as T;
+    const json = (await response.json()) as T;
+    putCachedRxNav(url, json);
+    return json;
   } finally {
     clearTimeout(timeout);
   }

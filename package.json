@@ -17,7 +17,9 @@
     "e2e:audit": "bun run scripts/e2e-audit.ts",
     "e2e:soak": "bun run scripts/e2e-soak.ts",
     "ops:health": "bun run scripts/resource-health.ts",
+    "data:rxnav-seed": "RXNAV_RECORD=1 bun run scripts/seed-rxnav-cache.ts",
     "test:e2e-oracles": "bun test scripts/e2e-oracles.test.ts",
+    "test:hermetic": "RXNAV_OFFLINE=1 bun test src/ingest",
     "test": "bun test",
     "test:all": "bun test"
   },
