@@ -10,7 +10,7 @@ import { VerificationPanel } from "@/components/verification-panel";
 import { buildEvidenceMap } from "@/lib/report";
 import { liveReviewCatalog } from "@/lib/genui/live-catalog";
 import { useI18n } from "@/lib/i18n";
-import { severityStyle, statusLabel, statusStyle } from "@/lib/severity";
+import { statusStyle } from "@/lib/severity";
 import type { Finding, SafetyReport } from "@/lib/types";
 
 const LiveReportContext = createContext<SafetyReport | null>(null);
@@ -169,7 +169,6 @@ const { registry } = defineRegistry(liveReviewCatalog, {
           <ol className="divide-y divide-hairline border-y border-hairline">
             {findings.map(({ finding, index }) => {
               const status = statusStyle(finding.status);
-              const severity = severityStyle(finding.severity);
               return (
                 <li key={`${finding.headline}-${index}`} className="flex gap-4 py-4">
                   <span className={`font-mono-source text-[11px] font-semibold ${status.text}`}>

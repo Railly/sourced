@@ -13,7 +13,7 @@ import { reviewCatalog } from "@/lib/genui/catalog";
 import { validateSafeSpec, type LensMode, type SafeSpec } from "@/lib/genui/spec";
 import { useI18n } from "@/lib/i18n";
 import { statusStyle } from "@/lib/severity";
-import type { EvidenceObject, Finding, SafetyReport } from "@/lib/types";
+import type { Finding, SafetyReport } from "@/lib/types";
 
 const ReportContext = createContext<SafetyReport | null>(null);
 

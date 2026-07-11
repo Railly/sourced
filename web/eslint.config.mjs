@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Generated eve dev runtime and snapshots (never committed, not source).
+    ".eve/**",
   ]),
 ]);
 

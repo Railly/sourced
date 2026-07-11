@@ -2,7 +2,7 @@
 
 import { EvidenceCitation } from "@/components/evidence-citation";
 import { useI18n } from "@/lib/i18n";
-import { severityStyle, statusStyle } from "@/lib/severity";
+import { statusStyle } from "@/lib/severity";
 import type { EvidenceObject, Finding } from "@/lib/types";
 
 export function FindingCard({
@@ -16,7 +16,6 @@ export function FindingCard({
 }) {
   const { t } = useI18n();
   const style = statusStyle(finding.status);
-  const severity = severityStyle(finding.severity);
   const citations = finding.evidence_ids
     .map((id) => evidenceMap.get(id))
     .filter((item): item is EvidenceObject => Boolean(item));

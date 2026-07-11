@@ -501,7 +501,11 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>("en");
 
   useEffect(() => {
+    // Hydrate the saved locale after mount so the server and first client
+    // render both stay English, avoiding a hydration mismatch. The one-time
+    // post-mount setState is intentional here.
     const saved = window.localStorage.getItem("sourced-locale");
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- deliberate post-hydration sync from localStorage
     if (saved === "en" || saved === "es") setLocaleState(saved);
   }, []);
 
