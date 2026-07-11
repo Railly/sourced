@@ -4,28 +4,122 @@
 // Fable-guardrail bypass: no clinical query ever reaches a model.
 
 import type { EvidenceObject, Medication, PatientContext } from "../types/index.ts";
+import {
+  ddinterPairKey,
+  loadDdinter,
+  type DdinterDataset,
+  type DdinterRow,
+} from "./ddinter.ts";
+import { getSourceJson } from "./source-cache.ts";
+
+export { createDdinterDataset, loadDdinter, parseCsv, parseDdinterCsv } from "./ddinter.ts";
+export type { DdinterCoverage, DdinterDataset, DdinterRow } from "./ddinter.ts";
 
 const OPENFDA_LABEL = "https://api.fda.gov/drug/label.json";
 const OPENFDA_EVENT = "https://api.fda.gov/drug/event.json";
-const FETCH_TIMEOUT_MS = 12_000;
+interface OpenFdaLabel {
+  set_id?: string;
+  effective_time?: string;
+  version?: string;
+  openfda?: { generic_name?: string[]; brand_name?: string[] };
+  drug_interactions?: string[];
+  drug_and_or_laboratory_test_interactions?: string[];
+  boxed_warning?: string[];
+}
 
-async function getJSON(url: string): Promise<any | null> {
-  try {
-    const res = await fetch(url, {
-      signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
-    });
-    if (!res.ok) return null;
-    return await res.json();
-  } catch {
-    return null;
+function labelNameScore(label: OpenFdaLabel, medicationName: string): number {
+  const target = medicationName.toLowerCase();
+  const genericNames = label.openfda?.generic_name?.map((name) => name.toLowerCase()) ?? [];
+  const brandNames = label.openfda?.brand_name?.map((name) => name.toLowerCase()) ?? [];
+  let score = 0;
+  if (genericNames.some((name) => name === target)) score += 100;
+  else if (genericNames.some((name) => name.includes(target) || target.includes(name))) score += 70;
+  if (brandNames.some((name) => name === target)) score += 60;
+  if (label.drug_interactions?.[0] || label.drug_and_or_laboratory_test_interactions?.[0]) {
+    score += 30;
   }
+  if (label.boxed_warning?.[0]) score += 10;
+  return score;
+}
+
+export function selectBestLabel(
+  results: OpenFdaLabel[] | undefined,
+  medicationName: string,
+): OpenFdaLabel | null {
+  if (!results?.length) return null;
+  return [...results].sort((left, right) => {
+    const score = labelNameScore(right, medicationName) - labelNameScore(left, medicationName);
+    if (score !== 0) return score;
+    const effective = Number(right.effective_time ?? 0) - Number(left.effective_time ?? 0);
+    if (effective !== 0) return effective;
+    return Number(right.version ?? 0) - Number(left.version ?? 0);
+  })[0] ?? null;
+}
+
+function sentenceCandidates(text: string): string[] {
+  return (text.match(/[^.!?]+[.!?]+|[^.!?]+$/g) ?? [text])
+    .map((value) => value.trim())
+    .filter(Boolean);
+}
+
+export function selectSupportingPassage(text: string, relatedTerms: string[]): string {
+  const sentences = sentenceCandidates(text);
+  const normalizedTerms = relatedTerms.map((term) => term.toLowerCase()).filter(Boolean);
+  if (normalizedTerms.length === 0) {
+    return sentences.find((sentence) => sentence.length >= 40)?.slice(0, 700) ?? text.slice(0, 700);
+  }
+  let bestIndex = 0;
+  let bestScore = -1;
+  for (let index = 0; index < sentences.length; index += 1) {
+    const sentence = sentences[index]!.toLowerCase();
+    const termMatches = normalizedTerms.filter((term) => sentence.includes(term)).length;
+    const actionMatches = (sentence.match(/monitor|increase|decrease|inhibit|bleed|risk|avoid/g) ?? [])
+      .length;
+    const score = termMatches * 1000 + actionMatches * 10 - Math.min(sentence.length / 1000, 3);
+    if (score > bestScore) {
+      bestIndex = index;
+      bestScore = score;
+    }
+  }
+  let first = sentences[bestIndex] ?? text;
+  if (first.length > 700) {
+    const lowered = first.toLowerCase();
+    const hit = normalizedTerms
+      .map((term) => lowered.indexOf(term))
+      .filter((index) => index >= 0)
+      .sort((left, right) => left - right)[0];
+    if (hit !== undefined) {
+      const start = Math.max(0, hit - 90);
+      first = first.slice(start, start + 700).trim();
+    }
+  }
+  const next = sentences[bestIndex + 1];
+  const nextIsRelevant = next
+    ? normalizedTerms.some((term) => next.toLowerCase().includes(term)) ||
+      /monitor|increase|decrease|inhibit|bleed|risk|avoid|reduce/i.test(next)
+    : false;
+  return next && nextIsRelevant && `${first} ${next}`.length <= 700
+    ? `${first} ${next}`
+    : first.slice(0, 700);
+}
+
+function sourceVersion(label: OpenFdaLabel): string | undefined {
+  const parts = [
+    label.effective_time ? `effective ${label.effective_time}` : undefined,
+    label.version ? `version ${label.version}` : undefined,
+  ].filter(Boolean);
+  return parts.length > 0 ? parts.join(" · ") : undefined;
 }
 
 /** openFDA drug_interactions section (PLR §7) for one drug. Verbatim, citable. */
-async function labelInteractions(med: Medication, now: string): Promise<EvidenceObject[]> {
-  const query = `${OPENFDA_LABEL}?search=openfda.generic_name:"${encodeURIComponent(med.name)}"&limit=1`;
-  const data = await getJSON(query);
-  const result = data?.results?.[0];
+async function labelInteractions(
+  med: Medication,
+  relatedTerms: string[],
+  now: string,
+): Promise<EvidenceObject[]> {
+  const query = `${OPENFDA_LABEL}?search=openfda.generic_name:"${encodeURIComponent(med.name)}"&limit=20`;
+  const response = await getSourceJson(query, now);
+  const result = selectBestLabel(response?.data?.results, med.name);
   if (!result) return [];
 
   const setId: string = result.set_id ?? "unknown";
@@ -43,8 +137,11 @@ async function labelInteractions(med: Medication, now: string): Promise<Evidence
       source_url: splUrl,
       exact_field: "drug_interactions",
       quoted_text: field.slice(0, 4000),
+      supporting_text: selectSupportingPassage(field, relatedTerms),
+      source_version: sourceVersion(result),
+      anchor_drug: med.name,
       retrieval_query: query,
-      retrieved_at: now,
+      retrieved_at: response?.retrievedAt ?? now,
     });
   }
 
@@ -58,46 +155,20 @@ async function labelInteractions(med: Medication, now: string): Promise<Evidence
       source_url: splUrl,
       exact_field: "boxed_warning",
       quoted_text: boxed.slice(0, 2000),
+      supporting_text: selectSupportingPassage(boxed, []),
+      source_version: sourceVersion(result),
+      anchor_drug: med.name,
       retrieval_query: query,
-      retrieved_at: now,
+      retrieved_at: response?.retrievedAt ?? now,
     });
   }
   return evidence;
 }
 
-export interface DdinterRow {
-  drugA: string;
-  drugB: string;
-  level: string;
-  idA: string;
-  idB: string;
-}
-
-/** Load a local DDInter snapshot (severity per drug pair). CC BY-NC, cited. */
-export async function loadDdinter(csvPath: string): Promise<DdinterRow[]> {
-  const text = await Bun.file(csvPath).text();
-  const lines = text.split("\n").slice(1); // drop header
-  const rows: DdinterRow[] = [];
-  for (const line of lines) {
-    if (!line.trim()) continue;
-    const [idA, drugA, idB, drugB, level] = line.split(",");
-    if (!drugA || !drugB || !level) continue;
-    rows.push({
-      idA: idA ?? "",
-      drugA,
-      idB: idB ?? "",
-      drugB,
-      level: level.trim(),
-    });
-  }
-  return rows;
-}
-
 /** DDInter severity for a specific pair, as an EvidenceObject. */
 function medicationComponents(medication: Medication): string[] {
-  return medication.name
-    .toLowerCase()
-    .split("/")
+  return [medication.name, ...(medication.ingredients?.map((ingredient) => ingredient.name) ?? [])]
+    .flatMap((name) => name.toLowerCase().split("/"))
     .map((name) => name.trim())
     .filter(Boolean);
 }
@@ -105,22 +176,24 @@ function medicationComponents(medication: Medication): string[] {
 export function ddinterPair(
   a: Medication,
   b: Medication,
-  rows: DdinterRow[],
+  dataset: DdinterDataset,
   now: string,
 ): EvidenceObject | null {
-  const aNames = new Set(medicationComponents(a));
-  const bNames = new Set(medicationComponents(b));
+  const aNames = medicationComponents(a);
+  const bNames = medicationComponents(b);
   const severityRank: Record<string, number> = {
     Major: 4,
     Moderate: 3,
     Minor: 2,
     Unknown: 1,
   };
-  const matches = rows.filter((r) => {
-    const ra = r.drugA.toLowerCase();
-    const rb = r.drugB.toLowerCase();
-    return (aNames.has(ra) && bNames.has(rb)) || (aNames.has(rb) && bNames.has(ra));
-  });
+  const matches: DdinterRow[] = [];
+  for (const aName of aNames) {
+    for (const bName of bNames) {
+      const match = dataset.byPair.get(ddinterPairKey(aName, bName));
+      if (match) matches.push(match);
+    }
+  }
   const hit = matches.reduce<DdinterRow | null>((strongest, row) => {
     if (!strongest) return row;
     return (severityRank[row.level] ?? 0) > (severityRank[strongest.level] ?? 0) ? row : strongest;
@@ -133,8 +206,10 @@ export function ddinterPair(
     source_id: `${hit.idA}/${hit.idB}`,
     source_url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
     exact_field: "Level",
-    quoted_text: hit.level,
-    retrieval_query: `local DDInter CSV row: ${hit.idA} (${hit.drugA}) x ${hit.idB} (${hit.drugB})`,
+    quoted_text: `Drug_A: ${hit.drugA}; Drug_B: ${hit.drugB}; Level: ${hit.level}`,
+    supporting_text: `Drug_A: ${hit.drugA}; Drug_B: ${hit.drugB}; Level: ${hit.level}`,
+    subject_drugs: [hit.drugA, hit.drugB],
+    retrieval_query: `local DDInter ${hit.sourceFile ?? "CSV"} row: ${hit.idA} (${hit.drugA}) x ${hit.idB} (${hit.drugB})`,
     retrieved_at: now,
   };
 }
@@ -148,8 +223,8 @@ async function faersSignal(
   const query = `${OPENFDA_EVENT}?search=patient.drug.medicinalproduct:"${encodeURIComponent(
     med.name,
   )}"+AND+patient.reaction.reactionmeddrapt:"${encodeURIComponent(reaction)}"&limit=1`;
-  const data = await getJSON(query);
-  const total = data?.meta?.results?.total;
+  const response = await getSourceJson(query, now);
+  const total = response?.data?.meta?.results?.total;
   if (typeof total !== "number" || total === 0) return null;
   return {
     id: `faers:${med.rxcui}:${reaction}`,
@@ -159,14 +234,51 @@ async function faersSignal(
     source_url: "https://open.fda.gov/apis/drug/event/",
     exact_field: "meta.results.total",
     quoted_text: String(total),
+    supporting_text: `${total.toLocaleString()} co-reports`,
+    subject_drugs: [med.name],
     retrieval_query: query,
-    retrieved_at: now,
+    retrieved_at: response?.retrievedAt ?? now,
   };
 }
 
 export interface RetrievalResult {
   evidence: EvidenceObject[];
-  ddinterRows: DdinterRow[];
+  ddinter: DdinterDataset;
+}
+
+export function selectActiveMedicationsForRetrieval(patient: PatientContext): Medication[] {
+  return patient.medications.filter(
+    (medication) => medication.rxcui && (medication.status ?? "active") === "active",
+  );
+}
+
+export function medicationPairsForRetrieval(
+  patient: PatientContext,
+): Array<readonly [Medication, Medication]> {
+  const medications = selectActiveMedicationsForRetrieval(patient);
+  const pairs: Array<readonly [Medication, Medication]> = [];
+  for (let index = 0; index < medications.length; index += 1) {
+    for (let otherIndex = index + 1; otherIndex < medications.length; otherIndex += 1) {
+      pairs.push([medications[index]!, medications[otherIndex]!]);
+    }
+  }
+  return pairs;
+}
+
+export function medicationLabelTargets(medications: Medication[]): Medication[] {
+  const targets = new Map<string, Medication>();
+  for (const medication of medications) {
+    targets.set(`${medication.rxcui ?? ""}:${medication.name.toLowerCase()}`, medication);
+    for (const ingredient of medication.ingredients ?? []) {
+      targets.set(`${ingredient.rxcui}:${ingredient.name.toLowerCase()}`, {
+        ...medication,
+        name: ingredient.name,
+        rxcui: ingredient.rxcui,
+        resolution: "exact",
+      });
+    }
+  }
+  return [...targets.values()];
 }
 
 /**
@@ -178,21 +290,23 @@ export async function retrieve(
   ddinterCsvPath: string,
   now: string,
 ): Promise<RetrievalResult> {
-  const meds = patient.medications.filter((m) => m.rxcui);
-  const ddinterRows = await loadDdinter(ddinterCsvPath);
+  const meds = selectActiveMedicationsForRetrieval(patient);
+  const labelTargets = medicationLabelTargets(meds);
+  const ddinter = await loadDdinter(ddinterCsvPath);
   const evidence: EvidenceObject[] = [];
 
   // Per-drug: FDA label interactions + boxed warnings.
-  for (const med of meds) {
-    evidence.push(...(await labelInteractions(med, now)));
+  for (const med of labelTargets) {
+    const relatedTerms = labelTargets
+      .filter((candidate) => candidate.rxcui !== med.rxcui || candidate.name !== med.name)
+      .flatMap((candidate) => medicationComponents(candidate));
+    evidence.push(...(await labelInteractions(med, relatedTerms, now)));
   }
 
   // Per-pair: DDInter severity.
-  for (let i = 0; i < meds.length; i++) {
-    for (let j = i + 1; j < meds.length; j++) {
-      const ev = ddinterPair(meds[i]!, meds[j]!, ddinterRows, now);
-      if (ev) evidence.push(ev);
-    }
+  for (const [left, right] of medicationPairsForRetrieval(patient)) {
+    const ev = ddinterPair(left, right, ddinter, now);
+    if (ev) evidence.push(ev);
   }
 
   // Real-world signal for the anchor drug's key adverse event.
@@ -202,5 +316,5 @@ export async function retrieve(
     if (sig) evidence.push(sig);
   }
 
-  return { evidence, ddinterRows };
+  return { evidence: [...new Map(evidence.map((item) => [item.id, item])).values()], ddinter };
 }
