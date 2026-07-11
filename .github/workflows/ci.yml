@@ -28,6 +28,8 @@ jobs:
         run: bun run typecheck
       - name: Test core and cached artifacts
         run: bun test
+      - name: Verify bundled data integrity
+        run: bun run data:health
       - name: Run credential-free demo
         run: bun run demo:cached > /dev/null
       - name: Install web dependencies
