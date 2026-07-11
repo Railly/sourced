@@ -26,6 +26,7 @@ const ddinterSeverity: EvidenceObject = {
   source_url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
   exact_field: "Level",
   quoted_text: "Major",
+  subject_drugs: ["Warfarin", "Amiodarone"],
   retrieval_query: "local DDInter CSV row: DDInter1951 (Warfarin) x DDInter76 (Amiodarone)",
   retrieved_at: NOW,
 };
