@@ -1,4 +1,4 @@
-import type { Medication } from "../types/index.ts";
+import type { Medication, MedicationStatus } from "../types/index.ts";
 
 const RXNAV_BASE = "https://rxnav.nlm.nih.gov/REST";
 const REQUEST_TIMEOUT_MS = 10_000;
@@ -50,6 +50,14 @@ interface PropertyResponse {
   };
 }
 
+interface RelatedResponse {
+  relatedGroup?: {
+    conceptGroup?: Array<{
+      conceptProperties?: Array<{ rxcui: string; name: string }>;
+    }>;
+  };
+}
+
 async function fetchJson<T>(url: string): Promise<T> {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
@@ -77,9 +85,31 @@ export function extractDrugName(raw: string): string {
   let cleaned = raw;
   cleaned = cleaned.replace(/\([^)]*\)/g, " ");
   cleaned = cleaned.replace(/\d+(\.\d+)?\s*\/\s*\d+(\.\d+)?\s*(mg|mcg|g|ml|iu|units?)\b/gi, " ");
+  cleaned = cleaned.replace(/\d+(\.\d+)?\s*[-–]\s*\d+(\.\d+)?\s*(mg|mcg|g|ml|iu|units?)\b/gi, " ");
   cleaned = cleaned.replace(/\d+(\.\d+)?\s*(mg|mcg|g|ml|iu|units?)\b/gi, " ");
+  cleaned = cleaned.replace(/\b(?:once|twice|three times|four times)\s+(?:a|per)\s+day\b/gi, " ");
+  cleaned = cleaned.replace(/\bevery\s+\d+\s*(?:hours?|hrs?)\b/gi, " ");
+  cleaned = cleaned.replace(/\b(?:daily|bid|tid|qid|qhs|prn|iv|po|oral|dose pack)\b/gi, " ");
+  cleaned = cleaned.replace(/\b(?:tablet|capsule|syrup|solution|injection)s?\b/gi, " ");
+  cleaned = cleaned.replace(/[,;]+/g, " ");
   cleaned = cleaned.replace(/\s+/g, " ").trim();
   return cleaned;
+}
+
+function sourceDeclaredIngredientTerms(raw: string): string[] {
+  const terms: string[] = [];
+  for (const match of raw.matchAll(/\(([^)]*)\)/g)) {
+    const group = match[1] ?? "";
+    const parts = group.split(",");
+    if (parts.length < 2 || !/\d+(?:\.\d+)?\s*(?:mg|mcg|g|ml|iu|units?)/i.test(group)) continue;
+    for (const part of parts) {
+      const term = extractDrugName(part)
+        .replace(/\bper\b.*$/i, "")
+        .trim();
+      if (/^[a-z][a-z -]{2,}$/i.test(term)) terms.push(term);
+    }
+  }
+  return [...new Set(terms.map((term) => term.toLowerCase()))];
 }
 
 async function fetchRxNormName(rxcui: string): Promise<string | null> {
@@ -87,6 +117,70 @@ async function fetchRxNormName(rxcui: string): Promise<string | null> {
   const data = await fetchJson<PropertyResponse>(url);
   const value = data.propConceptGroup?.propConcept?.[0]?.propValue;
   return value ?? null;
+}
+
+async function fetchIngredients(rxcui: string): Promise<{ rxcui: string; name: string }[]> {
+  const url = `${RXNAV_BASE}/rxcui/${encodeURIComponent(rxcui)}/related.json?tty=IN`;
+  const data = await fetchJson<RelatedResponse>(url);
+  const ingredients =
+    data.relatedGroup?.conceptGroup?.flatMap((group) => group.conceptProperties ?? []) ?? [];
+  return [
+    ...new Map(
+      ingredients.map((ingredient) => [
+        ingredient.rxcui,
+        { rxcui: ingredient.rxcui, name: ingredient.name },
+      ]),
+    ).values(),
+  ];
+}
+
+async function attachIngredients(
+  raw: string,
+  result: { rxcui: string; name: string },
+  resolution: "exact" | "approximate",
+  chronology: MedicationChronology,
+  declaredIngredients: { rxcui: string; name: string }[],
+): Promise<Medication> {
+  try {
+    const ingredients = [
+      ...new Map(
+        [...await fetchIngredients(result.rxcui), ...declaredIngredients].map((ingredient) => [
+          ingredient.rxcui,
+          ingredient,
+        ]),
+      ).values(),
+    ];
+    return { raw, ...result, resolution, ingredients, ...chronologyFields(chronology) };
+  } catch {
+    return {
+      raw,
+      ...result,
+      resolution,
+      ...(declaredIngredients.length > 0 ? { ingredients: declaredIngredients } : {}),
+      ...chronologyFields(chronology),
+    };
+  }
+}
+
+interface MedicationChronology {
+  status?: MedicationStatus;
+  episode?: string;
+  start?: string;
+  end?: string;
+  source_span?: string;
+}
+
+function chronologyFields(chronology: MedicationChronology): Pick<
+  Medication,
+  "status" | "episode" | "start" | "end" | "source_span"
+> {
+  return {
+    status: chronology.status ?? "active",
+    ...(chronology.episode ? { episode: chronology.episode } : {}),
+    ...(chronology.start ? { start: chronology.start } : {}),
+    ...(chronology.end ? { end: chronology.end } : {}),
+    ...(chronology.source_span ? { source_span: chronology.source_span } : {}),
+  };
 }
 
 async function tryExactMatch(term: string): Promise<{ rxcui: string; name: string } | null> {
@@ -114,29 +208,60 @@ async function tryApproximateMatch(term: string): Promise<{ rxcui: string; name:
   return { rxcui: candidate.rxcui, name };
 }
 
+async function resolveDeclaredIngredients(raw: string): Promise<{ rxcui: string; name: string }[]> {
+  const resolved = await Promise.all(
+    sourceDeclaredIngredientTerms(raw).map(async (term) => {
+      try {
+        return (await tryExactMatch(term)) ?? (await tryApproximateMatch(term));
+      } catch {
+        return null;
+      }
+    }),
+  );
+  return resolved.filter((item): item is { rxcui: string; name: string } => Boolean(item));
+}
+
 /**
  * Resolves a single raw medication line against RxNav. Never throws for a
  * single-drug failure: network errors and unresolved lookups both collapse
  * to `resolution: "unresolved", rxcui: null` so one bad drug never aborts
  * the whole ingest.
  */
-export async function normalizeMedication(raw: string): Promise<Medication> {
+export async function normalizeMedication(
+  raw: string,
+  chronology: MedicationChronology = { status: "active" },
+): Promise<Medication> {
   const extracted = extractDrugName(raw);
   const searchTerm = KNOWN_ALIASES[extracted.toLowerCase()] ?? extracted;
+  const declaredIngredients = await resolveDeclaredIngredients(raw);
 
   try {
     const exact = await tryExactMatch(searchTerm);
     if (exact) {
-      return { raw, name: exact.name, rxcui: exact.rxcui, resolution: "exact" };
+      return attachIngredients(raw, exact, "exact", chronology, declaredIngredients);
     }
 
     const approximate = await tryApproximateMatch(searchTerm);
     if (approximate) {
-      return { raw, name: approximate.name, rxcui: approximate.rxcui, resolution: "approximate" };
+      return attachIngredients(raw, approximate, "approximate", chronology, declaredIngredients);
     }
 
-    return { raw, name: extracted, rxcui: null, resolution: "unresolved" };
+    return {
+      raw,
+      name: extracted,
+      rxcui: null,
+      resolution: "unresolved",
+      ...(declaredIngredients.length > 0 ? { ingredients: declaredIngredients } : {}),
+      ...chronologyFields(chronology),
+    };
   } catch {
-    return { raw, name: extracted, rxcui: null, resolution: "unresolved" };
+    return {
+      raw,
+      name: extracted,
+      rxcui: null,
+      resolution: "unresolved",
+      ...(declaredIngredients.length > 0 ? { ingredients: declaredIngredients } : {}),
+      ...chronologyFields(chronology),
+    };
   }
 }
