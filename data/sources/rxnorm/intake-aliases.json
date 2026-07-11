@@ -1,0 +1,13 @@
+{
+  "dataset": "RxNorm",
+  "retrieved_at": "2026-07-11",
+  "aliases": [
+    {
+      "term": "ASA",
+      "rxcui": "1191",
+      "rxnorm_name": "aspirin",
+      "resolution_url": "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=ASA&search=2",
+      "name_url": "https://rxnav.nlm.nih.gov/REST/rxcui/1191/property.json?propName=RxNorm%20Name"
+    }
+  ]
+}
