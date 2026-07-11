@@ -1,0 +1,141 @@
+{
+  "id": "amoxicillin-allergy-by-proxy",
+  "locale": "es",
+  "intake": {
+    "case": {
+      "note": "Case report PMC12695512 / PMID 40984660. 38-year-old man with allergic rhinitis, seven episodes of anaphylaxis at home, one progressing to anaphylactic shock. Reactions coincided with periods during which his children were receiving penicillin therapy (indirect exposure to penicillins). Baseline serum tryptase 4.10 μg/L. Specific IgE positive only for amoxicillin (0.26 kUA/L). Skin prick tests positive to amoxicillin and ampicillin; intradermal positive to penicillin G. Cephalosporins (cefuroxime, ceftriaxone) negative on skin and provocation testing.",
+      "medications": [
+        {
+          "raw": "Amoxicillin",
+          "status": "indirect-exposure",
+          "source_span": "Licking his child's spoon containing traces of amoxicillin syrup"
+        },
+        {
+          "raw": "Amoxicillin",
+          "status": "indirect-exposure",
+          "source_span": "Licking his child's spoon containing traces of amoxicillin syrup"
+        }
+      ],
+      "allergies": [
+        "Penicillins (amoxicillin, ampicillin, penicillin G sensitisation confirmed)",
+        "Allergic rhinitis",
+        "No hypersensitivity to cefuroxime or ceftriaxone (negative tests)"
+      ],
+      "diagnoses": [
+        "Recurrent idiopathic anaphylaxis (seven episodes at home)",
+        "Anaphylactic shock (one episode)",
+        "Allergy by proxy to penicillins",
+        "Allergic rhinitis"
+      ],
+      "labs": [
+        {
+          "name": "Baseline serum tryptase",
+          "value": 4.1,
+          "unit": "μg/L"
+        },
+        {
+          "name": "Specific IgE amoxicillin",
+          "value": 0.26,
+          "unit": "kUA/L"
+        }
+      ]
+    },
+    "ambiguities": [
+      {
+        "id": "amox-1-span",
+        "field": "medications[0].source_span",
+        "question": "El primer episodio de amoxicilina corresponde a lamer la cuchara del hijo con restos de jarabe de amoxicilina. ¿Confirma que debe registrarse como exposición indirecta distinta del segundo episodio?"
+      },
+      {
+        "id": "amox-status",
+        "field": "medications[].status",
+        "question": "Ambas exposiciones a amoxicilina provienen del contacto con medicación de los hijos (por proxy). ¿Confirma que corresponden a exposición indirecta y no a medicación activa del paciente?"
+      }
+    ],
+    "sourceSummary": "Reporte de caso (PMC12695512) de un hombre de 38 años con anafilaxia recurrente por exposición indirecta a penicilinas de sus hijos. Se identifican dos exposiciones a amoxicilina por contacto con utensilios del hijo (cuchara con jarabe y vaso con restos de comprimido triturado), ambas clasificadas como exposición indirecta. La fuente contiene un solo caso."
+  },
+  "report": {
+    "patient": {
+      "medications": [
+        {
+          "raw": "Amoxicillin",
+          "rxcui": "723",
+          "name": "amoxicillin",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "723",
+              "name": "amoxicillin"
+            }
+          ],
+          "status": "indirect-exposure",
+          "source_span": "Licking his child's spoon containing traces of amoxicillin syrup"
+        },
+        {
+          "raw": "Amoxicillin",
+          "rxcui": "723",
+          "name": "amoxicillin",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "723",
+              "name": "amoxicillin"
+            }
+          ],
+          "status": "indirect-exposure",
+          "source_span": "Licking his child's spoon containing traces of amoxicillin syrup"
+        }
+      ],
+      "allergies": [
+        "Penicillins (amoxicillin, ampicillin, penicillin G sensitisation confirmed)",
+        "Allergic rhinitis",
+        "No hypersensitivity to cefuroxime or ceftriaxone (negative tests)"
+      ],
+      "diagnoses": [
+        "Recurrent idiopathic anaphylaxis (seven episodes at home)",
+        "Anaphylactic shock (one episode)",
+        "Allergy by proxy to penicillins",
+        "Allergic rhinitis"
+      ],
+      "labs": [
+        {
+          "name": "Baseline serum tryptase",
+          "value": 4.1,
+          "unit": "μg/L"
+        },
+        {
+          "name": "Specific IgE amoxicillin",
+          "value": 0.26,
+          "unit": "kUA/L"
+        }
+      ],
+      "note": "Case report PMC12695512 / PMID 40984660. 38-year-old man with allergic rhinitis, seven episodes of anaphylaxis at home, one progressing to anaphylactic shock. Reactions coincided with periods during which his children were receiving penicillin therapy (indirect exposure to penicillins). Baseline serum tryptase 4.10 μg/L. Specific IgE positive only for amoxicillin (0.26 kUA/L). Skin prick tests positive to amoxicillin and ampicillin; intradermal positive to penicillin G. Cephalosporins (cefuroxime, ceftriaxone) negative on skin and provocation testing."
+    },
+    "patient_summary": "Hombre de 38 años con rinitis alérgica y antecedente de siete episodios de anafilaxia en casa, uno con shock anafiláctico. La única exposición registrada a medicamento es indirecta a amoxicilina (lamer una cuchara con restos de jarabe de amoxicilina del hijo). Alergia a penicilinas confirmada (amoxicilina, ampicilina, penicilina G). Triptasa sérica basal 4.1 μg/L. IgE específica a amoxicilina 0.26 kUA/L. Sin hipersensibilidad a cefuroxima ni ceftriaxona (pruebas negativas). No se aportaron objetos de evidencia para evaluar interacciones o reacciones adversas.",
+    "findings": [],
+    "questions_for_clinician": [
+      "Los dos registros de amoxicilina aparecen duplicados con el mismo texto de origen: ¿corresponden a una sola exposición indirecta o a exposiciones separadas?",
+      "¿Puede aportar objetos de evidencia sobre la amoxicilina para poder evaluar cualquier riesgo relacionado con la exposición registrada?"
+    ],
+    "evidence": [],
+    "unverified_removed": [],
+    "generated_at": "2026-07-11T22:38:47.434Z",
+    "pipeline": {
+      "mode": "audited-replay",
+      "model": "Claude Opus 4.8",
+      "stages": [
+        "ingest",
+        "retrieve",
+        "synthesize",
+        "verify"
+      ],
+      "ddinter": {
+        "source_rows": 222383,
+        "unique_pairs": 160235,
+        "unique_drugs": 1939,
+        "source_files": 8
+      }
+    }
+  },
+  "generatedAt": "2026-07-11T22:38:47.434Z"
+}

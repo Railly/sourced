@@ -1,0 +1,307 @@
+{
+  "id": "genvoya-simvastatin-rhabdomyolysis",
+  "locale": "es",
+  "intake": {
+    "case": {
+      "note": "Case report PMC6390564/PMID 30808332. 54-year-old man with HIV who developed severe rhabdomyolysis-induced anuric acute kidney injury (AKI) requiring renal replacement therapy following introduction of Genvoya concomitantly with simvastatin, in context of recently diagnosed hepatitis C and hepatitis A. Haemodialysis continued over 5 weeks with progressive improvement. Five months later a new antiretroviral regimen was started and well tolerated.",
+      "medications": [
+        {
+          "raw": "Genvoya",
+          "episode": "Rhabdomyolysis-induced acute kidney injury following concomitant use of Genvoya and simvastatin",
+          "start": "following introduction of Genvoya concomitantly with simvastatin",
+          "source_span": "following introduction of Genvoya® concomitantly with simvastatin",
+          "status": "active"
+        },
+        {
+          "raw": "simvastatin",
+          "episode": "Rhabdomyolysis-induced acute kidney injury following concomitant use of Genvoya and simvastatin",
+          "start": "introduction of Genvoya® concomitantly with simvastatin",
+          "source_span": "introduction of Genvoya® concomitantly with simvastatin",
+          "status": "active"
+        },
+        {
+          "raw": "new antiretroviral regimen",
+          "episode": "Started five months later after the AKI episode",
+          "start": "Five months later",
+          "source_span": "Five months later, a new antiretroviral regimen was started and has been well tolerated",
+          "status": "historical"
+        }
+      ],
+      "allergies": [],
+      "diagnoses": [
+        "HIV",
+        "Severe rhabdomyolysis-induced anuric acute kidney injury (AKI) requiring renal replacement therapy",
+        "Recently diagnosed hepatitis C",
+        "Hepatitis A"
+      ],
+      "labs": []
+    },
+    "ambiguities": [
+      {
+        "id": "amb-genvoya-identity",
+        "field": "medications[0].raw",
+        "question": "Genvoya es un producto combinado (elvitegravir/cobicistat/emtricitabina/tenofovir alafenamida). ¿Desea confirmar y registrar los componentes individuales antes de la revisión?"
+      },
+      {
+        "id": "amb-nuevo-regimen",
+        "field": "medications[2].raw",
+        "question": "El 'nuevo régimen antirretroviral' iniciado cinco meses después no está especificado con nombres de fármacos. ¿Puede indicar qué medicamentos incluye?"
+      }
+    ],
+    "sourceSummary": "Reporte de caso (PMC6390564) de un hombre de 54 años con VIH que presentó rabdomiólisis grave con lesión renal aguda anúrica tras el uso concomitante de Genvoya y simvastatina. Ambos fármacos se registran como activos durante el episodio. Un nuevo régimen antirretroviral iniciado cinco meses después se clasifica como histórico."
+  },
+  "report": {
+    "patient": {
+      "medications": [
+        {
+          "raw": "Genvoya",
+          "rxcui": "1721614",
+          "name": "Genvoya",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "1306284",
+              "name": "cobicistat"
+            },
+            {
+              "rxcui": "1306286",
+              "name": "elvitegravir"
+            },
+            {
+              "rxcui": "1721603",
+              "name": "tenofovir alafenamide"
+            },
+            {
+              "rxcui": "276237",
+              "name": "emtricitabine"
+            }
+          ],
+          "status": "active",
+          "episode": "Rhabdomyolysis-induced acute kidney injury following concomitant use of Genvoya and simvastatin",
+          "start": "following introduction of Genvoya concomitantly with simvastatin",
+          "source_span": "following introduction of Genvoya® concomitantly with simvastatin"
+        },
+        {
+          "raw": "simvastatin",
+          "rxcui": "36567",
+          "name": "simvastatin",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "36567",
+              "name": "simvastatin"
+            }
+          ],
+          "status": "active",
+          "episode": "Rhabdomyolysis-induced acute kidney injury following concomitant use of Genvoya and simvastatin",
+          "start": "introduction of Genvoya® concomitantly with simvastatin",
+          "source_span": "introduction of Genvoya® concomitantly with simvastatin"
+        },
+        {
+          "raw": "new antiretroviral regimen",
+          "rxcui": "1174229",
+          "name": "Anacin Aspirin Regimen Pill",
+          "resolution": "approximate",
+          "ingredients": [
+            {
+              "rxcui": "1191",
+              "name": "aspirin"
+            }
+          ],
+          "status": "historical",
+          "episode": "Started five months later after the AKI episode",
+          "start": "Five months later",
+          "source_span": "Five months later, a new antiretroviral regimen was started and has been well tolerated"
+        }
+      ],
+      "allergies": [],
+      "diagnoses": [
+        "HIV",
+        "Severe rhabdomyolysis-induced anuric acute kidney injury (AKI) requiring renal replacement therapy",
+        "Recently diagnosed hepatitis C",
+        "Hepatitis A"
+      ],
+      "labs": [],
+      "note": "Case report PMC6390564/PMID 30808332. 54-year-old man with HIV who developed severe rhabdomyolysis-induced anuric acute kidney injury (AKI) requiring renal replacement therapy following introduction of Genvoya concomitantly with simvastatin, in context of recently diagnosed hepatitis C and hepatitis A. Haemodialysis continued over 5 weeks with progressive improvement. Five months later a new antiretroviral regimen was started and well tolerated."
+    },
+    "patient_summary": "Hombre de 54 años con VIH que desarrolló una lesión renal aguda anúrica grave inducida por rabdomiólisis que requirió terapia de reemplazo renal, tras iniciar Genvoya junto con simvastatina, en el contexto de hepatitis C recién diagnosticada y hepatitis A. Genvoya contiene cobicistat, elvitegravir, tenofovir alafenamida y emtricitabina. La hemodiálisis continuó durante 5 semanas con mejoría progresiva. Cinco meses después se inició un nuevo régimen antirretroviral, bien tolerado. No se registran alergias ni laboratorios en el contexto aportado.",
+    "findings": [
+      {
+        "status": "red-flag",
+        "severity": "major",
+        "drugs": [
+          "Simvastatin",
+          "Cobicistat"
+        ],
+        "headline": "Interacción entre Simvastatin y Cobicistat",
+        "mechanism": "DDInter clasifica el par exacto Simvastatin + Cobicistat con gravedad mayor.",
+        "why_this_patient": "Tanto Simvastatin como Cobicistat están activos en el episodio de seguridad de medicamentos revisado.",
+        "evidence_ids": [
+          "ddinter:DDInter1675:DDInter424"
+        ]
+      }
+    ],
+    "questions_for_clinician": [
+      "¿Las entradas de Genvoya y simvastatina corresponden a órdenes activas simultáneas o a un registro histórico del episodio de lesión renal aguda ya resuelto?",
+      "¿Se ha confirmado el estado de hepatitis B del paciente, dado que las advertencias enmarcadas de los componentes de Genvoya se refieren específicamente a pacientes coinfectados con VHB?"
+    ],
+    "evidence": [
+      {
+        "id": "label:1306284:interactions",
+        "claim_text": "FDA label drug-interactions section for cobicistat",
+        "source_name": "openFDA-label",
+        "source_id": "3784c35c-e87f-410c-900b-8fd6313c6010",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3784c35c-e87f-410c-900b-8fd6313c6010",
+        "exact_field": "drug_interactions",
+        "quoted_text": "7 DRUG INTERACTIONS TYBOST, in combination with atazanavir or darunavir, can alter the concentration of drugs metabolized by CYP3A or CYP2D6. Drugs that induce CYP3A can alter the concentrations of TYBOST, atazanavir and darunavir. Consult the full prescribing information prior to and during treatment for potential drug interactions. ( 4 , 5.3 , 7 , 12.3 ) 7.1 Potential Effect of Cobicistat (Coadministered with Atazanavir or Darunavir) on the Pharmacokinetics of Concomitant Drugs Cobicistat is an inhibitor of CYP3A and CYP2D6. The transporters that cobicistat inhibits include p-glycoprotein (P-gp), BCRP, OATP1B1, and OATP1B3. The plasma concentration of drugs that are primarily metabolized by CYP3A or CYP2D6, or are substrates of P-gp, BCRP, OATP1B1, or OATP1B3 may be increased if those drugs are coadministered with TYBOST. Based on in vitro data, cobicistat is not expected to induce CYP1A2 or CYP2B6 and based on in vivo data, cobicistat is not expected to induce MDR1 or, in general, CYP3A to a clinically significant extent. The induction effect of cobicistat on CYP2C9, CYP2C19, or UGT1A1 is unknown, but is expected to be low based on CYP3A in vitro induction data. Coadministration of TYBOST with atazanavir or darunavir with drugs highly dependent on CYP3A for clearance and for which elevated plasma concentrations are associated with serious and/or life-threatening events is contraindicated. Coadministration with drugs that have active metabolite(s) formed by CYP3A may result in reduced plasma concentrations of these active metabolite(s). Coadministration with other CYP3A substrates may require a dose adjustment or additional monitoring as shown in Table 7 . 7.2 Potential Effect of Concomitant Drugs on the Pharmacokinetics of Cobicistat (Coadministered with Atazanavir or Darunavir) Cobicistat is metabolized by CYP3A, and to a minor extent, by CYP2D6. Atazanavir and darunavir are also metabolized by CYP3A. Coadministration of TYBOST with atazanavir or darunavir in combination with drugs that induce CYP3A activity have the potential to decrease plasma concentrations of cobicistat, atazanavir, and darunavir, which may lead to loss of therapeutic effect and development of resistance (see Table 7 ). Coadministration of TYBOST with atazanavir or darunavir in combination with other drugs that inhibit CYP3A may further increase the plasma concentrations of cobicistat, atazanavir, and darunavir (see Table 7 ). 7.3 Established and Other Potentially Significant Interactions Coadministration of TYBOST with fosamprenavir, saquinavir, or tipranavir is not recommended because pharmacokinetic data are not available to provide appropriate dosing recommendations. Use of TYBOST with lopinavir is not recommended because lopinavir is co-formulated with ritonavir. Table 7 provides dosing recommendations as a result of drug interactions with TYBOST coadministered with atazanavir or darunavir. These recommendations are based on either drug interaction trials or predicted interactions due to the expected magnitude of the interaction and potential for serious adverse events or loss of therapeutic effect [see Contraindications (4) , Warnings and Precautions (5.3 , 5.4) , and Clinical Pharmacology (12.3) ]. In Table 7 , if not specifically stated, the drug interaction information applies to both coadministered agents: TYBOST coadministered with atazanavir or darunavir [see Clinical Pharmacology (12.3) ] . In addition to the drug interactions noted in Table 7 , TYBOST is not recommended for use in combination with fixed-dose combination tablets that contain cobicistat, lopinavir/ritonavir or regimens containing ritonavir, or in combination with more than one antiretroviral agent that requires pharmacokinetic enhancement [see Warnings and Precautions (5.4) ]. Evaluate whether dosing adjustments of concomitant medications or coadministered antiretroviral drugs are necessary in: Patients on a stable concomitant medication who initiate or switch to a TYBOST-c",
+        "supporting_text": "Drug Interactions: Alteration in Dose or Regimen May Be Recommended Based on Drug Interaction Studies or Predicted Interaction Concomitant Drug Class: Drug Name Potential Effect ↑ = Increase, ↓ = Decrease, ↔ = No change Clinical Comment Antiretroviral Agents: Nucleotide Reverse Transcriptase Inhibitor (NRTI) tenofovir alafenamide ↔tenofovir alafenamide ↑tenofovir alafenamide TYBOST coadministered with darunavir in pediatric patients weighing at least 15 kg: No dose adjustment.",
+        "source_version": "effective 20260210 · version 16",
+        "anchor_drug": "cobicistat",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"cobicistat\"&limit=20",
+        "retrieved_at": "2026-07-11T22:21:44.054Z"
+      },
+      {
+        "id": "label:1306286:interactions",
+        "claim_text": "FDA label drug-interactions section for elvitegravir",
+        "source_name": "openFDA-label",
+        "source_id": "74ae2a93-b267-444c-8f0f-a2a6522260ee",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=74ae2a93-b267-444c-8f0f-a2a6522260ee",
+        "exact_field": "drug_interactions",
+        "quoted_text": "7 DRUG INTERACTIONS STRIBILD is a complete regimen for the treatment of HIV-1 infection; therefore, STRIBILD should not be administered with other antiretroviral medications for treatment of HIV-1 infection. ( 7.1 ) STRIBILD can alter the concentration of drugs metabolized by CYP3A or CYP2D6. Drugs that induce CYP3A can alter the concentrations of one or more components of STRIBILD. Consult the full prescribing information prior to and during treatment for potential drug-drug interactions. ( 4 , 7.2 , 7.3 , 12.3 ) 7.1 Not Recommended with Other Antiretroviral Medications STRIBILD is a complete regimen for the treatment of HIV-1 infection; therefore, STRIBILD should not be administered with other antiretroviral medications for treatment of HIV-1 infection. Complete information regarding potential drug-drug interactions with other antiretroviral medications is not provided [see Contraindications (4) , Warnings and Precautions (5.4) and Clinical Pharmacology (12.3) ] . 7.2 Potential for STRIBILD to Affect Other Drugs Cobicistat, a component of STRIBILD, is an inhibitor of CYP3A and CYP2D6 and an inhibitor of the following transporters: P-glycoprotein (P-gp), BCRP, OATP1B1, and OATP1B3. Thus, coadministration of STRIBILD with drugs that are primarily metabolized by CYP3A or CYP2D6, or are substrates of P-gp, BCRP, OATP1B1, or OATP1B3, may result in increased plasma concentrations of such drugs. Coadministration of STRIBILD with drugs that have active metabolite(s) formed by CYP3A may result in reduced plasma concentration of these active metabolite(s) (Table 5). Elvitegravir is a modest inducer of CYP2C9 and may decrease the plasma concentrations of CYP2C9 substrates. 7.3 Potential for Other Drugs to Affect One or More Components of STRIBILD Elvitegravir and cobicistat, components of STRIBILD, are metabolized by CYP3A. Cobicistat is also metabolized, to a minor extent, by CYP2D6. Drugs that induce CYP3A activity are expected to increase the clearance of elvitegravir and cobicistat, resulting in decreased plasma concentration of cobicistat and elvitegravir, which may lead to loss of therapeutic effect of STRIBILD and development of resistance (Table 5). Coadministration of STRIBILD with other drugs that inhibit CYP3A may decrease the clearance and increase the plasma concentration of cobicistat (Table 5). 7.4 Drugs Affecting Renal Function Because emtricitabine and tenofovir, components of STRIBILD, are primarily excreted by the kidneys by a combination of glomerular filtration and active tubular secretion, coadministration of STRIBILD with drugs that reduce renal function or compete for active tubular secretion may increase concentrations of emtricitabine, tenofovir, and other renally eliminated drugs and this may increase the risk of adverse reactions. Some examples of drugs that are eliminated by active tubular secretion include, but are not limited to, acyclovir, cidofovir, ganciclovir, valacyclovir, valganciclovir, aminoglycosides (e.g., gentamicin), and high-dose or multiple NSAIDs [see Warnings and Precautions (5.2) ] . 7.5 Established and Other Potentially Significant Interactions Table 5 provides a listing of established or potentially clinically significant drug interactions. The drug interactions described are based on studies conducted with either STRIBILD or the components of STRIBILD (elvitegravir, cobicistat, emtricitabine, and TDF) as individual agents and/or in combination, or are predicted drug interactions that may occur with STRIBILD [for magnitude of interaction see Clinical Pharmacology (12.3) ]. The table includes potentially significant interactions but is not all inclusive [see Contraindications (4) and Clinical Pharmacology (12.3) ]. Table 5 Established and Other Potentially Significant This table is not all inclusive. Drug Interactions: Alteration in Dose or Regimen May Be Recommended Based on Drug Interaction Studies or Predicted Interaction Concomitant Drug Class: Drug Name Effect on Concentration ↑=Inc",
+        "supporting_text": "The drug interactions described are based on studies conducted with either STRIBILD or the components of STRIBILD (elvitegravir, cobicistat, emtricitabine, and TDF) as individual agents and/or in combination, or are predicted drug interactions that may occur with STRIBILD [for magnitude of interaction see Clinical Pharmacology (12.",
+        "source_version": "effective 20250204 · version 22",
+        "anchor_drug": "elvitegravir",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"elvitegravir\"&limit=20",
+        "retrieved_at": "2026-07-11T22:21:44.054Z"
+      },
+      {
+        "id": "label:1306286:boxed",
+        "claim_text": "FDA boxed warning for elvitegravir",
+        "source_name": "openFDA-label",
+        "source_id": "74ae2a93-b267-444c-8f0f-a2a6522260ee",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=74ae2a93-b267-444c-8f0f-a2a6522260ee",
+        "exact_field": "boxed_warning",
+        "quoted_text": "WARNING: POSTTREATMENT ACUTE EXACERBATION OF HEPATITIS B Severe acute exacerbations of hepatitis B have been reported in patients who are coinfected with HIV-1 and HBV and have discontinued EMTRIVA or VIREAD, which are components of STRIBILD. Hepatic function should be monitored closely, with both clinical and laboratory follow-up for at least several months in patients who are coinfected with HIV-1 and HBV and discontinue STRIBILD. If appropriate, initiation of anti-hepatitis B therapy may be warranted [see Warnings and Precautions (5.1) ] . WARNING: POSTTREATMENT ACUTE EXACERBATION OF HEPATITIS B See full prescribing information for complete boxed warning. Severe acute exacerbations of hepatitis B have been reported in patients coinfected with HIV-1 and HBV who have discontinued EMTRIVA or VIREAD, two of the components of STRIBILD. Hepatic function should be monitored closely in these patients. If appropriate, initiation of anti-hepatitis B therapy may be warranted. ( 5.1 )",
+        "supporting_text": "WARNING: POSTTREATMENT ACUTE EXACERBATION OF HEPATITIS B Severe acute exacerbations of hepatitis B have been reported in patients who are coinfected with HIV-1 and HBV and have discontinued EMTRIVA or VIREAD, which are components of STRIBILD.",
+        "source_version": "effective 20250204 · version 22",
+        "anchor_drug": "elvitegravir",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"elvitegravir\"&limit=20",
+        "retrieved_at": "2026-07-11T22:21:44.054Z"
+      },
+      {
+        "id": "label:1721603:interactions",
+        "claim_text": "FDA label drug-interactions section for tenofovir alafenamide",
+        "source_name": "openFDA-label",
+        "source_id": "72e6b33c-0351-4070-9172-eeaa186c01d2",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=72e6b33c-0351-4070-9172-eeaa186c01d2",
+        "exact_field": "drug_interactions",
+        "quoted_text": "7 DRUG INTERACTIONS VEMLIDY is a substrate of P-glycoprotein (P-gp) and BCRP. Drugs that strongly affect P-gp and BCRP activity may lead to changes in VEMLIDY absorption. Consult the full prescribing information prior to and during treatment for potential drug-drug interactions. ( 7 ) 7.1 Potential for Other Drugs to Affect VEMLIDY VEMLIDY is a substrate of P-glycoprotein (P-gp) and BCRP. Drugs that strongly affect P-gp and BCRP activity may lead to changes in tenofovir alafenamide absorption (see Table 4 ). Drugs that induce P-gp activity are expected to decrease the absorption of tenofovir alafenamide, resulting in decreased plasma concentrations of tenofovir alafenamide, which may lead to loss of therapeutic effect of VEMLIDY. Coadministration of VEMLIDY with other drugs that inhibit P-gp and BCRP may increase the absorption and plasma concentration of tenofovir alafenamide. 7.2 Drugs Affecting Renal Function Because tenofovir is primarily excreted by the kidneys by a combination of glomerular filtration and active tubular secretion, coadministration of VEMLIDY with drugs that reduce renal function or compete for active tubular secretion may increase concentrations of tenofovir and other renally eliminated drugs and this may increase the risk of adverse reactions. Some examples of drugs that are eliminated by active tubular secretion include, but are not limited to, acyclovir, cidofovir, ganciclovir, valacyclovir, valganciclovir, aminoglycosides (e.g., gentamicin), and high-dose or multiple NSAIDs [see Warnings and Precautions (5.3) ] . 7.3 Established and Other Potentially Significant Interactions Table 4 provides a listing of established or potentially clinically significant drug interactions. The drug interactions described are based on studies conducted with tenofovir alafenamide or are predicted drug interactions that may occur with VEMLIDY [For magnitude of interaction, see Clinical Pharmacology (12.3) ] . Information regarding potential drug-drug interactions with HIV antiretrovirals is not provided (see the prescribing information for emtricitabine/tenofovir alafenamide for interactions with HIV antiretrovirals). The table includes potentially significant interactions but is not all inclusive. Table 4 Established and Other Potentially Significant Drug Interactions This table is not all inclusive. Concomitant Drug Class: Drug Name Effect on Concentration ↓ = decrease. Clinical Comment Anticonvulsants: ↓ tenofovir alafenamide When coadministered with carbamazepine, the tenofovir alafenamide dose should be increased to two tablets once daily. Coadministration of VEMLIDY with oxcarbazepine, phenobarbital, or phenytoin is not recommended. Carbamazepine Indicates that a drug interaction study was conducted. P-gp inducer Oxcarbazepine Phenobarbital Phenytoin Antimycobacterials: ↓ tenofovir alafenamide Coadministration of VEMLIDY with rifabutin, rifampin or rifapentine is not recommended. Rifabutin Rifampin Rifapentine Herbal Products: ↓ tenofovir alafenamide Coadministration of VEMLIDY with St. John's wort is not recommended. St. John's wort (Hypericum perforatum) 7.4 Drugs without Clinically Significant Interactions with VEMLIDY Based on drug interaction studies conducted with VEMLIDY, no clinically significant drug interactions have been observed with: ethinyl estradiol, ledipasvir/sofosbuvir, midazolam, norgestimate, sertraline, sofosbuvir, sofosbuvir/velpatasvir, and sofosbuvir/velpatasvir/voxilaprevir.",
+        "supporting_text": "Information regarding potential drug-drug interactions with HIV antiretrovirals is not provided (see the prescribing information for emtricitabine/tenofovir alafenamide for interactions with HIV antiretrovirals).",
+        "source_version": "effective 20250714 · version 17",
+        "anchor_drug": "tenofovir alafenamide",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"tenofovir%20alafenamide\"&limit=20",
+        "retrieved_at": "2026-07-11T22:21:44.054Z"
+      },
+      {
+        "id": "label:1721603:boxed",
+        "claim_text": "FDA boxed warning for tenofovir alafenamide",
+        "source_name": "openFDA-label",
+        "source_id": "72e6b33c-0351-4070-9172-eeaa186c01d2",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=72e6b33c-0351-4070-9172-eeaa186c01d2",
+        "exact_field": "boxed_warning",
+        "quoted_text": "WARNING: POSTTREATMENT SEVERE ACUTE EXACERBATION OF HEPATITIS B Discontinuation of anti-hepatitis B therapy, including VEMLIDY, may result in severe acute exacerbations of hepatitis B. Hepatic function should be monitored closely with both clinical and laboratory follow-up for at least several months in patients who discontinue anti-hepatitis B therapy, including VEMLIDY. If appropriate, resumption of anti-hepatitis B therapy may be warranted [see Warnings and Precautions (5.1) ] . WARNING: POSTTREATMENT SEVERE ACUTE EXACERBATION OF HEPATITIS B See full prescribing information for complete boxed warning. Discontinuation of anti-hepatitis B therapy may result in severe acute exacerbations of hepatitis B. Hepatic function should be monitored closely in patients who discontinue VEMLIDY. If appropriate, resumption of anti-hepatitis B therapy may be warranted. ( 5.1 )",
+        "supporting_text": "WARNING: POSTTREATMENT SEVERE ACUTE EXACERBATION OF HEPATITIS B Discontinuation of anti-hepatitis B therapy, including VEMLIDY, may result in severe acute exacerbations of hepatitis B.",
+        "source_version": "effective 20250714 · version 17",
+        "anchor_drug": "tenofovir alafenamide",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"tenofovir%20alafenamide\"&limit=20",
+        "retrieved_at": "2026-07-11T22:21:44.054Z"
+      },
+      {
+        "id": "label:276237:interactions",
+        "claim_text": "FDA label drug-interactions section for emtricitabine",
+        "source_name": "openFDA-label",
+        "source_id": "4feb83a5-9142-0c67-e063-6394a90a710f",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4feb83a5-9142-0c67-e063-6394a90a710f",
+        "exact_field": "drug_interactions",
+        "quoted_text": "7 DRUG INTERACTIONS Tenofovir disoproxil fumarate increases didanosine concentrations. Dose reduction and close monitoring for didanosine toxicity are warranted. ( 7.2 ) Coadministration decreases atazanavir concentrations. When coadministered with emtricitabine and tenofovir disoproxil fumarate, use atazanavir given with ritonavir. ( 7.2 ) Coadministration of emtricitabine and tenofovir disoproxil fumarate with certain HIV-1 protease inhibitors or certain drugs to treat HCV increases tenofovir concentrations. Monitor for evidence of tenofovir toxicity. ( 7.2 ) Consult Full Prescribing Information prior to and during treatment for important drug interactions. ( 7.2 ) 7.1 Drugs Affecting Renal Function FTC and tenofovir are primarily excreted by the kidneys by a combination of glomerular filtration and active tubular secretion [see Clinical Pharmacology (12.3) ] . No drug-drug interactions due to competition for renal excretion have been observed; however, coadministration of emtricitabine and tenofovir disoproxil fumarate with drugs that are eliminated by active tubular secretion may increase concentrations of FTC, tenofovir, and/or the coadministered drug. Some examples include, but are not limited to, acyclovir, adefovir dipivoxil, cidofovir, ganciclovir, valacyclovir, valganciclovir, aminoglycosides (e.g., gentamicin), and high-dose or multiple NSAIDs [see Warnings and Precautions (5.3) ] . Drugs that decrease renal function may increase concentrations of FTC and/or tenofovir. 7.2 Established and Significant Interactions Table 7 provides a listing of established or clinically significant drug interactions. The drug interactions described are based on studies conducted with either emtricitabine and tenofovir disoproxil fumarate tablets, the components of emtricitabine and tenofovir disoproxil fumarate tablets (FTC and TDF) as individual agents and/or in combination, or are predicted drug interactions that may occur with emtricitabine and tenofovir disoproxil fumarate tablets [see Clinical Pharmacology (12.3) ]. Table 7 Established and Significant a Drug Interactions: Alteration in Dose or Regimen May Be Recommended Based on Drug Interaction Trials a. This table is not all inclusive. b. ↑=Increase, ↓=Decrease c. Indicates that a drug-drug interaction trial was conducted. Concomitant Drug Class: Drug Name Effect on Concentration b Clinical Comment NRTI: didanosine c ↑ didanosine Patients receiving emtricitabine and tenofovir disoproxil fumarate tablets and didanosine should be monitored closely for didanosine-associated adverse reactions. Discontinue didanosine in patients who develop didanosine-associated adverse reactions. Higher didanosine concentrations could potentiate didanosine-associated adverse reactions, including pancreatitis, and neuropathy. Suppression of CD4+ cell counts has been observed in patients receiving TDF with didanosine 400 mg daily. In patients weighing greater than 60 kg, reduce the didanosine dose to 250 mg when it is coadministered with emtricitabine and tenofovir disoproxil fumarate tablets. Data are not available to recommend a dose adjustment of didanosine for adult or pediatric patients weighing less than 60 kg. When coadministered, emtricitabine and tenofovir disoproxil fumarate tablets and Videx EC may be taken under fasted conditions or with a light meal (less than 400 kcal, 20% fat). HIV-1 Protease Inhibitors: atazanavir c lopinavir/ritonavir c atazanavir/ritonavir c darunavir/ritonavir c ↓ atazanavir ↑ tenofovir When coadministered with emtricitabine and tenofovir disoproxil fumarate tablets, atazanavir 300 mg should be given with ritonavir 100 mg. Monitor patients receiving emtricitabine and tenofovir disoproxil fumarate tablets concomitantly with lopinavir/ ritonavir, ritonavir-boosted atazanavir, or ritonavir-boosted darunavir for TDF-associated adverse reactions. Discontinue emtricitabine and tenofovir disoproxil fumarate tablets in patients who develop TDF-associated adverse reactions.",
+        "supporting_text": "Monitor patients receiving emtricitabine and tenofovir disoproxil fumarate tablets concomitantly with HARVONI ® (ledipasvir/sofosbuvir) without an HIV-1 protease inhibitor/ritonavir or an HIV-1 protease inhibitor/cobicistat combination for adverse reactions associated with TDF. In patients receiving emtricitabine and tenofovir disoproxil fumarate tablets concomitantly with HARVONI and an HIV-1 protease inhibitor/ritonavir or an HIV-1 protease inhibitor/cobicistat combination, consider an alternative HCV or antiretroviral therapy, as the safety of increased tenofovir concentrations in this setting has not been established.",
+        "source_version": "effective 20260420 · version 1",
+        "anchor_drug": "emtricitabine",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"emtricitabine\"&limit=20",
+        "retrieved_at": "2026-07-11T22:21:44.054Z"
+      },
+      {
+        "id": "label:276237:boxed",
+        "claim_text": "FDA boxed warning for emtricitabine",
+        "source_name": "openFDA-label",
+        "source_id": "4feb83a5-9142-0c67-e063-6394a90a710f",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4feb83a5-9142-0c67-e063-6394a90a710f",
+        "exact_field": "boxed_warning",
+        "quoted_text": "WARNING: POSTTREATMENT ACUTE EXACERBATION OF HEPATITIS B and RISK OF DRUG RESISTANCE WITH USE OF EMTRICITABINE AND TENOFOVIR DISOPROXIL FUMARATE TABLETS FOR PRE-EXPOSURE PROPHYLAXIS (PrEP) IN UNDIAGNOSED EARLY HIV-1 INFECTION Severe acute exacerbations of hepatitis B (HBV) have been reported in HBV-infected individuals who have discontinued emtricitabine and tenofovir disoproxil fumarate. Hepatic function should be monitored closely with both clinical and laboratory follow-up for at least several months in individuals who are infected with HBV and discontinue emtricitabine and tenofovir disoproxil fumarate. If appropriate, anti-hepatitis B therapy may be warranted [see Warnings and Precautions (5.1) ] . Emtricitabine and tenofovir disoproxil fumarate used for HIV-1 PrEP must only be prescribed to individuals confirmed to be HIV-negative immediately prior to initiating and at least every 3 months during use. Drug-resistant HIV-1 variants have been identified with use of emtricitabine and tenofovir disoproxil fumarate for HIV-1 PrEP following undetected acute HIV-1 infection. Do not initiate emtricitabine and tenofovir disoproxil fumarate for HIV-1 PrEP if signs or symptoms of acute HIV-1 infection are present unless negative infection status is confirmed [see Warnings and Precautions (5.2) ]. WARNING: POSTTREATMENT ACUTE EXACERBATION OF HEPATITIS B and RISK OF DRUG RESISTANCE WITH USE OF EMTRICITABINE AND TENOFOVIR DISOPROXIL FUMARATE TABLETS FOR HIV-1 PRE-EXPOSURE PROPHYLAXIS (PrEP) IN UNDIAGNOSED EARLY HIV-1 INFECTION See full prescribing information for complete boxed warning. • Severe acute exacerbations of hepatitis B (HBV) have been reported in HBV-infected individuals who have discontinued emtricitabine and tenofovir disoproxil fumarate. Hepatic function should be monitored closely in these individuals who discontinue emtricitabine and tenofovir disoproxil fumarate. If appropriate anti-hepatitis B therapy may be warranted. ( 5.1 ) • Emtricitabine and tenofovir",
+        "supporting_text": "WARNING: POSTTREATMENT ACUTE EXACERBATION OF HEPATITIS B and RISK OF DRUG RESISTANCE WITH USE OF EMTRICITABINE AND TENOFOVIR DISOPROXIL FUMARATE TABLETS FOR PRE-EXPOSURE PROPHYLAXIS (PrEP) IN UNDIAGNOSED EARLY HIV-1 INFECTION Severe acute exacerbations of hepatitis B (HBV) have been reported in HBV-infected individuals who have discontinued emtricitabine and tenofovir disoproxil fumarate.",
+        "source_version": "effective 20260420 · version 1",
+        "anchor_drug": "emtricitabine",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"emtricitabine\"&limit=20",
+        "retrieved_at": "2026-07-11T22:21:44.054Z"
+      },
+      {
+        "id": "label:36567:interactions",
+        "claim_text": "FDA label drug-interactions section for simvastatin",
+        "source_name": "openFDA-label",
+        "source_id": "0ccb324f-877d-4f32-a769-7cd1637b7fad",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0ccb324f-877d-4f32-a769-7cd1637b7fad",
+        "exact_field": "drug_interactions",
+        "quoted_text": "7 DRUG INTERACTIONS See full prescribing information for details regarding concomitant use of simvastatin with other drugs or grapefruit juice that increase the risk of myopathy and rhabdomyolysis. ( 2.5 , 7.1 ) Coumarin Anticoagulants: Obtain INR before simvastatin initiation and monitor INR during simvastatin dosage initiation or adjustment. ( 7.2 ) Digoxin: During simvastatin initiation, monitor digoxin levels. ( 7.2 ) 7.1 Drug Interactions that Increase the Risk of Myopathy and Rhabdomyolysis with Simvastatin Simvastatin is a substrate of CYP3A4 and of the transport protein OATP1B1. Simvastatin exposure can be significantly increased with concomitant administration of inhibitors of CYP3A4 and OATP1B1. Table 2 includes a list of drugs that increase the risk of myopathy and rhabdomyolysis when used concomitantly with simvastatin and instructions for preventing or managing them [see WARNINGS AND PRECAUTIONS ( 5.1 ) AND CLINICAL PHARMACOLOGY ( 12.3 )] . Table 2: Drug Interactions that Increase the Risk of Myopathy and Rhabdomyolysis with Simvastatin Strong CYP3A4 inhibitors Clinical Impact: Simvastatin is a substrate of CYP3A4. Concomitant use of strong CYP3A4 inhibitors with simvastatin increases simvastatin exposure and increases the risk of myopathy and rhabdomyolysis, particularly with higher simvastatin dosages. Intervention: Concomitant use of strong CYP3A4 inhibitors with Simvastatin is contraindicated [see CONTRAINDICATIONS ( 4 )] . If treatment with a CYP3A4 inhibitor is unavoidable, suspend simvastatin during the course of strong CYP3A4 inhibitor treatment. Examples: Select azole anti-fungals (e.g., itraconazole, ketoconazole, posaconazole, and voriconazole), select macrolide antibiotics (e.g., erythromycin and clarithromycin), select HIV protease inhibitors (e.g., nelfinavir, ritonavir, and darunavir/ritonavir), select HCV protease inhibitors (e.g., boceprevir and telaprevir), cobicistat-containing products, and nefazodone. Cyclosporine, Danazol, or Gemfibrozil Clinical Impact: The risk of myopathy and rhabdomyolysis is increased with concomitant use of cyclosporine, danazol, or gemfibrozil with simvastatin. Gemfibrozil may cause myopathy when given alone. Intervention: Concomitant use of cyclosporine, danazol, or gemfibrozil with simvastatin is contraindicated [see CONTRAINDICATIONS ( 4 )] . Amiodarone, Dronedarone, Ranolazine, or Calcium Channel Blockers Clinical Impact: The risk of myopathy and rhabdomyolysis is increased by concomitant use of amiodarone, dronedarone, ranolazine, or calcium channel blockers with simvastatin. Intervention: For patients taking verapamil, diltiazem, or dronedarone, do not exceed simvastatin 10 mg daily. For patients taking amiodarone, amlodipine, or ranolazine, do not exceed simvastatin 20 mg daily [see DOSAGE AND ADMINISTRATION ( 2.5 )] . Lomitapide Clinical Impact: Simvastatin exposure is approximately doubled with concomitant use of lomitapide and the risk of myopathy and rhabdomyolysis is increased. Intervention: Reduce the dose of simvastatin by 50% if initiating lomitapide. Do not exceed simvastatin 20 mg daily (or simvastatin 40 mg daily for patients who have previously taken an 80 mg daily dosage of simvastatin chronically) while taking lomitapide [see DOSAGE AND ADMINISTRATION ( 2.1 , 2.5 )] . Daptomycin Clinical Impact: Cases of rhabdomyolysis have been reported with simvastatin administered with daptomycin. Both simvastatin and daptomycin can cause myopathy and rhabdomyolysis when given alone and the risk of myopathy and rhabdomyolysis may be increased by coadministration. Intervention: If treatment with daptomycin is required, consider temporarily suspending simvastatin during the course of daptomycin treatment. Niacin Clinical Impact: Cases of myopathy and rhabdomyolysis have been observed with concomitant use of lipid modifying dosages of niacin-containing products (≥1 gram/day niacin) with simvastatin. The risk of myopathy is greater in Chinese patients. In a clinical",
+        "supporting_text": ", boceprevir and telaprevir), cobicistat-containing products, and nefazodone. Cyclosporine, Danazol, or Gemfibrozil Clinical Impact: The risk of myopathy and rhabdomyolysis is increased with concomitant use of cyclosporine, danazol, or gemfibrozil with simvastatin.",
+        "source_version": "effective 20260323 · version 4",
+        "anchor_drug": "simvastatin",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"simvastatin\"&limit=20",
+        "retrieved_at": "2026-07-11T22:21:44.054Z"
+      },
+      {
+        "id": "ddinter:DDInter1675:DDInter424",
+        "claim_text": "DDInter severity for Genvoya + simvastatin: Major",
+        "source_name": "DDInter",
+        "source_id": "DDInter1675/DDInter424",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
+        "exact_field": "Level",
+        "quoted_text": "Drug_A: Simvastatin; Drug_B: Cobicistat; Level: Major",
+        "supporting_text": "Drug_A: Simvastatin; Drug_B: Cobicistat; Level: Major",
+        "subject_drugs": [
+          "Simvastatin",
+          "Cobicistat"
+        ],
+        "retrieval_query": "local DDInter ddinter_downloads_code_A.csv row: DDInter1675 (Simvastatin) x DDInter424 (Cobicistat)",
+        "retrieved_at": "2026-07-11T22:34:05.026Z"
+      }
+    ],
+    "unverified_removed": [
+      {
+        "claim_text": "Advertencia enmarcada sobre exacerbación aguda grave de hepatitis B tras interrumpir componentes de Genvoya",
+        "reason": "Revisor: la afirmación no está respaldada por las fuentes citadas: La severidad se declara como moderate, pero las fuentes citadas describen exacerbaciones agudas GRAVES de hepatitis B (severe acute exacerbations), lo que corresponde a severidad mayor; la clasificación moderate es incorrecta.; El razonamiento why_this_patient afirma un riesgo de exacerbación de hepatitis B en pacientes coinfectados con VHB, pero el contexto del paciente indica hepatitis C y hepatitis A, no hepatitis B; no hay evidencia de coinfección por VHB en el contexto del paciente.; El hallazgo describe un escenario de interrupción de componentes de Genvoya, pero el contexto del paciente no documenta que emtricitabina o tenofovir hayan sido interrumpidos en un paciente con VHB."
+      },
+      {
+        "claim_text": "¿El nuevo régimen antirretroviral iniciado cinco meses después incluye algún producto que contenga cobicistat u otro inhibidor de CYP3A4 que pudiera coincidir con una estatina?",
+        "reason": "Revisor narrativo: El nuevo régimen antirretroviral que se inició cinco meses después: no hay evidencia citada que describa su composición; el contexto solo indica 'Anacin Aspirin Regimen Pill' (aspirina) como resolución aproximada, sin datos sobre cobicistat u otros inhibidores de CYP3A4 en ese régimen"
+      }
+    ],
+    "generated_at": "2026-07-11T22:34:05.026Z",
+    "pipeline": {
+      "mode": "audited-replay",
+      "model": "Claude Opus 4.8",
+      "stages": [
+        "ingest",
+        "retrieve",
+        "synthesize",
+        "verify"
+      ],
+      "ddinter": {
+        "source_rows": 222383,
+        "unique_pairs": 160235,
+        "unique_drugs": 1939,
+        "source_files": 8
+      }
+    }
+  },
+  "generatedAt": "2026-07-11T22:34:05.026Z"
+}

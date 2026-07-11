@@ -1,0 +1,146 @@
+{
+  "id": "aspirin-nsaid-anaphylaxis",
+  "locale": "es",
+  "intake": {
+    "case": {
+      "note": "Case report PMC10492403 / PMID 37684617. 45 year old woman referred after anaphylaxis-type reaction with ibuprofen use, treated with IM epinephrine. Underwent oral ASA challenge with reaction requiring 2 doses of IM epinephrine. Passed acetaminophen and celecoxib challenges.",
+      "medications": [
+        {
+          "raw": "ASA",
+          "status": "active",
+          "source_span": "She previously tolerated ibuprofen, naproxen, and acetaminophen and had no history of urticaria, angioedema, asthma, or nasal polyps."
+        },
+        {
+          "raw": "Ibuprofen",
+          "status": "one-time",
+          "source_span": "An otherwise healthy 45 year old woman was referred to the Allergy and Immunology clinic after developing acute onset dyspnea, lip swelling, and generalized urticaria with ibuprofen use requiring treatment with intramuscular epinephrine in the emergency department."
+        },
+        {
+          "raw": "Epinephrine",
+          "status": "one-time",
+          "source_span": "An otherwise healthy 45 year old woman was referred to the Allergy and Immunology clinic after developing acute onset dyspnea, lip swelling, and generalized urticaria with ibuprofen use requiring treatment with intramuscular epinephrine in the emergency department."
+        },
+        {
+          "raw": "Acetaminophen",
+          "status": "one-time",
+          "source_span": "On subsequent visits she passed treatment dose acetaminophen and celecoxib challenges."
+        },
+        {
+          "raw": "Celecoxib",
+          "status": "one-time",
+          "source_span": "On subsequent visits she passed treatment dose acetaminophen and celecoxib challenges."
+        }
+      ],
+      "allergies": [],
+      "diagnoses": [],
+      "labs": []
+    },
+    "ambiguities": [],
+    "sourceSummary": "title: \"A case of possible anaphylaxis to ASA and structurally unrelated NSAIDs\""
+  },
+  "report": {
+    "patient": {
+      "medications": [
+        {
+          "raw": "ASA",
+          "rxcui": "1191",
+          "name": "aspirin",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "1191",
+              "name": "aspirin"
+            }
+          ],
+          "status": "active",
+          "source_span": "She previously tolerated ibuprofen, naproxen, and acetaminophen and had no history of urticaria, angioedema, asthma, or nasal polyps."
+        },
+        {
+          "raw": "Ibuprofen",
+          "rxcui": "5640",
+          "name": "ibuprofen",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "5640",
+              "name": "ibuprofen"
+            }
+          ],
+          "status": "one-time",
+          "source_span": "An otherwise healthy 45 year old woman was referred to the Allergy and Immunology clinic after developing acute onset dyspnea, lip swelling, and generalized urticaria with ibuprofen use requiring treatment with intramuscular epinephrine in the emergency department."
+        },
+        {
+          "raw": "Epinephrine",
+          "rxcui": "3992",
+          "name": "epinephrine",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "3992",
+              "name": "epinephrine"
+            }
+          ],
+          "status": "one-time",
+          "source_span": "An otherwise healthy 45 year old woman was referred to the Allergy and Immunology clinic after developing acute onset dyspnea, lip swelling, and generalized urticaria with ibuprofen use requiring treatment with intramuscular epinephrine in the emergency department."
+        },
+        {
+          "raw": "Acetaminophen",
+          "rxcui": "161",
+          "name": "acetaminophen",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "161",
+              "name": "acetaminophen"
+            }
+          ],
+          "status": "one-time",
+          "source_span": "On subsequent visits she passed treatment dose acetaminophen and celecoxib challenges."
+        },
+        {
+          "raw": "Celecoxib",
+          "rxcui": "140587",
+          "name": "celecoxib",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "140587",
+              "name": "celecoxib"
+            }
+          ],
+          "status": "one-time",
+          "source_span": "On subsequent visits she passed treatment dose acetaminophen and celecoxib challenges."
+        }
+      ],
+      "allergies": [],
+      "diagnoses": [],
+      "labs": [],
+      "note": "Case report PMC10492403 / PMID 37684617. 45 year old woman referred after anaphylaxis-type reaction with ibuprofen use, treated with IM epinephrine. Underwent oral ASA challenge with reaction requiring 2 doses of IM epinephrine. Passed acetaminophen and celecoxib challenges."
+    },
+    "patient_summary": "Mujer de 45 años referida tras una reacción tipo anafilaxia con el uso de ibuprofeno, tratada con epinefrina intramuscular. Sus medicamentos incluyen aspirina, ibuprofeno, epinefrina, acetaminofén y celecoxib. No se proporcionaron alergias, diagnósticos ni valores de laboratorio estructurados, y no se incluyó ninguna evidencia para analizar.",
+    "findings": [],
+    "questions_for_clinician": [
+      "¿Puede proporcionar las fuentes de evidencia para poder analizar las posibles interacciones o problemas de seguridad de estos medicamentos?"
+    ],
+    "evidence": [],
+    "unverified_removed": [],
+    "generated_at": "2026-07-11T22:36:47.700Z",
+    "pipeline": {
+      "mode": "audited-replay",
+      "model": "Claude Opus 4.8",
+      "stages": [
+        "ingest",
+        "retrieve",
+        "synthesize",
+        "verify"
+      ],
+      "ddinter": {
+        "source_rows": 222383,
+        "unique_pairs": 160235,
+        "unique_drugs": 1939,
+        "source_files": 8
+      }
+    }
+  },
+  "generatedAt": "2026-07-11T22:36:47.700Z"
+}

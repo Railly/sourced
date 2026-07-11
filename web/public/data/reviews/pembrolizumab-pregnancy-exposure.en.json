@@ -1,0 +1,399 @@
+{
+  "id": "pembrolizumab-pregnancy-exposure",
+  "locale": "en",
+  "intake": {
+    "case": {
+      "note": "Case report PMC11761911 / PMID 39857724. Target episode: pregnancy in a patient treated with pembrolizumab and exposed to 18F-FDG PET/CT during gestation. Estimated LMP 20 December 2022; gestation identified at ~24 weeks on 6 June 2023 ultrasound. Pembrolizumab given July 2022 to December 2022 (six cycles of 200 mg) with a possible sixth cycle in the periconceptional period, and 200 mg in February, March, April, May during first and second trimester. 18F-FDG PET/CT on 18 January 2023 (first trimester). Delivery September 2023 at 37.5 weeks with PROM; male newborn 2650 g, APGAR 8/9.",
+      "medications": [
+        {
+          "raw": "Pembrolizumab (200 mg)",
+          "episode": "Treatment with pembrolizumab during and around pregnancy; 200 mg cycles July 2022-December 2022 and February, March, April, May during first and second trimester",
+          "start": "July 2022",
+          "end": "May 2023",
+          "source_span": "treatment with pembrolizumab was started (11 cycles between September 2022 and May 2023)",
+          "status": "active"
+        },
+        {
+          "raw": "Insulin Lispro",
+          "episode": "Treatment for type 1 diabetes, ongoing at HL diagnosis October 2020",
+          "source_span": "already undergoing treatment for type 1 diabetes with Insulin Lispro and Glargine",
+          "status": "active"
+        },
+        {
+          "raw": "Insulin Glargine",
+          "episode": "Treatment for type 1 diabetes, ongoing at HL diagnosis October 2020",
+          "source_span": "already undergoing treatment for type 1 diabetes with Insulin Lispro and Glargine",
+          "status": "active"
+        },
+        {
+          "raw": "Doxorubicin (ABVD protocol)",
+          "episode": "ABVD chemotherapy for Hodgkin's lymphoma, November 2020 to April 2021",
+          "start": "November 2020",
+          "end": "April 2021",
+          "source_span": "ABVD protocol (Doxorubicin, Bleomycin, Vinblastine, and Dacarbazine) from November 2020 to April 2021",
+          "status": "historical"
+        },
+        {
+          "raw": "Bleomycin (ABVD protocol)",
+          "episode": "ABVD chemotherapy for Hodgkin's lymphoma, November 2020 to April 2021",
+          "start": "November 2020",
+          "end": "April 2021",
+          "source_span": "ABVD protocol (Doxorubicin, Bleomycin, Vinblastine, and Dacarbazine) from November 2020 to April 2021",
+          "status": "historical"
+        },
+        {
+          "raw": "Vinblastine (ABVD protocol)",
+          "episode": "ABVD chemotherapy for Hodgkin's lymphoma, November 2020 to April 2021",
+          "start": "November 2020",
+          "end": "April 2021",
+          "source_span": "ABVD protocol (Doxorubicin, Bleomycin, Vinblastine, and Dacarbazine) from November 2020 to April 2021",
+          "status": "historical"
+        },
+        {
+          "raw": "Dacarbazine (ABVD protocol)",
+          "episode": "ABVD chemotherapy for Hodgkin's lymphoma, November 2020 to April 2021",
+          "start": "November 2020",
+          "end": "April 2021",
+          "source_span": "ABVD protocol (Doxorubicin, Bleomycin, Vinblastine, and Dacarbazine) from November 2020 to April 2021",
+          "status": "historical"
+        },
+        {
+          "raw": "Dexamethasone",
+          "episode": "Second-line therapy for persistent disease after ABVD",
+          "source_span": "second-line therapy with Dexamethasone, Cisplatin, and Cytarabine was initiated",
+          "status": "historical"
+        },
+        {
+          "raw": "Cisplatin",
+          "episode": "Second-line therapy for persistent disease after ABVD",
+          "source_span": "second-line therapy with Dexamethasone, Cisplatin, and Cytarabine was initiated",
+          "status": "historical"
+        },
+        {
+          "raw": "Cytarabine",
+          "episode": "Second-line therapy for persistent disease after ABVD",
+          "source_span": "second-line therapy with Dexamethasone, Cisplatin, and Cytarabine was initiated",
+          "status": "historical"
+        },
+        {
+          "raw": "Brentuximab and Bendamustine",
+          "episode": "Chemotherapy for disease progression, followed by Brentuximab Vedotin",
+          "source_span": "chemotherapy with Brentuximab and Bendamustine, followed by Brentuximab Vedotin",
+          "status": "historical"
+        },
+        {
+          "raw": "Brentuximab Vedotin",
+          "episode": "Chemotherapy for disease progression (four cycles between January 2021 and June 2022)",
+          "start": "January 2021",
+          "end": "June 2022",
+          "source_span": "followed by Brentuximab Vedotin (four cycles between January 2021 and June 2022)",
+          "status": "historical"
+        }
+      ],
+      "allergies": [],
+      "diagnoses": [
+        "Hodgkin's lymphoma (HL), nodular sclerosis subtype, diagnosed October 2020",
+        "Type 1 diabetes",
+        "Premature rupture of membranes (PROM)",
+        "Pregnancy"
+      ],
+      "labs": []
+    },
+    "ambiguities": [
+      {
+        "id": "amb-pembro-timing",
+        "field": "medications[0].start",
+        "question": "The source gives conflicting pembrolizumab timelines (11 cycles September 2022-May 2023 versus six cycles July 2022-December 2022 plus 200 mg in February-May). Please confirm the actual pembrolizumab start/end and cycle dates relative to the pregnancy episode."
+      },
+      {
+        "id": "amb-brentuximab-combo",
+        "field": "medications[10].raw",
+        "question": "Please confirm whether 'Brentuximab' and 'Brentuximab Vedotin' refer to separate agents or the same agent, and whether Bendamustine plus Brentuximab were given concurrently."
+      },
+      {
+        "id": "amb-brentuximab-dates",
+        "field": "medications[11].start",
+        "question": "The Brentuximab Vedotin cycles are stated as January 2021 to June 2022, which precedes some second-line therapy narrative ordering. Please confirm the correct chronology of these regimens."
+      },
+      {
+        "id": "amb-insulin-status",
+        "field": "medications[1].status",
+        "question": "Insulin Lispro and Glargine were active at diagnosis; please confirm whether these type 1 diabetes therapies were continued through the pregnancy episode."
+      }
+    ],
+    "sourceSummary": "Single case report (PMC11761911) of a multiparous type 1 diabetic patient with nodular sclerosis Hodgkin's lymphoma who received multiple prior chemotherapy regimens (ABVD; dexamethasone/cisplatin/cytarabine; brentuximab/bendamustine; brentuximab vedotin) and pembrolizumab, with pembrolizumab treatment and an 18F-FDG PET/CT occurring during an unrecognized pregnancy. Delivery at 37.5 weeks with a healthy newborn. Only one patient case is present."
+  },
+  "report": {
+    "patient": {
+      "medications": [
+        {
+          "raw": "Pembrolizumab (200 mg)",
+          "rxcui": "1547545",
+          "name": "pembrolizumab",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "1547545",
+              "name": "pembrolizumab"
+            }
+          ],
+          "status": "active",
+          "episode": "Treatment with pembrolizumab during and around pregnancy; 200 mg cycles July 2022-December 2022 and February, March, April, May during first and second trimester",
+          "start": "July 2022",
+          "end": "May 2023",
+          "source_span": "treatment with pembrolizumab was started (11 cycles between September 2022 and May 2023)"
+        },
+        {
+          "raw": "Insulin Lispro",
+          "rxcui": "86009",
+          "name": "insulin lispro",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "86009",
+              "name": "insulin lispro"
+            }
+          ],
+          "status": "active",
+          "episode": "Treatment for type 1 diabetes, ongoing at HL diagnosis October 2020",
+          "source_span": "already undergoing treatment for type 1 diabetes with Insulin Lispro and Glargine"
+        },
+        {
+          "raw": "Insulin Glargine",
+          "rxcui": "274783",
+          "name": "insulin glargine",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "274783",
+              "name": "insulin glargine"
+            }
+          ],
+          "status": "active",
+          "episode": "Treatment for type 1 diabetes, ongoing at HL diagnosis October 2020",
+          "source_span": "already undergoing treatment for type 1 diabetes with Insulin Lispro and Glargine"
+        },
+        {
+          "raw": "Doxorubicin (ABVD protocol)",
+          "rxcui": "3639",
+          "name": "doxorubicin",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "3639",
+              "name": "doxorubicin"
+            }
+          ],
+          "status": "historical",
+          "episode": "ABVD chemotherapy for Hodgkin's lymphoma, November 2020 to April 2021",
+          "start": "November 2020",
+          "end": "April 2021",
+          "source_span": "ABVD protocol (Doxorubicin, Bleomycin, Vinblastine, and Dacarbazine) from November 2020 to April 2021"
+        },
+        {
+          "raw": "Bleomycin (ABVD protocol)",
+          "rxcui": "1622",
+          "name": "bleomycin",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "1622",
+              "name": "bleomycin"
+            }
+          ],
+          "status": "historical",
+          "episode": "ABVD chemotherapy for Hodgkin's lymphoma, November 2020 to April 2021",
+          "start": "November 2020",
+          "end": "April 2021",
+          "source_span": "ABVD protocol (Doxorubicin, Bleomycin, Vinblastine, and Dacarbazine) from November 2020 to April 2021"
+        },
+        {
+          "raw": "Vinblastine (ABVD protocol)",
+          "rxcui": "11198",
+          "name": "vinblastine",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "11198",
+              "name": "vinblastine"
+            }
+          ],
+          "status": "historical",
+          "episode": "ABVD chemotherapy for Hodgkin's lymphoma, November 2020 to April 2021",
+          "start": "November 2020",
+          "end": "April 2021",
+          "source_span": "ABVD protocol (Doxorubicin, Bleomycin, Vinblastine, and Dacarbazine) from November 2020 to April 2021"
+        },
+        {
+          "raw": "Dacarbazine (ABVD protocol)",
+          "rxcui": "3098",
+          "name": "dacarbazine",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "3098",
+              "name": "dacarbazine"
+            }
+          ],
+          "status": "historical",
+          "episode": "ABVD chemotherapy for Hodgkin's lymphoma, November 2020 to April 2021",
+          "start": "November 2020",
+          "end": "April 2021",
+          "source_span": "ABVD protocol (Doxorubicin, Bleomycin, Vinblastine, and Dacarbazine) from November 2020 to April 2021"
+        },
+        {
+          "raw": "Dexamethasone",
+          "rxcui": "3264",
+          "name": "dexamethasone",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "3264",
+              "name": "dexamethasone"
+            }
+          ],
+          "status": "historical",
+          "episode": "Second-line therapy for persistent disease after ABVD",
+          "source_span": "second-line therapy with Dexamethasone, Cisplatin, and Cytarabine was initiated"
+        },
+        {
+          "raw": "Cisplatin",
+          "rxcui": "2555",
+          "name": "cisplatin",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "2555",
+              "name": "cisplatin"
+            }
+          ],
+          "status": "historical",
+          "episode": "Second-line therapy for persistent disease after ABVD",
+          "source_span": "second-line therapy with Dexamethasone, Cisplatin, and Cytarabine was initiated"
+        },
+        {
+          "raw": "Cytarabine",
+          "rxcui": "3041",
+          "name": "cytarabine",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "3041",
+              "name": "cytarabine"
+            }
+          ],
+          "status": "historical",
+          "episode": "Second-line therapy for persistent disease after ABVD",
+          "source_span": "second-line therapy with Dexamethasone, Cisplatin, and Cytarabine was initiated"
+        },
+        {
+          "raw": "Brentuximab and Bendamustine",
+          "name": "Brentuximab and Bendamustine",
+          "rxcui": null,
+          "resolution": "unresolved",
+          "status": "historical",
+          "episode": "Chemotherapy for disease progression, followed by Brentuximab Vedotin",
+          "source_span": "chemotherapy with Brentuximab and Bendamustine, followed by Brentuximab Vedotin"
+        },
+        {
+          "raw": "Brentuximab Vedotin",
+          "rxcui": "1147320",
+          "name": "brentuximab vedotin",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "1147320",
+              "name": "brentuximab vedotin"
+            }
+          ],
+          "status": "historical",
+          "episode": "Chemotherapy for disease progression (four cycles between January 2021 and June 2022)",
+          "start": "January 2021",
+          "end": "June 2022",
+          "source_span": "followed by Brentuximab Vedotin (four cycles between January 2021 and June 2022)"
+        }
+      ],
+      "allergies": [],
+      "diagnoses": [
+        "Hodgkin's lymphoma (HL), nodular sclerosis subtype, diagnosed October 2020",
+        "Type 1 diabetes",
+        "Premature rupture of membranes (PROM)",
+        "Pregnancy"
+      ],
+      "labs": [],
+      "note": "Case report PMC11761911 / PMID 39857724. Target episode: pregnancy in a patient treated with pembrolizumab and exposed to 18F-FDG PET/CT during gestation. Estimated LMP 20 December 2022; gestation identified at ~24 weeks on 6 June 2023 ultrasound. Pembrolizumab given July 2022 to December 2022 (six cycles of 200 mg) with a possible sixth cycle in the periconceptional period, and 200 mg in February, March, April, May during first and second trimester. 18F-FDG PET/CT on 18 January 2023 (first trimester). Delivery September 2023 at 37.5 weeks with PROM; male newborn 2650 g, APGAR 8/9."
+    },
+    "patient_summary": "The patient has type 1 diabetes managed with insulin lispro and insulin glargine, and a history of Hodgkin's lymphoma treated with multiple chemotherapy regimens and pembrolizumab, with treatment occurring during and around a pregnancy. No labs or allergies are recorded. The available evidence consists of the FDA drug-interaction label sections for insulin lispro and insulin glargine. These label sections describe categories of drugs that may increase the risk of hypoglycemia or may decrease insulin's blood-glucose-lowering effect. Both insulins are active medications for this patient.",
+    "findings": [
+      {
+        "status": "informational",
+        "severity": "moderate",
+        "drugs": [
+          "insulin lispro",
+          "insulin glargine"
+        ],
+        "headline": "Both insulins carry label-listed drug classes that may raise hypoglycemia risk or reduce glucose-lowering effect",
+        "mechanism": "The insulin lispro and insulin glargine FDA labels each list drug categories that may increase the risk of hypoglycemia, categories that may decrease the blood-glucose-lowering effect of insulin, categories that may either increase or decrease that effect, and categories that may blunt the signs and symptoms of hypoglycemia.",
+        "why_this_patient": "The patient uses both insulin lispro and insulin glargine for type 1 diabetes. The provided label evidence describes drug classes that may affect glucose control; if any co-administered drug falls into a listed category, glucose monitoring may need to be increased.",
+        "evidence_ids": [
+          "label:86009:interactions",
+          "label:274783:interactions"
+        ],
+        "monitoring": "Per the labels, dose adjustment and increased frequency of glucose monitoring may be required when either insulin is co-administered with drugs in these categories."
+      }
+    ],
+    "questions_for_clinician": [
+      "The medication list contains both insulin lispro and insulin glargine as active orders; are these two separate active orders as intended, and are any current co-medications members of the drug categories described in their labels?",
+      "Are any of the patient's other agents in the label-listed categories (for example corticosteroids such as the previously used dexamethasone), so that glucose monitoring frequency should be reviewed?"
+    ],
+    "evidence": [
+      {
+        "id": "label:86009:interactions",
+        "claim_text": "FDA label drug-interactions section for insulin lispro",
+        "source_name": "openFDA-label",
+        "source_id": "97d5e596-aae1-42c9-ae89-c3780959c467",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=97d5e596-aae1-42c9-ae89-c3780959c467",
+        "exact_field": "drug_interactions",
+        "quoted_text": "7 DRUG INTERACTIONS The table below includes clinically significant drug interactions with Insulin Lispro. Drugs That May Increase the Risk of Hypoglycemia Drugs: Antidiabetic agents, ACE inhibitors, angiotensin II receptor blocking agents, disopyramide, fibrates, fluoxetine, monoamine oxidase inhibitors, pentoxifylline, pramlintide, salicylates, somatostatin analog (e.g., octreotide), and sulfonamide antibiotics. Intervention: Dose adjustment and increased frequency of glucose monitoring may be required when Insulin Lispro is co-administered with these drugs. Drugs That May Decrease the Blood Glucose Lowering Effect of Insulin Lispro Drugs: Atypical antipsychotics (e.g., olanzapine and clozapine), corticosteroids, danazol, diuretics, estrogens, glucagon, isoniazid, niacin, oral contraceptives, phenothiazines, progestogens (e.g., in oral contraceptives), protease inhibitors, somatropin, sympathomimetic agents (e.g., albuterol, epinephrine, terbutaline), and thyroid hormones. Intervention: Dose adjustment and increased frequency of glucose monitoring may be required when Insulin Lispro is co-administered with these drugs. Drugs That May Increase or Decrease the Blood Glucose Lowering Effect of Insulin Lispro Drugs: Alcohol, beta-blockers, clonidine, and lithium salts. Pentamidine may cause hypoglycemia, which may sometimes be followed by hyperglycemia. Intervention: Dose adjustment and increased frequency of glucose monitoring may be required when Insulin Lispro is co-administered with these drugs. Drugs That May Blunt Signs and Symptoms of Hypoglycemia Drugs: Beta-blockers, clonidine, guanethidine and reserpine Intervention: Increased frequency of glucose monitoring may be required when Insulin Lispro is co-administered with these drugs. Drugs that may increase the risk of hypoglycemia: antidiabetic agents, ACE inhibitors, angiotensin II receptor blocking agents, disopyramide, fibrates, fluoxetine, monoamine oxidase inhibitors, pentoxifylline, pramlintide, salicylates, somatostatin analog (e.g., octreotide), and sulfonamide antibiotics ( 7 ). Drugs that may decrease the blood glucose lowering effect: atypical antipsychotics, corticosteroids, danazol, diuretics, estrogens, glucagon, isoniazid, niacin, oral contraceptives, phenothiazines, progestogens (e.g., in oral contraceptives), protease inhibitors, somatropin, sympathomimetic agents (e.g., albuterol, epinephrine, terbutaline), and thyroid hormones ( 7 ). Drugs that may increase or decrease the blood glucose lowering effect: alcohol, beta-blockers, clonidine, lithium salts, and pentamidine ( 7 ). Drugs that may blunt the signs and symptoms of hypoglycemia: beta-blockers, clonidine, guanethidine, and reserpine ( 7 ).",
+        "supporting_text": "Drugs that may increase the risk of hypoglycemia: antidiabetic agents, ACE inhibitors, angiotensin II receptor blocking agents, disopyramide, fibrates, fluoxetine, monoamine oxidase inhibitors, pentoxifylline, pramlintide, salicylates, somatostatin analog (e.",
+        "source_version": "effective 20250617 · version 12",
+        "anchor_drug": "insulin lispro",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"insulin%20lispro\"&limit=20",
+        "retrieved_at": "2026-07-11T22:25:04.726Z"
+      },
+      {
+        "id": "label:274783:interactions",
+        "claim_text": "FDA label drug-interactions section for insulin glargine",
+        "source_name": "openFDA-label",
+        "source_id": "72cfe377-52f6-0348-fc71-5d4ac1992ffb",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=72cfe377-52f6-0348-fc71-5d4ac1992ffb",
+        "exact_field": "drug_interactions",
+        "quoted_text": "7 DRUG INTERACTIONS Table 8 includes clinically significant drug interactions with Insulin Glargine-yfgn. Table 8: Clinically Significant Drug Interactions with Insulin Glargine-yfgn Drugs that May Increase the Risk of Hypoglycemia Drugs: Antidiabetic agents, ACE inhibitors, angiotensin II receptor blocking agents, disopyramide, fibrates, fluoxetine, monoamine oxidase inhibitors, pentoxifylline, pramlintide, salicylates, somatostatin analogs (e.g., octreotide), sulfonamide antibiotics, GLP-1 receptor agonists, DPP-4 inhibitors, and SGLT-2 inhibitors. Intervention: Dosage reductions and increased frequency of glucose monitoring may be required when Insulin Glargine-yfgn is coadministered with these drugs. Drugs that May Decrease the Blood Glucose Lowering Effect of Insulin Glargine-yfgn Drugs: Atypical antipsychotics (e.g., olanzapine and clozapine), corticosteroids, danazol, diuretics, estrogens, glucagon, isoniazid, niacin, oral contraceptives, phenothiazines, progestogens (e.g., in oral contraceptives), protease inhibitors, somatropin, sympathomimetic agents (e.g., albuterol, epinephrine, terbutaline), and thyroid hormones. Intervention: Dosage increases and increased frequency of glucose monitoring may be required when Insulin Glargine-yfgn is coadministered with these drugs. Drugs that May Increase or Decrease the Blood Glucose Lowering Effect of Insulin Glargine-yfgn Drugs: Alcohol, beta-blockers, clonidine, and lithium salts. Pentamidine may cause hypoglycemia, which may sometimes be followed by hyperglycemia. Intervention: Dosage adjustment and increased frequency of glucose monitoring may be required when Insulin Glargine-yfgn is coadministered with these drugs. Drugs that May Blunt Signs and Symptoms of Hypoglycemia Drugs: Beta-blockers, clonidine, guanethidine, and reserpine. Intervention: Increased frequency of glucose monitoring may be required when Insulin Glargine-yfgn is coadministered with these drugs. Drugs that Affect Glucose Metabolism : Adjustment of insulin dosage may be needed. ( 7 ) Antiadrenergic Drugs (e.g., beta-blockers, clonidine, guanethidine, and reserpine): Signs and symptoms of hypoglycemia may be reduced or absent. ( 7 ) * Biosimilar means that the biological product is approved based on data demonstrating that it is highly similar to an FDA-approved biological product, known as a reference product, and that there are no clinically meaningful differences between the biosimilar product and the reference product. Biosimilarity of Insulin Glargine-yfgn has been demonstrated for the condition(s) of use (e.g., indication(s), dosing regimen(s)), strength(s), dosage form(s), and route(s) of administration described in its Full Prescribing Information.",
+        "supporting_text": "Table 8: Clinically Significant Drug Interactions with Insulin Glargine-yfgn Drugs that May Increase the Risk of Hypoglycemia Drugs: Antidiabetic agents, ACE inhibitors, angiotensin II receptor blocking agents, disopyramide, fibrates, fluoxetine, monoamine oxidase inhibitors, pentoxifylline, pramlintide, salicylates, somatostatin analogs (e.",
+        "source_version": "effective 20250724 · version 1",
+        "anchor_drug": "insulin glargine",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"insulin%20glargine\"&limit=20",
+        "retrieved_at": "2026-07-11T22:25:04.726Z"
+      }
+    ],
+    "unverified_removed": [],
+    "generated_at": "2026-07-11T22:25:04.726Z",
+    "pipeline": {
+      "mode": "audited-replay",
+      "model": "Claude Opus 4.8",
+      "stages": [
+        "ingest",
+        "retrieve",
+        "synthesize",
+        "verify"
+      ],
+      "ddinter": {
+        "source_rows": 222383,
+        "unique_pairs": 160235,
+        "unique_drugs": 1939,
+        "source_files": 8
+      }
+    }
+  },
+  "generatedAt": "2026-07-11T22:25:04.726Z"
+}

@@ -1,0 +1,686 @@
+{
+  "id": "acei-spironolactone-dietary-potassium-hyperkalemia",
+  "locale": "en",
+  "intake": {
+    "case": {
+      "note": "Case no 1: 36 year old female, postcardiac surgery (mitral and aortic valve replacement, tricuspid commissurotomy). Episode reviewed: hyperkalemia (serum potassium 7.87 meq/L) presenting POD 33 during combined therapy with ACE inhibitor, spironolactone/aldactone, and potassium-rich diet (7-8 bananas/day). Presented POD 33 with loose stool, vomiting, severe muscular weakness, bradycardia, hypotension, ECG hyperkalemic changes. Managed with antihyperkalemic treatment and stabilized.",
+      "medications": [
+        {
+          "raw": "Spironolactone",
+          "episode": "Named in title as part of combined therapy associated with hyperkalemia; also on POD 28 medication furosemide with spironolactone 40/25 mg BD, and tablet aldactone 100 mg OD",
+          "start": "POD 28 (spironolactone/aldactone); aldactone also from POD 9 discharge",
+          "status": "active",
+          "source_span": "On POD 28, her medication was changed to furosemide with spironolactone 40/25 mg BD, tablet acenocoumarol, tablet aldactone 100 mg OD, and tablet digoxin 0."
+        },
+        {
+          "raw": "tablet furosemide 40 mg once daily (OD)",
+          "episode": "Started on admission; continued at discharge POD 9; POD 28 changed to furosemide with spironolactone 40/25 mg BD",
+          "start": "on admission",
+          "source_span": "She was started on tablet furosemide 40 mg once daily (OD) along with tablet metoprolol 25 mg twice a day.",
+          "status": "active"
+        },
+        {
+          "raw": "tablet metoprolol 25 mg twice a day",
+          "episode": "Started on admission along with furosemide",
+          "start": "on admission",
+          "source_span": "She was started on tablet furosemide 40 mg once daily (OD) along with tablet metoprolol 25 mg twice a day.",
+          "status": "active"
+        },
+        {
+          "raw": "tablet ramipril 5 mg HS",
+          "episode": "Prescribed at discharge POD 9 (ACE inhibitor named in title as combined therapy)",
+          "start": "POD 9 discharge",
+          "source_span": "tablet ramipril 5 mg HS",
+          "status": "active"
+        },
+        {
+          "raw": "tablet amiodarone 200 mg OD",
+          "episode": "Prescribed at discharge POD 9",
+          "start": "POD 9 discharge",
+          "source_span": "She was discharged on the postoperative day (POD) 9 with prescription of tablet furosemide 40 mg OD, tablet aldactone 100 mg OD, tablet ramipril 5 mg HS, and tablet amiodarone 200 mg OD, and ecosprin 150 mg OD.",
+          "status": "active"
+        },
+        {
+          "raw": "tablet acenocoumarol",
+          "episode": "Medication changed to include acenocoumarol on POD 28",
+          "start": "POD 28",
+          "source_span": "her medication was changed to furosemide with spironolactone 40/25 mg BD, tablet acenocoumarol",
+          "status": "active"
+        },
+        {
+          "raw": "tablet digoxin 0.25 mg OD",
+          "episode": "Medication changed on POD 28 to include digoxin",
+          "start": "POD 28",
+          "source_span": "and tablet digoxin 0.25 mg OD",
+          "status": "active"
+        },
+        {
+          "raw": "intravenous (IV) calcium gluconate",
+          "episode": "Given as part of aggressive antihyperkalemic treatment during the hyperkalemia episode",
+          "start": "POD 33 (during episode management)",
+          "source_span": "aggressive antihyperkalemic treatment with intravenous (IV) calcium gluconate",
+          "status": "one-time"
+        }
+      ],
+      "allergies": [],
+      "diagnoses": [
+        "rheumatic heart disease",
+        "severe mitral stenosis (MS)",
+        "severe aortic stenosis (AS)",
+        "severe tricuspid regurgitation (TR)",
+        "atrial fibrillation",
+        "hyperkalemia",
+        "hyponatremia",
+        "hypocalcemia",
+        "CHF"
+      ],
+      "labs": [
+        {
+          "name": "serum potassium",
+          "value": 7.87,
+          "unit": "meq/L"
+        },
+        {
+          "name": "serum sodium",
+          "value": 129,
+          "unit": "mmol/L"
+        },
+        {
+          "name": "hemoglobin",
+          "value": 9.6,
+          "unit": "gm%"
+        },
+        {
+          "name": "hematocrit",
+          "value": 38,
+          "unit": "%"
+        },
+        {
+          "name": "pH",
+          "value": 7.28,
+          "unit": ""
+        },
+        {
+          "name": "base deficit",
+          "value": -11,
+          "unit": ""
+        },
+        {
+          "name": "serum osmolality",
+          "value": 252,
+          "unit": "mmol/L"
+        },
+        {
+          "name": "serum creatinine",
+          "value": 1.1,
+          "unit": "mg%"
+        },
+        {
+          "name": "blood urea nitrogen (BUN)",
+          "value": 17,
+          "unit": "mg/dl"
+        },
+        {
+          "name": "potassium (post-treatment)",
+          "value": 4.5,
+          "unit": "meq/L"
+        }
+      ]
+    },
+    "ambiguities": [
+      {
+        "id": "source-scope",
+        "field": "patient scope",
+        "question": "The source contains two labeled cases (Case no 1 and Case no 2). Only Case no 1 was extracted. Please confirm this is the intended case scope."
+      },
+      {
+        "id": "amb-aldactone-spiro",
+        "field": "medications",
+        "question": "The source names both 'spironolactone' and 'aldactone' (a spironolactone brand) as concurrent items (e.g., POD 28: furosemide with spironolactone 40/25 mg BD plus tablet aldactone 100 mg OD). Please confirm whether these are duplicate/same-drug entries or intentionally separate."
+      },
+      {
+        "id": "amb-metoprolol-status",
+        "field": "medications",
+        "question": "Metoprolol was started on admission but is not listed in the POD 9 or POD 28 regimens. The source does not explicitly state it was stopped. Was metoprolol continued through the episode or discontinued?"
+      },
+      {
+        "id": "amb-amiodarone-status",
+        "field": "medications",
+        "question": "Amiodarone was prescribed at POD 9 discharge but is not listed in the POD 28 regimen, with no explicit stop statement. Was amiodarone continued through the hyperkalemia episode or discontinued?"
+      },
+      {
+        "id": "amb-ecosprin",
+        "field": "medications",
+        "question": "The POD 9 discharge prescription includes 'ecosprin 150 mg OD', which was not among the target strings provided. Should ecosprin (aspirin) be included as a medication?"
+      }
+    ],
+    "sourceSummary": "Extracted from PMC6489390 Case no 1: a 36-year-old female postcardiac surgery patient who developed hyperkalemia (K+ 7.87 meq/L) on POD 33 during combined therapy with an ACE inhibitor (ramipril), spironolactone/aldactone, and a potassium-rich diet. Medications across admission, POD 9 discharge, and POD 28 regimen changes were captured with source chronology; the acute antihyperkalemic IV calcium gluconate was marked one-time. Case no 2 was excluded per single-case scope."
+  },
+  "report": {
+    "patient": {
+      "medications": [
+        {
+          "raw": "Spironolactone",
+          "rxcui": "9997",
+          "name": "spironolactone",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "9997",
+              "name": "spironolactone"
+            }
+          ],
+          "status": "active",
+          "episode": "Named in title as part of combined therapy associated with hyperkalemia; also on POD 28 medication furosemide with spironolactone 40/25 mg BD, and tablet aldactone 100 mg OD",
+          "start": "POD 28 (spironolactone/aldactone); aldactone also from POD 9 discharge",
+          "source_span": "On POD 28, her medication was changed to furosemide with spironolactone 40/25 mg BD, tablet acenocoumarol, tablet aldactone 100 mg OD, and tablet digoxin 0."
+        },
+        {
+          "raw": "tablet furosemide 40 mg once daily (OD)",
+          "rxcui": "4603",
+          "name": "Furosemide",
+          "resolution": "approximate",
+          "ingredients": [
+            {
+              "rxcui": "4603",
+              "name": "furosemide"
+            }
+          ],
+          "status": "active",
+          "episode": "Started on admission; continued at discharge POD 9; POD 28 changed to furosemide with spironolactone 40/25 mg BD",
+          "start": "on admission",
+          "source_span": "She was started on tablet furosemide 40 mg once daily (OD) along with tablet metoprolol 25 mg twice a day."
+        },
+        {
+          "raw": "tablet metoprolol 25 mg twice a day",
+          "rxcui": "6918",
+          "name": "metoprolol",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "6918",
+              "name": "metoprolol"
+            }
+          ],
+          "status": "active",
+          "episode": "Started on admission along with furosemide",
+          "start": "on admission",
+          "source_span": "She was started on tablet furosemide 40 mg once daily (OD) along with tablet metoprolol 25 mg twice a day."
+        },
+        {
+          "raw": "tablet ramipril 5 mg HS",
+          "rxcui": "35296",
+          "name": "Ramipril",
+          "resolution": "approximate",
+          "ingredients": [
+            {
+              "rxcui": "35296",
+              "name": "ramipril"
+            }
+          ],
+          "status": "active",
+          "episode": "Prescribed at discharge POD 9 (ACE inhibitor named in title as combined therapy)",
+          "start": "POD 9 discharge",
+          "source_span": "tablet ramipril 5 mg HS"
+        },
+        {
+          "raw": "tablet amiodarone 200 mg OD",
+          "rxcui": "703",
+          "name": "amiodarone",
+          "resolution": "approximate",
+          "ingredients": [
+            {
+              "rxcui": "703",
+              "name": "amiodarone"
+            }
+          ],
+          "status": "active",
+          "episode": "Prescribed at discharge POD 9",
+          "start": "POD 9 discharge",
+          "source_span": "She was discharged on the postoperative day (POD) 9 with prescription of tablet furosemide 40 mg OD, tablet aldactone 100 mg OD, tablet ramipril 5 mg HS, and tablet amiodarone 200 mg OD, and ecosprin 150 mg OD."
+        },
+        {
+          "raw": "tablet acenocoumarol",
+          "rxcui": "154",
+          "name": "acenocoumarol",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "154",
+              "name": "acenocoumarol"
+            }
+          ],
+          "status": "active",
+          "episode": "Medication changed to include acenocoumarol on POD 28",
+          "start": "POD 28",
+          "source_span": "her medication was changed to furosemide with spironolactone 40/25 mg BD, tablet acenocoumarol"
+        },
+        {
+          "raw": "tablet digoxin 0.25 mg OD",
+          "rxcui": "3407",
+          "name": "Digoxin",
+          "resolution": "approximate",
+          "ingredients": [
+            {
+              "rxcui": "3407",
+              "name": "digoxin"
+            }
+          ],
+          "status": "active",
+          "episode": "Medication changed on POD 28 to include digoxin",
+          "start": "POD 28",
+          "source_span": "and tablet digoxin 0.25 mg OD"
+        },
+        {
+          "raw": "intravenous (IV) calcium gluconate",
+          "rxcui": "1908",
+          "name": "Calcium Gluconate",
+          "resolution": "approximate",
+          "ingredients": [
+            {
+              "rxcui": "1908",
+              "name": "calcium gluconate"
+            }
+          ],
+          "status": "one-time",
+          "episode": "Given as part of aggressive antihyperkalemic treatment during the hyperkalemia episode",
+          "start": "POD 33 (during episode management)",
+          "source_span": "aggressive antihyperkalemic treatment with intravenous (IV) calcium gluconate"
+        }
+      ],
+      "allergies": [],
+      "diagnoses": [
+        "rheumatic heart disease",
+        "severe mitral stenosis (MS)",
+        "severe aortic stenosis (AS)",
+        "severe tricuspid regurgitation (TR)",
+        "atrial fibrillation",
+        "hyperkalemia",
+        "hyponatremia",
+        "hypocalcemia",
+        "CHF"
+      ],
+      "labs": [
+        {
+          "name": "serum potassium",
+          "value": 7.87,
+          "unit": "meq/L"
+        },
+        {
+          "name": "serum sodium",
+          "value": 129,
+          "unit": "mmol/L"
+        },
+        {
+          "name": "hemoglobin",
+          "value": 9.6,
+          "unit": "gm%"
+        },
+        {
+          "name": "hematocrit",
+          "value": 38,
+          "unit": "%"
+        },
+        {
+          "name": "pH",
+          "value": 7.28,
+          "unit": ""
+        },
+        {
+          "name": "base deficit",
+          "value": -11,
+          "unit": ""
+        },
+        {
+          "name": "serum osmolality",
+          "value": 252,
+          "unit": "mmol/L"
+        },
+        {
+          "name": "serum creatinine",
+          "value": 1.1,
+          "unit": "mg%"
+        },
+        {
+          "name": "blood urea nitrogen (BUN)",
+          "value": 17,
+          "unit": "mg/dl"
+        },
+        {
+          "name": "potassium (post-treatment)",
+          "value": 4.5,
+          "unit": "meq/L"
+        }
+      ],
+      "note": "Case no 1: 36 year old female, postcardiac surgery (mitral and aortic valve replacement, tricuspid commissurotomy). Episode reviewed: hyperkalemia (serum potassium 7.87 meq/L) presenting POD 33 during combined therapy with ACE inhibitor, spironolactone/aldactone, and potassium-rich diet (7-8 bananas/day). Presented POD 33 with loose stool, vomiting, severe muscular weakness, bradycardia, hypotension, ECG hyperkalemic changes. Managed with antihyperkalemic treatment and stabilized."
+    },
+    "patient_summary": "36 year old female after mitral and aortic valve replacement and tricuspid commissurotomy, with rheumatic heart disease, atrial fibrillation, and CHF. During the reviewed episode she was on spironolactone/aldactone, furosemide, ramipril, metoprolol, amiodarone, acenocoumarol, and digoxin, and presented on POD 33 with hyperkalemia. Labs include serum potassium 7.87 meq/L, serum sodium 129 mmol/L, serum creatinine 1.1 mg%, and post-treatment potassium 4.5 meq/L.",
+    "findings": [
+      {
+        "status": "red-flag",
+        "severity": "major",
+        "drugs": [
+          "spironolactone",
+          "Ramipril"
+        ],
+        "headline": "spironolactone + Ramipril may lead to severe hyperkalemia",
+        "mechanism": "The spironolactone label lists ACE inhibitors among drugs that increase potassium and states that concomitant administration may lead to severe hyperkalemia.",
+        "why_this_patient": "Both spironolactone and Ramipril are active in the reviewed medication-safety episode, and the source identifies Ramipril as an ACE inhibitor.",
+        "evidence_ids": [
+          "label:9997:interactions",
+          "label:35296:interactions"
+        ]
+      },
+      {
+        "status": "flagged",
+        "severity": "major",
+        "drugs": [
+          "amiodarone",
+          "digoxin"
+        ],
+        "headline": "Amiodarone increases digoxin concentration",
+        "mechanism": "The amiodarone label states amiodarone causes increased digoxin concentration and to reduce digoxin by half or discontinue; the digoxin label reports amiodarone raises serum digoxin concentration by 70% and advises measuring digoxin concentrations and reducing the dose.",
+        "why_this_patient": "On POD 28 this patient was on both amiodarone 200 mg OD and digoxin 0.25 mg OD, so digoxin exposure could rise per the cited labels.",
+        "evidence_ids": [
+          "label:703:interactions",
+          "label:3407:interactions"
+        ],
+        "monitoring": "Measure serum digoxin concentrations and reduce the digoxin dose by approximately 30 to 50% or modify dosing frequency, continuing to monitor for toxicity."
+      },
+      {
+        "status": "flagged",
+        "severity": "moderate",
+        "drugs": [
+          "furosemide",
+          "ramipril"
+        ],
+        "headline": "Furosemide combined with an ACE inhibitor may lead to severe hypotension and renal deterioration",
+        "mechanism": "The furosemide label states that furosemide combined with angiotensin converting enzyme inhibitors may lead to severe hypotension and deterioration in renal function, including renal failure, and that dosage interruption or reduction may be necessary.",
+        "why_this_patient": "This patient received furosemide together with the ACE inhibitor ramipril; she presented with hypotension during the episode and had a serum creatinine of 1.1 mg%.",
+        "evidence_ids": [
+          "label:4603:interactions"
+        ],
+        "monitoring": "An interruption or reduction in the dosage of furosemide or the ACE inhibitor may be necessary; monitor blood pressure and renal function."
+      },
+      {
+        "status": "flagged",
+        "severity": "moderate",
+        "drugs": [
+          "metoprolol",
+          "digoxin"
+        ],
+        "headline": "Beta-blocker with digitalis glycoside can increase risk of bradycardia",
+        "mechanism": "The metoprolol label states that concomitant use of glycosides with beta-blockers can increase the risk of bradycardia because digitalis glycosides slow atrioventricular conduction and decrease heart rate.",
+        "why_this_patient": "This patient was on metoprolol and digoxin together and presented with bradycardia during the episode.",
+        "evidence_ids": [
+          "label:6918:interactions"
+        ],
+        "monitoring": "Monitor heart rate for additive heart rate lowering effects."
+      },
+      {
+        "status": "flagged",
+        "severity": "minor",
+        "drugs": [
+          "spironolactone",
+          "digoxin"
+        ],
+        "headline": "Spironolactone increases digoxin exposure and interferes with digoxin assays",
+        "mechanism": "The spironolactone label states spironolactone and its metabolites increase the apparent exposure to digoxin and can interfere with radioimmunologic assays of digoxin; the digoxin label lists spironolactone raising digoxin concentration by 25%.",
+        "why_this_patient": "This patient was on both spironolactone (aldactone) and digoxin, so digoxin exposure could be affected per the cited labels.",
+        "evidence_ids": [
+          "label:9997:interactions",
+          "label:3407:interactions"
+        ],
+        "monitoring": "Measure serum digoxin concentrations using an assay that does not interact with spironolactone and reduce digoxin dose as necessary while continuing to monitor."
+      }
+    ],
+    "questions_for_clinician": [
+      "On POD 28 the record lists both spironolactone/aldactone 100 mg OD and furosemide with spironolactone 40/25 mg BD as separate entries; are these one combined order or separate spironolactone orders?",
+      "Given the amiodarone and digoxin combination, would you like to confirm the current digoxin dose and any planned serum digoxin measurement?",
+      "Would you like to review the potassium-raising combination of spironolactone and ramipril in light of the recorded serum potassium of 7.87 meq/L?"
+    ],
+    "evidence": [
+      {
+        "id": "label:9997:interactions",
+        "claim_text": "FDA label drug-interactions section for spironolactone",
+        "source_name": "openFDA-label",
+        "source_id": "122558a0-57bb-4195-9adf-d37b049cbfb5",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=122558a0-57bb-4195-9adf-d37b049cbfb5",
+        "exact_field": "drug_interactions",
+        "quoted_text": "7 DRUG INTERACTIONS Agents increasing serum potassium: Concomitant administration can lead to hyperkalemia ( 5.1 , 7.1 ) Lithium: Increased risk of lithium toxicity ( 7.2 ) NSAIDs: May reduce the diuretic, natriuretic and antihypertensive effect of spironolactone oral suspension ( 7.3 ) Digoxin: Spironolactone oral suspension can interfere with radioimmunologic assays of digoxin exposure ( 7.4 ) Cholestyramine: Hyperkalemic metabolic acidosis has been reported with concomitant use ( 7.5 ) Acetylsalicylic Acid (ASA): ASA may reduce the efficacy of spironolactone ( 7.6 ) 7.1 Drugs and Supplements Increasing Serum Potassium Concomitant administration of spironolactone oral suspension with potassium supplementation or drugs that can increase potassium may lead to severe hyperkalemia. In general, discontinue potassium supplementation in heart failure patients who start spironolactone oral suspension [see Warnings and Precautions ( 5.1 ) and Clinical Pharmacology ( 12.3 )] . Check serum potassium levels when ACE inhibitor or ARB therapy is altered in patients receiving spironolactone oral suspension. Examples of drugs that can increase potassium include: ACE inhibitors angiotensin receptor blockers aldosterone blockers non-steroidal anti-inflammatory drugs (NSAIDs) heparin and low molecular weight heparin trimethoprim 7.2 Lithium Like other diuretics, spironolactone oral suspension reduces the renal clearance of lithium, thus increasing the risk of lithium toxicity. Monitor lithium levels periodically when spironolactone oral suspension is coadministered [see Clinical Pharmacology ( 12.3 )] . 7.3 Nonsteroidal Anti-inflammatory Drugs (NSAIDs) In some patients, the administration of an NSAID can reduce the diuretic, natriuretic, and antihypertensive effect of loop, potassium-sparing, and thiazide diuretics. Therefore, when spironolactone oral suspension and NSAIDs are used concomitantly, monitor closely to determine if the desired effect of the diuretic is obtained [see Clinical Pharmacology ( 12.3 )] . 7.4 Digoxin Spironolactone and its metabolites increase the apparent exposure to digoxin. In patients taking concomitant digoxin, measure serum digoxin concentrations before initiating spironolactone using an assay that does not interact with spironolactone. Reduce digoxin concentrations by decreasing the dose by approximately 15-30% or by modifying the dosing frequency and continue monitoring [see Clinical Pharmacology ( 12.3 )] . 7.5 Cholestyramine Hyperkalemic metabolic acidosis has been reported in patients given spironolactone concurrently with cholestyramine. 7.6 Acetylsalicylic Acid Acetylsalicylic acid may reduce the efficacy of spironolactone. Therefore, when spironolactone oral suspension and acetylsalicylic acid are used concomitantly, spironolactone oral suspension may need to be titrated to higher maintenance dose and the patient should be observed closely to determine if the desired effect is obtained [see Clinical Pharmacology ( 12.3 )] . 7.7 CYP2C8 and CYP3A Substrates Spironolactone is an irreversible inhibitor for CYP2C8 and CYP3A4/5 in vitro [see Clinical Pharmacology ( 12.3 )] . Therefore, spironolactone may increase the exposure of other coadministered drugs that are metabolized by CYP2C8 and CYP3A4/5. Dosage adjustments of the drugs metabolized by CYP2C8 (e.g., repaglinide) and CYP3A4/5 (e.g., midazolam, sirolimus and tacrolimus) may be necessary if they are given concurrently with spironolactone.",
+        "supporting_text": "4 Digoxin Spironolactone and its metabolites increase the apparent exposure to digoxin. In patients taking concomitant digoxin, measure serum digoxin concentrations before initiating spironolactone using an assay that does not interact with spironolactone.",
+        "source_version": "effective 20260702 · version 7",
+        "anchor_drug": "spironolactone",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"spironolactone\"&limit=20",
+        "retrieved_at": "2026-07-11T08:20:56.047Z"
+      },
+      {
+        "id": "label:4603:interactions",
+        "claim_text": "FDA label drug-interactions section for furosemide",
+        "source_name": "openFDA-label",
+        "source_id": "1b9117d5-0dd9-4577-a1fd-bb0aaf7e68ec",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1b9117d5-0dd9-4577-a1fd-bb0aaf7e68ec",
+        "exact_field": "drug_interactions",
+        "quoted_text": "Drug Interactions Furosemide may increase the ototoxic potential of aminoglycoside antibiotics, especially in the presence of impaired renal function. Except in life-threatening situations, avoid this combination. Furosemide should not be used concomitantly with ethacrynic acid because of the possibility of ototoxicity. Patients receiving high doses of salicylates concomitantly with furosemide, as in rheumatic diseases, may experience salicylate toxicity at lower doses because of competitive renal excretory sites. There is a risk of ototoxic effects if cisplatin and furosemide are given concomitantly. In addition, nephrotoxicity of nephrotoxic drugs such as cisplatin may be enhanced if furosemide is not given in lower doses and with positive fluid balance when used to achieve forced diuresis during cisplatin treatment. Furosemide has a tendency to antagonize the skeletal muscle relaxing effect of tubocurarine and may potentiate the action of succinylcholine. Lithium generally should not be given with diuretics because they reduce lithium's renal clearance and add a high risk of lithium toxicity. Furosemide combined with angiotensin converting enzyme inhibitors or angiotensin II receptor blockers may lead to severe hypotension and deterioration in renal function, including renal failure. An interruption or reduction in the dosage of furosemide, angiotensin converting enzyme inhibitors, or angiotensin receptor blockers may be necessary. Furosemide may add to or potentiate the therapeutic effect of other antihypertensive drugs. Potentiation occurs with ganglionic or peripheral adrenergic blocking drugs. Furosemide may decrease arterial responsiveness to norepinephrine. However, norepinephrine may still be used effectively. In isolated cases, intravenous administration of furosemide within 24 hours of taking chloral hydrate may lead to flushing, sweating attacks, restlessness, nausea, increase in blood pressure, and tachycardia. Use of furosemide concomitantly with chloral hydrate is therefore not recommended. Phenytoin interferes directly with renal action of furosemide. Methotrexate and other drugs that, like furosemide, undergo significant renal tubular secretion may reduce the effect of furosemide. Conversely, furosemide may decrease renal elimination of other drugs that undergo tubular secretion. High-dose treatment of both furosemide and these other drugs may result in elevated serum levels of these drugs and may potentiate their toxicity as well as the toxicity of furosemide. Furosemide can increase the risk of cephalosporin-induced nephrotoxicity even in the setting of minor or transient renal impairment. Concomitant use of cyclosporine and furosemide is associated with increased risk of gouty arthritis secondary to furosemide-induced hyperuricemia and cyclosporine impairment of renal urate excretion. One study in six subjects demonstrated that the combination of furosemide and acetylsalicylic acid temporarily reduced creatinine clearance in patients with chronic renal insufficiency. There are case reports of patients who developed increased BUN, serum creatinine and serum potassium levels, and weight gain when furosemide was used in conjunction with NSAIDs. Literature reports indicate that coadministration of indomethacin may reduce the natriuretic and antihypertensive effects of furosemide in some patients by inhibiting prostaglandin synthesis. Indomethacin may also affect plasma renin levels, aldosterone excretion, and renin profile evaluation. Patients receiving both indomethacin and furosemide should be observed closely to determine if the desired diuretic and/or antihypertensive effect of furosemide is achieved.",
+        "supporting_text": "Furosemide can increase the risk of cephalosporin-induced nephrotoxicity even in the setting of minor or transient renal impairment. Concomitant use of cyclosporine and furosemide is associated with increased risk of gouty arthritis secondary to furosemide-induced hyperuricemia and cyclosporine impairment of renal urate excretion.",
+        "source_version": "effective 20260318 · version 16",
+        "anchor_drug": "furosemide",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"furosemide\"&limit=20",
+        "retrieved_at": "2026-07-10T23:00:00.000Z"
+      },
+      {
+        "id": "label:4603:boxed",
+        "claim_text": "FDA boxed warning for furosemide",
+        "source_name": "openFDA-label",
+        "source_id": "1b9117d5-0dd9-4577-a1fd-bb0aaf7e68ec",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1b9117d5-0dd9-4577-a1fd-bb0aaf7e68ec",
+        "exact_field": "boxed_warning",
+        "quoted_text": "WARNING Furosemide is a potent diuretic which, if given in excessive amounts, can lead to a profound diuresis with water and electrolyte depletion. Therefore, careful medical supervision is required and dose and dose schedule must be adjusted to the individual patient's needs. (See DOSAGE AND ADMINISTRATION .)",
+        "supporting_text": "WARNING Furosemide is a potent diuretic which, if given in excessive amounts, can lead to a profound diuresis with water and electrolyte depletion.",
+        "source_version": "effective 20260318 · version 16",
+        "anchor_drug": "furosemide",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"furosemide\"&limit=20",
+        "retrieved_at": "2026-07-10T23:00:00.000Z"
+      },
+      {
+        "id": "label:6918:interactions",
+        "claim_text": "FDA label drug-interactions section for metoprolol",
+        "source_name": "openFDA-label",
+        "source_id": "09566368-f91d-43a3-b683-30c844fb125a",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=09566368-f91d-43a3-b683-30c844fb125a",
+        "exact_field": "drug_interactions",
+        "quoted_text": "7 DRUG INTERACTIONS • Catecholamine-depleting drugs may have an additive effect when given with beta-blocking agents. ( 7.1 ) • Patients may be unresponsive to the usual doses of epinephrine used to treat allergic reaction. ( 7.2 ) • CYP2D6 Inhibitors are likely to increase metoprolol concentration. ( 7.3 ) • Concomitant use of glycosides, clonidine, and diltiazem and verapamil with beta-blockers can increase the risk of bradycardia. ( 7.4 ) • Beta-blockers including metoprolol, may exacerbate the rebound hypertension that can follow the withdrawal of clonidine. ( 7.4 ) 7.1 Catecholamine Depleting Drugs and Monoamine Oxidate (MAO) Inhibitors Catecholamine depleting drugs (e.g., reserpine) and monoamine oxidase (MAO) inhibitors) may have an additive effect when given with beta-blocking agents. Observe patients treated with metoprolol plus a catecholamine depletor for evidence of hypotension or marked bradycardia, which may produce vertigo, syncope, or postural hypotension. 7.2 Epinephrine While taking beta-blockers, patients with a history of severe anaphylactic reactions to a variety of allergens may be more reactive to repeated challenge and may be unresponsive to the usual doses of epinephrine used to treat an allergic reaction. 7.3 CYP2D6 Inhibitors Drugs that are strong inhibitors of CYP2D6, such as quinidine, fluoxetine, paroxetine, and propafenone, were shown to double metoprolol concentrations. While there is no information about moderate or weak inhibitors, these too are likely to increase metoprolol concentration. Increases in plasma concentration decrease the cardioselectivity of metoprolol [see Clinical Pharmacology (12.3) ]. Monitor patients closely, when the combination cannot be avoided. 7.4 Digitalis, Clonidine, and Calcium Channel Blockers and Other Drugs that Decrease Heart Rate Digitalis glycosides, clonidine, diltiazem and verapamil slow atrioventricular conduction and decrease heart rate. Concomitant administration of beta-blockers with these and other drugs known to decrease heart rate such as sphingosine-1-phosphate receptor modulators (e.g. fingolimod) may result in additive heart rate lowering effects. If clonidine and metoprolol are co-administered, withdraw the metoprolol several days before the gradual withdrawal of clonidine because beta-blockers may exacerbate the rebound hypertension that can follow the withdrawal of clonidine. If replacing clonidine by beta-blocker therapy, delay the introduction of beta-blockers for several days after clonidine administration has stopped . 7.5 Drugs that Decrease Blood Pressure Concomitant administration of beta-blockers with other drugs known to decrease blood pressure may result in an enhanced hypotensive effect.",
+        "supporting_text": "Monitor patients closely, when the combination cannot be avoided.",
+        "source_version": "effective 20240513 · version 22",
+        "anchor_drug": "metoprolol",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"metoprolol\"&limit=20",
+        "retrieved_at": "2026-07-11T06:06:02.253Z"
+      },
+      {
+        "id": "label:35296:interactions",
+        "claim_text": "FDA label drug-interactions section for ramipril",
+        "source_name": "openFDA-label",
+        "source_id": "a8cdec12-81d1-4ef4-82c0-d05d93c37a07",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a8cdec12-81d1-4ef4-82c0-d05d93c37a07",
+        "exact_field": "drug_interactions",
+        "quoted_text": "7 DRUG INTERACTIONS Diuretics: Possibility of excessive hypotension ( 7.1 ). Lithium: Use with caution ( 7.4 ). Gold: Nitritoid reactions have been reported ( 7.5 ). NSAIDS use may lead to increased risk of renal impairment and loss of antihypertensive effect ( 7.6 ). mTOR inhibitor or neprilysin inhibitor use may increase angioedema risk ( 7.7 ). 7.1 Diuretics Patients on diuretics, especially those in whom diuretic therapy was recently instituted, may occasionally experience an excessive reduction of blood pressure after initiation of therapy with ramipril. The possibility of hypotensive effects with ramipril can be minimized by either decreasing or discontinuing the diuretic or increasing the salt intake prior to initiation of treatment with ramipril. If this is not possible, reduce the starting dose [see DOSAGE AND ADMINISTRATION ( 2 )] . 7.2 Agents Increasing Serum Potassium Coadministration of ramipril with other drugs that raise serum potassium levels may result in hyperkalemia. Monitor serum potassium in such patients. 7.3 Other Agents Affecting RAS In general, avoid combined use of RAS inhibitors. [see WARNINGS AND PRECAUTIONS ( 5.7 )] . Do not co-administer aliskiren with ramipril in patients with diabetes [see CONTRAINDICATIONS ( 4 )]. 7.4 Lithium Increased serum lithium levels and symptoms of lithium toxicity have been reported in patients receiving ACE inhibitors during therapy with lithium; therefore, frequent monitoring of serum lithium levels is recommended. If a diuretic is also used, the risk of lithium toxicity may be increased. 7.5 Gold Nitritoid reactions (symptoms include facial flushing, nausea, vomiting and hypotension) have been reported rarely in patients on therapy with injectable gold (sodium aurothiomalate) and concomitant ACE inhibitor therapy including ramipril. 7.6 Non-Steroidal Anti-Inflammatory Agents including Selective Cyclooxygenase-2 Inhibitors (COX-2 Inhibitors) In patients who are elderly, volume-depleted (including those on diuretic therapy), or with compromised renal function, coadministration of NSAIDs, including selective COX-2 inhibitors, with ACE inhibitors, including ramipril, may result in deterioration of renal function, including possible acute renal failure. These effects are usually reversible. Monitor renal function periodically in patients receiving ramipril and NSAID therapy. The antihypertensive effect of ACE inhibitors, including ramipril, may be attenuated by NSAIDs. 7.7 mTOR Inhibitors or Other Drugs Known to Cause Angioedema Patients taking concomitant mTOR inhibitor (e.g. temsirolimus) therapy or a neprilysin inhibitor may be at increased risk for angioedema [see WARNINGS AND PRECAUTIONS ( 5.1 )] .",
+        "supporting_text": "mTOR inhibitor or neprilysin inhibitor use may increase angioedema risk ( 7.",
+        "source_version": "effective 20260618 · version 20",
+        "anchor_drug": "ramipril",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"ramipril\"&limit=20",
+        "retrieved_at": "2026-07-11T08:20:56.047Z"
+      },
+      {
+        "id": "label:35296:boxed",
+        "claim_text": "FDA boxed warning for ramipril",
+        "source_name": "openFDA-label",
+        "source_id": "a8cdec12-81d1-4ef4-82c0-d05d93c37a07",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a8cdec12-81d1-4ef4-82c0-d05d93c37a07",
+        "exact_field": "boxed_warning",
+        "quoted_text": "WARNING: FETAL TOXICITY See full prescribing information for complete boxed warning. When pregnancy is detected, discontinue ramipril as soon as possible ( 5.6 ). Drugs that act directly on the renin-angiotensin system can cause injury and death to the developing fetus ( 5.6 ). WARNING: FETAL TOXICITY When pregnancy is detected, discontinue ramipril as soon as possible ( 5.6 ). Drugs that act directly on the renin-angiotensin system can cause injury and death to the developing fetus ( 5.6 ).",
+        "supporting_text": "WARNING: FETAL TOXICITY See full prescribing information for complete boxed warning.",
+        "source_version": "effective 20260618 · version 20",
+        "anchor_drug": "ramipril",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"ramipril\"&limit=20",
+        "retrieved_at": "2026-07-11T08:20:56.047Z"
+      },
+      {
+        "id": "label:703:interactions",
+        "claim_text": "FDA label drug-interactions section for amiodarone",
+        "source_name": "openFDA-label",
+        "source_id": "4c149392-a4f0-4e2d-a13f-2b94810005de",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4c149392-a4f0-4e2d-a13f-2b94810005de",
+        "exact_field": "drug_interactions",
+        "quoted_text": "7 DRUG INTERACTIONS Because of amiodarone's long half-life, expect drug interactions to persist for weeks to months after discontinuation of amiodarone. Drug interactions with amiodarone are described in Table 1 below. Table 1: Amiodarone Drug Interactions Concomitant Drug Class/Name Examples Clinical Comment Pharmacodynamic Interactions QT Prolonging Drugs class I and III antiarrhythmics, lithium, certain phenothiazines, tricyclic antidepressants, certain fluoroquinolone and macrolide antibiotics, azole antifungals, halogenated inhalation anesthetic agents Increased risk of Torsade de Pointes. Avoid concomitant use. Negative Chronotropes digoxin, beta blockers, verapamil, diltiazem, clonidine, ivabradine Potentiates the electrophysiologic and hemodynamic effects of amiodarone, resulting in bradycardia, sinus arrest, and AV block. Monitor heart rate. Pharmacokinetic Interactions CYP450 Inhibitors grapefruit juice, certain fluoroquinolone and macrolide antibiotics, azole antifungals, cimetidine, certain protease inhibitors Increased exposure of amiodarone. Avoid concomitant use. CYP450 Inducers St. John's Wort Reduced amiodarone serum levels. Cyclosporine Increased plasma levels of cyclosporine have been reported resulting in elevated creatinine, despite reduction of cyclosporine dose. Monitor cyclosporine drug levels and renal function with concomitant use Cholestyramine Reduced amiodarone serum levels. Antiarrhythmics quinidine, procainamide, flecainide Reserve concomitant use for patients who are unresponsive to a single agent. Antiarrhythmic metabolism inhibited by amiodarone. Initiate antiarrhythmic at a lower than usual dose and monitor patient carefully. Reduce dose levels of previously administered antiarrhythmic by 30 to 50% for several days after transitioning to oral amiodarone. Evaluate continued need for antiarrhythmic. Digoxin Increased digoxin concentration. Reduce digoxin by half or discontinue. If continued, monitor for evidence of toxicity. HMG-CoA Reductase Inhibitors simvastatin, lovastatin, atorvastatin Increased plasma concentration of HMGCoA reductase inhibitor. Limit the dose of lovastatin to 40 mg. Limit the coadministered dose of simvastatin to 20 mg. Lower starting dose of other CYP3A4 substrates may be required. Warfarin Potentiates anticoagulant response and can result in serious or fatal bleeding. Coadministration increases prothrombin time by 100% after 3 to 4 days. Reduce warfarin dose by one-third to one-half and monitor prothrombin times. Phenytoin Increased steady-state levels of phenytoin. Monitor phenytoin levels. Hepatitis C Direct Acting Antiviral sofosbuvir Cases of symptomatic bradyarrhythmia requiring pacemaker insertion have been reported in patients on oral maintenance amiodarone who initiated therapy with sofosbuvir. CYP3A Substrate lidocaine Sinus bradycardia has been reported with oral amiodarone in combination with lidocaine given for local anesthesia. Monitor heart rate. A lower starting dose of lidocaine may be required. CYP3A Substrate fentanyl Fentanyl in combination with amiodarone may cause hypotension, bradycardia, and decreased cardiac output. Avoid coadministration of amiodarone with other antiarrhythmics and drugs known to prolong the QT interval. ( 7 ) Amiodarone is a substrate for CYP3A and CYP2C8, so inhibitors and inducers affect amiodarone exposure. ( 7 ) Amiodarone inhibits P-glycoprotein and CYP1A2, CYP2C9, CYP2D6, and CYP3A, increasing exposure to other drugs. ( 7 )",
+        "supporting_text": "Digoxin Increased digoxin concentration. Reduce digoxin by half or discontinue.",
+        "source_version": "effective 20260422 · version 7",
+        "anchor_drug": "amiodarone",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"amiodarone\"&limit=20",
+        "retrieved_at": "2026-07-10T23:00:00.000Z"
+      },
+      {
+        "id": "label:703:boxed",
+        "claim_text": "FDA boxed warning for amiodarone",
+        "source_name": "openFDA-label",
+        "source_id": "4c149392-a4f0-4e2d-a13f-2b94810005de",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4c149392-a4f0-4e2d-a13f-2b94810005de",
+        "exact_field": "boxed_warning",
+        "quoted_text": "BOXED WARNING WARNING: PULMONARY, HEPATIC and CARDIAC TOXICITY Amiodarone hydrochloride is intended for use only in patients with the indicated life-threatening arrhythmias because its use is accompanied by substantial toxicity [see Indications and Usage ( 1 )]. Amiodarone hydrochloride can cause pulmonary toxicity (hypersensitivity pneumonitis or interstitial/alveolar pneumonitis) that has resulted in clinically manifest disease at rates as high as 17% in some series of patients. Pulmonary toxicity has been fatal about 10% of the time . Obtain a baseline chest X-ray and pulmonary-function tests, including diffusion capacity, when amiodarone hydrochloride therapy is initiated. Repeat history, physical exam, and chest X-ray every 3 to 6 months [see Warnings and Precautions 5.2 )]. Amiodarone hydrochloride can cause hepatoxicity, which can be fatal. Obtain baseline and periodic liver transaminases and discontinue or reduce dose if the increase exceeds three times normal, or doubles in a patient with an elevated baseline. Discontinue amiodarone hydrochloride if the patient experiences signs or symptoms of clinical liver injury [see Warnings and Precautions ( 5.3 )]. Amiodarone hydrochloride can exacerbate arrhythmias. Initiate amiodarone hydrochloride in a clinical setting where continuous electrocardiograms and cardiac resuscitation are available [see Warnings and Precautions ( 5.4 )] WARNING: PULMONARY, HEPATIC, and CARDIAC TOXICITY See full prescribing information for complete boxed warning . Reserve amiodarone hydrochloride for patients with the indicated life-threatening arrhythmias because its use is accompanied by substantial toxicity, some also life-threatening. Utilize alternative agents first. (1) Amiodarone hydrochloride's life-threatening toxicities include pulmonary (5.2), hepatic (5.3) , and proarrhythmic (5.4). Initiate under hospital or specialist supervision. (5)",
+        "supporting_text": "BOXED WARNING WARNING: PULMONARY, HEPATIC and CARDIAC TOXICITY Amiodarone hydrochloride is intended for use only in patients with the indicated life-threatening arrhythmias because its use is accompanied by substantial toxicity [see Indications and Usage ( 1 )].",
+        "source_version": "effective 20260422 · version 7",
+        "anchor_drug": "amiodarone",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"amiodarone\"&limit=20",
+        "retrieved_at": "2026-07-10T23:00:00.000Z"
+      },
+      {
+        "id": "label:3407:interactions",
+        "claim_text": "FDA label drug-interactions section for digoxin",
+        "source_name": "openFDA-label",
+        "source_id": "53e5aec1-052b-454e-e063-6394a90a87f3",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=53e5aec1-052b-454e-e063-6394a90a87f3",
+        "exact_field": "drug_interactions",
+        "quoted_text": "7 DRUG INTERACTIONS Digoxin has a narrow therapeutic index, increased monitoring of serum digoxin concentrations and for potential signs and symptoms of clinical toxicity is necessary when initiating, adjusting, or discontinuing drugs that may interact with digoxin. Prescribers should consult the prescribing information of any drug which is co-prescribed with digoxin for potential drug interaction information. PGP Inducers/Inhibitors: Drugs that induce or inhibit PGP have the potential to alter digoxin pharmacokinetics. ( 7.1 ) The potential for drug-drug interactions must be considered prior to and during drug therapy. See full prescribing information. ( 7.2 , 7.3 , 12.3 ) 7.1 P-Glycoprotein (PGP) Inducers/Inhibitors Digoxin is a substrate of P-glycoprotein, at the level of intestinal absorption, renal tubular section and biliary-intestinal secretion. Therefore, drugs that induce/ inhibit P-glycoprotein have the potential to alter digoxin pharmacokinetics. 7.2 Pharmacokinetic Drug Interactions Digoxin concentrations increased greater than 50% Digoxin Serum Concentration Increase Digoxin AUC Increase Recommendations Amiodarone 70% NA Measure serum digoxin concentrations before initiating concomitant drugs. Reduce digoxin concentrations by decreasing dose by approximately 30 to 50% or by modifying the dosing frequency and continue monitoring. Captopril 58% 39% Clarithromycin NA 70% Dronedarone NA 150% Gentamicin 129 to 212% NA Erythromycin 100% NA Itraconazole 80% NA Lapatinib NA 180% Propafenone NA 60 to 270% Quinidine 100% NA Ranolazine 50% NA Ritonavir NA 86% Telaprevir 50% 85% Tetracycline 100% NA Verapamil 50 to 75% NA Digoxin concentrations increased less than 50% Atorvastatin 22% 15% Measure serum digoxin concentrations before initiating concomitant drugs. Reduce digoxin concentrations by decreasing the dose by approximately 15 to 30% or by modifying the dosing frequency and continue monitoring. Carvedilol 16% 14% Conivaptan 33% 43% Diltiazem 20% NA Indomethacin 40% NA Mirabegron 29% 27% Nefazodone 27% 15% Nifedipine 45% NA Propantheline 24% 24% Quinine NA 33% Rabeprazole 29% 19% Saquinavir 27% 49% Spironolactone 25% NA Telmisartan 20 to 49% NA Ticagrelor 31% 28% Tolvaptan 30% 20% Trimethoprim 22 to 28% NA Digoxin concentrations increased, but magnitude is unclear Alprazolam, azithromycin, cyclosporine, diclofenac, diphenoxylate, epoprostenol, esomeprazole, ibuprofen, ketoconazole, lansoprazole, metformin, omeprazole Measure serum digoxin concentrations before initiating concomitant drugs. Continue monitoring and reduce digoxin dose as necessary. NA = Not available/reported Digoxin concentrations decreased Acarbose, activated charcoal, albuterol, antacids, certain cancer chemotherapy or radiation therapy, cholestyramine, colestipol, extenatide, kaolin-pectin, meals high in bran, metoclopramide, miglitol, neomycin, penicillamine, phenytoin, rifampin, St. John’s Wort, sucralfate and sulfasalazine Measure serum digoxin concentrations before initiating concomitant drugs. Continue monitoring and increase digoxin dose by approximately 20 to 40% as necessary. 7.3 Potentially Significant Pharmacodynamic Drug Interactions Because of considerable variability of pharmacodynamic interactions, the dosage of digoxin should be individualized when patients receive these medications concurrently. Drugs that Affect Renal Function A decline in GFR or tubular secretion, as from ACE inhibitors, angiotensin receptor blockers, nonsteroidal anti-inflammatory drugs [NSAIDS], COX-2 inhibitors may impair the excretion of digoxin. Antiarrthymics Dofetilide Concomitant administration with digoxin was associated with a higher rate of torsades de pointes Sotalol Proarrhythmic events were more common in patients receiving sotalol and digoxin than on either alone; it is not clear whether this represents an interaction or is related to the presence of CHF, a known risk factor for proarrhythmia, in patients receiving digoxin. Dronedarone Sudden death was ",
+        "supporting_text": "2 Pharmacokinetic Drug Interactions Digoxin concentrations increased greater than 50% Digoxin Serum Concentration Increase Digoxin AUC Increase Recommendations Amiodarone 70% NA Measure serum digoxin concentrations before initiating concomitant drugs. Reduce digoxin concentrations by decreasing dose by approximately 30 to 50% or by modifying the dosing frequency and continue monitoring.",
+        "source_version": "effective 20260610 · version 1",
+        "anchor_drug": "digoxin",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"digoxin\"&limit=20",
+        "retrieved_at": "2026-07-11T08:45:16.990Z"
+      },
+      {
+        "id": "ddinter:DDInter1707:DDInter13",
+        "claim_text": "DDInter severity for spironolactone + acenocoumarol: Unknown",
+        "source_name": "DDInter",
+        "source_id": "DDInter1707/DDInter13",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
+        "exact_field": "Level",
+        "quoted_text": "Drug_A: Spironolactone; Drug_B: Acenocoumarol; Level: Unknown",
+        "supporting_text": "Drug_A: Spironolactone; Drug_B: Acenocoumarol; Level: Unknown",
+        "subject_drugs": [
+          "Spironolactone",
+          "Acenocoumarol"
+        ],
+        "retrieval_query": "local DDInter ddinter_downloads_code_B.csv row: DDInter1707 (Spironolactone) x DDInter13 (Acenocoumarol)",
+        "retrieved_at": "2026-07-11T22:15:46.935Z"
+      },
+      {
+        "id": "ddinter:DDInter790:DDInter13",
+        "claim_text": "DDInter severity for Furosemide + acenocoumarol: Unknown",
+        "source_name": "DDInter",
+        "source_id": "DDInter790/DDInter13",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
+        "exact_field": "Level",
+        "quoted_text": "Drug_A: Furosemide; Drug_B: Acenocoumarol; Level: Unknown",
+        "supporting_text": "Drug_A: Furosemide; Drug_B: Acenocoumarol; Level: Unknown",
+        "subject_drugs": [
+          "Furosemide",
+          "Acenocoumarol"
+        ],
+        "retrieval_query": "local DDInter ddinter_downloads_code_B.csv row: DDInter790 (Furosemide) x DDInter13 (Acenocoumarol)",
+        "retrieved_at": "2026-07-11T22:15:46.935Z"
+      },
+      {
+        "id": "ddinter:DDInter1200:DDInter13",
+        "claim_text": "DDInter severity for metoprolol + acenocoumarol: Unknown",
+        "source_name": "DDInter",
+        "source_id": "DDInter1200/DDInter13",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
+        "exact_field": "Level",
+        "quoted_text": "Drug_A: Metoprolol; Drug_B: Acenocoumarol; Level: Unknown",
+        "supporting_text": "Drug_A: Metoprolol; Drug_B: Acenocoumarol; Level: Unknown",
+        "subject_drugs": [
+          "Metoprolol",
+          "Acenocoumarol"
+        ],
+        "retrieval_query": "local DDInter ddinter_downloads_code_B.csv row: DDInter1200 (Metoprolol) x DDInter13 (Acenocoumarol)",
+        "retrieved_at": "2026-07-11T22:15:46.935Z"
+      },
+      {
+        "id": "ddinter:DDInter1565:DDInter13",
+        "claim_text": "DDInter severity for Ramipril + acenocoumarol: Unknown",
+        "source_name": "DDInter",
+        "source_id": "DDInter1565/DDInter13",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
+        "exact_field": "Level",
+        "quoted_text": "Drug_A: Ramipril; Drug_B: Acenocoumarol; Level: Unknown",
+        "supporting_text": "Drug_A: Ramipril; Drug_B: Acenocoumarol; Level: Unknown",
+        "subject_drugs": [
+          "Ramipril",
+          "Acenocoumarol"
+        ],
+        "retrieval_query": "local DDInter ddinter_downloads_code_B.csv row: DDInter1565 (Ramipril) x DDInter13 (Acenocoumarol)",
+        "retrieved_at": "2026-07-11T22:15:46.935Z"
+      },
+      {
+        "id": "ddinter:DDInter76:DDInter13",
+        "claim_text": "DDInter severity for amiodarone + acenocoumarol: Unknown",
+        "source_name": "DDInter",
+        "source_id": "DDInter76/DDInter13",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
+        "exact_field": "Level",
+        "quoted_text": "Drug_A: Amiodarone; Drug_B: Acenocoumarol; Level: Unknown",
+        "supporting_text": "Drug_A: Amiodarone; Drug_B: Acenocoumarol; Level: Unknown",
+        "subject_drugs": [
+          "Amiodarone",
+          "Acenocoumarol"
+        ],
+        "retrieval_query": "local DDInter ddinter_downloads_code_B.csv row: DDInter76 (Amiodarone) x DDInter13 (Acenocoumarol)",
+        "retrieved_at": "2026-07-11T22:15:46.935Z"
+      },
+      {
+        "id": "ddinter:DDInter554:DDInter13",
+        "claim_text": "DDInter severity for acenocoumarol + Digoxin: Unknown",
+        "source_name": "DDInter",
+        "source_id": "DDInter554/DDInter13",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
+        "exact_field": "Level",
+        "quoted_text": "Drug_A: Digoxin; Drug_B: Acenocoumarol; Level: Unknown",
+        "supporting_text": "Drug_A: Digoxin; Drug_B: Acenocoumarol; Level: Unknown",
+        "subject_drugs": [
+          "Digoxin",
+          "Acenocoumarol"
+        ],
+        "retrieval_query": "local DDInter ddinter_downloads_code_B.csv row: DDInter554 (Digoxin) x DDInter13 (Acenocoumarol)",
+        "retrieved_at": "2026-07-11T22:15:46.935Z"
+      }
+    ],
+    "unverified_removed": [],
+    "generated_at": "2026-07-11T22:15:46.935Z",
+    "pipeline": {
+      "mode": "audited-replay",
+      "model": "Claude Opus 4.8",
+      "stages": [
+        "ingest",
+        "retrieve",
+        "synthesize",
+        "verify"
+      ],
+      "ddinter": {
+        "source_rows": 222383,
+        "unique_pairs": 160235,
+        "unique_drugs": 1939,
+        "source_files": 8
+      }
+    }
+  },
+  "generatedAt": "2026-07-11T22:15:46.935Z"
+}

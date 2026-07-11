@@ -1,0 +1,138 @@
+{
+  "id": "amoxicillin-allergy-by-proxy",
+  "locale": "en",
+  "intake": {
+    "case": {
+      "note": "Case report PMC12695512 / PMID 40984660. 38-year-old man with allergic rhinitis experienced seven episodes of anaphylaxis at home, one progressing to anaphylactic shock. He denied medication use, foods, or Hymenoptera stings. Anaphylactic reactions coincided with periods when his children were receiving penicillin therapy. Two episodes were traced to indirect exposure to penicillins via his children's items. Diagnostic testing confirmed sensitisation to penicillins.",
+      "medications": [
+        {
+          "raw": "Amoxicillin (traces of a crushed amoxicillin tablet in child's glass)",
+          "episode": "Anaphylaxis episode from indirect exposure to penicillins; drinking from his child's glass containing traces of a crushed amoxicillin tablet, onset 10 min, generalised angioedema, vomiting, dyspnea, loss of consciousness",
+          "source_span": "Licking his child's spoon containing traces of amoxicillin syrup",
+          "status": "indirect-exposure"
+        },
+        {
+          "raw": "Amoxicillin syrup (traces on child's spoon)",
+          "episode": "Anaphylaxis episode from indirect exposure to penicillins; licking his child's spoon containing traces of amoxicillin syrup, onset 5 min, palmo-plantar itching, head itching, facial angioedema, dyspnea",
+          "source_span": "Licking his child's spoon containing traces of amoxicillin syrup",
+          "status": "indirect-exposure"
+        }
+      ],
+      "allergies": [
+        "Penicillins (confirmed sensitisation; positive skin prick tests to amoxicillin and ampicillin, positive intradermal test to penicillin G)",
+        "Amoxicillin (serum-specific IgE positive 0.26 kUA/L)",
+        "Allergic rhinitis"
+      ],
+      "diagnoses": [
+        "Allergy by proxy to penicillins presenting as recurrent idiopathic anaphylaxis within the household",
+        "Seven episodes of anaphylaxis at home, one progressing to anaphylactic shock",
+        "History of allergic rhinitis"
+      ],
+      "labs": [
+        {
+          "name": "Baseline serum tryptase",
+          "value": 4.1,
+          "unit": "\\u03bcg/L"
+        },
+        {
+          "name": "Serum-specific IgE for amoxicillin (ImmunoCAP)",
+          "value": 0.26,
+          "unit": "kUA/L"
+        }
+      ]
+    },
+    "ambiguities": [
+      {
+        "id": "amb-1",
+        "field": "medications",
+        "question": "The source describes amoxicillin exposures only through the patient's children's contaminated items (spoon, glass), not direct patient medication use. Please confirm both amoxicillin entries should be classified as indirect-exposure rather than patient-administered medications."
+      }
+    ],
+    "sourceSummary": "Single case report of a 38-year-old man with recurrent anaphylaxis traced to indirect (by-proxy) exposure to penicillins from his children's penicillin therapy. Two episodes linked to amoxicillin residue on a child's spoon and glass. Testing confirmed penicillin/amoxicillin sensitisation. Extracted medication exposures classified as indirect-exposure."
+  },
+  "report": {
+    "patient": {
+      "medications": [
+        {
+          "raw": "Amoxicillin (traces of a crushed amoxicillin tablet in child's glass)",
+          "rxcui": "723",
+          "name": "amoxicillin",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "723",
+              "name": "amoxicillin"
+            }
+          ],
+          "status": "indirect-exposure",
+          "episode": "Anaphylaxis episode from indirect exposure to penicillins; drinking from his child's glass containing traces of a crushed amoxicillin tablet, onset 10 min, generalised angioedema, vomiting, dyspnea, loss of consciousness",
+          "source_span": "Licking his child's spoon containing traces of amoxicillin syrup"
+        },
+        {
+          "raw": "Amoxicillin syrup (traces on child's spoon)",
+          "rxcui": "723",
+          "name": "amoxicillin",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "723",
+              "name": "amoxicillin"
+            }
+          ],
+          "status": "indirect-exposure",
+          "episode": "Anaphylaxis episode from indirect exposure to penicillins; licking his child's spoon containing traces of amoxicillin syrup, onset 5 min, palmo-plantar itching, head itching, facial angioedema, dyspnea",
+          "source_span": "Licking his child's spoon containing traces of amoxicillin syrup"
+        }
+      ],
+      "allergies": [
+        "Penicillins (confirmed sensitisation; positive skin prick tests to amoxicillin and ampicillin, positive intradermal test to penicillin G)",
+        "Amoxicillin (serum-specific IgE positive 0.26 kUA/L)",
+        "Allergic rhinitis"
+      ],
+      "diagnoses": [
+        "Allergy by proxy to penicillins presenting as recurrent idiopathic anaphylaxis within the household",
+        "Seven episodes of anaphylaxis at home, one progressing to anaphylactic shock",
+        "History of allergic rhinitis"
+      ],
+      "labs": [
+        {
+          "name": "Baseline serum tryptase",
+          "value": 4.1,
+          "unit": "\\u03bcg/L"
+        },
+        {
+          "name": "Serum-specific IgE for amoxicillin (ImmunoCAP)",
+          "value": 0.26,
+          "unit": "kUA/L"
+        }
+      ],
+      "note": "Case report PMC12695512 / PMID 40984660. 38-year-old man with allergic rhinitis experienced seven episodes of anaphylaxis at home, one progressing to anaphylactic shock. He denied medication use, foods, or Hymenoptera stings. Anaphylactic reactions coincided with periods when his children were receiving penicillin therapy. Two episodes were traced to indirect exposure to penicillins via his children's items. Diagnostic testing confirmed sensitisation to penicillins."
+    },
+    "patient_summary": "38-year-old man with allergic rhinitis and confirmed sensitisation to penicillins who experienced recurrent anaphylaxis at home traced to indirect exposure to amoxicillin from his children's items. The record lists amoxicillin as an indirect exposure and documents confirmed penicillin and amoxicillin allergy. No interaction evidence sources were supplied for review.",
+    "findings": [],
+    "questions_for_clinician": [
+      "The two amoxicillin entries both describe indirect household exposure episodes rather than prescribed medications; are these separate documented exposure events or a single episode recorded twice?",
+      "Should the patient's confirmed penicillin and amoxicillin allergy be flagged prominently in the medication record given the documented indirect-exposure anaphylaxis history?"
+    ],
+    "evidence": [],
+    "unverified_removed": [],
+    "generated_at": "2026-07-11T22:26:38.885Z",
+    "pipeline": {
+      "mode": "audited-replay",
+      "model": "Claude Opus 4.8",
+      "stages": [
+        "ingest",
+        "retrieve",
+        "synthesize",
+        "verify"
+      ],
+      "ddinter": {
+        "source_rows": 222383,
+        "unique_pairs": 160235,
+        "unique_drugs": 1939,
+        "source_files": 8
+      }
+    }
+  },
+  "generatedAt": "2026-07-11T22:26:38.885Z"
+}

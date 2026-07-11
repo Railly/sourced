@@ -1,0 +1,525 @@
+{
+  "id": "methadone-metoclopramide-metronidazole-torsades",
+  "locale": "es",
+  "intake": {
+    "case": {
+      "note": "50-year-old female with AIDS not compliant with anti-retroviral therapy, polysubstance abuse and opioid dependence on methadone maintenance, presented with vomiting and confusion. Developed Torsades de Pointes shortly after metronidazole infusion following metoclopramide administration.",
+      "medications": [
+        {
+          "raw": "Methadone",
+          "episode": "Torsades de Pointes during methadone maintenance with metoclopramide and metronidazole",
+          "status": "active",
+          "source_span": "Her urine toxicology was positive for methadone, cocaine and opioids."
+        },
+        {
+          "raw": "Metoclopramide (IV metoclopramide 10 mg)",
+          "episode": "Received in ED for nausea/vomiting prior to TdP",
+          "start": "about 45 min before metronidazole",
+          "status": "active",
+          "source_span": "She received intravenous (IV) metoclopramide 10 mg."
+        },
+        {
+          "raw": "Metronidazole (IV)",
+          "episode": "Given for suspected aspiration pneumonia; TdP shortly after infusion stopped",
+          "start": "about 45 min after the metoclopramide was given, infused over 30 min",
+          "status": "active",
+          "source_span": "(B) Onset of Torsades de Pointes (TdP) shortly after metronidazole infusion."
+        },
+        {
+          "raw": "Ceftriaxone (IV)",
+          "episode": "Given for suspected aspiration pneumonia",
+          "status": "active",
+          "source_span": "She was given IV ceftriaxone and metronidazole for suspected aspiration pneumonia."
+        },
+        {
+          "raw": "Potassium chloride (IV)",
+          "episode": "Given after TdP episode, post-defibrillation",
+          "status": "one-time",
+          "source_span": "IV potassium chloride and magnesium sulfate were given."
+        },
+        {
+          "raw": "Magnesium sulfate (IV)",
+          "episode": "Given after TdP episode, post-defibrillation",
+          "status": "one-time",
+          "source_span": "IV potassium chloride and magnesium sulfate were given."
+        }
+      ],
+      "allergies": [],
+      "diagnoses": [
+        "Torsades de Pointes",
+        "Acquired immunodeficiency syndrome not compliant with anti-retroviral therapy",
+        "Polysubstance abuse",
+        "Opioid dependence on methadone maintenance",
+        "Suspected aspiration pneumonia",
+        "Sinus bradycardia",
+        "Prolonged QTc"
+      ],
+      "labs": [
+        {
+          "name": "Serum potassium",
+          "value": 3.5,
+          "unit": "meq/L"
+        },
+        {
+          "name": "Magnesium",
+          "value": 2.1,
+          "unit": "meq/L"
+        },
+        {
+          "name": "Creatinine",
+          "value": 0.5,
+          "unit": "mg/dL"
+        },
+        {
+          "name": "Heart rate",
+          "value": 44,
+          "unit": "per minute"
+        },
+        {
+          "name": "Respiratory rate",
+          "value": 18,
+          "unit": "per minute"
+        },
+        {
+          "name": "QT interval",
+          "value": 512,
+          "unit": "ms"
+        },
+        {
+          "name": "QTc (corrected QT) on admission",
+          "value": 460,
+          "unit": "ms"
+        },
+        {
+          "name": "QTc follow up",
+          "value": 542,
+          "unit": "ms"
+        },
+        {
+          "name": "QTc after two days",
+          "value": 432,
+          "unit": "ms"
+        },
+        {
+          "name": "EKG rate",
+          "value": 40,
+          "unit": "per minute"
+        },
+        {
+          "name": "Ejection fraction",
+          "value": 47,
+          "unit": "%"
+        }
+      ]
+    },
+    "ambiguities": [
+      {
+        "id": "amb-methadone-timing",
+        "field": "medications[0].status",
+        "question": "¿La metadona de mantenimiento estaba activa durante el episodio de Torsades de Pointes? El texto indica dependencia de opioides en mantenimiento con metadona y toxicología positiva para metadona, pero no especifica la última dosis administrada."
+      },
+      {
+        "id": "amb-heroin-cocaine",
+        "field": "medications",
+        "question": "La paciente refirió uso de heroína y cocaína (toxicología positiva para cocaína y opioides). ¿Deben registrarse estas sustancias como exposiciones medicamentosas del episodio?"
+      },
+      {
+        "id": "amb-source-span",
+        "field": "medications[].source_span",
+        "question": "No se incluyeron fragmentos verbatim (source_span) para cada medicamento. ¿Desea que confirme y añada los fragmentos exactos del texto fuente para cada exposición?"
+      }
+    ],
+    "sourceSummary": "Reporte de caso (PMC7931031) de una mujer de 50 años con SIDA, abuso de polisustancias y dependencia de opioides en mantenimiento con metadona, que desarrolló Torsades de Pointes tras recibir metoclopramida y luego metronidazol IV. También recibió ceftriaxona, y tras el episodio se administraron cloruro de potasio y sulfato de magnesio IV. Se preservan valores de laboratorio y EKG exactamente como se indicaron."
+  },
+  "report": {
+    "patient": {
+      "medications": [
+        {
+          "raw": "Methadone",
+          "rxcui": "6813",
+          "name": "methadone",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "6813",
+              "name": "methadone"
+            }
+          ],
+          "status": "active",
+          "episode": "Torsades de Pointes during methadone maintenance with metoclopramide and metronidazole",
+          "source_span": "Her urine toxicology was positive for methadone, cocaine and opioids."
+        },
+        {
+          "raw": "Metoclopramide (IV metoclopramide 10 mg)",
+          "rxcui": "6915",
+          "name": "metoclopramide",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "6915",
+              "name": "metoclopramide"
+            }
+          ],
+          "status": "active",
+          "episode": "Received in ED for nausea/vomiting prior to TdP",
+          "start": "about 45 min before metronidazole",
+          "source_span": "She received intravenous (IV) metoclopramide 10 mg."
+        },
+        {
+          "raw": "Metronidazole (IV)",
+          "rxcui": "6922",
+          "name": "metronidazole",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "6922",
+              "name": "metronidazole"
+            }
+          ],
+          "status": "active",
+          "episode": "Given for suspected aspiration pneumonia; TdP shortly after infusion stopped",
+          "start": "about 45 min after the metoclopramide was given, infused over 30 min",
+          "source_span": "(B) Onset of Torsades de Pointes (TdP) shortly after metronidazole infusion."
+        },
+        {
+          "raw": "Ceftriaxone (IV)",
+          "rxcui": "2193",
+          "name": "ceftriaxone",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "2193",
+              "name": "ceftriaxone"
+            }
+          ],
+          "status": "active",
+          "episode": "Given for suspected aspiration pneumonia",
+          "source_span": "She was given IV ceftriaxone and metronidazole for suspected aspiration pneumonia."
+        },
+        {
+          "raw": "Potassium chloride (IV)",
+          "rxcui": "8591",
+          "name": "potassium chloride",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "8591",
+              "name": "potassium chloride"
+            }
+          ],
+          "status": "one-time",
+          "episode": "Given after TdP episode, post-defibrillation",
+          "source_span": "IV potassium chloride and magnesium sulfate were given."
+        },
+        {
+          "raw": "Magnesium sulfate (IV)",
+          "rxcui": "6585",
+          "name": "magnesium sulfate",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "6585",
+              "name": "magnesium sulfate"
+            }
+          ],
+          "status": "one-time",
+          "episode": "Given after TdP episode, post-defibrillation",
+          "source_span": "IV potassium chloride and magnesium sulfate were given."
+        }
+      ],
+      "allergies": [],
+      "diagnoses": [
+        "Torsades de Pointes",
+        "Acquired immunodeficiency syndrome not compliant with anti-retroviral therapy",
+        "Polysubstance abuse",
+        "Opioid dependence on methadone maintenance",
+        "Suspected aspiration pneumonia",
+        "Sinus bradycardia",
+        "Prolonged QTc"
+      ],
+      "labs": [
+        {
+          "name": "Serum potassium",
+          "value": 3.5,
+          "unit": "meq/L"
+        },
+        {
+          "name": "Magnesium",
+          "value": 2.1,
+          "unit": "meq/L"
+        },
+        {
+          "name": "Creatinine",
+          "value": 0.5,
+          "unit": "mg/dL"
+        },
+        {
+          "name": "Heart rate",
+          "value": 44,
+          "unit": "per minute"
+        },
+        {
+          "name": "Respiratory rate",
+          "value": 18,
+          "unit": "per minute"
+        },
+        {
+          "name": "QT interval",
+          "value": 512,
+          "unit": "ms"
+        },
+        {
+          "name": "QTc (corrected QT) on admission",
+          "value": 460,
+          "unit": "ms"
+        },
+        {
+          "name": "QTc follow up",
+          "value": 542,
+          "unit": "ms"
+        },
+        {
+          "name": "QTc after two days",
+          "value": 432,
+          "unit": "ms"
+        },
+        {
+          "name": "EKG rate",
+          "value": 40,
+          "unit": "per minute"
+        },
+        {
+          "name": "Ejection fraction",
+          "value": 47,
+          "unit": "%"
+        }
+      ],
+      "note": "50-year-old female with AIDS not compliant with anti-retroviral therapy, polysubstance abuse and opioid dependence on methadone maintenance, presented with vomiting and confusion. Developed Torsades de Pointes shortly after metronidazole infusion following metoclopramide administration."
+    },
+    "patient_summary": "Mujer de 50 años con SIDA sin cumplir terapia antirretroviral, abuso de múltiples sustancias y dependencia de opioides en mantenimiento con methadone. Ingresó con vómitos y confusión, y presentó Torsades de Pointes poco después de la infusión de metronidazole tras recibir metoclopramide. Diagnósticos incluyen Torsades de Pointes, bradicardia sinusal y QTc prolongado. En los laboratorios: potasio sérico 3.5 meq/L, magnesio 2.1 meq/L, creatinina 0.5 mg/dL, frecuencia cardíaca 44 por minuto, intervalo QT 512 ms, QTc de ingreso 460 ms, QTc de seguimiento 542 ms, QTc a los dos días 432 ms, frecuencia en EKG 40 por minuto y fracción de eyección 47 %. Recibió también ceftriaxone, y tras el episodio se administraron potassium chloride y magnesium sulfate por vía IV.",
+    "findings": [
+      {
+        "status": "flagged",
+        "severity": "moderate",
+        "drugs": [
+          "Methadone",
+          "Metoclopramide"
+        ],
+        "headline": "Interacción entre Methadone y Metoclopramide",
+        "mechanism": "DDInter clasifica el par exacto Methadone + Metoclopramide con gravedad moderada.",
+        "why_this_patient": "Tanto Methadone como Metoclopramide están activos en el episodio de seguridad de medicamentos revisado.",
+        "evidence_ids": [
+          "ddinter:DDInter1166:DDInter1197"
+        ]
+      },
+      {
+        "status": "informational",
+        "severity": "minor",
+        "drugs": [
+          "Methadone",
+          "Metronidazole"
+        ],
+        "headline": "Interacción entre Methadone y Metronidazole",
+        "mechanism": "DDInter clasifica el par exacto Methadone + Metronidazole con gravedad menor.",
+        "why_this_patient": "Tanto Methadone como Metronidazole están activos en el episodio de seguridad de medicamentos revisado.",
+        "evidence_ids": [
+          "ddinter:DDInter1166:DDInter1202"
+        ]
+      }
+    ],
+    "questions_for_clinician": [
+      "¿Las entradas de methadone, metoclopramide y metronidazole corresponden a órdenes distintas activas de forma simultánea o a administraciones puntuales separadas en el tiempo?",
+      "Dado que la etiqueta de metronidazole reporta prolongación del QT al administrarse con fármacos que prolongan el QT, ¿se desea revisar la continuidad de metronidazole en el contexto del QTc prolongado documentado?"
+    ],
+    "evidence": [
+      {
+        "id": "label:6813:interactions",
+        "claim_text": "FDA label drug-interactions section for methadone",
+        "source_name": "openFDA-label",
+        "source_id": "4a44bde6-c348-4316-b0e0-c24b407cb823",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4a44bde6-c348-4316-b0e0-c24b407cb823",
+        "exact_field": "drug_interactions",
+        "quoted_text": "7 DRUG INTERACTIONS Inhibitors of CYP3A4, CYP2B6, CYP2C19, CYP2C9, or CYP2D6 Clinical Impact: Methadone undergoes hepatic N-demethylation by several cytochrome P450 (CYP) isoforms, including CYP3A4, CYP2B6, CYP2C19, CYP2C9, and CYP2D6. The concomitant use of methadone hydrochloride tablets and CYP3A4, CYP2B6, CYP2C19, CYP2C9, or CYP2D6 inhibitors can increase the plasma concentration of methadone, resulting in increased or prolonged opioid effects, and may result in a fatal overdose, particularly when an inhibitor is added after a stable dose of methadone hydrochloride tablets is achieved. These effects may be more pronounced with concomitant use of drugs that inhibit more than one of the CYP enzymes listed above. After stopping a CYP3A4, CYP2B6, CYP2C19, CYP2C9, or CYP2D6 inhibitor, as the effects of the inhibitor decline, the methadone plasma concentration can decrease [see CLINICAL PHARMACOLOGY ( 12.3 ) ], resulting in decreased opioid efficacy or withdrawal symptoms in patients physically dependent on methadone. Intervention: If concomitant use is necessary, consider dosage reduction of methadone hydrochloride tablets until stable drug effects are achieved. Evaluate patients at frequent intervals for respiratory depression and sedation. If a CYP3A4, CYP2B6, CYP2C19, CYP2C9, or CYP2D6 inhibitor is discontinued, consider increasing the methadone hydrochloride tablets dosage until stable drug effects are achieved. Evaluate for signs of opioid withdrawal. Examples: Macrolide antibiotics (e.g., erythromycin), azole-antifungal agents (e.g. ketoconazole), protease inhibitors (e.g., ritonavir), fluconazole, fluvoxamine, some selective serotonin reuptake inhibitors (SSRIs) (e.g., sertraline, fluvoxamine) Inducers of CYP3A4, CYP2B6, CYP2C19, or CYP2C9 Clinical Impact: The concomitant use of methadone hydrochloride tablets and CYP3A4, CYP2B6, CYP2C19, or CYP2C9 inducers can decrease the plasma concentration of methadone [see CLINICAL PHARMACOLOGY ( 12.3 ) ], resulting in decreased efficacy or onset of withdrawal symptoms in patients physically dependent on methadone. These effects could be more pronounced with concomitant use of drugs that can induce multiple CYP enzymes. After stopping a CYP3A4, CYP2B6, CYP2C19, or CYP2C9 inducer, as the effects of the inducer decline, the methadone plasma concentration can increase [see CLINICAL PHARMACOLOGY ( 12.3 ) ], which could increase or prolong both the therapeutic effects and adverse reactions, and may cause serious respiratory depression, sedation, or death. Intervention: If concomitant use is necessary, consider increasing the methadone hydrochloride tablets dosage until stable drug effects are achieved. Evaluate for signs of opioid withdrawal. If a CYP3A4, CYP2B6, CYP2C19, or CYP2C9 inducer is discontinued, consider methadone hydrochloride tablets dosage reduction and evaluate patients at frequent intervals for signs of respiratory depression and sedation. Examples: Rifampin, carbamazepine, phenytoin, St. John’s Wort, Phenobarbital Benzodiazepines and other Central Nervous System (CNS) Depressants Clinical Impact: Due to additive pharmacologic effect, the concomitant use of benzodiazepines or other CNS depressants including alcohol, can increase the risk of hypotension, respiratory depression, profound sedation, coma, and death. Intervention: For Patients Being Treated for Pain: Reserve concomitant prescribing of these drugs for use in patients for whom alternative treatment options are inadequate. Limit dosages and durations to the minimum required. Inform patients and caregivers of this potential interaction, educate them on the signs and symptoms of respiratory depression (including sedation). If concomitant use is warranted, consider recommending or prescribing an opioid overdose reversal agent. For Patients Being Treated for Opioid Addiction: Cessation of benzodiazepines or other CNS depressants is preferred in most cases of concomitant use. In some cases, monitoring in a higher lev",
+        "supporting_text": "The concomitant use of methadone hydrochloride tablets and CYP3A4, CYP2B6, CYP2C19, CYP2C9, or CYP2D6 inhibitors can increase the plasma concentration of methadone, resulting in increased or prolonged opioid effects, and may result in a fatal overdose, particularly when an inhibitor is added after a stable dose of methadone hydrochloride tablets is achieved. These effects may be more pronounced with concomitant use of drugs that inhibit more than one of the CYP enzymes listed above.",
+        "source_version": "effective 20251231 · version 17",
+        "anchor_drug": "methadone",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"methadone\"&limit=20",
+        "retrieved_at": "2026-07-11T22:22:32.995Z"
+      },
+      {
+        "id": "label:6813:boxed",
+        "claim_text": "FDA boxed warning for methadone",
+        "source_name": "openFDA-label",
+        "source_id": "4a44bde6-c348-4316-b0e0-c24b407cb823",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4a44bde6-c348-4316-b0e0-c24b407cb823",
+        "exact_field": "boxed_warning",
+        "quoted_text": "WARNING: SERIOUS AND LIFE-THREATENING RISKS FROM USE OF METHADONE HYDROCHLORIDE TABLETS A ddiction, Abuse, and Misuse Because the use of methadone hydrochloride tablets exposes patients and other users to the risks of opioid addiction, abuse, and misuse, which can lead to overdose and death, assess each patient’s risk prior to prescribing and reassess all patients regularly for the development of these behaviors and conditions [see WARNINGS AND PRECAUTIONS ( 5.1 )]. Life-Threatening Respiratory Depression Serious, life-threatening, or fatal respiratory depression may occur with use of methadone hydrochloride tablets, especially during initiation or following a dosage increase. To reduce the risk of respiratory depression, proper dosing and titration of methadone hydrochloride tablets are essential [see WARNINGS AND PRECAUTIONS ( 5.2 )]. Accidental Ingestion Accidental ingestion of even one dose of methadone hydrochloride tablets, especially by children, can result in a fatal overdose of methadone [see Warnings and Precautions ( 5.2 )] . Risks From Concomitant Use With Benzodiazepines Or Other CNS Depressants Concomitant use of opioids with benzodiazepines or other central nervous system (CNS) depressants, including alcohol, may result in profound sedation, respiratory depression, coma, and death. Reserve concomitant prescribing of methadone hydrochloride tablets and benzodiazepines or other CNS depressants for use in patients for whom alternative treatment options are inadequate [see WARNINGS AND PRECAUTIONS ( 5.3 ), DRUG INTERACTIONS ( 7 )]. Neonatal Opioid Withdrawal Syndrome (NOWS) Neonatal opioid withdrawal syndrome (NOWS) is an expected and treatable outcome of use of methadone hydrochloride tablets during pregnancy. NOWS may be life-threatening if not recognized and treated in the neonate. The balance between the risks of NOWS and the benefits of maternal methadone hydrochloride tablets use may differ based on the risks associated with the mother’s underlying ",
+        "supporting_text": "WARNING: SERIOUS AND LIFE-THREATENING RISKS FROM USE OF METHADONE HYDROCHLORIDE TABLETS A ddiction, Abuse, and Misuse Because the use of methadone hydrochloride tablets exposes patients and other users to the risks of opioid addiction, abuse, and misuse, which can lead to overdose and death, assess each patient’s risk prior to prescribing and reassess all patients regularly for the development of these behaviors and conditions [see WARNINGS AND PRECAUTIONS ( 5.",
+        "source_version": "effective 20251231 · version 17",
+        "anchor_drug": "methadone",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"methadone\"&limit=20",
+        "retrieved_at": "2026-07-11T22:22:32.995Z"
+      },
+      {
+        "id": "label:6915:interactions",
+        "claim_text": "FDA label drug-interactions section for metoclopramide",
+        "source_name": "openFDA-label",
+        "source_id": "15d616d7-2f4c-4882-a03c-fcc86c18f5f8",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=15d616d7-2f4c-4882-a03c-fcc86c18f5f8",
+        "exact_field": "drug_interactions",
+        "quoted_text": "7 DRUG INTERACTIONS Antipsychotics : Potential for additive effects, including TD, EPS, and NMS; avoid concomitant use. ( 7.1 ) CNS depressants : Increased risk of CNS depression. Avoid concomitant use and monitor for adverse reactions. ( 7.1 ) Strong CYP2D6 inhibitors (e.g., quinidine, bupropion, fluoxetine, and paroxetine) : See Full Prescribing Information for recommended dosage reductions. ( 2.2 , 2.3 , 7.1 ) MAO inhibitors : Increased risk of hypertension; avoid concomitant use. ( 5.5 , 7.1 ) Additional drug interactions : See Full Prescribing Information. ( 7.1 , 7.2 ) 7.1 Effects of Other Drugs on Metoclopramide Table 3 displays the effects of other drugs on metoclopramide. Table 3. Effects of Other Drugs on Metoclopramide Antipsychotics Clinical Impact Potential for additive effects, including increased frequency and severity of tardive dyskinesia (TD), other extrapyramidal symptoms (EPS), and neuroleptic malignant syndrome (NMS). Intervention Avoid concomitant use [ see Warnings and Precautions ( 5.1 , 5.2 , 5.3 ) ]. Strong CYP2D6 Inhibitors, not Included in Antipsychotic Category Above Clinical Impact Increased plasma concentrations of metoclopramide; risk of exacerbation of extrapyramidal symptoms [ see Clinical Pharmacology ( 12.3 ) ]. Intervention Reduce the metoclopramide dosage [ see Dosage and Administration ( 2.2 , 2.3 ) ]. Examples quinidine, bupropion, fluoxetine, and paroxetine Monoamine Oxidase Inhibitors Clinical Impact Increased risk of hypertension [ see Warnings and Precautions ( 5.5 ) ]. Intervention Avoid concomitant use. Central Nervous System (CNS) Depressants Clinical Impact Increased risk of CNS depression [ see Warnings and Precautions ( 5.8 ) ]. Intervention Avoid metoclopramide or the interacting drug, depending on the importance of the drug to the patient. Examples alcohol, sedatives, hypnotics, opiates and anxiolytics Drugs that Impair Gastrointestinal Motility Clinical Impact Decreased systemic absorption of metoclopramide. Intervention Monitor for reduced therapeutic effect. Examples antiperistaltic antidiarrheal drugs, anticholinergic drugs, and opiates Dopaminergic Agonists and Other Drugs that Increase Dopamine Concentrations Clinical Impact Decreased therapeutic effect of metoclopramide due to opposing effects on dopamine. Intervention Monitor for reduced therapeutic effect. Examples apomorphine, bromocriptine, cabergoline, levodopa, pramipexole, ropinirole, and rotigotine 7.2 Effects of Metoclopramide on Other Drugs Table 4 displays the effects of metoclopramide on other drugs. Table 4. Effects of Metoclopramide on Other Drugs Dopaminergic Agonists and Drugs Increasing Dopamine Concentrations Clinical Impact Opposing effects of metoclopramide and the interacting drug on dopamine. Potential exacerbation of symptoms (e.g., parkinsonian symptoms). Intervention Avoid concomitant use [ see Warnings and Precautions ( 5.2 ) ]. Examples Apomorphine, bromocriptine, cabergoline, levodopa, pramipexole, ropinirole, rotigotine Succinylcholine, Mivacurium Clinical Impact Metoclopramide inhibits plasma cholinesterase leading to enhanced neuromuscular blockade. Intervention Monitor for signs and symptoms of prolonged neuromuscular blockade Drugs with Absorption Altered due to Increased Gastrointestinal Motility Clinical Impact The effect of metoclopramide on other drugs is variable. Increased gastrointestinal (GI) motility by metoclopramide may impact absorption of other drugs leading to decreased or increased drug exposure. Intervention Drugs with Decreased Absorption (e.g., digoxin, atovaquone, posaconazole oral suspension Interaction does not apply to posaconazole delayed-release tablets , fosfomycin) : Monitor for reduced therapeutic effect of the interacting drug. For digoxin monitor therapeutic drug concentrations and increase the digoxin dose as needed (see prescribing information for digoxin). Drugs with Increased Absorption (e.g., sirolimus, tacrolimus, cyclosporine) : Monitor therapeutic dr",
+        "supporting_text": "1 ) MAO inhibitors : Increased risk of hypertension; avoid concomitant use.",
+        "source_version": "effective 20260527 · version 3",
+        "anchor_drug": "metoclopramide",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"metoclopramide\"&limit=20",
+        "retrieved_at": "2026-07-11T06:10:31.590Z"
+      },
+      {
+        "id": "label:6915:boxed",
+        "claim_text": "FDA boxed warning for metoclopramide",
+        "source_name": "openFDA-label",
+        "source_id": "15d616d7-2f4c-4882-a03c-fcc86c18f5f8",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=15d616d7-2f4c-4882-a03c-fcc86c18f5f8",
+        "exact_field": "boxed_warning",
+        "quoted_text": "WARNING: TARDIVE DYSKINESIA Metoclopramide can cause tardive dyskinesia (TD), a serious movement disorder that is often irreversible. There is no known treatment for TD. The risk of developing TD increases with duration of treatment and total cumulative dosage [ see Warnings and Precautions ( 5.1 ) ]. Discontinue metoclopramide in patients who develop signs or symptoms of TD. In some patients, symptoms may lessen or resolve after metoclopramide is stopped [ see Warnings and Precautions ( 5.1 ) ]. Avoid treatment with metoclopramide for longer than 12 weeks because of the increased risk of developing TD with longer-term use [ see Warnings and Precautions ( 5.1 ) and Dosage and Administration ( 2.2 , 2.3 ) ]. WARNING: TARDIVE DYSKINESIA See full prescribing information for complete boxed warning. Metoclopramide can cause tardive dyskinesia (TD), a serious movement disorder that is often irreversible. There is no known treatment for TD. The risk of developing TD increases with duration of treatment and total cumulative dosage ( 5.1 ) Discontinue metoclopramide in patients who develop signs or symptoms of TD ( 5.1 ) Avoid treatment with metoclopramide for longer than 12 weeks because of the risk of developing TD with longer-term use ( 5.1 , 2.1 , 2.2 , 2.3 )",
+        "supporting_text": "WARNING: TARDIVE DYSKINESIA Metoclopramide can cause tardive dyskinesia (TD), a serious movement disorder that is often irreversible.",
+        "source_version": "effective 20260527 · version 3",
+        "anchor_drug": "metoclopramide",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"metoclopramide\"&limit=20",
+        "retrieved_at": "2026-07-11T06:10:31.590Z"
+      },
+      {
+        "id": "label:6922:interactions",
+        "claim_text": "FDA label drug-interactions section for metronidazole",
+        "source_name": "openFDA-label",
+        "source_id": "1277591d-ccf4-428a-b647-cb1ef3fbf561",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1277591d-ccf4-428a-b647-cb1ef3fbf561",
+        "exact_field": "drug_interactions",
+        "quoted_text": "Drug Interactions Disulfiram Psychotic reactions have been reported in alcoholic patients who are using metronidazole and disulfiram concurrently. Metronidazole should not be given to patients who have taken disulfiram within the last two weeks (see CONTRAINDICATIONS ). Alcoholic Beverages Abdominal cramps, nausea, vomiting, headaches, and flushing may occur if alcoholic beverages or products containing propylene glycol are consumed during or following metronidazole therapy (see CONTRAINDICATIONS ). Warfarin and other Oral Anticoagulants Metronidazole has been reported to potentiate the anticoagulant effect of warfarin and other oral coumarin anticoagulants, resulting in a prolongation of prothrombin time. When metronidazole is prescribed for patients on this type of anticoagulant therapy, prothrombin time and INR should be carefully monitored. Lithium In patients stabilized on relatively high doses of lithium, short-term metronidazole therapy has been associated with elevation of serum lithium and, in a few cases, signs of lithium toxicity. Serum lithium and serum creatinine levels should be obtained several days after beginning metronidazole to detect any increase that may precede clinical symptoms of lithium intoxication. Busulfan Metronidazole has been reported to increase plasma concentrations of busulfan, which can result in an increased risk for serious busulfan toxicity. Metronidazole should not be administered concomitantly with busulfan unless the benefit outweighs the risk. If no therapeutic alternatives to metronidazole are available, and concomitant administration with busulfan is medically needed, frequent monitoring of busulfan plasma concentration should be performed and the busulfan dose should be adjusted accordingly. Drugs that Inhibit CYP450 Enzymes The simultaneous administration of drugs that decrease microsomal liver enzyme activity, such as cimetidine, may prolong the half-life and decrease plasma clearance of metronidazole. Drugs that Induce CYP450 Enzymes The simultaneous administration of drugs that induce microsomal liver enzymes, such as phenytoin or phenobarbital, may accelerate the elimination of metronidazole, resulting in reduced plasma levels; impaired clearance of phenytoin has also been reported. Drugs that Prolong the QT interval QT prolongation has been reported, particularly when metronidazole was administered with drugs with the potential for prolonging the QT interval. Drug/Laboratory Test Interactions Metronidazole may interfere with certain types of determinations of serum chemistry values, such as aspartate aminotransferase (AST, SGOT), alanine aminotransferase (ALT, SGPT), lactate dehydrogenase (LDH), triglycerides, and glucose hexokinase. Values of zero may be observed. All of the assays in which interference has been reported involve enzymatic coupling of the assay to oxidation-reduction of nicotinamide adenine dinucleotide (NAD+ NADH). Interference is due to the similarity in absorbance peaks of NADH (340 nm) and metronidazole (322 nm) at pH 7 .",
+        "supporting_text": "Busulfan Metronidazole has been reported to increase plasma concentrations of busulfan, which can result in an increased risk for serious busulfan toxicity. Metronidazole should not be administered concomitantly with busulfan unless the benefit outweighs the risk.",
+        "source_version": "effective 20260413 · version 100",
+        "anchor_drug": "metronidazole",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"metronidazole\"&limit=20",
+        "retrieved_at": "2026-07-11T22:22:32.995Z"
+      },
+      {
+        "id": "label:6922:boxed",
+        "claim_text": "FDA boxed warning for metronidazole",
+        "source_name": "openFDA-label",
+        "source_id": "1277591d-ccf4-428a-b647-cb1ef3fbf561",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1277591d-ccf4-428a-b647-cb1ef3fbf561",
+        "exact_field": "boxed_warning",
+        "quoted_text": "WARNING Metronidazole has been shown to be carcinogenic in mice and rats (see PRECAUTIONS ). Unnecessary use of the drug should be avoided. Its use should be reserved for the conditions described in the INDICATIONS AND USAGE section below.",
+        "supporting_text": "WARNING Metronidazole has been shown to be carcinogenic in mice and rats (see PRECAUTIONS ).",
+        "source_version": "effective 20260413 · version 100",
+        "anchor_drug": "metronidazole",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"metronidazole\"&limit=20",
+        "retrieved_at": "2026-07-11T22:22:32.995Z"
+      },
+      {
+        "id": "ddinter:DDInter1166:DDInter1197",
+        "claim_text": "DDInter severity for methadone + metoclopramide: Moderate",
+        "source_name": "DDInter",
+        "source_id": "DDInter1166/DDInter1197",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
+        "exact_field": "Level",
+        "quoted_text": "Drug_A: Methadone; Drug_B: Metoclopramide; Level: Moderate",
+        "supporting_text": "Drug_A: Methadone; Drug_B: Metoclopramide; Level: Moderate",
+        "subject_drugs": [
+          "Methadone",
+          "Metoclopramide"
+        ],
+        "retrieval_query": "local DDInter ddinter_downloads_code_A.csv row: DDInter1166 (Methadone) x DDInter1197 (Metoclopramide)",
+        "retrieved_at": "2026-07-11T22:34:54.072Z"
+      },
+      {
+        "id": "ddinter:DDInter1166:DDInter1202",
+        "claim_text": "DDInter severity for methadone + metronidazole: Minor",
+        "source_name": "DDInter",
+        "source_id": "DDInter1166/DDInter1202",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
+        "exact_field": "Level",
+        "quoted_text": "Drug_A: Methadone; Drug_B: Metronidazole; Level: Minor",
+        "supporting_text": "Drug_A: Methadone; Drug_B: Metronidazole; Level: Minor",
+        "subject_drugs": [
+          "Methadone",
+          "Metronidazole"
+        ],
+        "retrieval_query": "local DDInter ddinter_downloads_code_A.csv row: DDInter1166 (Methadone) x DDInter1202 (Metronidazole)",
+        "retrieved_at": "2026-07-11T22:34:54.072Z"
+      },
+      {
+        "id": "ddinter:DDInter1202:DDInter1197",
+        "claim_text": "DDInter severity for metoclopramide + metronidazole: Unknown",
+        "source_name": "DDInter",
+        "source_id": "DDInter1202/DDInter1197",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
+        "exact_field": "Level",
+        "quoted_text": "Drug_A: Metronidazole; Drug_B: Metoclopramide; Level: Unknown",
+        "supporting_text": "Drug_A: Metronidazole; Drug_B: Metoclopramide; Level: Unknown",
+        "subject_drugs": [
+          "Metronidazole",
+          "Metoclopramide"
+        ],
+        "retrieval_query": "local DDInter ddinter_downloads_code_A.csv row: DDInter1202 (Metronidazole) x DDInter1197 (Metoclopramide)",
+        "retrieved_at": "2026-07-11T22:34:54.072Z"
+      },
+      {
+        "id": "ddinter:DDInter334:DDInter1197",
+        "claim_text": "DDInter severity for metoclopramide + ceftriaxone: Unknown",
+        "source_name": "DDInter",
+        "source_id": "DDInter334/DDInter1197",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
+        "exact_field": "Level",
+        "quoted_text": "Drug_A: Ceftriaxone; Drug_B: Metoclopramide; Level: Unknown",
+        "supporting_text": "Drug_A: Ceftriaxone; Drug_B: Metoclopramide; Level: Unknown",
+        "subject_drugs": [
+          "Ceftriaxone",
+          "Metoclopramide"
+        ],
+        "retrieval_query": "local DDInter ddinter_downloads_code_A.csv row: DDInter334 (Ceftriaxone) x DDInter1197 (Metoclopramide)",
+        "retrieved_at": "2026-07-11T22:34:54.072Z"
+      },
+      {
+        "id": "ddinter:DDInter1202:DDInter334",
+        "claim_text": "DDInter severity for metronidazole + ceftriaxone: Unknown",
+        "source_name": "DDInter",
+        "source_id": "DDInter1202/DDInter334",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
+        "exact_field": "Level",
+        "quoted_text": "Drug_A: Metronidazole; Drug_B: Ceftriaxone; Level: Unknown",
+        "supporting_text": "Drug_A: Metronidazole; Drug_B: Ceftriaxone; Level: Unknown",
+        "subject_drugs": [
+          "Metronidazole",
+          "Ceftriaxone"
+        ],
+        "retrieval_query": "local DDInter ddinter_downloads_code_A.csv row: DDInter1202 (Metronidazole) x DDInter334 (Ceftriaxone)",
+        "retrieved_at": "2026-07-11T22:34:54.072Z"
+      }
+    ],
+    "unverified_removed": [
+      {
+        "claim_text": "Dado que la etiqueta de metoclopramide recomienda evitar el uso concomitante con depresores del SNC como los opiáceos, ¿se desea mantener metoclopramide junto con methadone en esta paciente?",
+        "reason": "Revisor narrativo: La etiqueta de metoclopramide recomienda evitar el uso concomitante con opiáceos: la evidencia indica 'Avoid metoclopramide or the interacting drug, depending on the importance of the drug to the patient', no una recomendación absoluta de evitar; sin embargo el premisa de que la interacción existe está soportada. La afirmación de 'recomienda evitar el uso concomitante con depresores del SNC como los opiáceos' no coincide exactamente con la intervención citada."
+      }
+    ],
+    "generated_at": "2026-07-11T22:34:54.072Z",
+    "pipeline": {
+      "mode": "audited-replay",
+      "model": "Claude Opus 4.8",
+      "stages": [
+        "ingest",
+        "retrieve",
+        "synthesize",
+        "verify"
+      ],
+      "ddinter": {
+        "source_rows": 222383,
+        "unique_pairs": 160235,
+        "unique_drugs": 1939,
+        "source_files": 8
+      }
+    }
+  },
+  "generatedAt": "2026-07-11T22:34:54.072Z"
+}

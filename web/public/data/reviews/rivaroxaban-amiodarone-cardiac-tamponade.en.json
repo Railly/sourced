@@ -1,0 +1,291 @@
+{
+  "id": "rivaroxaban-amiodarone-cardiac-tamponade",
+  "locale": "en",
+  "intake": {
+    "case": {
+      "note": "87-year-old male with paroxysmal atrial fibrillation, recent pulseless ventricular tachycardia with ICD in situ, and nonischemic cardiomyopathy (EF 35%) presented with intermittent chest pain and light headedness of 2 days duration. Case reports spontaneous cardiac tamponade induced by concomitant use of rivaroxaban and amiodarone. PMC6109521 / PMID 30159173.",
+      "medications": [
+        {
+          "raw": "rivaroxaban 20 mg daily",
+          "episode": "spontaneous cardiac tamponade induced by concomitant use of rivaroxaban and amiodarone",
+          "start": "on 20 mg of rivaroxaban daily (chronic, prior to presentation)",
+          "source_span": "paroxysmal atrial fibrillation on 20 mg of rivaroxaban daily",
+          "status": "active"
+        },
+        {
+          "raw": "amiodarone 200 mg daily",
+          "episode": "spontaneous cardiac tamponade induced by concomitant use of rivaroxaban and amiodarone",
+          "start": "commenced on 200 mg amiodarone daily four months prior to presentation",
+          "source_span": "he was commenced on 200 mg amiodarone daily four months prior to presentation",
+          "status": "active"
+        }
+      ],
+      "allergies": [],
+      "diagnoses": [
+        "paroxysmal atrial fibrillation",
+        "recent pulseless ventricular tachycardia with implantable cardiac defibrillator in situ",
+        "nonischemic cardiomyopathy (ejection fraction 35%)",
+        "spontaneous cardiac tamponade"
+      ],
+      "labs": [
+        {
+          "name": "blood pressure systolic",
+          "value": 89,
+          "unit": "mmHg"
+        },
+        {
+          "name": "blood pressure diastolic",
+          "value": 60,
+          "unit": "mmHg"
+        },
+        {
+          "name": "pulse rate",
+          "value": 59,
+          "unit": "/min"
+        },
+        {
+          "name": "temperature",
+          "value": 98.2,
+          "unit": "°F"
+        },
+        {
+          "name": "respiratory rate",
+          "value": 14,
+          "unit": "breaths/min"
+        },
+        {
+          "name": "oxygen saturation",
+          "value": 100,
+          "unit": "%"
+        }
+      ]
+    },
+    "ambiguities": [],
+    "sourceSummary": "Single PMC case report (PMC6109521) of an 87-year-old male with spontaneous cardiac tamponade attributed to concomitant rivaroxaban and amiodarone. Both medications were active during the target episode: chronic rivaroxaban 20 mg daily and amiodarone 200 mg daily started four months before presentation."
+  },
+  "report": {
+    "patient": {
+      "medications": [
+        {
+          "raw": "rivaroxaban 20 mg daily",
+          "rxcui": "1114195",
+          "name": "rivaroxaban",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "1114195",
+              "name": "rivaroxaban"
+            }
+          ],
+          "status": "active",
+          "episode": "spontaneous cardiac tamponade induced by concomitant use of rivaroxaban and amiodarone",
+          "start": "on 20 mg of rivaroxaban daily (chronic, prior to presentation)",
+          "source_span": "paroxysmal atrial fibrillation on 20 mg of rivaroxaban daily"
+        },
+        {
+          "raw": "amiodarone 200 mg daily",
+          "rxcui": "703",
+          "name": "amiodarone",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "703",
+              "name": "amiodarone"
+            }
+          ],
+          "status": "active",
+          "episode": "spontaneous cardiac tamponade induced by concomitant use of rivaroxaban and amiodarone",
+          "start": "commenced on 200 mg amiodarone daily four months prior to presentation",
+          "source_span": "he was commenced on 200 mg amiodarone daily four months prior to presentation"
+        }
+      ],
+      "allergies": [],
+      "diagnoses": [
+        "paroxysmal atrial fibrillation",
+        "recent pulseless ventricular tachycardia with implantable cardiac defibrillator in situ",
+        "nonischemic cardiomyopathy (ejection fraction 35%)",
+        "spontaneous cardiac tamponade"
+      ],
+      "labs": [
+        {
+          "name": "blood pressure systolic",
+          "value": 89,
+          "unit": "mmHg"
+        },
+        {
+          "name": "blood pressure diastolic",
+          "value": 60,
+          "unit": "mmHg"
+        },
+        {
+          "name": "pulse rate",
+          "value": 59,
+          "unit": "/min"
+        },
+        {
+          "name": "temperature",
+          "value": 98.2,
+          "unit": "°F"
+        },
+        {
+          "name": "respiratory rate",
+          "value": 14,
+          "unit": "breaths/min"
+        },
+        {
+          "name": "oxygen saturation",
+          "value": 100,
+          "unit": "%"
+        }
+      ],
+      "note": "87-year-old male with paroxysmal atrial fibrillation, recent pulseless ventricular tachycardia with ICD in situ, and nonischemic cardiomyopathy (EF 35%) presented with intermittent chest pain and light headedness of 2 days duration. Case reports spontaneous cardiac tamponade induced by concomitant use of rivaroxaban and amiodarone. PMC6109521 / PMID 30159173."
+    },
+    "patient_summary": "87-year-old male with paroxysmal atrial fibrillation, recent pulseless ventricular tachycardia with an implantable cardiac defibrillator in situ, and nonischemic cardiomyopathy (ejection fraction 35%), presenting with intermittent chest pain and light headedness. Active medications are rivaroxaban 20 mg daily (chronic) and amiodarone 200 mg daily (started four months prior). Recorded vitals include systolic blood pressure 89 mmHg, diastolic blood pressure 60 mmHg, pulse rate 59 /min, temperature 98.2 °F, respiratory rate 14 breaths/min, and oxygen saturation 100%.",
+    "findings": [
+      {
+        "status": "flagged",
+        "severity": "moderate",
+        "drugs": [
+          "Amiodarone",
+          "Rivaroxaban"
+        ],
+        "headline": "Amiodarone + Rivaroxaban interaction",
+        "mechanism": "DDInter classifies the exact Amiodarone + Rivaroxaban pair as Moderate.",
+        "why_this_patient": "Both Amiodarone and Rivaroxaban are active in the reviewed medication-safety episode.",
+        "evidence_ids": [
+          "ddinter:DDInter76:DDInter1609"
+        ]
+      },
+      {
+        "status": "flagged",
+        "severity": "major",
+        "drugs": [
+          "amiodarone"
+        ],
+        "headline": "Amiodarone carries a boxed warning for pulmonary, hepatic, and cardiac toxicity",
+        "mechanism": "The amiodarone boxed warning states that amiodarone can cause pulmonary toxicity, hepatotoxicity, and can exacerbate arrhythmias, and that its use is accompanied by substantial toxicity.",
+        "why_this_patient": "This patient is on amiodarone 200 mg daily started four months prior, and the boxed warning applies to ongoing amiodarone therapy.",
+        "evidence_ids": [
+          "label:703:boxed"
+        ],
+        "monitoring": "The boxed warning directs baseline and periodic liver transaminases and periodic chest X-ray, and initiation in a clinical setting where continuous electrocardiograms and cardiac resuscitation are available."
+      },
+      {
+        "status": "flagged",
+        "severity": "major",
+        "drugs": [
+          "rivaroxaban"
+        ],
+        "headline": "Premature discontinuation of rivaroxaban increases thrombotic risk",
+        "mechanism": "The rivaroxaban boxed warning states that premature discontinuation of any oral anticoagulant, including rivaroxaban, increases the risk of thrombotic events, and that if anticoagulation is discontinued for a reason other than pathological bleeding or completion of therapy, coverage with another anticoagulant should be considered.",
+        "why_this_patient": "This patient is on chronic rivaroxaban 20 mg daily for atrial fibrillation, so any decision to interrupt it engages this boxed-warning risk.",
+        "evidence_ids": [
+          "label:1114195:boxed"
+        ],
+        "monitoring": "The boxed warning advises considering coverage with another anticoagulant if rivaroxaban is stopped for a reason other than pathological bleeding or completion of a course of therapy."
+      }
+    ],
+    "questions_for_clinician": [
+      "Given the structured Moderate rating for the amiodarone and rivaroxaban combination, do you want to reassess the plan to continue both agents concurrently?",
+      "If rivaroxaban is interrupted, will coverage with another anticoagulant be arranged as described in the rivaroxaban boxed warning?"
+    ],
+    "evidence": [
+      {
+        "id": "label:1114195:interactions",
+        "claim_text": "FDA label drug-interactions section for rivaroxaban",
+        "source_name": "openFDA-label",
+        "source_id": "481b7802-5093-43e7-bbd9-1532197eb6e6",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=481b7802-5093-43e7-bbd9-1532197eb6e6",
+        "exact_field": "drug_interactions",
+        "quoted_text": "7 DRUG INTERACTIONS Avoid combined P-gp and strong CYP3A inhibitors and inducers ( 7.2 , 7.3 ) Anticoagulants: Avoid concomitant use ( 7.4 ) 7.1 General Inhibition and Induction Properties Rivaroxaban is a substrate of CYP3A4/5, CYP2J2, and the P-gp and ATP-binding cassette G2 (ABCG2) transporters, the latter also known as breast cancer resistance protein (BCRP). Combined P-gp and strong CYP3A inhibitors increase exposure to rivaroxaban and may increase the risk of bleeding. Combined P-gp and strong CYP3A inducers decrease exposure to rivaroxaban and may increase the risk of thromboembolic events. 7.2 Drugs that Inhibit Cytochrome P450 3A Enzymes and Drug Transport Systems Interaction with Combined P-gp and Strong CYP3A Inhibitors Avoid concomitant administration of rivaroxaban with known combined P-gp and strong CYP3A inhibitors (e.g., ketoconazole and ritonavir) [see Warnings and Precautions ( 5.6 ) and Clinical Pharmacology ( 12.3 )] . Although clarithromycin is a combined P-gp and strong CYP3A inhibitor, pharmacokinetic data suggests that no precautions are necessary with concomitant administration with rivaroxaban as the change in exposure is unlikely to affect the bleeding risk [see Clinical Pharmacology ( 12.3 )] . Interaction with Combined P-gp and Moderate CYP3A Inhibitors in Patients with Renal Impairment Rivaroxaban should not be used in patients with CrCl 15 to <80 mL/min who are receiving concomitant combined P-gp and moderate CYP3A inhibitors (e.g., erythromycin) unless the potential benefit justifies the potential risk [see Warnings and Precautions ( 5.4 ) and Clinical Pharmacology ( 12.3 )] . 7.3 Drugs that Induce Cytochrome P450 3A Enzymes and Drug Transport Systems Avoid concomitant use of rivaroxaban with drugs that are combined P-gp and strong CYP3A inducers (e.g., carbamazepine, phenytoin, rifampin, St. John’s wort) [see Warnings and Precautions ( 5.6 ) and Clinical Pharmacology ( 12.3 )] . 7.4 Anticoagulants and NSAIDs/Aspirin Co-administration of enoxaparin, warfarin, aspirin, clopidogrel and chronic NSAID use may increase the risk of bleeding [see Clinical Pharmacology ( 12.3 )]. Avoid concurrent use of rivaroxaban with other anticoagulants due to increased bleeding risk unless benefit outweighs risk. Promptly evaluate any signs or symptoms of blood loss if patients are treated concomitantly with aspirin, other platelet aggregation inhibitors, or NSAIDs [see Warnings and Precautions ( 5.2 )].",
+        "supporting_text": "Combined P-gp and strong CYP3A inhibitors increase exposure to rivaroxaban and may increase the risk of bleeding. Combined P-gp and strong CYP3A inducers decrease exposure to rivaroxaban and may increase the risk of thromboembolic events.",
+        "source_version": "effective 20260706 · version 1",
+        "anchor_drug": "rivaroxaban",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"rivaroxaban\"&limit=20",
+        "retrieved_at": "2026-07-11T07:30:02.107Z"
+      },
+      {
+        "id": "label:1114195:boxed",
+        "claim_text": "FDA boxed warning for rivaroxaban",
+        "source_name": "openFDA-label",
+        "source_id": "481b7802-5093-43e7-bbd9-1532197eb6e6",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=481b7802-5093-43e7-bbd9-1532197eb6e6",
+        "exact_field": "boxed_warning",
+        "quoted_text": "WARNING: (A) PREMATURE DISCONTINUATION OF RIVAROXABAN INCREASES THE RISK OF THROMBOTIC EVENTS, (B) SPINAL/EPIDURAL HEMATOMA A. Premature discontinuation of rivaroxaban increases the risk of thrombotic events Premature discontinuation of any oral anticoagulant, including rivaroxaban, increases the risk of thrombotic events. If anticoagulation with rivaroxaban is discontinued for a reason other than pathological bleeding or completion of a course of therapy, consider coverage with another anticoagulant [see Dosage and Administration ( 2.3 , 2.4 ), Warnings and Precautions ( 5.1 )] . B. Spinal/epidural hematoma Epidural or spinal hematomas have occurred in patients treated with rivaroxaban who are receiving neuraxial anesthesia or undergoing spinal puncture. These hematomas may result in long-term or permanent paralysis. Consider these risks when scheduling patients for spinal procedures. Factors that can increase the risk of developing epidural or spinal hematomas in these patients include: use of indwelling epidural catheters concomitant use of other drugs that affect hemostasis, such as non-steroidal anti-inflammatory drugs (NSAIDs), platelet inhibitors, other anticoagulants a history of traumatic or repeated epidural or spinal punctures a history of spinal deformity or spinal surgery optimal timing between the administration of rivaroxaban and neuraxial procedures is not known [see Warnings and Precautions ( 5.2 , 5.3 ) and Adverse Reactions ( 6.2 )]. Monitor patients frequently for signs and symptoms of neurological impairment. If neurological compromise is noted, urgent treatment is necessary [see Warnings and Precautions ( 5.3 )]. Consider the benefits and risks before neuraxial intervention in patients anticoagulated or to be anticoagulated for thromboprophylaxis [see Warnings and Precautions ( 5.3 )]. WARNING: (A) PREMATURE DISCONTINUATION OF RIVAROXABAN INCREASES THE RISK OF THROMBOTIC EVENTS, (B) SPINAL/EPIDURAL HEMATOMA See full prescribing information for ",
+        "supporting_text": "WARNING: (A) PREMATURE DISCONTINUATION OF RIVAROXABAN INCREASES THE RISK OF THROMBOTIC EVENTS, (B) SPINAL/EPIDURAL HEMATOMA A.",
+        "source_version": "effective 20260706 · version 1",
+        "anchor_drug": "rivaroxaban",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"rivaroxaban\"&limit=20",
+        "retrieved_at": "2026-07-11T07:30:02.107Z"
+      },
+      {
+        "id": "label:703:interactions",
+        "claim_text": "FDA label drug-interactions section for amiodarone",
+        "source_name": "openFDA-label",
+        "source_id": "4c149392-a4f0-4e2d-a13f-2b94810005de",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4c149392-a4f0-4e2d-a13f-2b94810005de",
+        "exact_field": "drug_interactions",
+        "quoted_text": "7 DRUG INTERACTIONS Because of amiodarone's long half-life, expect drug interactions to persist for weeks to months after discontinuation of amiodarone. Drug interactions with amiodarone are described in Table 1 below. Table 1: Amiodarone Drug Interactions Concomitant Drug Class/Name Examples Clinical Comment Pharmacodynamic Interactions QT Prolonging Drugs class I and III antiarrhythmics, lithium, certain phenothiazines, tricyclic antidepressants, certain fluoroquinolone and macrolide antibiotics, azole antifungals, halogenated inhalation anesthetic agents Increased risk of Torsade de Pointes. Avoid concomitant use. Negative Chronotropes digoxin, beta blockers, verapamil, diltiazem, clonidine, ivabradine Potentiates the electrophysiologic and hemodynamic effects of amiodarone, resulting in bradycardia, sinus arrest, and AV block. Monitor heart rate. Pharmacokinetic Interactions CYP450 Inhibitors grapefruit juice, certain fluoroquinolone and macrolide antibiotics, azole antifungals, cimetidine, certain protease inhibitors Increased exposure of amiodarone. Avoid concomitant use. CYP450 Inducers St. John's Wort Reduced amiodarone serum levels. Cyclosporine Increased plasma levels of cyclosporine have been reported resulting in elevated creatinine, despite reduction of cyclosporine dose. Monitor cyclosporine drug levels and renal function with concomitant use Cholestyramine Reduced amiodarone serum levels. Antiarrhythmics quinidine, procainamide, flecainide Reserve concomitant use for patients who are unresponsive to a single agent. Antiarrhythmic metabolism inhibited by amiodarone. Initiate antiarrhythmic at a lower than usual dose and monitor patient carefully. Reduce dose levels of previously administered antiarrhythmic by 30 to 50% for several days after transitioning to oral amiodarone. Evaluate continued need for antiarrhythmic. Digoxin Increased digoxin concentration. Reduce digoxin by half or discontinue. If continued, monitor for evidence of toxicity. HMG-CoA Reductase Inhibitors simvastatin, lovastatin, atorvastatin Increased plasma concentration of HMGCoA reductase inhibitor. Limit the dose of lovastatin to 40 mg. Limit the coadministered dose of simvastatin to 20 mg. Lower starting dose of other CYP3A4 substrates may be required. Warfarin Potentiates anticoagulant response and can result in serious or fatal bleeding. Coadministration increases prothrombin time by 100% after 3 to 4 days. Reduce warfarin dose by one-third to one-half and monitor prothrombin times. Phenytoin Increased steady-state levels of phenytoin. Monitor phenytoin levels. Hepatitis C Direct Acting Antiviral sofosbuvir Cases of symptomatic bradyarrhythmia requiring pacemaker insertion have been reported in patients on oral maintenance amiodarone who initiated therapy with sofosbuvir. CYP3A Substrate lidocaine Sinus bradycardia has been reported with oral amiodarone in combination with lidocaine given for local anesthesia. Monitor heart rate. A lower starting dose of lidocaine may be required. CYP3A Substrate fentanyl Fentanyl in combination with amiodarone may cause hypotension, bradycardia, and decreased cardiac output. Avoid coadministration of amiodarone with other antiarrhythmics and drugs known to prolong the QT interval. ( 7 ) Amiodarone is a substrate for CYP3A and CYP2C8, so inhibitors and inducers affect amiodarone exposure. ( 7 ) Amiodarone inhibits P-glycoprotein and CYP1A2, CYP2C9, CYP2D6, and CYP3A, increasing exposure to other drugs. ( 7 )",
+        "supporting_text": "HMG-CoA Reductase Inhibitors simvastatin, lovastatin, atorvastatin Increased plasma concentration of HMGCoA reductase inhibitor.",
+        "source_version": "effective 20260422 · version 7",
+        "anchor_drug": "amiodarone",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"amiodarone\"&limit=20",
+        "retrieved_at": "2026-07-10T23:00:00.000Z"
+      },
+      {
+        "id": "label:703:boxed",
+        "claim_text": "FDA boxed warning for amiodarone",
+        "source_name": "openFDA-label",
+        "source_id": "4c149392-a4f0-4e2d-a13f-2b94810005de",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4c149392-a4f0-4e2d-a13f-2b94810005de",
+        "exact_field": "boxed_warning",
+        "quoted_text": "BOXED WARNING WARNING: PULMONARY, HEPATIC and CARDIAC TOXICITY Amiodarone hydrochloride is intended for use only in patients with the indicated life-threatening arrhythmias because its use is accompanied by substantial toxicity [see Indications and Usage ( 1 )]. Amiodarone hydrochloride can cause pulmonary toxicity (hypersensitivity pneumonitis or interstitial/alveolar pneumonitis) that has resulted in clinically manifest disease at rates as high as 17% in some series of patients. Pulmonary toxicity has been fatal about 10% of the time . Obtain a baseline chest X-ray and pulmonary-function tests, including diffusion capacity, when amiodarone hydrochloride therapy is initiated. Repeat history, physical exam, and chest X-ray every 3 to 6 months [see Warnings and Precautions 5.2 )]. Amiodarone hydrochloride can cause hepatoxicity, which can be fatal. Obtain baseline and periodic liver transaminases and discontinue or reduce dose if the increase exceeds three times normal, or doubles in a patient with an elevated baseline. Discontinue amiodarone hydrochloride if the patient experiences signs or symptoms of clinical liver injury [see Warnings and Precautions ( 5.3 )]. Amiodarone hydrochloride can exacerbate arrhythmias. Initiate amiodarone hydrochloride in a clinical setting where continuous electrocardiograms and cardiac resuscitation are available [see Warnings and Precautions ( 5.4 )] WARNING: PULMONARY, HEPATIC, and CARDIAC TOXICITY See full prescribing information for complete boxed warning . Reserve amiodarone hydrochloride for patients with the indicated life-threatening arrhythmias because its use is accompanied by substantial toxicity, some also life-threatening. Utilize alternative agents first. (1) Amiodarone hydrochloride's life-threatening toxicities include pulmonary (5.2), hepatic (5.3) , and proarrhythmic (5.4). Initiate under hospital or specialist supervision. (5)",
+        "supporting_text": "BOXED WARNING WARNING: PULMONARY, HEPATIC and CARDIAC TOXICITY Amiodarone hydrochloride is intended for use only in patients with the indicated life-threatening arrhythmias because its use is accompanied by substantial toxicity [see Indications and Usage ( 1 )].",
+        "source_version": "effective 20260422 · version 7",
+        "anchor_drug": "amiodarone",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"amiodarone\"&limit=20",
+        "retrieved_at": "2026-07-10T23:00:00.000Z"
+      },
+      {
+        "id": "ddinter:DDInter76:DDInter1609",
+        "claim_text": "DDInter severity for rivaroxaban + amiodarone: Moderate",
+        "source_name": "DDInter",
+        "source_id": "DDInter76/DDInter1609",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
+        "exact_field": "Level",
+        "quoted_text": "Drug_A: Amiodarone; Drug_B: Rivaroxaban; Level: Moderate",
+        "supporting_text": "Drug_A: Amiodarone; Drug_B: Rivaroxaban; Level: Moderate",
+        "subject_drugs": [
+          "Amiodarone",
+          "Rivaroxaban"
+        ],
+        "retrieval_query": "local DDInter ddinter_downloads_code_B.csv row: DDInter76 (Amiodarone) x DDInter1609 (Rivaroxaban)",
+        "retrieved_at": "2026-07-11T22:19:04.887Z"
+      }
+    ],
+    "unverified_removed": [
+      {
+        "claim_text": "Have baseline and periodic liver transaminases and chest imaging been arranged as directed by the amiodarone boxed warning?",
+        "reason": "Narrative reviewer: The amiodarone boxed warning directs baseline and periodic liver transaminases and chest imaging; however, the boxed warning specifies chest X-ray at initiation and every 3 to 6 months, not generic 'chest imaging,' but the transaminase monitoring is supported — the combined phrasing requesting these as a directed pair is only partially supported (chest X-ray, not chest imaging generically)."
+      }
+    ],
+    "generated_at": "2026-07-11T22:19:04.887Z",
+    "pipeline": {
+      "mode": "audited-replay",
+      "model": "Claude Opus 4.8",
+      "stages": [
+        "ingest",
+        "retrieve",
+        "synthesize",
+        "verify"
+      ],
+      "ddinter": {
+        "source_rows": 222383,
+        "unique_pairs": 160235,
+        "unique_drugs": 1939,
+        "source_files": 8
+      }
+    }
+  },
+  "generatedAt": "2026-07-11T22:19:04.887Z"
+}

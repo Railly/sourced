@@ -1,0 +1,380 @@
+{
+  "id": "topricin-belladonna-anticholinergic-toxicity",
+  "locale": "en",
+  "intake": {
+    "case": {
+      "note": "40-year-old man presented with headache, blurry vision, and altered mentation. Anticholinergic toxicity secondary to overuse of Topricin cream (containing belladonna). PMC5935428 / PMID 29736357.",
+      "medications": [
+        {
+          "raw": "pravastatin",
+          "episode": "daily medication prior to and during presentation",
+          "start": "daily medication",
+          "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories",
+          "status": "active"
+        },
+        {
+          "raw": "metoprolol",
+          "episode": "daily medication prior to and during presentation",
+          "start": "daily medication",
+          "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories",
+          "status": "active"
+        },
+        {
+          "raw": "enalapril",
+          "episode": "daily medication prior to and during presentation",
+          "start": "daily medication",
+          "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories",
+          "status": "active"
+        },
+        {
+          "raw": "non-steroidal anti-inflammatories for musculoskeletal pains",
+          "episode": "daily medication prior to and during presentation",
+          "start": "daily medication",
+          "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories for musculoskeletal pains",
+          "status": "active"
+        },
+        {
+          "raw": "Topricin (topical pain relief) cream, containing belladonna",
+          "episode": "applied 2 days prior to presentation; suspected cause of anticholinergic toxicity",
+          "start": "Two days prior to presentation",
+          "source_span": "Topricin",
+          "status": "active"
+        },
+        {
+          "raw": "Lorazepam",
+          "episode": "administered in ED for acute delirium during episode",
+          "source_span": "Lorazepam was administered for acute delirium",
+          "status": "one-time"
+        },
+        {
+          "raw": "Physostigmine",
+          "episode": "recommended as diagnostic tool but withheld",
+          "source_span": "Physostigmine was then recommended as a diagnostic tool. However, due to the recent use of a benzodiazepine and the lack of imminent need, a decision was taken to withhold",
+          "status": "held"
+        }
+      ],
+      "allergies": [],
+      "diagnoses": [
+        "Anticholinergic toxicity secondary to overuse of Topricin cream",
+        "hypertension",
+        "dyslipidemia",
+        "acute delirium",
+        "sinus tachycardia"
+      ],
+      "labs": [
+        {
+          "name": "low-density lipoprotein",
+          "value": 114,
+          "unit": "mg/dL"
+        },
+        {
+          "name": "creatine kinase (CK) initial",
+          "value": 98,
+          "unit": "IU/L"
+        },
+        {
+          "name": "creatine kinase (CK) repeat",
+          "value": 1837,
+          "unit": "IU/L"
+        },
+        {
+          "name": "blood urea nitrogen",
+          "value": 29,
+          "unit": "mg/dL"
+        },
+        {
+          "name": "creatinine",
+          "value": 1.59,
+          "unit": "mg/dL"
+        }
+      ]
+    },
+    "ambiguities": [
+      {
+        "id": "amb1",
+        "field": "medications[].status",
+        "question": "Topricin cream (containing belladonna) was applied by the patient himself in overuse and is the suspected cause of the episode; confirm it should be classified as active patient exposure rather than indirect exposure."
+      },
+      {
+        "id": "amb2",
+        "field": "medications[].raw",
+        "question": "The source lists 'non-steroidal anti-inflammatories' without naming a specific agent or dose. Please confirm the specific NSAID identity."
+      }
+    ],
+    "sourceSummary": "Single case report (PMC5935428) of a 40-year-old man with anticholinergic toxicity from overuse of belladonna-containing Topricin cream. Home medications include pravastatin, metoprolol, enalapril, and NSAIDs; lorazepam given for delirium; physostigmine recommended but withheld."
+  },
+  "report": {
+    "patient": {
+      "medications": [
+        {
+          "raw": "pravastatin",
+          "rxcui": "42463",
+          "name": "pravastatin",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "42463",
+              "name": "pravastatin"
+            }
+          ],
+          "status": "active",
+          "episode": "daily medication prior to and during presentation",
+          "start": "daily medication",
+          "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories"
+        },
+        {
+          "raw": "metoprolol",
+          "rxcui": "6918",
+          "name": "metoprolol",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "6918",
+              "name": "metoprolol"
+            }
+          ],
+          "status": "active",
+          "episode": "daily medication prior to and during presentation",
+          "start": "daily medication",
+          "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories"
+        },
+        {
+          "raw": "enalapril",
+          "rxcui": "3827",
+          "name": "enalapril",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "3827",
+              "name": "enalapril"
+            }
+          ],
+          "status": "active",
+          "episode": "daily medication prior to and during presentation",
+          "start": "daily medication",
+          "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories"
+        },
+        {
+          "raw": "non-steroidal anti-inflammatories for musculoskeletal pains",
+          "rxcui": "692034",
+          "name": "NON-STEROIDAL ANTI-INFLAMMATORY ANALGESICS",
+          "resolution": "approximate",
+          "ingredients": [],
+          "status": "active",
+          "episode": "daily medication prior to and during presentation",
+          "start": "daily medication",
+          "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories for musculoskeletal pains"
+        },
+        {
+          "raw": "Topricin (topical pain relief) cream, containing belladonna",
+          "rxcui": "89781",
+          "name": "BELLADONNA",
+          "resolution": "approximate",
+          "ingredients": [
+            {
+              "rxcui": "89781",
+              "name": "belladonna extract, USP"
+            }
+          ],
+          "status": "active",
+          "episode": "applied 2 days prior to presentation; suspected cause of anticholinergic toxicity",
+          "start": "Two days prior to presentation",
+          "source_span": "Topricin"
+        },
+        {
+          "raw": "Lorazepam",
+          "rxcui": "6470",
+          "name": "lorazepam",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "6470",
+              "name": "lorazepam"
+            }
+          ],
+          "status": "one-time",
+          "episode": "administered in ED for acute delirium during episode",
+          "source_span": "Lorazepam was administered for acute delirium"
+        },
+        {
+          "raw": "Physostigmine",
+          "rxcui": "8299",
+          "name": "physostigmine",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "8299",
+              "name": "physostigmine"
+            }
+          ],
+          "status": "held",
+          "episode": "recommended as diagnostic tool but withheld",
+          "source_span": "Physostigmine was then recommended as a diagnostic tool. However, due to the recent use of a benzodiazepine and the lack of imminent need, a decision was taken to withhold"
+        }
+      ],
+      "allergies": [],
+      "diagnoses": [
+        "Anticholinergic toxicity secondary to overuse of Topricin cream",
+        "hypertension",
+        "dyslipidemia",
+        "acute delirium",
+        "sinus tachycardia"
+      ],
+      "labs": [
+        {
+          "name": "low-density lipoprotein",
+          "value": 114,
+          "unit": "mg/dL"
+        },
+        {
+          "name": "creatine kinase (CK) initial",
+          "value": 98,
+          "unit": "IU/L"
+        },
+        {
+          "name": "creatine kinase (CK) repeat",
+          "value": 1837,
+          "unit": "IU/L"
+        },
+        {
+          "name": "blood urea nitrogen",
+          "value": 29,
+          "unit": "mg/dL"
+        },
+        {
+          "name": "creatinine",
+          "value": 1.59,
+          "unit": "mg/dL"
+        }
+      ],
+      "note": "40-year-old man presented with headache, blurry vision, and altered mentation. Anticholinergic toxicity secondary to overuse of Topricin cream (containing belladonna). PMC5935428 / PMID 29736357."
+    },
+    "patient_summary": "A 40-year-old man presented with headache, blurry vision, and altered mentation, diagnosed with anticholinergic toxicity attributed to overuse of a topical cream containing belladonna. His ongoing daily medications include pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories for musculoskeletal pain. He also has hypertension, dyslipidemia, acute delirium, and sinus tachycardia. In the emergency department he received lorazepam for acute delirium, and physostigmine was recommended but withheld given recent benzodiazepine use. Reported labs include low-density lipoprotein 114 mg/dL, an initial creatine kinase of 98 IU/L rising to 1837 IU/L on repeat, blood urea nitrogen 29 mg/dL, and creatinine 1.59 mg/dL.",
+    "findings": [],
+    "questions_for_clinician": [
+      "The daily medication list includes both enalapril and non-steroidal anti-inflammatories; are these separate active orders, and should renal function be monitored per the enalapril label given the reported creatinine and blood urea nitrogen values?"
+    ],
+    "evidence": [
+      {
+        "id": "label:42463:interactions",
+        "claim_text": "FDA label drug-interactions section for pravastatin",
+        "source_name": "openFDA-label",
+        "source_id": "0ae196a4-be3d-4cd8-9ff2-68aeb91b8678",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0ae196a4-be3d-4cd8-9ff2-68aeb91b8678",
+        "exact_field": "drug_interactions",
+        "quoted_text": "7 DRUG INTERACTIONS See full prescribing information for details regarding concomitant use of pravastatin sodium tablets with other drugs that increase the risk of myopathy and rhabdomyolysis. ( 2.5 , 7.1 ) Bile Acid Sequestrants: in patients taking a bile acid sequestrant, administer pravastatin sodium tablets at least 1 hour before or at least 4 hours after the bile acid sequestrant ( 7.2 ) 7.1 Drug Interactions that Increase the Risk of Myopathy and Rhabdomyolysis with Pravastatin Pravastatin is a substrate of the transport protein OATP1B1. Pravastatin plasma levels can be significantly increased with concomitant administration of inhibitors of OATP1B1. Table 3 includes a list of drugs that increase the risk of myopathy and rhabdomyolysis when used concomitantly with pravastatin and instructions for preventing or managing them [see Warnings and Precautions (5.1) and Clinical Pharmacology (12.3) ]. Table 3: Drug Interactions that Increase the Risk of Myopathy and Rhabdomyolysis with Pravastatin Gemfibrozil Clinical Impact: There is an increased risk of myopathy/rhabdomyolysis when pravastatin is administered with gemfibrozil Intervention: Avoid concomitant use of gemfibrozil with pravastatin. Cyclosporine Clinical Impact: The risk of myopathy and rhabdomyolysis is increased with concomitant use of cyclosporine with pravastatin. Intervention: Initiate with a dosage of pravastatin sodium 10 mg once daily. Do not exceed pravastatin 20 mg once daily [see Dosage and Administration (2.5) ]. Select Macrolide Antibiotics Clinical Impact: The risk of myopathy and rhabdomyolysis is increased by concomitant use of clarithromycin or erythromycin with pravastatin. Other macrolides (e.g., azithromycin) have the potential to increase pravastatin exposures and increase the risk of myopathy and rhabdomyolysis when used concomitantly. Intervention: For patients taking erythromycin or clarithromycin, do not exceed 40 mg pravastatin once daily [see Dosage and Administration (2.5) ]. Niacin Clinical Impact: Cases of myopathy and rhabdomyolysis have been observed with concomitant use of niacin with pravastatin. Intervention: Consider if the benefit of using niacin concomitantly with pravastatin outweighs the increased risk of myopathy and rhabdomyolysis. If concomitant use is decided, monitor patients for signs and symptoms of myopathy, particularly during initiation of therapy and during upward dose titration of either drug. Fibrates (other than Gemfibrozil) Clinical Impact: Fibrates may cause myopathy when given alone. The risk of myopathy and rhabdomyolysis is increased with concomitant use of fibrates with pravastatin. Intervention: Consider if the benefit of using fibrates concomitantly with pravastatin outweighs the increased risk of myopathy and rhabdomyolysis. If concomitant use is decided, monitor patients for signs and symptoms of myopathy, particularly during initiation of therapy and during upward dose titration of either drug. Colchicine Clinical Impact: Cases of myopathy and rhabdomyolysis have been reported with concomitant use of colchicine with pravastatin. Intervention: Consider if the benefit of using colchicine concomitantly with pravastatin outweighs the increased risk of myopathy and rhabdomyolysis. If concomitant use is decided, monitor patients for signs and symptoms of myopathy, particularly during initiation of therapy and during upward dose titration of either drug. 7.2 Drug Interactions that Decrease the Efficacy of Pravastatin Table 4 presents drug interactions that may decrease the efficacy of pravastatin and instructions for preventing or managing them. Table 4: Drug Interactions that Decrease the Efficacy of Pravastatin Sodium Tablets Bile Acid Sequestrants Clinical Impact: Concomitant cholestyramine or colestipol administration decreased the mean exposure of pravastatin approximately 51% and 47%, respectively [see Clinical Pharmacology (12.3) ]. Intervention: In patients taking a bile acid sequestrant, administer ",
+        "supporting_text": "Table 3: Drug Interactions that Increase the Risk of Myopathy and Rhabdomyolysis with Pravastatin Gemfibrozil Clinical Impact: There is an increased risk of myopathy/rhabdomyolysis when pravastatin is administered with gemfibrozil Intervention: Avoid concomitant use of gemfibrozil with pravastatin. Cyclosporine Clinical Impact: The risk of myopathy and rhabdomyolysis is increased with concomitant use of cyclosporine with pravastatin.",
+        "source_version": "effective 20260701 · version 5",
+        "anchor_drug": "pravastatin",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"pravastatin\"&limit=20",
+        "retrieved_at": "2026-07-11T22:25:52.822Z"
+      },
+      {
+        "id": "label:6918:interactions",
+        "claim_text": "FDA label drug-interactions section for metoprolol",
+        "source_name": "openFDA-label",
+        "source_id": "09566368-f91d-43a3-b683-30c844fb125a",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=09566368-f91d-43a3-b683-30c844fb125a",
+        "exact_field": "drug_interactions",
+        "quoted_text": "7 DRUG INTERACTIONS • Catecholamine-depleting drugs may have an additive effect when given with beta-blocking agents. ( 7.1 ) • Patients may be unresponsive to the usual doses of epinephrine used to treat allergic reaction. ( 7.2 ) • CYP2D6 Inhibitors are likely to increase metoprolol concentration. ( 7.3 ) • Concomitant use of glycosides, clonidine, and diltiazem and verapamil with beta-blockers can increase the risk of bradycardia. ( 7.4 ) • Beta-blockers including metoprolol, may exacerbate the rebound hypertension that can follow the withdrawal of clonidine. ( 7.4 ) 7.1 Catecholamine Depleting Drugs and Monoamine Oxidate (MAO) Inhibitors Catecholamine depleting drugs (e.g., reserpine) and monoamine oxidase (MAO) inhibitors) may have an additive effect when given with beta-blocking agents. Observe patients treated with metoprolol plus a catecholamine depletor for evidence of hypotension or marked bradycardia, which may produce vertigo, syncope, or postural hypotension. 7.2 Epinephrine While taking beta-blockers, patients with a history of severe anaphylactic reactions to a variety of allergens may be more reactive to repeated challenge and may be unresponsive to the usual doses of epinephrine used to treat an allergic reaction. 7.3 CYP2D6 Inhibitors Drugs that are strong inhibitors of CYP2D6, such as quinidine, fluoxetine, paroxetine, and propafenone, were shown to double metoprolol concentrations. While there is no information about moderate or weak inhibitors, these too are likely to increase metoprolol concentration. Increases in plasma concentration decrease the cardioselectivity of metoprolol [see Clinical Pharmacology (12.3) ]. Monitor patients closely, when the combination cannot be avoided. 7.4 Digitalis, Clonidine, and Calcium Channel Blockers and Other Drugs that Decrease Heart Rate Digitalis glycosides, clonidine, diltiazem and verapamil slow atrioventricular conduction and decrease heart rate. Concomitant administration of beta-blockers with these and other drugs known to decrease heart rate such as sphingosine-1-phosphate receptor modulators (e.g. fingolimod) may result in additive heart rate lowering effects. If clonidine and metoprolol are co-administered, withdraw the metoprolol several days before the gradual withdrawal of clonidine because beta-blockers may exacerbate the rebound hypertension that can follow the withdrawal of clonidine. If replacing clonidine by beta-blocker therapy, delay the introduction of beta-blockers for several days after clonidine administration has stopped . 7.5 Drugs that Decrease Blood Pressure Concomitant administration of beta-blockers with other drugs known to decrease blood pressure may result in an enhanced hypotensive effect.",
+        "supporting_text": "Monitor patients closely, when the combination cannot be avoided.",
+        "source_version": "effective 20240513 · version 22",
+        "anchor_drug": "metoprolol",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"metoprolol\"&limit=20",
+        "retrieved_at": "2026-07-11T06:06:02.253Z"
+      },
+      {
+        "id": "label:3827:interactions",
+        "claim_text": "FDA label drug-interactions section for enalapril",
+        "source_name": "openFDA-label",
+        "source_id": "508a58fa-9f66-e984-e063-6394a90a296a",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=508a58fa-9f66-e984-e063-6394a90a296a",
+        "exact_field": "drug_interactions",
+        "quoted_text": "Drug Interactions Neprilysin Inhibitors Patients taking concomitant neprilysin inhibitors may be at increased risk for angioedema (see WARNINGS ). Dual Blockade of the Renin-Angiotensin System (RAS) Dual blockade of the RAS with angiotensin receptor blockers, ACE inhibitors, or aliskiren is associated with increased risks of hypotension, hyperkalemia, and changes in renal function (including acute renal failure) compared to monotherapy. Most patients receiving the combination of two RAS inhibitors do not obtain any additional benefit compared to monotherapy. In general, avoid combined use of RAS inhibitors. Closely monitor blood pressure, renal function, and electrolytes in patients on enalapril maleate tablets and other agents that affect the RAS. Do not coadminister aliskiren with enalapril maleate tablets in patients with diabetes. Avoid use of aliskiren with enalapril maleate tablets in patients with renal impairment (GFR <60 mL/min). Hypotension — Patients on Diuretic Therapy Patients on diuretics and especially those in whom diuretic therapy was recently instituted, may occasionally experience an excessive reduction of blood pressure after initiation of therapy with enalapril. The possibility of hypotensive effects with enalapril can be minimized by either discontinuing the diuretic or increasing the salt intake prior to initiation of treatment with enalapril. If it is necessary to continue the diuretic, provide close medical supervision after the initial dose for at least two hours and until blood pressure has stabilized for at least an additional hour (see WARNINGS, Hypotension and DOSAGE AND ADMINISTRATION ). Agents Causing Renin Release The antihypertensive effect of enalapril maleate tablets is augmented by antihypertensive agents that cause renin release (e.g., diuretics). Nonsteroidal Anti-Inflammatory Agents Including Selective Cyclooxygenase-2 Inhibitors (COX-2 Inhibitors) In patients who are elderly, volume-depleted (including those on diuretic therapy), or with compromised renal function, coadministration of NSAIDs, including selective COX-2 inhibitors, with ACE inhibitors, including enalapril, may result in deterioration of renal function, including possible acute renal failure. These effects are usually reversible. Monitor renal function periodically in patients receiving enalapril and NSAID therapy. In a clinical pharmacology study, indomethacin or sulindac was administered to hypertensive patients receiving enalapril maleate tablets. In this study there was no evidence of a blunting of the antihypertensive action of enalapril maleate tablets. However, reports suggest that NSAIDs may diminish the antihypertensive effect of ACE inhibitors. Other Cardiovascular Agents Enalapril maleate tablets have been used concomitantly with beta adrenergic-blocking agents, methyldopa, nitrates, calcium-blocking agents, hydralazine, prazosin and digoxin without evidence of clinically significant adverse interactions. Agents Increasing Serum Potassium Enalapril maleate tablets attenuate potassium loss caused by thiazide-type diuretics. Potassium-sparing diuretics (e.g., spironolactone, triamterene, or amiloride), potassium supplements, or potassium-containing salt substitutes may lead to significant increases in serum potassium. Therefore, if concomitant use of these agents is indicated because of demonstrated hypokalemia, they should be used with caution and with frequent monitoring of serum potassium. Potassium-sparing agents should generally not be used in patients with heart failure receiving enalapril maleate tablets. Lithium Lithium toxicity has been reported in patients receiving lithium concomitantly with drugs which cause elimination of sodium, including ACE inhibitors. A few cases of lithium toxicity have been reported in patients receiving concomitant enalapril maleate tablets and lithium and were reversible upon discontinuation of both drugs. It is recommended that serum lithium levels be monitored frequently if ",
+        "supporting_text": "Drug Interactions Neprilysin Inhibitors Patients taking concomitant neprilysin inhibitors may be at increased risk for angioedema (see WARNINGS ). Dual Blockade of the Renin-Angiotensin System (RAS) Dual blockade of the RAS with angiotensin receptor blockers, ACE inhibitors, or aliskiren is associated with increased risks of hypotension, hyperkalemia, and changes in renal function (including acute renal failure) compared to monotherapy.",
+        "source_version": "effective 20260428 · version 1",
+        "anchor_drug": "enalapril",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"enalapril\"&limit=20",
+        "retrieved_at": "2026-07-11T22:25:52.822Z"
+      },
+      {
+        "id": "label:3827:boxed",
+        "claim_text": "FDA boxed warning for enalapril",
+        "source_name": "openFDA-label",
+        "source_id": "508a58fa-9f66-e984-e063-6394a90a296a",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=508a58fa-9f66-e984-e063-6394a90a296a",
+        "exact_field": "boxed_warning",
+        "quoted_text": "WARNING: FETAL TOXICITY See full prescribing information for complete boxed warning. When pregnancy is detected, discontinue enalapril maleate tablets as soon as possible. Drugs that act directly on the renin-angiotensin system can cause injury and death to the developing fetus. (See WARNINGS, Fetal Toxicity .)",
+        "supporting_text": "WARNING: FETAL TOXICITY See full prescribing information for complete boxed warning.",
+        "source_version": "effective 20260428 · version 1",
+        "anchor_drug": "enalapril",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"enalapril\"&limit=20",
+        "retrieved_at": "2026-07-11T22:25:52.822Z"
+      },
+      {
+        "id": "label:89781:interactions",
+        "claim_text": "FDA label drug-interactions section for BELLADONNA",
+        "source_name": "openFDA-label",
+        "source_id": "088b9cd1-da68-4c34-8f09-62c2cde19e1f",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=088b9cd1-da68-4c34-8f09-62c2cde19e1f",
+        "exact_field": "drug_interactions",
+        "quoted_text": "7 DRUG INTERACTIONS Table 1 includes clinically significant drug interactions with belladonna and opium suppositories. Table 1: Clinically Significant Drug Interactions with Belladonna and Opium Suppositories Alcohol, Benzodiazepines and Other Central Nervous System (CNS) Depressants Clinical Impact : Due to additive pharmacologic effect, the concomitant use of benzodiazepines or other CNS depressants, including alcohol, can increase the risk of hypotension, respiratory depression, profound sedation, coma, and death. Intervention : Reserve concomitant prescribing of these drugs for use in patients for whom alternative treatment options are inadequate. Limit dosages and durations to the minimum required. Follow patients closely for signs of respiratory depression and sedation [ see Warnings and Precautions (5.4) ]. Examples : Benzodiazepines and other sedatives/hypnotics, anxiolytics, tranquilizers, muscle relaxants, general anesthetics, antipsychotics, other opioids, alcohol. Serotonergic Drugs Clinical Impact : The concomitant use of opioids with other drugs that affect the serotonergic neurotransmitter system has resulted in serotonin syndrome. Intervention : If concomitant use is warranted, carefully observe the patient, particularly during treatment initiation and dose adjustment. Discontinue belladonna and opium suppositories if serotonin syndrome is suspected. Examples : Selective serotonin reuptake inhibitors (SSRIs), serotonin and norepinephrine reuptake inhibitors (SNRIs), tricyclic antidepressants (TCAs), triptans, 5-HT3 receptor antagonists, drugs that effect the serotonin neurotransmitter system (e.g., mirtazapine, trazodone, tramadol), monoamine oxidase (MAOI) inhibitors (those intended to treat psychiatric disorders and also others, such as linezolid and intravenous methylene blue). Monoamine Oxidase Inhibitors (MAOIs) Clinical Impact : MAOI interactions with opioids may manifest as serotonin syndrome or opioid toxicity (e.g., respiratory depression, coma) [ see Warnings and Precautions (5.2) ] If urgent use of an opioid is necessary, use test doses and frequent titration of small doses to treat pain while closely monitoring blood pressure and signs and symptoms of CNS and respiratory depression. Intervention : The use of belladonna and opium suppositories is not recommended for patients taking MAOIs or within 14 days of stopping such treatment. Examples : phenelzine, tranylcypromine, linezolid Mixed Agonist/Antagonist and Partial Agonist Opioid Analgesics Clinical Impact : May reduce the analgesic effect of belladonna and opium suppositories and/or precipitate withdrawal symptoms. Intervention : Avoid concomitant use. Examples : butorphanol, nalbuphine, pentazocine, buprenorphine Muscle Relaxants Clinical Impact : Opium may enhance the neuromuscular blocking action of skeletal muscle relaxants and produce an increased degree of respiratory depression. Intervention : Monitor patients for signs of respiratory depression that may be greater than otherwise expected and decrease the dosage of belladonna and opium suppositories and/or the muscle relaxant as necessary. Diuretics Clinical Impact : Opioids can reduce the efficacy of diuretics by inducing the release of antidiuretic hormone. Intervention : Monitor patients for signs of diminished diuresis and/or effects on blood pressure and increase the dosage of the diuretic as needed. Anticholinergic Drugs Clinical Impact : The concomitant use of anticholinergic drugs may increase risk of urinary retention and/or severe constipation, which may lead to paralytic ileus. Intervention : Monitor patients for signs of urinary retention or reduced gastric motility when belladonna and opium suppositories are used concomitantly with anticholinergic drugs. • Serotonergic Drugs: Concomitant use may result in serotonin syndrome. Discontinue belladonna and opium suppositories if serotonin syndrome is suspected. (7) • Monoamine Oxidase Inhibitors (MAOIs): Can potentiate the effects ",
+        "supporting_text": "Intervention : Monitor patients for signs of diminished diuresis and/or effects on blood pressure and increase the dosage of the diuretic as needed. Anticholinergic Drugs Clinical Impact : The concomitant use of anticholinergic drugs may increase risk of urinary retention and/or severe constipation, which may lead to paralytic ileus.",
+        "source_version": "effective 20240111 · version 102",
+        "anchor_drug": "BELLADONNA",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"BELLADONNA\"&limit=20",
+        "retrieved_at": "2026-07-11T22:25:52.822Z"
+      },
+      {
+        "id": "label:89781:boxed",
+        "claim_text": "FDA boxed warning for BELLADONNA",
+        "source_name": "openFDA-label",
+        "source_id": "088b9cd1-da68-4c34-8f09-62c2cde19e1f",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=088b9cd1-da68-4c34-8f09-62c2cde19e1f",
+        "exact_field": "boxed_warning",
+        "quoted_text": "WARNING: ADDICTION, ABOUSE, AND MISUSE; LIFE-THREATENING RESPIRATORY DEPRESSION; ACCIDENTAL EXPOSURE; NEONATAL OPIOD WITHDRAWAL SYNDROME; and RISKS FROM CONCOMITANT USE WITH ALCOHOL, BENZODIAZEPINES OR OTHER CNS DEPRESSANTS Addiction, Abuse, and Misuse Belladonna and opium suppositories expose patients and other users to the risks of opioid addiction, abuse, and misuse, which can lead to overdose and death. Assess each patient’s risk prior to prescribing belladonna and opium suppositories, and monitor all patients regularly for the development of these behaviors or conditions [ see Warnings and Precautions (5.1) ]. Life-Threatening Respiratory Depression Serious, life-threatening, or fatal respiratory depression may occur with use of belladonna and opium suppositories. Monitor for respiratory depression, especially during initiation of belladonna and opium suppositories or following a dose increase [ see Warnings and Precautions (5.2) ]. Accidental Exposure Accidental exposure of even one dose of belladonna and opium suppositories, especially by children, can result in a fatal overdose of opium [ see Warnings and Precautions (5.2) ]. Neonatal Opioid Withdrawal Syndrome Prolonged use of belladonna and opium suppositories during pregnancy can result in neonatal opioid withdrawal syndrome, which may be life-threatening if not recognized and treated, and requires management according to protocols developed by neonatology experts. If opioid use is required for a prolonged period in a pregnant woman, advise the patient of the risk of neonatal opioid withdrawal syndrome and ensure that appropriate treatment will be available [ see Warnings and Precautions (5.3) ]. Risks From Concomitant Use With Alcohol, Benzodiazepines Or Other CNS Depressants Concomitant use of opioids with benzodiazepines or other central nervous system (CNS) depressants, including alcohol, may result in profound sedation, respiratory depression, coma, and death [ see Warnings and Precautions (5.4), Dru",
+        "supporting_text": "WARNING: ADDICTION, ABOUSE, AND MISUSE; LIFE-THREATENING RESPIRATORY DEPRESSION; ACCIDENTAL EXPOSURE; NEONATAL OPIOD WITHDRAWAL SYNDROME; and RISKS FROM CONCOMITANT USE WITH ALCOHOL, BENZODIAZEPINES OR OTHER CNS DEPRESSANTS Addiction, Abuse, and Misuse Belladonna and opium suppositories expose patients and other users to the risks of opioid addiction, abuse, and misuse, which can lead to overdose and death.",
+        "source_version": "effective 20240111 · version 102",
+        "anchor_drug": "BELLADONNA",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"BELLADONNA\"&limit=20",
+        "retrieved_at": "2026-07-11T22:25:52.822Z"
+      }
+    ],
+    "unverified_removed": [
+      {
+        "claim_text": "Enalapril combined with NSAIDs may worsen renal function in at-risk patients",
+        "reason": "Finding references unresolved or non-active medication(s): non-steroidal anti-inflammatories."
+      },
+      {
+        "claim_text": "Belladonna-containing product with a benzodiazepine may increase CNS-depressant risk",
+        "reason": "Finding references unresolved or non-active medication(s): lorazepam."
+      },
+      {
+        "claim_text": "Given the withheld physostigmine decision after lorazepam administration, is there a plan to monitor for the sedation and respiratory depression the belladonna product label describes with concomitant benzodiazepine use?",
+        "reason": "Narrative reviewer: The belladonna product label cited describes belladonna and opium suppositories with opioid content; the patient's product is Topricin topical cream containing belladonna, and the label's sedation/respiratory depression warnings for the opium-containing suppository are not shown to apply to the patient's product."
+      },
+      {
+        "claim_text": "The repeat creatine kinase of 1837 IU/L is markedly higher than the initial 98 IU/L; can you confirm whether the ongoing pravastatin was reviewed in the context of this change?",
+        "reason": "Narrative reviewer: No quoted evidence connects the rise in creatine kinase from 98 to 1837 IU/L to pravastatin; the pravastatin label discusses myopathy/rhabdomyolysis risk only with specific interacting drugs (gemfibrozil, cyclosporine, macrolides, niacin, fibrates, colchicine), none of which are in this patient's medication list, so review of pravastatin in the context of the CK change is not supported."
+      }
+    ],
+    "generated_at": "2026-07-11T22:25:52.822Z",
+    "pipeline": {
+      "mode": "audited-replay",
+      "model": "Claude Opus 4.8",
+      "stages": [
+        "ingest",
+        "retrieve",
+        "synthesize",
+        "verify"
+      ],
+      "ddinter": {
+        "source_rows": 222383,
+        "unique_pairs": 160235,
+        "unique_drugs": 1939,
+        "source_files": 8
+      }
+    }
+  },
+  "generatedAt": "2026-07-11T22:25:52.822Z"
+}

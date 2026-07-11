@@ -1,0 +1,375 @@
+{
+  "id": "topricin-belladonna-anticholinergic-toxicity",
+  "locale": "es",
+  "intake": {
+    "case": {
+      "note": "40-year-old man presented with headache, blurry vision, and altered mentation. Anticholinergic toxicity suspected secondary to overuse of over-the-counter Topricin cream (containing belladonna). PMC5935428 / PMID 29736357.",
+      "medications": [
+        {
+          "raw": "pravastatin",
+          "episode": "daily medication prior to presentation",
+          "status": "active",
+          "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories for musculoskeletal pains."
+        },
+        {
+          "raw": "metoprolol",
+          "episode": "daily medication prior to presentation",
+          "status": "active",
+          "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories for musculoskeletal pains."
+        },
+        {
+          "raw": "enalapril",
+          "episode": "daily medication prior to presentation",
+          "status": "active",
+          "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories for musculoskeletal pains."
+        },
+        {
+          "raw": "non-steroidal anti-inflammatories for musculoskeletal pains",
+          "episode": "daily medication prior to presentation",
+          "status": "active",
+          "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories for musculoskeletal pains."
+        },
+        {
+          "raw": "Topricin (topical pain relief) cream",
+          "episode": "applied liberally two days prior to presentation, suspected cause of anticholinergic toxicity",
+          "start": "Two days prior to presentation",
+          "status": "active",
+          "source_span": "Two days prior to presentation, he had developed severe pain in his left foot which he treated with over-the-counter Topricin (topical pain relief) cream."
+        },
+        {
+          "raw": "Lorazepam",
+          "episode": "administered in emergency department for acute delirium",
+          "status": "one-time",
+          "source_span": "Lorazepam was administered for acute delirium."
+        },
+        {
+          "raw": "Physostigmine",
+          "episode": "recommended as diagnostic tool but decision taken to withhold due to recent benzodiazepine use",
+          "status": "held",
+          "source_span": "Physostigmine was then recommended as a diagnostic tool."
+        }
+      ],
+      "allergies": [],
+      "diagnoses": [
+        "Anticholinergic toxicity secondary to overuse of Topricin cream (homeopathic medication)",
+        "hypertension",
+        "dyslipidemia",
+        "hypercholesterolemia",
+        "sinus tachycardia",
+        "acute delirium",
+        "altered mental status"
+      ],
+      "labs": [
+        {
+          "name": "low-density lipoprotein",
+          "value": 114,
+          "unit": "mg/dL"
+        },
+        {
+          "name": "creatine kinase (CK) initial",
+          "value": 98,
+          "unit": "IU/L"
+        },
+        {
+          "name": "creatine kinase (CK) repeat",
+          "value": 1837,
+          "unit": "IU/L"
+        },
+        {
+          "name": "blood urea nitrogen",
+          "value": 29,
+          "unit": "mg/dL"
+        },
+        {
+          "name": "creatinine",
+          "value": 1.59,
+          "unit": "mg/dL"
+        },
+        {
+          "name": "heart rate",
+          "value": 135,
+          "unit": "beats per minute"
+        }
+      ]
+    },
+    "ambiguities": [
+      {
+        "id": "amb-topricin-identity",
+        "field": "medications[].raw",
+        "question": "El Topricin es una crema homeopática de venta libre que contiene belladona; ¿desea confirmar la identidad exacta del producto y sus ingredientes antes de normalizar?"
+      },
+      {
+        "id": "amb-nsaid-identity",
+        "field": "medications[].raw",
+        "question": "La fuente menciona 'antiinflamatorios no esteroideos' sin nombrar un fármaco específico; ¿puede confirmar cuál AINE se utilizaba?"
+      },
+      {
+        "id": "amb-physostigmine-status",
+        "field": "medications[].status",
+        "question": "La fisostigmina fue recomendada pero se decidió no administrarla; ¿confirma que se registre como retenida (held) y no administrada?"
+      }
+    ],
+    "sourceSummary": "Reporte de caso (PMC5935428) de un hombre de 40 años con toxicidad anticolinérgica por uso excesivo de crema Topricin (con belladona). Medicamentos diarios: pravastatina, metoprolol, enalapril y AINE. Se administró lorazepam para delirio agudo; se recomendó fisostigmina pero se retuvo. Fuente contiene un solo caso."
+  },
+  "report": {
+    "patient": {
+      "medications": [
+        {
+          "raw": "pravastatin",
+          "rxcui": "42463",
+          "name": "pravastatin",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "42463",
+              "name": "pravastatin"
+            }
+          ],
+          "status": "active",
+          "episode": "daily medication prior to presentation",
+          "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories for musculoskeletal pains."
+        },
+        {
+          "raw": "metoprolol",
+          "rxcui": "6918",
+          "name": "metoprolol",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "6918",
+              "name": "metoprolol"
+            }
+          ],
+          "status": "active",
+          "episode": "daily medication prior to presentation",
+          "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories for musculoskeletal pains."
+        },
+        {
+          "raw": "enalapril",
+          "rxcui": "3827",
+          "name": "enalapril",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "3827",
+              "name": "enalapril"
+            }
+          ],
+          "status": "active",
+          "episode": "daily medication prior to presentation",
+          "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories for musculoskeletal pains."
+        },
+        {
+          "raw": "non-steroidal anti-inflammatories for musculoskeletal pains",
+          "rxcui": "692034",
+          "name": "NON-STEROIDAL ANTI-INFLAMMATORY ANALGESICS",
+          "resolution": "approximate",
+          "ingredients": [],
+          "status": "active",
+          "episode": "daily medication prior to presentation",
+          "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories for musculoskeletal pains."
+        },
+        {
+          "raw": "Topricin (topical pain relief) cream",
+          "name": "Topricin cream",
+          "rxcui": null,
+          "resolution": "unresolved",
+          "status": "active",
+          "episode": "applied liberally two days prior to presentation, suspected cause of anticholinergic toxicity",
+          "start": "Two days prior to presentation",
+          "source_span": "Two days prior to presentation, he had developed severe pain in his left foot which he treated with over-the-counter Topricin (topical pain relief) cream."
+        },
+        {
+          "raw": "Lorazepam",
+          "rxcui": "6470",
+          "name": "lorazepam",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "6470",
+              "name": "lorazepam"
+            }
+          ],
+          "status": "one-time",
+          "episode": "administered in emergency department for acute delirium",
+          "source_span": "Lorazepam was administered for acute delirium."
+        },
+        {
+          "raw": "Physostigmine",
+          "rxcui": "8299",
+          "name": "physostigmine",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "8299",
+              "name": "physostigmine"
+            }
+          ],
+          "status": "held",
+          "episode": "recommended as diagnostic tool but decision taken to withhold due to recent benzodiazepine use",
+          "source_span": "Physostigmine was then recommended as a diagnostic tool."
+        }
+      ],
+      "allergies": [],
+      "diagnoses": [
+        "Anticholinergic toxicity secondary to overuse of Topricin cream (homeopathic medication)",
+        "hypertension",
+        "dyslipidemia",
+        "hypercholesterolemia",
+        "sinus tachycardia",
+        "acute delirium",
+        "altered mental status"
+      ],
+      "labs": [
+        {
+          "name": "low-density lipoprotein",
+          "value": 114,
+          "unit": "mg/dL"
+        },
+        {
+          "name": "creatine kinase (CK) initial",
+          "value": 98,
+          "unit": "IU/L"
+        },
+        {
+          "name": "creatine kinase (CK) repeat",
+          "value": 1837,
+          "unit": "IU/L"
+        },
+        {
+          "name": "blood urea nitrogen",
+          "value": 29,
+          "unit": "mg/dL"
+        },
+        {
+          "name": "creatinine",
+          "value": 1.59,
+          "unit": "mg/dL"
+        },
+        {
+          "name": "heart rate",
+          "value": 135,
+          "unit": "beats per minute"
+        }
+      ],
+      "note": "40-year-old man presented with headache, blurry vision, and altered mentation. Anticholinergic toxicity suspected secondary to overuse of over-the-counter Topricin cream (containing belladonna). PMC5935428 / PMID 29736357."
+    },
+    "patient_summary": "Hombre de 40 años que se presentó con cefalea, visión borrosa y alteración del estado mental, con sospecha de toxicidad anticolinérgica por uso excesivo de crema Topricin de venta libre. Sus medicamentos diarios previos eran pravastatina, metoprolol, enalapril y antiinflamatorios no esteroideos. En urgencias recibió lorazepam por delirio agudo, y se decidió retener la fisostigmina. Entre sus diagnósticos figuran hipertensión, dislipidemia, hipercolesterolemia, taquicardia sinusal, delirio agudo y estado mental alterado. Los laboratorios incluyen lipoproteína de baja densidad de 114 mg/dL, creatina quinasa (CK) inicial de 98 IU/L, CK repetida de 1837 IU/L, nitrógeno ureico en sangre de 29 mg/dL, creatinina de 1.59 mg/dL y frecuencia cardiaca de 135 latidos por minuto.",
+    "findings": [
+      {
+        "status": "informational",
+        "severity": "minor",
+        "drugs": [
+          "metoprolol"
+        ],
+        "headline": "El metoprolol puede tener efecto aditivo con otros fármacos que disminuyen la frecuencia cardiaca o la presión arterial",
+        "mechanism": "Según la etiqueta de metoprolol, la administración conjunta de betabloqueantes con fármacos que disminuyen la frecuencia cardiaca puede producir efectos aditivos de reducción de la frecuencia cardiaca, y con otros fármacos que disminuyen la presión arterial puede producir un efecto hipotensor aumentado. Los inhibidores de CYP2D6 pueden aumentar la concentración de metoprolol.",
+        "why_this_patient": "Este paciente toma metoprolol y tiene hipertensión y taquicardia sinusal con una frecuencia cardiaca de 135 latidos por minuto; la información de la etiqueta sobre efectos aditivos sobre la frecuencia cardiaca y la presión arterial se incluye como contexto.",
+        "evidence_ids": [
+          "label:6918:interactions"
+        ],
+        "monitoring": "La etiqueta indica monitorizar estrechamente a los pacientes cuando la combinación no pueda evitarse."
+      },
+      {
+        "status": "informational",
+        "severity": "minor",
+        "drugs": [
+          "pravastatin"
+        ],
+        "headline": "La pravastatina tiene interacciones que aumentan el riesgo de miopatía y rabdomiólisis",
+        "mechanism": "Según la etiqueta de pravastatina, la pravastatina es sustrato del transportador OATP1B1 y sus niveles plasmáticos pueden aumentar de forma significativa con inhibidores de OATP1B1. La etiqueta lista fármacos que aumentan el riesgo de miopatía y rabdomiólisis cuando se usan de forma concomitante, como gemfibrozilo, ciclosporina, ciertos macrólidos, niacina, fibratos y colchicina.",
+        "why_this_patient": "Este paciente toma pravastatina y presenta una CK repetida de 1837 IU/L frente a una CK inicial de 98 IU/L; la información de la etiqueta sobre miopatía y rabdomiólisis se incluye como contexto, sin que la evidencia proporcionada vincule estos fármacos con ese valor.",
+        "evidence_ids": [
+          "label:42463:interactions"
+        ],
+        "monitoring": "La etiqueta recomienda vigilar signos y síntomas de miopatía, especialmente durante el inicio del tratamiento y el aumento de dosis, en los casos en que se decide el uso concomitante."
+      }
+    ],
+    "questions_for_clinician": [
+      "Según la etiqueta de enalapril, en pacientes con función renal comprometida el uso concomitante de AINE puede deteriorar la función renal; ¿desea monitorizar periódicamente la función renal en este paciente que toma enalapril y antiinflamatorios no esteroideos?",
+      "¿Los antiinflamatorios no esteroideos registrados corresponden a un único fármaco o a varios productos distintos?"
+    ],
+    "evidence": [
+      {
+        "id": "label:42463:interactions",
+        "claim_text": "FDA label drug-interactions section for pravastatin",
+        "source_name": "openFDA-label",
+        "source_id": "0ae196a4-be3d-4cd8-9ff2-68aeb91b8678",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0ae196a4-be3d-4cd8-9ff2-68aeb91b8678",
+        "exact_field": "drug_interactions",
+        "quoted_text": "7 DRUG INTERACTIONS See full prescribing information for details regarding concomitant use of pravastatin sodium tablets with other drugs that increase the risk of myopathy and rhabdomyolysis. ( 2.5 , 7.1 ) Bile Acid Sequestrants: in patients taking a bile acid sequestrant, administer pravastatin sodium tablets at least 1 hour before or at least 4 hours after the bile acid sequestrant ( 7.2 ) 7.1 Drug Interactions that Increase the Risk of Myopathy and Rhabdomyolysis with Pravastatin Pravastatin is a substrate of the transport protein OATP1B1. Pravastatin plasma levels can be significantly increased with concomitant administration of inhibitors of OATP1B1. Table 3 includes a list of drugs that increase the risk of myopathy and rhabdomyolysis when used concomitantly with pravastatin and instructions for preventing or managing them [see Warnings and Precautions (5.1) and Clinical Pharmacology (12.3) ]. Table 3: Drug Interactions that Increase the Risk of Myopathy and Rhabdomyolysis with Pravastatin Gemfibrozil Clinical Impact: There is an increased risk of myopathy/rhabdomyolysis when pravastatin is administered with gemfibrozil Intervention: Avoid concomitant use of gemfibrozil with pravastatin. Cyclosporine Clinical Impact: The risk of myopathy and rhabdomyolysis is increased with concomitant use of cyclosporine with pravastatin. Intervention: Initiate with a dosage of pravastatin sodium 10 mg once daily. Do not exceed pravastatin 20 mg once daily [see Dosage and Administration (2.5) ]. Select Macrolide Antibiotics Clinical Impact: The risk of myopathy and rhabdomyolysis is increased by concomitant use of clarithromycin or erythromycin with pravastatin. Other macrolides (e.g., azithromycin) have the potential to increase pravastatin exposures and increase the risk of myopathy and rhabdomyolysis when used concomitantly. Intervention: For patients taking erythromycin or clarithromycin, do not exceed 40 mg pravastatin once daily [see Dosage and Administration (2.5) ]. Niacin Clinical Impact: Cases of myopathy and rhabdomyolysis have been observed with concomitant use of niacin with pravastatin. Intervention: Consider if the benefit of using niacin concomitantly with pravastatin outweighs the increased risk of myopathy and rhabdomyolysis. If concomitant use is decided, monitor patients for signs and symptoms of myopathy, particularly during initiation of therapy and during upward dose titration of either drug. Fibrates (other than Gemfibrozil) Clinical Impact: Fibrates may cause myopathy when given alone. The risk of myopathy and rhabdomyolysis is increased with concomitant use of fibrates with pravastatin. Intervention: Consider if the benefit of using fibrates concomitantly with pravastatin outweighs the increased risk of myopathy and rhabdomyolysis. If concomitant use is decided, monitor patients for signs and symptoms of myopathy, particularly during initiation of therapy and during upward dose titration of either drug. Colchicine Clinical Impact: Cases of myopathy and rhabdomyolysis have been reported with concomitant use of colchicine with pravastatin. Intervention: Consider if the benefit of using colchicine concomitantly with pravastatin outweighs the increased risk of myopathy and rhabdomyolysis. If concomitant use is decided, monitor patients for signs and symptoms of myopathy, particularly during initiation of therapy and during upward dose titration of either drug. 7.2 Drug Interactions that Decrease the Efficacy of Pravastatin Table 4 presents drug interactions that may decrease the efficacy of pravastatin and instructions for preventing or managing them. Table 4: Drug Interactions that Decrease the Efficacy of Pravastatin Sodium Tablets Bile Acid Sequestrants Clinical Impact: Concomitant cholestyramine or colestipol administration decreased the mean exposure of pravastatin approximately 51% and 47%, respectively [see Clinical Pharmacology (12.3) ]. Intervention: In patients taking a bile acid sequestrant, administer ",
+        "supporting_text": "Table 3: Drug Interactions that Increase the Risk of Myopathy and Rhabdomyolysis with Pravastatin Gemfibrozil Clinical Impact: There is an increased risk of myopathy/rhabdomyolysis when pravastatin is administered with gemfibrozil Intervention: Avoid concomitant use of gemfibrozil with pravastatin. Cyclosporine Clinical Impact: The risk of myopathy and rhabdomyolysis is increased with concomitant use of cyclosporine with pravastatin.",
+        "source_version": "effective 20260701 · version 5",
+        "anchor_drug": "pravastatin",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"pravastatin\"&limit=20",
+        "retrieved_at": "2026-07-11T22:25:52.822Z"
+      },
+      {
+        "id": "label:6918:interactions",
+        "claim_text": "FDA label drug-interactions section for metoprolol",
+        "source_name": "openFDA-label",
+        "source_id": "09566368-f91d-43a3-b683-30c844fb125a",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=09566368-f91d-43a3-b683-30c844fb125a",
+        "exact_field": "drug_interactions",
+        "quoted_text": "7 DRUG INTERACTIONS • Catecholamine-depleting drugs may have an additive effect when given with beta-blocking agents. ( 7.1 ) • Patients may be unresponsive to the usual doses of epinephrine used to treat allergic reaction. ( 7.2 ) • CYP2D6 Inhibitors are likely to increase metoprolol concentration. ( 7.3 ) • Concomitant use of glycosides, clonidine, and diltiazem and verapamil with beta-blockers can increase the risk of bradycardia. ( 7.4 ) • Beta-blockers including metoprolol, may exacerbate the rebound hypertension that can follow the withdrawal of clonidine. ( 7.4 ) 7.1 Catecholamine Depleting Drugs and Monoamine Oxidate (MAO) Inhibitors Catecholamine depleting drugs (e.g., reserpine) and monoamine oxidase (MAO) inhibitors) may have an additive effect when given with beta-blocking agents. Observe patients treated with metoprolol plus a catecholamine depletor for evidence of hypotension or marked bradycardia, which may produce vertigo, syncope, or postural hypotension. 7.2 Epinephrine While taking beta-blockers, patients with a history of severe anaphylactic reactions to a variety of allergens may be more reactive to repeated challenge and may be unresponsive to the usual doses of epinephrine used to treat an allergic reaction. 7.3 CYP2D6 Inhibitors Drugs that are strong inhibitors of CYP2D6, such as quinidine, fluoxetine, paroxetine, and propafenone, were shown to double metoprolol concentrations. While there is no information about moderate or weak inhibitors, these too are likely to increase metoprolol concentration. Increases in plasma concentration decrease the cardioselectivity of metoprolol [see Clinical Pharmacology (12.3) ]. Monitor patients closely, when the combination cannot be avoided. 7.4 Digitalis, Clonidine, and Calcium Channel Blockers and Other Drugs that Decrease Heart Rate Digitalis glycosides, clonidine, diltiazem and verapamil slow atrioventricular conduction and decrease heart rate. Concomitant administration of beta-blockers with these and other drugs known to decrease heart rate such as sphingosine-1-phosphate receptor modulators (e.g. fingolimod) may result in additive heart rate lowering effects. If clonidine and metoprolol are co-administered, withdraw the metoprolol several days before the gradual withdrawal of clonidine because beta-blockers may exacerbate the rebound hypertension that can follow the withdrawal of clonidine. If replacing clonidine by beta-blocker therapy, delay the introduction of beta-blockers for several days after clonidine administration has stopped . 7.5 Drugs that Decrease Blood Pressure Concomitant administration of beta-blockers with other drugs known to decrease blood pressure may result in an enhanced hypotensive effect.",
+        "supporting_text": "Monitor patients closely, when the combination cannot be avoided.",
+        "source_version": "effective 20240513 · version 22",
+        "anchor_drug": "metoprolol",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"metoprolol\"&limit=20",
+        "retrieved_at": "2026-07-11T06:06:02.253Z"
+      },
+      {
+        "id": "label:3827:interactions",
+        "claim_text": "FDA label drug-interactions section for enalapril",
+        "source_name": "openFDA-label",
+        "source_id": "508a58fa-9f66-e984-e063-6394a90a296a",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=508a58fa-9f66-e984-e063-6394a90a296a",
+        "exact_field": "drug_interactions",
+        "quoted_text": "Drug Interactions Neprilysin Inhibitors Patients taking concomitant neprilysin inhibitors may be at increased risk for angioedema (see WARNINGS ). Dual Blockade of the Renin-Angiotensin System (RAS) Dual blockade of the RAS with angiotensin receptor blockers, ACE inhibitors, or aliskiren is associated with increased risks of hypotension, hyperkalemia, and changes in renal function (including acute renal failure) compared to monotherapy. Most patients receiving the combination of two RAS inhibitors do not obtain any additional benefit compared to monotherapy. In general, avoid combined use of RAS inhibitors. Closely monitor blood pressure, renal function, and electrolytes in patients on enalapril maleate tablets and other agents that affect the RAS. Do not coadminister aliskiren with enalapril maleate tablets in patients with diabetes. Avoid use of aliskiren with enalapril maleate tablets in patients with renal impairment (GFR <60 mL/min). Hypotension — Patients on Diuretic Therapy Patients on diuretics and especially those in whom diuretic therapy was recently instituted, may occasionally experience an excessive reduction of blood pressure after initiation of therapy with enalapril. The possibility of hypotensive effects with enalapril can be minimized by either discontinuing the diuretic or increasing the salt intake prior to initiation of treatment with enalapril. If it is necessary to continue the diuretic, provide close medical supervision after the initial dose for at least two hours and until blood pressure has stabilized for at least an additional hour (see WARNINGS, Hypotension and DOSAGE AND ADMINISTRATION ). Agents Causing Renin Release The antihypertensive effect of enalapril maleate tablets is augmented by antihypertensive agents that cause renin release (e.g., diuretics). Nonsteroidal Anti-Inflammatory Agents Including Selective Cyclooxygenase-2 Inhibitors (COX-2 Inhibitors) In patients who are elderly, volume-depleted (including those on diuretic therapy), or with compromised renal function, coadministration of NSAIDs, including selective COX-2 inhibitors, with ACE inhibitors, including enalapril, may result in deterioration of renal function, including possible acute renal failure. These effects are usually reversible. Monitor renal function periodically in patients receiving enalapril and NSAID therapy. In a clinical pharmacology study, indomethacin or sulindac was administered to hypertensive patients receiving enalapril maleate tablets. In this study there was no evidence of a blunting of the antihypertensive action of enalapril maleate tablets. However, reports suggest that NSAIDs may diminish the antihypertensive effect of ACE inhibitors. Other Cardiovascular Agents Enalapril maleate tablets have been used concomitantly with beta adrenergic-blocking agents, methyldopa, nitrates, calcium-blocking agents, hydralazine, prazosin and digoxin without evidence of clinically significant adverse interactions. Agents Increasing Serum Potassium Enalapril maleate tablets attenuate potassium loss caused by thiazide-type diuretics. Potassium-sparing diuretics (e.g., spironolactone, triamterene, or amiloride), potassium supplements, or potassium-containing salt substitutes may lead to significant increases in serum potassium. Therefore, if concomitant use of these agents is indicated because of demonstrated hypokalemia, they should be used with caution and with frequent monitoring of serum potassium. Potassium-sparing agents should generally not be used in patients with heart failure receiving enalapril maleate tablets. Lithium Lithium toxicity has been reported in patients receiving lithium concomitantly with drugs which cause elimination of sodium, including ACE inhibitors. A few cases of lithium toxicity have been reported in patients receiving concomitant enalapril maleate tablets and lithium and were reversible upon discontinuation of both drugs. It is recommended that serum lithium levels be monitored frequently if ",
+        "supporting_text": "Drug Interactions Neprilysin Inhibitors Patients taking concomitant neprilysin inhibitors may be at increased risk for angioedema (see WARNINGS ). Dual Blockade of the Renin-Angiotensin System (RAS) Dual blockade of the RAS with angiotensin receptor blockers, ACE inhibitors, or aliskiren is associated with increased risks of hypotension, hyperkalemia, and changes in renal function (including acute renal failure) compared to monotherapy.",
+        "source_version": "effective 20260428 · version 1",
+        "anchor_drug": "enalapril",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"enalapril\"&limit=20",
+        "retrieved_at": "2026-07-11T22:25:52.822Z"
+      },
+      {
+        "id": "label:3827:boxed",
+        "claim_text": "FDA boxed warning for enalapril",
+        "source_name": "openFDA-label",
+        "source_id": "508a58fa-9f66-e984-e063-6394a90a296a",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=508a58fa-9f66-e984-e063-6394a90a296a",
+        "exact_field": "boxed_warning",
+        "quoted_text": "WARNING: FETAL TOXICITY See full prescribing information for complete boxed warning. When pregnancy is detected, discontinue enalapril maleate tablets as soon as possible. Drugs that act directly on the renin-angiotensin system can cause injury and death to the developing fetus. (See WARNINGS, Fetal Toxicity .)",
+        "supporting_text": "WARNING: FETAL TOXICITY See full prescribing information for complete boxed warning.",
+        "source_version": "effective 20260428 · version 1",
+        "anchor_drug": "enalapril",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"enalapril\"&limit=20",
+        "retrieved_at": "2026-07-11T22:25:52.822Z"
+      }
+    ],
+    "unverified_removed": [
+      {
+        "claim_text": "El uso conjunto de enalapril y un AINE podría deteriorar la función renal en pacientes vulnerables",
+        "reason": "El hallazgo menciona medicamentos no resueltos o inactivos: non-steroidal anti-inflammatories."
+      }
+    ],
+    "generated_at": "2026-07-11T22:37:52.814Z",
+    "pipeline": {
+      "mode": "audited-replay",
+      "model": "Claude Opus 4.8",
+      "stages": [
+        "ingest",
+        "retrieve",
+        "synthesize",
+        "verify"
+      ],
+      "ddinter": {
+        "source_rows": 222383,
+        "unique_pairs": 160235,
+        "unique_drugs": 1939,
+        "source_files": 8
+      }
+    }
+  },
+  "generatedAt": "2026-07-11T22:37:52.814Z"
+}

@@ -1,0 +1,470 @@
+{
+  "id": "apixaban-amiodarone-hemopericardium",
+  "locale": "es",
+  "intake": {
+    "case": {
+      "note": "80-year-old male with paroxysmal atrial fibrillation, HFpEF, COPD, tobacco dependence, benign essential hypertension, and stage 3 CKD presented with SOB, orthopnea, LE edema, and cough. Possible DDI between apixaban (Eliquis) and amiodarone resulting in hemopericardium. Treated with PCC reversal and urgent pericardiocentesis.",
+      "medications": [
+        {
+          "raw": "amiodarone 200mg daily",
+          "episode": "Suspected DDI between apixaban and amiodarone resulting in hemopericardium",
+          "start": "started on amiodarone 200mg daily outpatient (two weeks prior at prior discharge)",
+          "source_span": "he was also started on amiodarone 200mg daily outpatient",
+          "status": "active"
+        },
+        {
+          "raw": "apixaban 5mg twice a day (BID)",
+          "episode": "Suspected DDI between apixaban and amiodarone resulting in hemopericardium",
+          "start": "discharged home with 5mg twice a day (BID) of apixaban (two weeks prior)",
+          "source_span": "he was discharged home with 5mg twice a day (BID) of apixaban",
+          "status": "active"
+        },
+        {
+          "raw": "metoprolol succinate 12.5mg BID",
+          "episode": "Rate control for paroxysmal atrial fibrillation",
+          "start": "discharged home with metoprolol succinate 12.5mg BID for rate control (two weeks prior)",
+          "source_span": "metoprolol succinate 12.5mg BID for rate control",
+          "status": "active"
+        },
+        {
+          "raw": "20mg IV diltiazem",
+          "episode": "Conversion to sinus rhythm during prior admission",
+          "source_span": "He converted to sinus rhythm after receiving 20mg IV diltiazem",
+          "status": "one-time"
+        },
+        {
+          "raw": "50 units/kg of prothrombin complex concentrate",
+          "episode": "Reversal of apixaban effect at ED presentation",
+          "source_span": "He immediately received 50 units/kg of prothrombin complex concentrate to reverse the effect of apixaban",
+          "status": "one-time"
+        },
+        {
+          "raw": "20mg of furosemide",
+          "episode": "Diuresis during index admission",
+          "source_span": "he required diuresis with 20mg of furosemide for complete resolution",
+          "status": "one-time"
+        }
+      ],
+      "allergies": [],
+      "diagnoses": [
+        "Paroxysmal atrial fibrillation",
+        "Heart failure with preserved ejection fraction",
+        "Chronic obstructive pulmonary disease",
+        "Tobacco dependence",
+        "Benign essential hypertension",
+        "Stage 3 chronic kidney disease",
+        "Hemopericardium",
+        "Large pericardial effusion",
+        "COPD exacerbation",
+        "Cellulitis of the right shin"
+      ],
+      "labs": [
+        {
+          "name": "Hemoglobin",
+          "value": 10.8,
+          "unit": "g/dL"
+        },
+        {
+          "name": "Creatinine",
+          "value": 1.67,
+          "unit": "mg/dL"
+        },
+        {
+          "name": "GFR",
+          "value": 40,
+          "unit": "mL/min"
+        },
+        {
+          "name": "BUN",
+          "value": 31,
+          "unit": "mg/dL"
+        },
+        {
+          "name": "INR",
+          "value": 3,
+          "unit": ""
+        },
+        {
+          "name": "NT-BNP",
+          "value": 729,
+          "unit": "pg/mL"
+        },
+        {
+          "name": "Ejection fraction",
+          "value": 62,
+          "unit": "%"
+        },
+        {
+          "name": "Respiratory rate",
+          "value": 32,
+          "unit": "breaths per minute"
+        },
+        {
+          "name": "Oxygen saturation",
+          "value": 91,
+          "unit": "%"
+        },
+        {
+          "name": "Heart rate",
+          "value": 77,
+          "unit": "beats per minute"
+        }
+      ]
+    },
+    "ambiguities": [
+      {
+        "id": "amb-metoprolol-dupe",
+        "field": "medications",
+        "question": "El texto fuente escribe la dosis de metoprolol succinato de dos formas ('metoprolol succinate 12.' en un fragmento y 'metoprolol succinate 12.5mg BID' en otro). ¿Puede confirmar que la dosis correcta es 12.5mg BID?"
+      },
+      {
+        "id": "amb-hgb-baseline",
+        "field": "labs",
+        "question": "La hemoglobina de ingreso es 10.8 g/dL y se menciona una basal de 12 g/dL. ¿Desea que registre ambos valores o solo el de ingreso?"
+      }
+    ],
+    "sourceSummary": "Reporte de caso (PMC7990001) de un hombre de 80 años con posible interacción entre apixaban (Eliquis) y amiodarona que resultó en hemopericardio. Se registran medicamentos concurrentes del episodio (apixaban, amiodarona, metoprolol) y dosis únicas (diltiazem IV, concentrado de complejo de protrombina, furosemida). Fuente contiene un solo caso."
+  },
+  "report": {
+    "patient": {
+      "medications": [
+        {
+          "raw": "amiodarone 200mg daily",
+          "rxcui": "703",
+          "name": "amiodarone",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "703",
+              "name": "amiodarone"
+            }
+          ],
+          "status": "active",
+          "episode": "Suspected DDI between apixaban and amiodarone resulting in hemopericardium",
+          "start": "started on amiodarone 200mg daily outpatient (two weeks prior at prior discharge)",
+          "source_span": "he was also started on amiodarone 200mg daily outpatient"
+        },
+        {
+          "raw": "apixaban 5mg twice a day (BID)",
+          "rxcui": "1364430",
+          "name": "apixaban",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "1364430",
+              "name": "apixaban"
+            }
+          ],
+          "status": "active",
+          "episode": "Suspected DDI between apixaban and amiodarone resulting in hemopericardium",
+          "start": "discharged home with 5mg twice a day (BID) of apixaban (two weeks prior)",
+          "source_span": "he was discharged home with 5mg twice a day (BID) of apixaban"
+        },
+        {
+          "raw": "metoprolol succinate 12.5mg BID",
+          "rxcui": "221124",
+          "name": "metoprolol succinate",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "6918",
+              "name": "metoprolol"
+            }
+          ],
+          "status": "active",
+          "episode": "Rate control for paroxysmal atrial fibrillation",
+          "start": "discharged home with metoprolol succinate 12.5mg BID for rate control (two weeks prior)",
+          "source_span": "metoprolol succinate 12.5mg BID for rate control"
+        },
+        {
+          "raw": "20mg IV diltiazem",
+          "rxcui": "3443",
+          "name": "diltiazem",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "3443",
+              "name": "diltiazem"
+            }
+          ],
+          "status": "one-time",
+          "episode": "Conversion to sinus rhythm during prior admission",
+          "source_span": "He converted to sinus rhythm after receiving 20mg IV diltiazem"
+        },
+        {
+          "raw": "50 units/kg of prothrombin complex concentrate",
+          "rxcui": "1670383",
+          "name": "Prothrombin complex concentrate",
+          "resolution": "approximate",
+          "ingredients": [
+            {
+              "rxcui": "1670383",
+              "name": "factor IX complex"
+            }
+          ],
+          "status": "one-time",
+          "episode": "Reversal of apixaban effect at ED presentation",
+          "source_span": "He immediately received 50 units/kg of prothrombin complex concentrate to reverse the effect of apixaban"
+        },
+        {
+          "raw": "20mg of furosemide",
+          "rxcui": "4603",
+          "name": "Furosemide",
+          "resolution": "approximate",
+          "ingredients": [
+            {
+              "rxcui": "4603",
+              "name": "furosemide"
+            }
+          ],
+          "status": "one-time",
+          "episode": "Diuresis during index admission",
+          "source_span": "he required diuresis with 20mg of furosemide for complete resolution"
+        }
+      ],
+      "allergies": [],
+      "diagnoses": [
+        "Paroxysmal atrial fibrillation",
+        "Heart failure with preserved ejection fraction",
+        "Chronic obstructive pulmonary disease",
+        "Tobacco dependence",
+        "Benign essential hypertension",
+        "Stage 3 chronic kidney disease",
+        "Hemopericardium",
+        "Large pericardial effusion",
+        "COPD exacerbation",
+        "Cellulitis of the right shin"
+      ],
+      "labs": [
+        {
+          "name": "Hemoglobin",
+          "value": 10.8,
+          "unit": "g/dL"
+        },
+        {
+          "name": "Creatinine",
+          "value": 1.67,
+          "unit": "mg/dL"
+        },
+        {
+          "name": "GFR",
+          "value": 40,
+          "unit": "mL/min"
+        },
+        {
+          "name": "BUN",
+          "value": 31,
+          "unit": "mg/dL"
+        },
+        {
+          "name": "INR",
+          "value": 3,
+          "unit": ""
+        },
+        {
+          "name": "NT-BNP",
+          "value": 729,
+          "unit": "pg/mL"
+        },
+        {
+          "name": "Ejection fraction",
+          "value": 62,
+          "unit": "%"
+        },
+        {
+          "name": "Respiratory rate",
+          "value": 32,
+          "unit": "breaths per minute"
+        },
+        {
+          "name": "Oxygen saturation",
+          "value": 91,
+          "unit": "%"
+        },
+        {
+          "name": "Heart rate",
+          "value": 77,
+          "unit": "beats per minute"
+        }
+      ],
+      "note": "80-year-old male with paroxysmal atrial fibrillation, HFpEF, COPD, tobacco dependence, benign essential hypertension, and stage 3 CKD presented with SOB, orthopnea, LE edema, and cough. Possible DDI between apixaban (Eliquis) and amiodarone resulting in hemopericardium. Treated with PCC reversal and urgent pericardiocentesis."
+    },
+    "patient_summary": "Hombre de 80 años con fibrilación auricular paroxística, insuficiencia cardíaca con fracción de eyección preservada, EPOC, dependencia de tabaco, hipertensión esencial benigna y enfermedad renal crónica estadio 3. Se presentó con dificultad para respirar, ortopnea, edema en extremidades inferiores y tos. Fue tratado por hemopericardio y derrame pericárdico grande, con reversión con concentrado de complejo de protrombina y pericardiocentesis urgente. Sus medicamentos activos incluyen amiodarona 200mg al día, apixabán 5mg dos veces al día y metoprolol succinato 12.5mg dos veces al día. Los laboratorios muestran hemoglobina 10.8 g/dL, creatinina 1.67 mg/dL, GFR 40 mL/min, BUN 31 mg/dL, INR 3, NT-BNP 729 pg/mL, fracción de eyección 62%, frecuencia respiratoria 32 respiraciones por minuto, saturación de oxígeno 91% y frecuencia cardíaca 77 latidos por minuto.",
+    "findings": [
+      {
+        "status": "flagged",
+        "severity": "moderate",
+        "drugs": [
+          "Amiodarone",
+          "Apixaban"
+        ],
+        "headline": "Interacción entre Amiodarone y Apixaban",
+        "mechanism": "DDInter clasifica el par exacto Amiodarone + Apixaban con gravedad moderada.",
+        "why_this_patient": "Tanto Amiodarone como Apixaban están activos en el episodio de seguridad de medicamentos revisado.",
+        "evidence_ids": [
+          "ddinter:DDInter76:DDInter108"
+        ]
+      },
+      {
+        "status": "flagged",
+        "severity": "moderate",
+        "drugs": [
+          "amiodarone",
+          "metoprolol"
+        ],
+        "headline": "Riesgo de bradicardia por amiodarona con betabloqueante",
+        "mechanism": "La etiqueta de amiodarona indica que los cronotrópicos negativos, incluidos los betabloqueantes, potencian los efectos electrofisiológicos y hemodinámicos de la amiodarona, lo que puede resultar en bradicardia, paro sinusal y bloqueo AV. La etiqueta de metoprolol indica que su uso concomitante con fármacos que disminuyen la frecuencia cardíaca puede tener efectos aditivos de reducción de la frecuencia cardíaca.",
+        "why_this_patient": "El paciente toma amiodarona 200mg al día y metoprolol succinato 12.5mg dos veces al día. Su frecuencia cardíaca actual es 77 latidos por minuto; la combinación de estos fármacos podría aumentar el riesgo de bradicardia.",
+        "evidence_ids": [
+          "label:703:interactions",
+          "label:221124:interactions"
+        ],
+        "monitoring": "Vigilar la frecuencia cardíaca, según lo indicado en la etiqueta de amiodarona."
+      }
+    ],
+    "questions_for_clinician": [
+      "¿Se planea vigilancia de la frecuencia cardíaca dado el uso concomitante de amiodarona y metoprolol succinato?",
+      "¿La entrada de metoprolol succinato corresponde a una sola orden activa para control de frecuencia, o existen órdenes separadas de metoprolol que deban conciliarse?"
+    ],
+    "evidence": [
+      {
+        "id": "label:703:interactions",
+        "claim_text": "FDA label drug-interactions section for amiodarone",
+        "source_name": "openFDA-label",
+        "source_id": "4c149392-a4f0-4e2d-a13f-2b94810005de",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4c149392-a4f0-4e2d-a13f-2b94810005de",
+        "exact_field": "drug_interactions",
+        "quoted_text": "7 DRUG INTERACTIONS Because of amiodarone's long half-life, expect drug interactions to persist for weeks to months after discontinuation of amiodarone. Drug interactions with amiodarone are described in Table 1 below. Table 1: Amiodarone Drug Interactions Concomitant Drug Class/Name Examples Clinical Comment Pharmacodynamic Interactions QT Prolonging Drugs class I and III antiarrhythmics, lithium, certain phenothiazines, tricyclic antidepressants, certain fluoroquinolone and macrolide antibiotics, azole antifungals, halogenated inhalation anesthetic agents Increased risk of Torsade de Pointes. Avoid concomitant use. Negative Chronotropes digoxin, beta blockers, verapamil, diltiazem, clonidine, ivabradine Potentiates the electrophysiologic and hemodynamic effects of amiodarone, resulting in bradycardia, sinus arrest, and AV block. Monitor heart rate. Pharmacokinetic Interactions CYP450 Inhibitors grapefruit juice, certain fluoroquinolone and macrolide antibiotics, azole antifungals, cimetidine, certain protease inhibitors Increased exposure of amiodarone. Avoid concomitant use. CYP450 Inducers St. John's Wort Reduced amiodarone serum levels. Cyclosporine Increased plasma levels of cyclosporine have been reported resulting in elevated creatinine, despite reduction of cyclosporine dose. Monitor cyclosporine drug levels and renal function with concomitant use Cholestyramine Reduced amiodarone serum levels. Antiarrhythmics quinidine, procainamide, flecainide Reserve concomitant use for patients who are unresponsive to a single agent. Antiarrhythmic metabolism inhibited by amiodarone. Initiate antiarrhythmic at a lower than usual dose and monitor patient carefully. Reduce dose levels of previously administered antiarrhythmic by 30 to 50% for several days after transitioning to oral amiodarone. Evaluate continued need for antiarrhythmic. Digoxin Increased digoxin concentration. Reduce digoxin by half or discontinue. If continued, monitor for evidence of toxicity. HMG-CoA Reductase Inhibitors simvastatin, lovastatin, atorvastatin Increased plasma concentration of HMGCoA reductase inhibitor. Limit the dose of lovastatin to 40 mg. Limit the coadministered dose of simvastatin to 20 mg. Lower starting dose of other CYP3A4 substrates may be required. Warfarin Potentiates anticoagulant response and can result in serious or fatal bleeding. Coadministration increases prothrombin time by 100% after 3 to 4 days. Reduce warfarin dose by one-third to one-half and monitor prothrombin times. Phenytoin Increased steady-state levels of phenytoin. Monitor phenytoin levels. Hepatitis C Direct Acting Antiviral sofosbuvir Cases of symptomatic bradyarrhythmia requiring pacemaker insertion have been reported in patients on oral maintenance amiodarone who initiated therapy with sofosbuvir. CYP3A Substrate lidocaine Sinus bradycardia has been reported with oral amiodarone in combination with lidocaine given for local anesthesia. Monitor heart rate. A lower starting dose of lidocaine may be required. CYP3A Substrate fentanyl Fentanyl in combination with amiodarone may cause hypotension, bradycardia, and decreased cardiac output. Avoid coadministration of amiodarone with other antiarrhythmics and drugs known to prolong the QT interval. ( 7 ) Amiodarone is a substrate for CYP3A and CYP2C8, so inhibitors and inducers affect amiodarone exposure. ( 7 ) Amiodarone inhibits P-glycoprotein and CYP1A2, CYP2C9, CYP2D6, and CYP3A, increasing exposure to other drugs. ( 7 )",
+        "supporting_text": "HMG-CoA Reductase Inhibitors simvastatin, lovastatin, atorvastatin Increased plasma concentration of HMGCoA reductase inhibitor.",
+        "source_version": "effective 20260422 · version 7",
+        "anchor_drug": "amiodarone",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"amiodarone\"&limit=20",
+        "retrieved_at": "2026-07-10T23:00:00.000Z"
+      },
+      {
+        "id": "label:703:boxed",
+        "claim_text": "FDA boxed warning for amiodarone",
+        "source_name": "openFDA-label",
+        "source_id": "4c149392-a4f0-4e2d-a13f-2b94810005de",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4c149392-a4f0-4e2d-a13f-2b94810005de",
+        "exact_field": "boxed_warning",
+        "quoted_text": "BOXED WARNING WARNING: PULMONARY, HEPATIC and CARDIAC TOXICITY Amiodarone hydrochloride is intended for use only in patients with the indicated life-threatening arrhythmias because its use is accompanied by substantial toxicity [see Indications and Usage ( 1 )]. Amiodarone hydrochloride can cause pulmonary toxicity (hypersensitivity pneumonitis or interstitial/alveolar pneumonitis) that has resulted in clinically manifest disease at rates as high as 17% in some series of patients. Pulmonary toxicity has been fatal about 10% of the time . Obtain a baseline chest X-ray and pulmonary-function tests, including diffusion capacity, when amiodarone hydrochloride therapy is initiated. Repeat history, physical exam, and chest X-ray every 3 to 6 months [see Warnings and Precautions 5.2 )]. Amiodarone hydrochloride can cause hepatoxicity, which can be fatal. Obtain baseline and periodic liver transaminases and discontinue or reduce dose if the increase exceeds three times normal, or doubles in a patient with an elevated baseline. Discontinue amiodarone hydrochloride if the patient experiences signs or symptoms of clinical liver injury [see Warnings and Precautions ( 5.3 )]. Amiodarone hydrochloride can exacerbate arrhythmias. Initiate amiodarone hydrochloride in a clinical setting where continuous electrocardiograms and cardiac resuscitation are available [see Warnings and Precautions ( 5.4 )] WARNING: PULMONARY, HEPATIC, and CARDIAC TOXICITY See full prescribing information for complete boxed warning . Reserve amiodarone hydrochloride for patients with the indicated life-threatening arrhythmias because its use is accompanied by substantial toxicity, some also life-threatening. Utilize alternative agents first. (1) Amiodarone hydrochloride's life-threatening toxicities include pulmonary (5.2), hepatic (5.3) , and proarrhythmic (5.4). Initiate under hospital or specialist supervision. (5)",
+        "supporting_text": "BOXED WARNING WARNING: PULMONARY, HEPATIC and CARDIAC TOXICITY Amiodarone hydrochloride is intended for use only in patients with the indicated life-threatening arrhythmias because its use is accompanied by substantial toxicity [see Indications and Usage ( 1 )].",
+        "source_version": "effective 20260422 · version 7",
+        "anchor_drug": "amiodarone",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"amiodarone\"&limit=20",
+        "retrieved_at": "2026-07-10T23:00:00.000Z"
+      },
+      {
+        "id": "label:1364430:interactions",
+        "claim_text": "FDA label drug-interactions section for apixaban",
+        "source_name": "openFDA-label",
+        "source_id": "396912c0-9f68-47ed-ba3f-8d9ace755a48",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=396912c0-9f68-47ed-ba3f-8d9ace755a48",
+        "exact_field": "drug_interactions",
+        "quoted_text": "7 DRUG INTERACTIONS Apixaban is a substrate of both CYP3A4 and P-gp. Inhibitors of CYP3A4 and P-gp increase exposure to apixaban and increase the risk of bleeding. Inducers of CYP3A4 and P-gp decrease exposure to apixaban and increase the risk of stroke and other thromboembolic events. • Combined P-gp and strong CYP3A4 inhibitors increase blood levels of apixaban. Reduce apixaban tablets dose or avoid coadministration. ( 2.5 , 7.1 , 12.3 ) • Simultaneous use of combined P-gp and strong CYP3A4 inducers reduces blood levels of apixaban: Avoid concomitant use. ( 7.2 , 12.3 ) 7.1 Combined P-gp and Strong CYP3A4 Inhibitors For patients receiving apixaban tablets 5 mg or 10 mg twice daily, the dose of apixaban tablets should be decreased by 50% when coadministered with drugs that are combined P-gp and strong CYP3A4 inhibitors (e.g., ketoconazole, itraconazole, ritonavir) [see Dosage and Administration ( 2.5 ) and Clinical Pharmacology ( 12.3 )]. For patients receiving apixaban tablets at a dose of 2.5 mg twice daily, avoid coadministration with combined P-gp and strong CYP3A4 inhibitors [see Dosage and Administration ( 2.5 ) and Clinical Pharmacology ( 12.3 )]. Clarithromycin Although clarithromycin is a combined P-gp and strong CYP3A4 inhibitor, pharmacokinetic data suggest that no dose adjustment is necessary with concomitant administration with apixaban tablets [see Clinical Pharmacology ( 12.3 )]. 7.2 Combined P-gp and Strong CYP3A4 Inducers Avoid concomitant use of apixaban tablets with combined P-gp and strong CYP3A4 inducers (e.g., rifampin, carbamazepine, phenytoin, St. John’s wort) because such drugs will decrease exposure to apixaban [see Clinical Pharmacology ( 12.3 )]. 7.3 Anticoagulants and Antiplatelet Agents Coadministration of antiplatelet agents, fibrinolytics, heparin, aspirin, and chronic NSAID use increases the risk of bleeding. APPRAISE-2, a placebo-controlled clinical trial of apixaban in high-risk, post-acute coronary syndrome patients treated with aspirin or the combination of aspirin and clopidogrel, was terminated early due to a higher rate of bleeding with apixaban compared to placebo. The rate of ISTH major bleeding was 2.8% per year with apixaban versus 0.6% per year with placebo in patients receiving single antiplatelet therapy and was 5.9% per year with apixaban versus 2.5% per year with placebo in those receiving dual antiplatelet therapy. In ARISTOTLE, concomitant use of aspirin increased the bleeding risk on apixaban from 1.8% per year to 3.4% per year and concomitant use of aspirin and warfarin increased the bleeding risk from 2.7% per year to 4.6% per year. In this clinical trial, there was limited (2.3%) use of dual antiplatelet therapy with apixaban.",
+        "supporting_text": "Inhibitors of CYP3A4 and P-gp increase exposure to apixaban and increase the risk of bleeding. Inducers of CYP3A4 and P-gp decrease exposure to apixaban and increase the risk of stroke and other thromboembolic events.",
+        "source_version": "effective 20250403 · version 1",
+        "anchor_drug": "apixaban",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"apixaban\"&limit=20",
+        "retrieved_at": "2026-07-11T06:52:16.130Z"
+      },
+      {
+        "id": "label:1364430:boxed",
+        "claim_text": "FDA boxed warning for apixaban",
+        "source_name": "openFDA-label",
+        "source_id": "396912c0-9f68-47ed-ba3f-8d9ace755a48",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=396912c0-9f68-47ed-ba3f-8d9ace755a48",
+        "exact_field": "boxed_warning",
+        "quoted_text": "BOXED WARNING WARNING: (A) PREMATURE DISCONTINUATION OF APIXABAN TABLETS INCREASES THE RISK OF THROMBOTIC EVENTS (B) SPINAL/EPIDURAL HEMATOMA (A) PREMATURE DISCONTINUATION OF APIXABAN TABLETS INCREASES THE RISK OF THROMBOTIC EVENTS Premature discontinuation of any oral anticoagulant, including apixaban tablets, increases the risk of thrombotic events. If anticoagulation with apixaban tablets is discontinued for a reason other than pathological bleeding or completion of a course of therapy, consider coverage with another anticoagulant [see Dosage and Administration ( 2.4 ), Warnings and Precautions ( 5.1 ), and Clinical Studies ( 14.1 )]. (B) SPINAL/EPIDURAL HEMATOMA Epidural or spinal hematomas may occur in patients treated with apixaban tablets who are receiving neuraxial anesthesia or undergoing spinal puncture. These hematomas may result in long-term or permanent paralysis. Consider these risks when scheduling patients for spinal procedures. Factors that can increase the risk of developing epidural or spinal hematomas in these patients include: • use of indwelling epidural catheters • concomitant use of other drugs that affect hemostasis, such as nonsteroidal anti-inflammatory drugs (NSAIDs), platelet inhibitors, other anticoagulants • a history of traumatic or repeated epidural or spinal punctures • a history of spinal deformity or spinal surgery • optimal timing between the administration of apixaban tablets and neuraxial procedures is not known [see Warnings and Precautions ( 5.3 )] Monitor patients frequently for signs and symptoms of neurological impairment. If neurological compromise is noted, urgent treatment is necessary [see Warnings and Precautions ( 5.3 )]. Consider the benefits and risks before neuraxial intervention in patients anticoagulated or to be anticoagulated [see Warnings and Precautions ( 5.3 )]. WARNING: (A) PREMATURE DISCONTINUATION OF APIXABAN TABLETS INCREASES THE RISK OF THROMBOTIC EVENTS (B) SPINAL/EPIDURAL HEMATOMA See full prescribin",
+        "supporting_text": "BOXED WARNING WARNING: (A) PREMATURE DISCONTINUATION OF APIXABAN TABLETS INCREASES THE RISK OF THROMBOTIC EVENTS (B) SPINAL/EPIDURAL HEMATOMA (A) PREMATURE DISCONTINUATION OF APIXABAN TABLETS INCREASES THE RISK OF THROMBOTIC EVENTS Premature discontinuation of any oral anticoagulant, including apixaban tablets, increases the risk of thrombotic events.",
+        "source_version": "effective 20250403 · version 1",
+        "anchor_drug": "apixaban",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"apixaban\"&limit=20",
+        "retrieved_at": "2026-07-11T06:52:16.130Z"
+      },
+      {
+        "id": "label:221124:interactions",
+        "claim_text": "FDA label drug-interactions section for metoprolol succinate",
+        "source_name": "openFDA-label",
+        "source_id": "1b926135-a67f-4386-a2ba-de5d9fd5a7c5",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1b926135-a67f-4386-a2ba-de5d9fd5a7c5",
+        "exact_field": "drug_interactions",
+        "quoted_text": "7 DRUG INTERACTIONS Catecholamine-depleting drugs may have an additive effect when given with beta-blocking agents. (7.1) CYP2D6 Inhibitors are likely to increase metoprolol concentration. (7.2) Concomitant use of glycosides, clonidine, and diltiazem and verapamil with beta-blockers can increase the risk of bradycardia. (7.3) Beta-blockers including metoprolol, may exacerbate the rebound hypertension that can follow the withdrawal of clonidine. (7.3) 7.1 Catecholamine Depleting Drugs Catecholamine depleting drugs (e.g. reserpine, monoamine oxidase (MAO) inhibitors) may have an additive effect when given with beta-blocking agents. Observe patients treated with metoprolol succinate extended-release tablets plus a catecholamine depletor for evidence of hypotension or marked bradycardia, which may produce vertigo, syncope, or postural hypotension. 7.2 CYP2D6 Inhibitors Drugs that inhibit CYP2D6 such as quinidine, fluoxetine, paroxetine, and propafenone are likely to increase metoprolol concentration. In healthy subjects with CYP2D6 extensive metabolizer phenotype, coadministration of quinidine 100 mg and immediate-release metoprolol 200 mg tripled the concentration of S-metoprolol and doubled the metoprolol elimination half-life. In four patients with cardiovascular disease, coadministration of propafenone 150 mg t.i.d. with immediate-release metoprolol 50 mg t.i.d. resulted in two- to five-fold increases in the steady-state concentration of metoprolol. These increases in plasma concentration would decrease the cardioselectivity of metoprolol. 7.3 Digitalis, Clonidine, and Calcium Channel Blockers Digitalis glycosides, clonidine, diltiazem and verapamil slow atrioventricular conduction and decrease heart rate. Concomitant use with beta blockers can increase the risk of bradycardia. If clonidine and a beta blocker, such as metoprolol are coadministered, withdraw the beta-blocker several days before the gradual withdrawal of clonidine because beta-blockers may exacerbate the rebound hypertension that can follow the withdrawal of clonidine. If replacing clonidine by beta-blocker therapy, delay the introduction of beta-blockers for several days after clonidine administration has stopped [see Warnings and Precautions (5.11) ].",
+        "supporting_text": "2 CYP2D6 Inhibitors Drugs that inhibit CYP2D6 such as quinidine, fluoxetine, paroxetine, and propafenone are likely to increase metoprolol concentration. In healthy subjects with CYP2D6 extensive metabolizer phenotype, coadministration of quinidine 100 mg and immediate-release metoprolol 200 mg tripled the concentration of S-metoprolol and doubled the metoprolol elimination half-life.",
+        "source_version": "effective 20260128 · version 2",
+        "anchor_drug": "metoprolol succinate",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"metoprolol%20succinate\"&limit=20",
+        "retrieved_at": "2026-07-11T06:52:16.130Z"
+      },
+      {
+        "id": "label:221124:boxed",
+        "claim_text": "FDA boxed warning for metoprolol succinate",
+        "source_name": "openFDA-label",
+        "source_id": "1b926135-a67f-4386-a2ba-de5d9fd5a7c5",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1b926135-a67f-4386-a2ba-de5d9fd5a7c5",
+        "exact_field": "boxed_warning",
+        "quoted_text": "WARNING: ISCHEMIC HEART DISEASE: Following abrupt cessation of therapy with certain beta-blocking agents, exacerbations of angina pectoris and, in some cases, myocardial infarction have occurred. When discontinuing chronically administered metoprolol succinate extended-release tablets, particularly in patients with ischemic heart disease, the dosage should be gradually reduced over a period of 1 - 2 weeks and the patient should be carefully monitored. If angina markedly worsens or acute coronary insufficiency develops, metoprolol succinate extended-release tablet administration should be reinstated promptly, at least temporarily, and other measures appropriate for the management of unstable angina should be taken. Warn patients against interruption or discontinuation of therapy without the physician’s advice. Because coronary artery disease is common and may be unrecognized, it may be prudent not to discontinue metoprolol succinate extended-release tablet therapy abruptly even in patients treated only for hypertension (5.1). WARNING: ISCHEMIC HEART DISEASE (See Full Prescribing Information for complete boxed warning) Following abrupt cessation of therapy with beta-blocking agents, exacerbations of angina pectoris and myocardial infarction have occurred. Warn patients against interruption or discontinuation of therapy without the physician’s advice. (5.1)",
+        "supporting_text": "WARNING: ISCHEMIC HEART DISEASE: Following abrupt cessation of therapy with certain beta-blocking agents, exacerbations of angina pectoris and, in some cases, myocardial infarction have occurred.",
+        "source_version": "effective 20260128 · version 2",
+        "anchor_drug": "metoprolol succinate",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"metoprolol%20succinate\"&limit=20",
+        "retrieved_at": "2026-07-11T06:52:16.130Z"
+      },
+      {
+        "id": "label:6918:interactions",
+        "claim_text": "FDA label drug-interactions section for metoprolol",
+        "source_name": "openFDA-label",
+        "source_id": "09566368-f91d-43a3-b683-30c844fb125a",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=09566368-f91d-43a3-b683-30c844fb125a",
+        "exact_field": "drug_interactions",
+        "quoted_text": "7 DRUG INTERACTIONS • Catecholamine-depleting drugs may have an additive effect when given with beta-blocking agents. ( 7.1 ) • Patients may be unresponsive to the usual doses of epinephrine used to treat allergic reaction. ( 7.2 ) • CYP2D6 Inhibitors are likely to increase metoprolol concentration. ( 7.3 ) • Concomitant use of glycosides, clonidine, and diltiazem and verapamil with beta-blockers can increase the risk of bradycardia. ( 7.4 ) • Beta-blockers including metoprolol, may exacerbate the rebound hypertension that can follow the withdrawal of clonidine. ( 7.4 ) 7.1 Catecholamine Depleting Drugs and Monoamine Oxidate (MAO) Inhibitors Catecholamine depleting drugs (e.g., reserpine) and monoamine oxidase (MAO) inhibitors) may have an additive effect when given with beta-blocking agents. Observe patients treated with metoprolol plus a catecholamine depletor for evidence of hypotension or marked bradycardia, which may produce vertigo, syncope, or postural hypotension. 7.2 Epinephrine While taking beta-blockers, patients with a history of severe anaphylactic reactions to a variety of allergens may be more reactive to repeated challenge and may be unresponsive to the usual doses of epinephrine used to treat an allergic reaction. 7.3 CYP2D6 Inhibitors Drugs that are strong inhibitors of CYP2D6, such as quinidine, fluoxetine, paroxetine, and propafenone, were shown to double metoprolol concentrations. While there is no information about moderate or weak inhibitors, these too are likely to increase metoprolol concentration. Increases in plasma concentration decrease the cardioselectivity of metoprolol [see Clinical Pharmacology (12.3) ]. Monitor patients closely, when the combination cannot be avoided. 7.4 Digitalis, Clonidine, and Calcium Channel Blockers and Other Drugs that Decrease Heart Rate Digitalis glycosides, clonidine, diltiazem and verapamil slow atrioventricular conduction and decrease heart rate. Concomitant administration of beta-blockers with these and other drugs known to decrease heart rate such as sphingosine-1-phosphate receptor modulators (e.g. fingolimod) may result in additive heart rate lowering effects. If clonidine and metoprolol are co-administered, withdraw the metoprolol several days before the gradual withdrawal of clonidine because beta-blockers may exacerbate the rebound hypertension that can follow the withdrawal of clonidine. If replacing clonidine by beta-blocker therapy, delay the introduction of beta-blockers for several days after clonidine administration has stopped . 7.5 Drugs that Decrease Blood Pressure Concomitant administration of beta-blockers with other drugs known to decrease blood pressure may result in an enhanced hypotensive effect.",
+        "supporting_text": "2 ) • CYP2D6 Inhibitors are likely to increase metoprolol concentration.",
+        "source_version": "effective 20240513 · version 22",
+        "anchor_drug": "metoprolol",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"metoprolol\"&limit=20",
+        "retrieved_at": "2026-07-11T06:06:02.253Z"
+      },
+      {
+        "id": "ddinter:DDInter76:DDInter108",
+        "claim_text": "DDInter severity for amiodarone + apixaban: Moderate",
+        "source_name": "DDInter",
+        "source_id": "DDInter76/DDInter108",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
+        "exact_field": "Level",
+        "quoted_text": "Drug_A: Amiodarone; Drug_B: Apixaban; Level: Moderate",
+        "supporting_text": "Drug_A: Amiodarone; Drug_B: Apixaban; Level: Moderate",
+        "subject_drugs": [
+          "Amiodarone",
+          "Apixaban"
+        ],
+        "retrieval_query": "local DDInter ddinter_downloads_code_B.csv row: DDInter76 (Amiodarone) x DDInter108 (Apixaban)",
+        "retrieved_at": "2026-07-11T22:28:55.427Z"
+      }
+    ],
+    "unverified_removed": [
+      {
+        "claim_text": "¿La amiodarona 200mg al día y el apixabán 5mg dos veces al día siguen indicados como órdenes activas, o alguno se ha suspendido tras el hemopericardio?",
+        "reason": "Revisor narrativo: Que alguno de los medicamentos (amiodarona o apixabán) se haya suspendido tras el hemopericardio: ambos figuran como activos y no hay evidencia de suspensión"
+      }
+    ],
+    "generated_at": "2026-07-11T22:28:55.427Z",
+    "pipeline": {
+      "mode": "audited-replay",
+      "model": "Claude Opus 4.8",
+      "stages": [
+        "ingest",
+        "retrieve",
+        "synthesize",
+        "verify"
+      ],
+      "ddinter": {
+        "source_rows": 222383,
+        "unique_pairs": 160235,
+        "unique_drugs": 1939,
+        "source_files": 8
+      }
+    }
+  },
+  "generatedAt": "2026-07-11T22:28:55.427Z"
+}

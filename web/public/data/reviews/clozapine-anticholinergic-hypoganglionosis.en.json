@@ -1,0 +1,553 @@
+{
+  "id": "clozapine-anticholinergic-hypoganglionosis",
+  "locale": "en",
+  "intake": {
+    "case": {
+      "note": "45-year-old male with schizoaffective disorder and chronic constipation presented with acute encephalopathy while taking clozapine 1,200 mg daily plus multiple anticholinergic medications. Working diagnosis of anticholinergic toxicity; clozapine held. Developed ileus/acquired hypoganglionosis, treated with neostigmine and ultimately total colectomy. Clozapine later restarted at lower dose.",
+      "medications": [
+        {
+          "raw": "Clozapine, total of 1,200 mg daily",
+          "episode": "Home medication taken during the episode; clozapine level elevated at presentation; held on admission",
+          "start": "started on the clozapine therapy years ago in his adulthood",
+          "end": "patient's home clozapine was held (on admission); later restarted at lower dose",
+          "source_span": "His home medications included a total of 1,200 mg of clozapine daily.",
+          "status": "active"
+        },
+        {
+          "raw": "risperidone",
+          "episode": "Home medication also being taken during the episode",
+          "source_span": "He was also taking risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine.",
+          "status": "active"
+        },
+        {
+          "raw": "propranolol",
+          "episode": "Home medication also being taken during the episode",
+          "source_span": "He was also taking risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine.",
+          "status": "active"
+        },
+        {
+          "raw": "linaclotide",
+          "episode": "Home medication also being taken during the episode",
+          "source_span": "He was also taking risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine.",
+          "status": "active"
+        },
+        {
+          "raw": "benztropine",
+          "episode": "Home medication also being taken during the episode",
+          "source_span": "He was also taking risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine.",
+          "status": "active"
+        },
+        {
+          "raw": "alprazolam",
+          "episode": "Home medication also being taken during the episode",
+          "source_span": "He was also taking risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine.",
+          "status": "active"
+        },
+        {
+          "raw": "diphenhydramine",
+          "episode": "Home medication also being taken during the episode",
+          "source_span": "He was also taking risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine.",
+          "status": "active"
+        },
+        {
+          "raw": "intravenous neostigmine, two doses",
+          "episode": "Treatment doses given in ICU for stool evacuation during the episode",
+          "source_span": "treated with two doses of intravenous neostigmine with significant evacuation of stool",
+          "status": "one-time"
+        }
+      ],
+      "allergies": [],
+      "diagnoses": [
+        "schizoaffective disorder",
+        "chronic constipation",
+        "acute encephalopathy",
+        "anticholinergic toxicity (working diagnosis)",
+        "ileus",
+        "acquired hypoganglionosis",
+        "urinary retention"
+      ],
+      "labs": [
+        {
+          "name": "clozapine level",
+          "value": 735,
+          "unit": "mcg/L",
+          "refLow": 25,
+          "refHigh": 440
+        },
+        {
+          "name": "norclozapine level",
+          "value": 449,
+          "unit": "mcg/L",
+          "refLow": 25,
+          "refHigh": 440
+        },
+        {
+          "name": "hemoglobin",
+          "value": 11.8,
+          "unit": "g/dL"
+        },
+        {
+          "name": "temperature",
+          "value": 38.5,
+          "unit": "°Celsius"
+        },
+        {
+          "name": "repeat serum clozapine level",
+          "value": 433,
+          "unit": "mcg/L"
+        },
+        {
+          "name": "repeat norclozapine level",
+          "value": 121,
+          "unit": "mcg/L"
+        },
+        {
+          "name": "proximal colon dilatation",
+          "value": 8.4,
+          "unit": "cm"
+        },
+        {
+          "name": "rectosigmoid colon dilatation",
+          "value": 7,
+          "unit": "cm"
+        }
+      ]
+    },
+    "ambiguities": [
+      {
+        "id": "amb-clozapine-duration",
+        "field": "medications[0].start",
+        "question": "The source states clozapine was started 'years ago in his adulthood' but the exact duration and current dose duration is unclear ('It is unclear how long he was taking this dose'). Can you confirm the start timing?"
+      }
+    ],
+    "sourceSummary": "Single published case report (PMC7333039) of a 45-year-old male on chronic high-dose clozapine and multiple anticholinergic home medications who developed acute encephalopathy and acquired hypoganglionosis/ileus. Clozapine held on admission, neostigmine given as treatment, and clozapine later restarted at a lower dose."
+  },
+  "report": {
+    "patient": {
+      "medications": [
+        {
+          "raw": "Clozapine, total of 1,200 mg daily",
+          "rxcui": "360362",
+          "name": "Ivax brand of clozapine",
+          "resolution": "approximate",
+          "ingredients": [],
+          "status": "active",
+          "episode": "Home medication taken during the episode; clozapine level elevated at presentation; held on admission",
+          "start": "started on the clozapine therapy years ago in his adulthood",
+          "end": "patient's home clozapine was held (on admission); later restarted at lower dose",
+          "source_span": "His home medications included a total of 1,200 mg of clozapine daily."
+        },
+        {
+          "raw": "risperidone",
+          "rxcui": "35636",
+          "name": "risperidone",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "35636",
+              "name": "risperidone"
+            }
+          ],
+          "status": "active",
+          "episode": "Home medication also being taken during the episode",
+          "source_span": "He was also taking risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine."
+        },
+        {
+          "raw": "propranolol",
+          "rxcui": "8787",
+          "name": "propranolol",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "8787",
+              "name": "propranolol"
+            }
+          ],
+          "status": "active",
+          "episode": "Home medication also being taken during the episode",
+          "source_span": "He was also taking risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine."
+        },
+        {
+          "raw": "linaclotide",
+          "rxcui": "1307404",
+          "name": "linaclotide",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "1307404",
+              "name": "linaclotide"
+            }
+          ],
+          "status": "active",
+          "episode": "Home medication also being taken during the episode",
+          "source_span": "He was also taking risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine."
+        },
+        {
+          "raw": "benztropine",
+          "rxcui": "1424",
+          "name": "benztropine",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "1424",
+              "name": "benztropine"
+            }
+          ],
+          "status": "active",
+          "episode": "Home medication also being taken during the episode",
+          "source_span": "He was also taking risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine."
+        },
+        {
+          "raw": "alprazolam",
+          "rxcui": "596",
+          "name": "alprazolam",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "596",
+              "name": "alprazolam"
+            }
+          ],
+          "status": "active",
+          "episode": "Home medication also being taken during the episode",
+          "source_span": "He was also taking risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine."
+        },
+        {
+          "raw": "diphenhydramine",
+          "rxcui": "3498",
+          "name": "diphenhydramine",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "3498",
+              "name": "diphenhydramine"
+            }
+          ],
+          "status": "active",
+          "episode": "Home medication also being taken during the episode",
+          "source_span": "He was also taking risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine."
+        },
+        {
+          "raw": "intravenous neostigmine, two doses",
+          "rxcui": "7315",
+          "name": "neostigmine",
+          "resolution": "approximate",
+          "ingredients": [
+            {
+              "rxcui": "7315",
+              "name": "neostigmine"
+            }
+          ],
+          "status": "one-time",
+          "episode": "Treatment doses given in ICU for stool evacuation during the episode",
+          "source_span": "treated with two doses of intravenous neostigmine with significant evacuation of stool"
+        }
+      ],
+      "allergies": [],
+      "diagnoses": [
+        "schizoaffective disorder",
+        "chronic constipation",
+        "acute encephalopathy",
+        "anticholinergic toxicity (working diagnosis)",
+        "ileus",
+        "acquired hypoganglionosis",
+        "urinary retention"
+      ],
+      "labs": [
+        {
+          "name": "clozapine level",
+          "value": 735,
+          "unit": "mcg/L",
+          "refLow": 25,
+          "refHigh": 440
+        },
+        {
+          "name": "norclozapine level",
+          "value": 449,
+          "unit": "mcg/L",
+          "refLow": 25,
+          "refHigh": 440
+        },
+        {
+          "name": "hemoglobin",
+          "value": 11.8,
+          "unit": "g/dL"
+        },
+        {
+          "name": "temperature",
+          "value": 38.5,
+          "unit": "°Celsius"
+        },
+        {
+          "name": "repeat serum clozapine level",
+          "value": 433,
+          "unit": "mcg/L"
+        },
+        {
+          "name": "repeat norclozapine level",
+          "value": 121,
+          "unit": "mcg/L"
+        },
+        {
+          "name": "proximal colon dilatation",
+          "value": 8.4,
+          "unit": "cm"
+        },
+        {
+          "name": "rectosigmoid colon dilatation",
+          "value": 7,
+          "unit": "cm"
+        }
+      ],
+      "note": "45-year-old male with schizoaffective disorder and chronic constipation presented with acute encephalopathy while taking clozapine 1,200 mg daily plus multiple anticholinergic medications. Working diagnosis of anticholinergic toxicity; clozapine held. Developed ileus/acquired hypoganglionosis, treated with neostigmine and ultimately total colectomy. Clozapine later restarted at lower dose."
+    },
+    "patient_summary": "45-year-old male with schizoaffective disorder and chronic constipation who presented with acute encephalopathy while taking clozapine 1,200 mg daily plus risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine. Working diagnosis was anticholinergic toxicity; clozapine was held on admission and later restarted at a lower dose. He developed ileus and acquired hypoganglionosis, was treated with two doses of intravenous neostigmine, and ultimately underwent total colectomy. Clozapine level was 735 mcg/L (reference 25–440) and norclozapine 449 mcg/L (reference 25–440) at presentation, with a repeat serum clozapine level of 433 mcg/L and repeat norclozapine of 121 mcg/L.",
+    "findings": [
+      {
+        "status": "flagged",
+        "severity": "moderate",
+        "drugs": [
+          "Risperidone",
+          "Diphenhydramine"
+        ],
+        "headline": "Risperidone + Diphenhydramine interaction",
+        "mechanism": "DDInter classifies the exact Risperidone + Diphenhydramine pair as Moderate.",
+        "why_this_patient": "Both Risperidone and Diphenhydramine are active in the reviewed medication-safety episode.",
+        "evidence_ids": [
+          "ddinter:DDInter1605:DDInter569"
+        ]
+      },
+      {
+        "status": "flagged",
+        "severity": "moderate",
+        "drugs": [
+          "Propranolol",
+          "Diphenhydramine"
+        ],
+        "headline": "Propranolol + Diphenhydramine interaction",
+        "mechanism": "DDInter classifies the exact Propranolol + Diphenhydramine pair as Moderate.",
+        "why_this_patient": "Both Propranolol and Diphenhydramine are active in the reviewed medication-safety episode.",
+        "evidence_ids": [
+          "ddinter:DDInter1539:DDInter569"
+        ]
+      },
+      {
+        "status": "flagged",
+        "severity": "moderate",
+        "drugs": [
+          "Alprazolam",
+          "Diphenhydramine"
+        ],
+        "headline": "Alprazolam + Diphenhydramine interaction",
+        "mechanism": "DDInter classifies the exact Alprazolam + Diphenhydramine pair as Moderate.",
+        "why_this_patient": "Both Alprazolam and Diphenhydramine are active in the reviewed medication-safety episode.",
+        "evidence_ids": [
+          "ddinter:DDInter54:DDInter569"
+        ]
+      }
+    ],
+    "questions_for_clinician": [
+      "Should the concomitant use of alprazolam and diphenhydramine be reviewed, given the alprazolam label advice to limit dosage and duration during concomitant use with CNS depressants?"
+    ],
+    "evidence": [
+      {
+        "id": "label:35636:interactions",
+        "claim_text": "FDA label drug-interactions section for risperidone",
+        "source_name": "openFDA-label",
+        "source_id": "1f47ec91-602f-4fba-8f7e-a5698760b655",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1f47ec91-602f-4fba-8f7e-a5698760b655",
+        "exact_field": "drug_interactions",
+        "quoted_text": "7 DRUG INTERACTIONS • Carbamazepine and other enzyme inducers decrease plasma concentrations of risperidone. Increase the risperidone dose up to double the patient’s usual dose. Titrate slowly. ( 7.1 ) • Fluoxetine, paroxetine, and other CYP 2D6 enzyme inhibitors increase plasma concentrations of risperidone. Reduce the initial dose. Do not exceed a final dose of 8 mg per day of risperidone. ( 7.1 ) 7.1 Pharmacokinetic-related Interactions The dose of risperidone should be adjusted when used in combination with CYP2D6 enzyme inhibitors (e.g., fluoxetine, and paroxetine) and enzyme inducers (e.g., carbamazepine) [see Table 18 and Dosage and Administration ( 2.5 )] . Dose adjustment is not recommended for risperidone when co-administered with ranitidine, cimetidine, amitriptyline, or erythromycin [see Table 18] . Table 18 Summary of Effect of Coadministered Drugs on Exposure to Active Moiety (Risperidone + 9-Hydroxy-Risperidone) in Healthy Subjects or Patients with Schizophrenia Coadministered Drug Dosing Schedule Effect on Active Moiety (Risperidone + 9-Hydroxy-Risperidone (Ratio*) Risperidone Dose Recommendation Coadministered Drug Risperidone AUC C max Enzyme (CYP2D6) Inhibitors Fluoxetine 20 mg/day 2 or 3 mg twice daily 1.4 1.5 Re-evaluate dosing. Do not exceed 8 mg/day Paroxetine 10 mg/day 4 mg/day 1.3 - Re-evaluate dosing. Do not exceed 8 mg/day 20 mg/day 4 mg/day 1.6 - 40 mg/day 4 mg/day 1.8 - Enzyme (CYP3A/ PgP inducers) Inducers Carbamazepine 573 ± 168 mg/day 3 mg twice daily 0.51 0.55 Titrate dose upwards. Do not exceed twice the patient’s usual dose Enzyme (CYP3A) Inhibitors Ranitidine 150 mg twice daily 1 mg single dose 1.2 1.4 Dose adjustment not needed Cimetidine 400 mg twice daily 1 mg single dose 1.1 1.3 Dose adjustment not needed Erythromycin 500 mg four times daily 1 mg single dose 1.1 0.94 Dose adjustment not needed Other Drugs Amitriptyline 50 mg twice daily 3 mg twice daily 1.2 1.1 Dose adjustment not needed * Change relative to reference Effect of Risperidone on Other Drugs Lithium Repeated oral doses of risperidone (3 mg twice daily) did not affect the exposure (AUC) or peak plasma concentrations (C max ) of lithium (n=13). Dose adjustment for lithium is not recommended. Valproate Repeated oral doses of risperidone (4 mg once daily) did not affect the pre-dose or average plasma concentrations and exposure (AUC) of valproate (1000 mg/day in three divided doses) compared to placebo (n=21). However, there was a 20% increase in valproate peak plasma concentration (C max ) after concomitant administration of risperidone. Dose adjustment for valproate is not recommended. Digoxin Risperidone (0.25 mg twice daily) did not show a clinically relevant effect on the pharmacokinetics of digoxin. Dose adjustment for digoxin is not recommended. 7.2 Pharmacodynamic-related Interactions Centrally Acting Drugs and Alcohol Given the primary CNS effects of risperidone, caution should be used when risperidone is taken in combination with other centrally acting drugs and alcohol. Drugs with Hypotensive Effects Because of its potential for inducing hypotension, risperidone may enhance the hypotensive effects of other therapeutic agents with this potential. Levodopa and Dopamine Agonists Risperidone may antagonize the effects of levodopa and dopamine agonists. Methylphenidate Concomitant use with methylphenidate, when there is change in dosage of either medication, may increase the risk of extrapyramidal symptoms (EPS). Monitor for symptoms of EPS with concomitant use of risperidone and methylphenidate [see Adverse Reactions ( 6.2 )] . Clozapine Chronic administration of clozapine with risperidone may decrease the clearance of risperidone.",
+        "supporting_text": "1 ) • Fluoxetine, paroxetine, and other CYP 2D6 enzyme inhibitors increase plasma concentrations of risperidone. Reduce the initial dose.",
+        "source_version": "effective 20260626 · version 3",
+        "anchor_drug": "risperidone",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"risperidone\"&limit=20",
+        "retrieved_at": "2026-07-11T22:23:33.216Z"
+      },
+      {
+        "id": "label:35636:boxed",
+        "claim_text": "FDA boxed warning for risperidone",
+        "source_name": "openFDA-label",
+        "source_id": "1f47ec91-602f-4fba-8f7e-a5698760b655",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1f47ec91-602f-4fba-8f7e-a5698760b655",
+        "exact_field": "boxed_warning",
+        "quoted_text": "WARNING: INCREASED MORTALITY IN ELDERLY PATIENTS WITH DEMENTIA-RELATED PSYCHOSIS Elderly patients with dementia-related psychosis treated with antipsychotic drugs are at an increased risk of death. Risperidone is not approved for the treatment of patients with dementia-related psychosis. [see Warnings and Precautions ( 5.1 )] WARNING: INCREASED MORTALITY IN ELDERLY PATIENTS WITH DEMENTIA-RELATED PSYCHOSIS See full prescribing information for complete boxed warning. Elderly patients with dementia-related psychosis treated with antipsychotic drugs are at an increased risk of death. Risperidone is not approved for use in patients with dementia-related psychosis. ( 5.1 )",
+        "supporting_text": "WARNING: INCREASED MORTALITY IN ELDERLY PATIENTS WITH DEMENTIA-RELATED PSYCHOSIS Elderly patients with dementia-related psychosis treated with antipsychotic drugs are at an increased risk of death.",
+        "source_version": "effective 20260626 · version 3",
+        "anchor_drug": "risperidone",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"risperidone\"&limit=20",
+        "retrieved_at": "2026-07-11T22:23:33.216Z"
+      },
+      {
+        "id": "label:8787:interactions",
+        "claim_text": "FDA label drug-interactions section for propranolol",
+        "source_name": "openFDA-label",
+        "source_id": "015b5e4f-3228-4259-b419-e0e49694a058",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=015b5e4f-3228-4259-b419-e0e49694a058",
+        "exact_field": "drug_interactions",
+        "quoted_text": "Drug Interactions Caution should be exercised when Propranolol Hydrochloride Extended-Release Capsules, USP, are administered with drugs that have an affect on CYP2D6, 1A2, or 2C19 metabolic pathways. Co-administration of such drugs with propranolol may lead to clinically relevant drug interactions and changes on its efficacy and/or toxicity (see Drug Interactions in PHARMACOKINETICS AND DRUG METABOLISM ). Alcohol when used concomitantly with propranolol, may increase plasma levels of propranolol.",
+        "supporting_text": "Alcohol when used concomitantly with propranolol, may increase plasma levels of propranolol.",
+        "source_version": "effective 20250919 · version 7",
+        "anchor_drug": "propranolol",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"propranolol\"&limit=20",
+        "retrieved_at": "2026-07-11T05:47:48.691Z"
+      },
+      {
+        "id": "label:8787:boxed",
+        "claim_text": "FDA boxed warning for propranolol",
+        "source_name": "openFDA-label",
+        "source_id": "015b5e4f-3228-4259-b419-e0e49694a058",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=015b5e4f-3228-4259-b419-e0e49694a058",
+        "exact_field": "boxed_warning",
+        "quoted_text": "Angina Pectoris There have been reports of exacerbation of angina and, in some cases, myocardial infarction, following abrupt discontinuance of propranolol therapy. Therefore, when discontinuance of propranolol is planned, the dosage should be gradually reduced over at least a few weeks, and the patient should be cautioned against interruption or cessation of therapy without the physician's advice. If propranolol therapy is interrupted and exacerbation of angina occurs, it usually is advisable to reinstitute propranolol therapy and take other measures appropriate for the management of unstable angina pectoris. Since coronary artery disease may be unrecognized, it may be prudent to follow the above advice in patients considered at risk of having occult atherosclerotic heart disease who are given propranolol for other indications.",
+        "supporting_text": "Angina Pectoris There have been reports of exacerbation of angina and, in some cases, myocardial infarction, following abrupt discontinuance of propranolol therapy.",
+        "source_version": "effective 20250919 · version 7",
+        "anchor_drug": "propranolol",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"propranolol\"&limit=20",
+        "retrieved_at": "2026-07-11T05:47:48.691Z"
+      },
+      {
+        "id": "label:1307404:boxed",
+        "claim_text": "FDA boxed warning for linaclotide",
+        "source_name": "openFDA-label",
+        "source_id": "09beda19-56d6-4a56-afdc-9a77b70b2ef3",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=09beda19-56d6-4a56-afdc-9a77b70b2ef3",
+        "exact_field": "boxed_warning",
+        "quoted_text": "WARNING: RISK OF SERIOUS DEHYDRATION IN PEDIATRIC PATIENTS LESS THAN 2 YEARS OF AGE LINZESS is contraindicated in patients less than 2 years of age; in nonclinical studies in neonatal mice, administration of a single, clinically relevant adult oral dose of linaclotide caused deaths due to dehydration [see Contraindications ( 4 ), Warnings and Precautions ( 5.1 ), Use in Specific Populations ( 8.4 )]. WARNING: RISK OF SERIOUS DEHYDRATION IN PEDIATRIC PATIENTS LESS THAN 2 YEARS OF AGE See full prescribing information for complete boxed warning. LINZESS is contraindicated in patients less than 2 years of age; in neonatal mice, linaclotide caused deaths due to dehydration. ( 4 , 5.1 , 8.4 )",
+        "supporting_text": "WARNING: RISK OF SERIOUS DEHYDRATION IN PEDIATRIC PATIENTS LESS THAN 2 YEARS OF AGE LINZESS is contraindicated in patients less than 2 years of age; in nonclinical studies in neonatal mice, administration of a single, clinically relevant adult oral dose of linaclotide caused deaths due to dehydration [see Contraindications ( 4 ), Warnings and Precautions ( 5.",
+        "source_version": "effective 20260521 · version 39",
+        "anchor_drug": "linaclotide",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"linaclotide\"&limit=20",
+        "retrieved_at": "2026-07-11T22:23:33.216Z"
+      },
+      {
+        "id": "label:1424:interactions",
+        "claim_text": "FDA label drug-interactions section for benztropine",
+        "source_name": "openFDA-label",
+        "source_id": "3d2732f9-b8a9-4e83-91e7-da616ddcb786",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3d2732f9-b8a9-4e83-91e7-da616ddcb786",
+        "exact_field": "drug_interactions",
+        "quoted_text": "Drug Interactions Antipsychotic drugs such as phenothiazines or haloperidol; tricyclic antidepressants (see WARNINGS ).",
+        "supporting_text": "Drug Interactions Antipsychotic drugs such as phenothiazines or haloperidol; tricyclic antidepressants (see WARNINGS ).",
+        "source_version": "effective 20200501 · version 3",
+        "anchor_drug": "benztropine",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"benztropine\"&limit=20",
+        "retrieved_at": "2026-07-11T22:23:33.216Z"
+      },
+      {
+        "id": "label:596:interactions",
+        "claim_text": "FDA label drug-interactions section for alprazolam",
+        "source_name": "openFDA-label",
+        "source_id": "0dce8232-0b0e-4f81-af95-36e6febdb550",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0dce8232-0b0e-4f81-af95-36e6febdb550",
+        "exact_field": "drug_interactions",
+        "quoted_text": "7 DRUG INTERACTIONS Use with Opioids: Increase the risk of respiratory depression. ( 7.1 ) Use with Other CNS Depressants: Produces additive CNS depressant effects. ( 7.1 ) Use with Digoxin: Increase the risk of digoxin toxicity. ( 7.1 ) Use with CYP3A Inhibitors (except ritonavir): Increase the risk of adverse reactions of alprazolam. ( 4 , 5.5 , 7.1 ) Use with CYP3A Inducers: Increase the risk of reduced efficacy of alprazolam. ( 7.1 ) 7.1 Drugs Having Clinically Important Interactions with Alprazolam Extended-Release Tablets Table 4 includes clinically significant drug interactions with alprazolam extended-release tablets [see Clinical Pharmacology (12.3) ] . Table 4: Clinically Significant Drug Interactions with Alprazolam Extended-Release Tablets Opioids Clinical implication The concomitant use of benzodiazepines and opioids increases the risk of respiratory depression because of actions at different receptor sites in the CNS that control respiration. Benzodiazepines interact at gamma-aminobutyric acid (GABA A ) sites and opioids interact primarily at mu receptors. When benzodiazepines and opioids are combined, the potential for benzodiazepines to significantly worsen opioid-related respiratory depression exists. Prevention or management Limit dosage and duration of concomitant use of alprazolam extended-release tablets and opioids, and monitor patients closely for respiratory depression and sedation [see Warnings and Precautions (5.1) ]. Examples Morphine, buprenorphine, hydromorphone, oxymorphone, oxycodone, fentanyl, methadone, alfentanil, butorpenol, codeine, dihydrocodeine, meperidine, pentazocine, remifentanil, sufentanil, tapentadol, tramadol. CNS Depressants Clinical implication The benzodiazepines, including alprazolam, produce additive CNS depressant effects when coadministered with other CNS depressants. Prevention or management Limit dosage and duration of alprazolam extended-release tablets during concomitant use with CNS depressants [see Warnings and Precautions (5.3) ] . Examples Psychotropic medications, anticonvulsants, antihistaminics, ethanol, and other drugs which themselves produce CNS depression. Strong Inhibitors of CYP3A (except ritonavir) Clinical implication Concomitant use of alprazolam extended-release tablets with strong CYP3A inhibitors has a profound effect on the clearance of alprazolam, resulting in increased concentrations of alprazolam and increased risk of adverse reactions [see Clinical Pharmacology (12.3) ]. Prevention or management Concomitant use of alprazolam extended-release tablets with a strong CYP3A4 inhibitor (except ritonavir) is contraindicated [see Contraindications (4) , Warnings and Precautions (5.5) ]. Examples Ketoconazole, itraconazole, clarithromycin Moderate or Weak Inhibitors of CYP3A Clinical implication Concomitant use of alprazolam extended-release tablets with CYP3A inhibitors may increase the concentrations of alprazolam extended-release tablets, resulting in increased risk of adverse reactions [see Clinical Pharmacology (12.3) ]. Prevention or management Avoid use and consider appropriate dose reduction when alprazolam extended-release tablets are coadministered with a moderate or weak CYP3A inhibitor [see Warnings and Precautions (5.5) ]. Examples Nefazodone, fluvoxamine, cimetidine, erythromycin CYP3A Inducers Clinical implication Concomitant use of CYP3A inducers can increase alprazolam metabolism and therefore can decease plasma levels of alprazolam [see Clinical Pharmacology (12.3) ] . Prevention or management Caution is recommended during coadministration with alprazolam. Examples Carbamazepine, phenytoin Ritonavir Clinical implication Interactions involving ritonavir and alprazolam are complex and time dependent. Short term administration of ritonavir increased alprazolam exposure due to CYP3A4 inhibition. Following long term treatment of ritonavir (> 10 to 14 days), CYP3A4 induction offsets this inhibition. Alprazolam exposure was not meaningfully affe",
+        "supporting_text": "Strong Inhibitors of CYP3A (except ritonavir) Clinical implication Concomitant use of alprazolam extended-release tablets with strong CYP3A inhibitors has a profound effect on the clearance of alprazolam, resulting in increased concentrations of alprazolam and increased risk of adverse reactions [see Clinical Pharmacology (12.",
+        "source_version": "effective 20260519 · version 6",
+        "anchor_drug": "alprazolam",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"alprazolam\"&limit=20",
+        "retrieved_at": "2026-07-11T22:23:33.216Z"
+      },
+      {
+        "id": "label:596:boxed",
+        "claim_text": "FDA boxed warning for alprazolam",
+        "source_name": "openFDA-label",
+        "source_id": "0dce8232-0b0e-4f81-af95-36e6febdb550",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0dce8232-0b0e-4f81-af95-36e6febdb550",
+        "exact_field": "boxed_warning",
+        "quoted_text": "WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death. Reserve concomitant prescribing of these drugs for patients for whom alternative treatment options are inadequate. Limit dosages and durations to the minimum required. Follow patients for signs and symptoms of respiratory depression and sedation [see Warnings and Precautions (5.1) , Drug Interactions (7.1) ] . The use of benzodiazepines, including alprazolam extended-release tablets, exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Abuse and misuse of benzodiazepines commonly involve concomitant use of other medications, alcohol, and/or illicit substances, which is associated with an increased frequency of serious adverse outcomes. Before prescribing alprazolam extended-release tablets and throughout treatment, assess each patient’s risk for abuse, misuse, and addiction [see Warnings and Precautions (5.2) ] . The continued use of benzodiazepines, including alprazolam extended-release tablets, may lead to clinically significant physical dependence. The risks of dependence and withdrawal increase with longer treatment duration and higher daily dose. Abrupt discontinuation or rapid dosage reduction of alprazolam extended-release tablets after continued use may precipitate acute withdrawal reactions, which can be life-threatening. To reduce the risk of withdrawal reactions, use a gradual taper to discontinue alprazolam extended-release tablets or reduce the dosage [see Dosage and Administration (2.2) , Warnings and Precautions (5.3) ] . WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS See full prescribing information for complete boxed warning. Concomitant use of benzodiazepines and opioids may result in profound sedatio",
+        "supporting_text": "WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death.",
+        "source_version": "effective 20260519 · version 6",
+        "anchor_drug": "alprazolam",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"alprazolam\"&limit=20",
+        "retrieved_at": "2026-07-11T22:23:33.216Z"
+      },
+      {
+        "id": "label:3498:interactions",
+        "claim_text": "FDA label drug-interactions section for diphenhydramine",
+        "source_name": "openFDA-label",
+        "source_id": "00f862aa-6917-45c7-b6aa-1bebb0a45e14",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=00f862aa-6917-45c7-b6aa-1bebb0a45e14",
+        "exact_field": "drug_interactions",
+        "quoted_text": "Drug Interactions Diphenhydramine hydrochloride has additive effects with alcohol and other CNS depressants (hypnotics, sedatives, tranquilizers, etc.) MAO inhibitors prolong and intensify the anticholinergic (drying) effects of antihistamines.",
+        "supporting_text": ") MAO inhibitors prolong and intensify the anticholinergic (drying) effects of antihistamines.",
+        "source_version": "effective 20250516 · version 4",
+        "anchor_drug": "diphenhydramine",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"diphenhydramine\"&limit=20",
+        "retrieved_at": "2026-07-11T22:23:33.216Z"
+      },
+      {
+        "id": "ddinter:DDInter1605:DDInter569",
+        "claim_text": "DDInter severity for risperidone + diphenhydramine: Moderate",
+        "source_name": "DDInter",
+        "source_id": "DDInter1605/DDInter569",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
+        "exact_field": "Level",
+        "quoted_text": "Drug_A: Risperidone; Drug_B: Diphenhydramine; Level: Moderate",
+        "supporting_text": "Drug_A: Risperidone; Drug_B: Diphenhydramine; Level: Moderate",
+        "subject_drugs": [
+          "Risperidone",
+          "Diphenhydramine"
+        ],
+        "retrieval_query": "local DDInter ddinter_downloads_code_D.csv row: DDInter1605 (Risperidone) x DDInter569 (Diphenhydramine)",
+        "retrieved_at": "2026-07-11T22:23:33.216Z"
+      },
+      {
+        "id": "ddinter:DDInter1539:DDInter569",
+        "claim_text": "DDInter severity for propranolol + diphenhydramine: Moderate",
+        "source_name": "DDInter",
+        "source_id": "DDInter1539/DDInter569",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
+        "exact_field": "Level",
+        "quoted_text": "Drug_A: Propranolol; Drug_B: Diphenhydramine; Level: Moderate",
+        "supporting_text": "Drug_A: Propranolol; Drug_B: Diphenhydramine; Level: Moderate",
+        "subject_drugs": [
+          "Propranolol",
+          "Diphenhydramine"
+        ],
+        "retrieval_query": "local DDInter ddinter_downloads_code_D.csv row: DDInter1539 (Propranolol) x DDInter569 (Diphenhydramine)",
+        "retrieved_at": "2026-07-11T22:23:33.216Z"
+      },
+      {
+        "id": "ddinter:DDInter54:DDInter569",
+        "claim_text": "DDInter severity for alprazolam + diphenhydramine: Moderate",
+        "source_name": "DDInter",
+        "source_id": "DDInter54/DDInter569",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
+        "exact_field": "Level",
+        "quoted_text": "Drug_A: Alprazolam; Drug_B: Diphenhydramine; Level: Moderate",
+        "supporting_text": "Drug_A: Alprazolam; Drug_B: Diphenhydramine; Level: Moderate",
+        "subject_drugs": [
+          "Alprazolam",
+          "Diphenhydramine"
+        ],
+        "retrieval_query": "local DDInter ddinter_downloads_code_D.csv row: DDInter54 (Alprazolam) x DDInter569 (Diphenhydramine)",
+        "retrieved_at": "2026-07-11T22:23:33.216Z"
+      }
+    ],
+    "unverified_removed": [
+      {
+        "claim_text": "Are the risperidone, propranolol, alprazolam, and diphenhydramine home medications intended to continue together, given the Moderate interaction level flagged for each with diphenhydramine?",
+        "reason": "Narrative reviewer: A Moderate interaction with diphenhydramine is flagged for alprazolam, risperidone, and propranolol, but no interaction between propranolol and alprazolam or other combinations is asserted; however, the specific claim that each of risperidone, propranolol, and alprazolam has a Moderate interaction with diphenhydramine is supported — the unsupported element is framing all four as intended to continue together with mutual Moderate flags, whereas diphenhydramine's own interaction level to itself is not applicable"
+      }
+    ],
+    "generated_at": "2026-07-11T22:23:33.216Z",
+    "pipeline": {
+      "mode": "audited-replay",
+      "model": "Claude Opus 4.8",
+      "stages": [
+        "ingest",
+        "retrieve",
+        "synthesize",
+        "verify"
+      ],
+      "ddinter": {
+        "source_rows": 222383,
+        "unique_pairs": 160235,
+        "unique_drugs": 1939,
+        "source_files": 8
+      }
+    }
+  },
+  "generatedAt": "2026-07-11T22:23:33.216Z"
+}

@@ -1,0 +1,861 @@
+{
+  "id": "sertraline-dextromethorphan-serotonin-syndrome",
+  "locale": "es",
+  "intake": {
+    "case": {
+      "note": "Serotonin syndrome induced by Bromfed DM in a patient on sertraline (PMC12638710 / PMID 41282384). 52-year-old male with hyperthyroidism, hypertension, and generalized anxiety disorder on sertraline since September 2023. Developed serotonin syndrome three days after initiating Bromfed DM.",
+      "medications": [
+        {
+          "raw": "Sertraline 50 mg daily",
+          "episode": "On sertraline since September 2023; discontinued a day before primary care appointment, after symptoms began",
+          "start": "since September 2023",
+          "end": "discontinued a day before his primary care appointment",
+          "source_span": "had been on sertraline 50 mg daily since September 2023",
+          "status": "active"
+        },
+        {
+          "raw": "Bromfed DM syrup (brompheniramine 2 mg, pseudoephedrine 30 mg, dextromethorphan 10 mg per 5 mL), 5 mL every 6 hours",
+          "episode": "Prescribed four days prior to office visit; serotonin syndrome developed three days after initiating; discontinued a day before appointment",
+          "start": "Four days prior to the office visit",
+          "end": "discontinued both sertraline and Bromfed DM a day before his primary care appointment",
+          "source_span": "prescribed Bromfed DM syrup (brompheniramine 2 mg, pseudoephedrine 30 mg, dextromethorphan 10 mg per 5 mL) to be taken 5 mL every 6 hours",
+          "status": "active"
+        },
+        {
+          "raw": "Brompheniramine 2 mg (component of Bromfed DM syrup)",
+          "episode": "Component of Bromfed DM prescribed four days prior to office visit",
+          "source_span": "Bromfed DM syrup (brompheniramine 2 mg, pseudoephedrine 30 mg, dextromethorphan 10 mg per 5 mL)",
+          "status": "active"
+        },
+        {
+          "raw": "Pseudoephedrine 30 mg (component of Bromfed DM syrup)",
+          "episode": "Component of Bromfed DM prescribed four days prior to office visit",
+          "source_span": "Bromfed DM syrup (brompheniramine 2 mg, pseudoephedrine 30 mg, dextromethorphan 10 mg per 5 mL)",
+          "status": "active"
+        },
+        {
+          "raw": "Dextromethorphan 10 mg (component of Bromfed DM syrup)",
+          "episode": "Component of Bromfed DM prescribed four days prior to office visit",
+          "source_span": "Bromfed DM syrup (brompheniramine 2 mg, pseudoephedrine 30 mg, dextromethorphan 10 mg per 5 mL)",
+          "status": "active"
+        },
+        {
+          "raw": "Methylprednisolone dose pack",
+          "episode": "Prescribed at urgent care visit four days prior to office visit",
+          "start": "Four days prior to the office visit",
+          "source_span": "along with a methylprednisolone dose pack",
+          "status": "active"
+        },
+        {
+          "raw": "Propranolol 10 mg daily",
+          "episode": "Chronic medication among other medications during episode",
+          "source_span": "Other medications included propranolol 10 mg daily",
+          "status": "active"
+        },
+        {
+          "raw": "Methimazole 10 mg daily",
+          "episode": "Chronic medication among other medications during episode",
+          "source_span": "methimazole 10 mg daily",
+          "status": "active"
+        },
+        {
+          "raw": "Olmesartan-hydrochlorothiazide (HCTZ) 40–25 mg daily",
+          "episode": "Chronic medication among other medications during episode",
+          "source_span": "olmesartan-hydrochlorothiazide (HCTZ) 40–25 mg daily",
+          "status": "active"
+        },
+        {
+          "raw": "Hydrochlorothiazide (HCTZ), component of olmesartan-hydrochlorothiazide 40–25 mg daily",
+          "episode": "Chronic medication among other medications during episode",
+          "source_span": "olmesartan-hydrochlorothiazide (HCTZ) 40–25 mg daily",
+          "status": "active"
+        }
+      ],
+      "allergies": [],
+      "diagnoses": [
+        "Serotonin syndrome (resolving)",
+        "Hyperthyroidism",
+        "Hypertension",
+        "Generalized anxiety disorder"
+      ],
+      "labs": []
+    },
+    "ambiguities": [
+      {
+        "id": "amb-bp",
+        "field": "labs",
+        "question": "La fuente indica una presión arterial de 106/57 mmHg y frecuencia cardíaca de 70 bpm; ¿desea que estos signos vitales se registren en algún campo estructurado?"
+      }
+    ],
+    "sourceSummary": "Reporte de caso (PMC12638710) de un varón de 52 años con hipertiroidismo, hipertensión y ansiedad generalizada que tomaba sertralina desde septiembre de 2023. Desarrolló síndrome serotoninérgico tres días después de iniciar Bromfed DM. Suspendió sertralina y Bromfed DM un día antes de la cita. Un solo caso identificado."
+  },
+  "report": {
+    "patient": {
+      "medications": [
+        {
+          "raw": "Sertraline 50 mg daily",
+          "rxcui": "36437",
+          "name": "sertraline",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "36437",
+              "name": "sertraline"
+            }
+          ],
+          "status": "active",
+          "episode": "On sertraline since September 2023; discontinued a day before primary care appointment, after symptoms began",
+          "start": "since September 2023",
+          "end": "discontinued a day before his primary care appointment",
+          "source_span": "had been on sertraline 50 mg daily since September 2023"
+        },
+        {
+          "raw": "Bromfed DM syrup (brompheniramine 2 mg, pseudoephedrine 30 mg, dextromethorphan 10 mg per 5 mL), 5 mL every 6 hours",
+          "rxcui": "215741",
+          "name": "Bromfed DM",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "1767",
+              "name": "brompheniramine"
+            },
+            {
+              "rxcui": "3289",
+              "name": "dextromethorphan"
+            },
+            {
+              "rxcui": "8896",
+              "name": "pseudoephedrine"
+            }
+          ],
+          "status": "active",
+          "episode": "Prescribed four days prior to office visit; serotonin syndrome developed three days after initiating; discontinued a day before appointment",
+          "start": "Four days prior to the office visit",
+          "end": "discontinued both sertraline and Bromfed DM a day before his primary care appointment",
+          "source_span": "prescribed Bromfed DM syrup (brompheniramine 2 mg, pseudoephedrine 30 mg, dextromethorphan 10 mg per 5 mL) to be taken 5 mL every 6 hours"
+        },
+        {
+          "raw": "Brompheniramine 2 mg (component of Bromfed DM syrup)",
+          "rxcui": "1767",
+          "name": "brompheniramine",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "1767",
+              "name": "brompheniramine"
+            }
+          ],
+          "status": "active",
+          "episode": "Component of Bromfed DM prescribed four days prior to office visit",
+          "source_span": "Bromfed DM syrup (brompheniramine 2 mg, pseudoephedrine 30 mg, dextromethorphan 10 mg per 5 mL)"
+        },
+        {
+          "raw": "Pseudoephedrine 30 mg (component of Bromfed DM syrup)",
+          "rxcui": "8896",
+          "name": "pseudoephedrine",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "8896",
+              "name": "pseudoephedrine"
+            }
+          ],
+          "status": "active",
+          "episode": "Component of Bromfed DM prescribed four days prior to office visit",
+          "source_span": "Bromfed DM syrup (brompheniramine 2 mg, pseudoephedrine 30 mg, dextromethorphan 10 mg per 5 mL)"
+        },
+        {
+          "raw": "Dextromethorphan 10 mg (component of Bromfed DM syrup)",
+          "rxcui": "3289",
+          "name": "dextromethorphan",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "3289",
+              "name": "dextromethorphan"
+            }
+          ],
+          "status": "active",
+          "episode": "Component of Bromfed DM prescribed four days prior to office visit",
+          "source_span": "Bromfed DM syrup (brompheniramine 2 mg, pseudoephedrine 30 mg, dextromethorphan 10 mg per 5 mL)"
+        },
+        {
+          "raw": "Methylprednisolone dose pack",
+          "rxcui": "6902",
+          "name": "methylprednisolone",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "6902",
+              "name": "methylprednisolone"
+            }
+          ],
+          "status": "active",
+          "episode": "Prescribed at urgent care visit four days prior to office visit",
+          "start": "Four days prior to the office visit",
+          "source_span": "along with a methylprednisolone dose pack"
+        },
+        {
+          "raw": "Propranolol 10 mg daily",
+          "rxcui": "8787",
+          "name": "propranolol",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "8787",
+              "name": "propranolol"
+            }
+          ],
+          "status": "active",
+          "episode": "Chronic medication among other medications during episode",
+          "source_span": "Other medications included propranolol 10 mg daily"
+        },
+        {
+          "raw": "Methimazole 10 mg daily",
+          "rxcui": "6835",
+          "name": "methimazole",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "6835",
+              "name": "methimazole"
+            }
+          ],
+          "status": "active",
+          "episode": "Chronic medication among other medications during episode",
+          "source_span": "methimazole 10 mg daily"
+        },
+        {
+          "raw": "Olmesartan-hydrochlorothiazide (HCTZ) 40–25 mg daily",
+          "rxcui": "817496",
+          "name": "hydrochlorothiazide / olmesartan",
+          "resolution": "exact",
+          "ingredients": [
+            {
+              "rxcui": "321064",
+              "name": "olmesartan"
+            },
+            {
+              "rxcui": "5487",
+              "name": "hydrochlorothiazide"
+            }
+          ],
+          "status": "active",
+          "episode": "Chronic medication among other medications during episode",
+          "source_span": "olmesartan-hydrochlorothiazide (HCTZ) 40–25 mg daily"
+        },
+        {
+          "raw": "Hydrochlorothiazide (HCTZ), component of olmesartan-hydrochlorothiazide 40–25 mg daily",
+          "rxcui": "403855",
+          "name": "hydrochlorothiazide 25 MG / olmesartan medoxomil 40 MG Oral Tablet",
+          "resolution": "approximate",
+          "ingredients": [
+            {
+              "rxcui": "321064",
+              "name": "olmesartan"
+            },
+            {
+              "rxcui": "5487",
+              "name": "hydrochlorothiazide"
+            }
+          ],
+          "status": "active",
+          "episode": "Chronic medication among other medications during episode",
+          "source_span": "olmesartan-hydrochlorothiazide (HCTZ) 40–25 mg daily"
+        }
+      ],
+      "allergies": [],
+      "diagnoses": [
+        "Serotonin syndrome (resolving)",
+        "Hyperthyroidism",
+        "Hypertension",
+        "Generalized anxiety disorder"
+      ],
+      "labs": [],
+      "duplicate_medications": [
+        {
+          "ingredient_rxcui": "1767",
+          "ingredient_name": "brompheniramine",
+          "medications": [
+            {
+              "raw": "Bromfed DM syrup (brompheniramine 2 mg, pseudoephedrine 30 mg, dextromethorphan 10 mg per 5 mL), 5 mL every 6 hours",
+              "name": "Bromfed DM",
+              "rxcui": "215741"
+            },
+            {
+              "raw": "Brompheniramine 2 mg (component of Bromfed DM syrup)",
+              "name": "brompheniramine",
+              "rxcui": "1767"
+            }
+          ]
+        },
+        {
+          "ingredient_rxcui": "3289",
+          "ingredient_name": "dextromethorphan",
+          "medications": [
+            {
+              "raw": "Bromfed DM syrup (brompheniramine 2 mg, pseudoephedrine 30 mg, dextromethorphan 10 mg per 5 mL), 5 mL every 6 hours",
+              "name": "Bromfed DM",
+              "rxcui": "215741"
+            },
+            {
+              "raw": "Dextromethorphan 10 mg (component of Bromfed DM syrup)",
+              "name": "dextromethorphan",
+              "rxcui": "3289"
+            }
+          ]
+        },
+        {
+          "ingredient_rxcui": "8896",
+          "ingredient_name": "pseudoephedrine",
+          "medications": [
+            {
+              "raw": "Bromfed DM syrup (brompheniramine 2 mg, pseudoephedrine 30 mg, dextromethorphan 10 mg per 5 mL), 5 mL every 6 hours",
+              "name": "Bromfed DM",
+              "rxcui": "215741"
+            },
+            {
+              "raw": "Pseudoephedrine 30 mg (component of Bromfed DM syrup)",
+              "name": "pseudoephedrine",
+              "rxcui": "8896"
+            }
+          ]
+        },
+        {
+          "ingredient_rxcui": "321064",
+          "ingredient_name": "olmesartan",
+          "medications": [
+            {
+              "raw": "Olmesartan-hydrochlorothiazide (HCTZ) 40–25 mg daily",
+              "name": "hydrochlorothiazide / olmesartan",
+              "rxcui": "817496"
+            },
+            {
+              "raw": "Hydrochlorothiazide (HCTZ), component of olmesartan-hydrochlorothiazide 40–25 mg daily",
+              "name": "hydrochlorothiazide 25 MG / olmesartan medoxomil 40 MG Oral Tablet",
+              "rxcui": "403855"
+            }
+          ]
+        },
+        {
+          "ingredient_rxcui": "5487",
+          "ingredient_name": "hydrochlorothiazide",
+          "medications": [
+            {
+              "raw": "Olmesartan-hydrochlorothiazide (HCTZ) 40–25 mg daily",
+              "name": "hydrochlorothiazide / olmesartan",
+              "rxcui": "817496"
+            },
+            {
+              "raw": "Hydrochlorothiazide (HCTZ), component of olmesartan-hydrochlorothiazide 40–25 mg daily",
+              "name": "hydrochlorothiazide 25 MG / olmesartan medoxomil 40 MG Oral Tablet",
+              "rxcui": "403855"
+            }
+          ]
+        }
+      ],
+      "note": "Serotonin syndrome induced by Bromfed DM in a patient on sertraline (PMC12638710 / PMID 41282384). 52-year-old male with hyperthyroidism, hypertension, and generalized anxiety disorder on sertraline since September 2023. Developed serotonin syndrome three days after initiating Bromfed DM."
+    },
+    "patient_summary": "Hombre de 52 años con hipertiroidismo, hipertensión y trastorno de ansiedad generalizada. Estaba en tratamiento con sertralina 50 mg al día desde septiembre de 2023 y se le prescribió Bromfed DM (bromfeniramina, pseudoefedrina y dextrometorfano) cuatro días antes de la consulta. Desarrolló un síndrome serotoninérgico tres días después de iniciar Bromfed DM y suspendió tanto la sertralina como el Bromfed DM un día antes de la cita. Otros medicamentos incluyen propranolol 10 mg al día, metimazol 10 mg al día, olmesartán-hidroclorotiazida 40-25 mg al día y un paquete de dosis de metilprednisolona. No se registran alergias ni valores de laboratorio.",
+    "findings": [
+      {
+        "status": "red-flag",
+        "severity": "major",
+        "drugs": [
+          "Dextromethorphan",
+          "Sertraline"
+        ],
+        "headline": "Interacción entre Dextromethorphan y Sertraline",
+        "mechanism": "DDInter clasifica el par exacto Dextromethorphan + Sertraline con gravedad mayor.",
+        "why_this_patient": "Tanto Dextromethorphan como Sertraline están activos en el episodio de seguridad de medicamentos revisado.",
+        "evidence_ids": [
+          "ddinter:DDInter527:DDInter1662"
+        ]
+      },
+      {
+        "status": "flagged",
+        "severity": "moderate",
+        "drugs": [
+          "Brompheniramine",
+          "Sertraline"
+        ],
+        "headline": "Interacción entre Brompheniramine y Sertraline",
+        "mechanism": "DDInter clasifica el par exacto Brompheniramine + Sertraline con gravedad moderada.",
+        "why_this_patient": "Tanto Brompheniramine como Sertraline están activos en el episodio de seguridad de medicamentos revisado.",
+        "evidence_ids": [
+          "ddinter:DDInter245:DDInter1662"
+        ]
+      },
+      {
+        "status": "flagged",
+        "severity": "moderate",
+        "drugs": [
+          "Dextromethorphan",
+          "Brompheniramine"
+        ],
+        "headline": "Interacción entre Dextromethorphan y Brompheniramine",
+        "mechanism": "DDInter clasifica el par exacto Dextromethorphan + Brompheniramine con gravedad moderada.",
+        "why_this_patient": "Tanto Dextromethorphan como Brompheniramine están activos en el episodio de seguridad de medicamentos revisado.",
+        "evidence_ids": [
+          "ddinter:DDInter527:DDInter245"
+        ]
+      },
+      {
+        "status": "flagged",
+        "severity": "moderate",
+        "drugs": [
+          "Propranolol",
+          "Pseudoephedrine"
+        ],
+        "headline": "Interacción entre Propranolol y Pseudoephedrine",
+        "mechanism": "DDInter clasifica el par exacto Propranolol + Pseudoephedrine con gravedad moderada.",
+        "why_this_patient": "Tanto Propranolol como Pseudoephedrine están activos en el episodio de seguridad de medicamentos revisado.",
+        "evidence_ids": [
+          "ddinter:DDInter1539:DDInter1545"
+        ]
+      },
+      {
+        "status": "flagged",
+        "severity": "moderate",
+        "drugs": [
+          "Propranolol",
+          "Methylprednisolone"
+        ],
+        "headline": "Interacción entre Propranolol y Methylprednisolone",
+        "mechanism": "DDInter clasifica el par exacto Propranolol + Methylprednisolone con gravedad moderada.",
+        "why_this_patient": "Tanto Propranolol como Methylprednisolone están activos en el episodio de seguridad de medicamentos revisado.",
+        "evidence_ids": [
+          "ddinter:DDInter1539:DDInter1191"
+        ]
+      },
+      {
+        "status": "flagged",
+        "severity": "moderate",
+        "drugs": [
+          "Methylprednisolone",
+          "Hydrochlorothiazide"
+        ],
+        "headline": "Interacción entre Methylprednisolone y Hydrochlorothiazide",
+        "mechanism": "DDInter clasifica el par exacto Methylprednisolone + Hydrochlorothiazide con gravedad moderada.",
+        "why_this_patient": "Tanto Methylprednisolone como Hydrochlorothiazide están activos en el episodio de seguridad de medicamentos revisado.",
+        "evidence_ids": [
+          "ddinter:DDInter1191:DDInter883"
+        ]
+      },
+      {
+        "status": "flagged",
+        "severity": "moderate",
+        "drugs": [
+          "Olmesartan",
+          "Methylprednisolone"
+        ],
+        "headline": "Interacción entre Olmesartan y Methylprednisolone",
+        "mechanism": "DDInter clasifica el par exacto Olmesartan + Methylprednisolone con gravedad moderada.",
+        "why_this_patient": "Tanto Olmesartan como Methylprednisolone están activos en el episodio de seguridad de medicamentos revisado.",
+        "evidence_ids": [
+          "ddinter:DDInter1330:DDInter1191"
+        ]
+      },
+      {
+        "status": "flagged",
+        "severity": "moderate",
+        "drugs": [
+          "Propranolol",
+          "Methimazole"
+        ],
+        "headline": "Interacción entre Propranolol y Methimazole",
+        "mechanism": "DDInter clasifica el par exacto Propranolol + Methimazole con gravedad moderada.",
+        "why_this_patient": "Tanto Propranolol como Methimazole están activos en el episodio de seguridad de medicamentos revisado.",
+        "evidence_ids": [
+          "ddinter:DDInter1539:DDInter1170"
+        ]
+      }
+    ],
+    "questions_for_clinician": [
+      "Las entradas de Bromfed DM y sus componentes individuales (bromfeniramina, pseudoefedrina y dextrometorfano) aparecen por separado; ¿corresponden a una sola prescripción de Bromfed DM o a órdenes separadas?",
+      "Las entradas de olmesartán-hidroclorotiazida aparecen dos veces; ¿corresponden a una sola orden del producto combinado o a órdenes separadas?",
+      "¿Se confirma que tanto la sertralina como el Bromfed DM permanecen suspendidos, dado que se registraron como activos pero con suspensión un día antes de la cita?"
+    ],
+    "evidence": [
+      {
+        "id": "label:36437:interactions",
+        "claim_text": "FDA label drug-interactions section for sertraline",
+        "source_name": "openFDA-label",
+        "source_id": "03e1f274-fa9a-4461-b7c9-31ba6428c107",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=03e1f274-fa9a-4461-b7c9-31ba6428c107",
+        "exact_field": "drug_interactions",
+        "quoted_text": "7 DRUG INTERACTIONS Protein-bound drugs: Monitor for adverse reactions and reduce dosage of sertraline hydrochloride or other protein-bound drugs (e.g., warfarin) as warranted. ( 7.1 , 12.3 ) CYP2D6 substrates: Reduce dosage of drugs metabolized by CYP2D6. ( 7.1 , 12.3 ) 7.1 Clinically Significant Drug Interactions Table 5 includes clinically significant drug interactions with sertraline hydrochloride [See Clinical Pharmacology ( 12.3) ]. Table 5. Clinically Significant Drug Interactions with Sertraline Hydrochloride Monoamine Oxidase Inhibitors (MAOIs) Clinical Impact: The concomitant use of SSRIs including sertraline hydrochloride and MAOIs increases the risk of serotonin syndrome. Intervention: Sertraline hydrochloride is contraindicated in patients taking MAOIs, including MAOIs such as linezolid or intravenous methylene blue [See Dosage and Administration ( 2.5 ), Contraindications ( 4 ), Warnings and Precautions ( 5.2 )] . Examples: selegiline, tranylcypromine, isocarboxazid, phenelzine, linezolid, methylene blue Pimozide Clinical Impact: Increased plasma concentrations of pimozide, a drug with a narrow therapeutic index, may increase the risk of QTc prolongation and ventricular arrhythmias. Intervention: Concomitant use of pimozide and sertraline hydrochloride is contraindicated [See Contraindications ( 4 )] . Other Serotonergic Drugs Clinical Impact: The concomitant use of serotonergic drugs with sertraline hydrochloride increases the risk of serotonin syndrome. Intervention: Monitor patients for signs and symptoms of serotonin syndrome, particularly during treatment initiation and dosage increases. If serotonin syndrome occurs, consider discontinuation of sertraline hydrochloride and/or concomitant serotonergic drugs [See Warnings and Precautions ( 5.2 )] . Examples: Other SSRIs, SNRIs, triptans, tricyclic antidepressants, opioids, lithium, tryptophan, buspirone, amphetamines, and St. John's Wort. Drugs that Interfere with Hemostasis (antiplatelet agents and anticoagulants) Clinical Impact: The concurrent use of an antiplatelet agent or anticoagulant with sertraline hydrochloride may potentiate the risk of bleeding. Intervention: Inform patients of the increased risk of bleeding associated with the concomitant use of sertraline hydrochloride and antiplatelet agents and anticoagulants. For patients taking warfarin, carefully monitor the international normalized ratio [See Warnings and Precautions ( 5.3 )] . Examples: aspirin, clopidogrel, heparin, warfarin Drugs Highly Bound to Plasma Protein Clinical Impact: Sertraline hydrochloride is highly bound to plasma protein. The concomitant use of sertraline hydrochloride with another drug that is highly bound to plasma protein may increase free concentrations of sertraline hydrochloride or other tightly-bound drugs in plasma [See Clinical Pharmacology ( 12.3 )]. Intervention: Monitor for adverse reactions and reduce dosage of sertraline hydrochloride or other protein-bound drugs as warranted. Examples: warfarin Drugs Metabolized by CYP2D6 Clinical Impact: Sertraline hydrochloride is a CYP2D6 inhibitor [See Clinical Pharmacology ( 12.3 )] . The concomitant use of sertraline hydrochloride with a CYP2D6 substrate may increase the exposure of the CYP2D6 substrate. Intervention: Decrease the dosage of a CYP2D6 substrate if needed with concomitant sertraline hydrochloride use. Conversely, an increase in dosage of a CYP2D6 substrate may be needed if sertraline hydrochloride is discontinued. Examples: propafenone, flecainide, atomoxetine, desipramine, dextromethorphan, metoprolol, nebivolol, perphenazine, thioridazine, tolterodine, venlafaxine Phenytoin Clinical Impact: Phenytoin is a narrow therapeutic index drug. Sertraline hydrochloride may increase phenytoin concentrations. Intervention: Monitor phenytoin levels when initiating or titrating sertraline hydrochloride. Reduce phenytoin dosage if needed. Examples: phenytoin, fosphenytoin Drugs that Prolong the QTc Interval C linical ",
+        "supporting_text": "Examples: propafenone, flecainide, atomoxetine, desipramine, dextromethorphan, metoprolol, nebivolol, perphenazine, thioridazine, tolterodine, venlafaxine Phenytoin Clinical Impact: Phenytoin is a narrow therapeutic index drug. Sertraline hydrochloride may increase phenytoin concentrations.",
+        "source_version": "effective 20260330 · version 1",
+        "anchor_drug": "sertraline",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"sertraline\"&limit=20",
+        "retrieved_at": "2026-07-11T05:47:48.691Z"
+      },
+      {
+        "id": "label:36437:boxed",
+        "claim_text": "FDA boxed warning for sertraline",
+        "source_name": "openFDA-label",
+        "source_id": "03e1f274-fa9a-4461-b7c9-31ba6428c107",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=03e1f274-fa9a-4461-b7c9-31ba6428c107",
+        "exact_field": "boxed_warning",
+        "quoted_text": "WARNING: SUICIDAL THOUGHTS AND BEHAVIORS Antidepressants increased the risk of suicidal thoughts and behavior in pediatric and young adult patients in short-term studies. Closely monitor all antidepressant-treated patients for clinical worsening, and for emergence of suicidal thoughts and behaviors [ See Warnings and Precautions ( 5.1 ) ]. WARNING: SUICIDAL THOUGHTS AND BEHAVIORS See full prescribing information for complete boxed warning. • Antidepressants increased the risk of suicidal thoughts and behaviors in pediatric and young adult patients ( 5.1 ) • Closely monitor for clinical worsening and emergence of suicidal thoughts and behaviors ( 5.1 )",
+        "supporting_text": "WARNING: SUICIDAL THOUGHTS AND BEHAVIORS Antidepressants increased the risk of suicidal thoughts and behavior in pediatric and young adult patients in short-term studies.",
+        "source_version": "effective 20260330 · version 1",
+        "anchor_drug": "sertraline",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"sertraline\"&limit=20",
+        "retrieved_at": "2026-07-11T05:47:48.691Z"
+      },
+      {
+        "id": "label:1767:interactions",
+        "claim_text": "FDA label drug-interactions section for brompheniramine",
+        "source_name": "openFDA-label",
+        "source_id": "1045e307-f60d-482d-8e06-40e72b84c651",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1045e307-f60d-482d-8e06-40e72b84c651",
+        "exact_field": "drug_interactions",
+        "quoted_text": "Drug Interactions: Monoamine oxidase inhibitors (MAOIs) Hyperpyrexia, hypotension, and death have been reported coincident with the coadministration of MAOIs and products containing dextromethorphan. In addition, MAOIs prolong and intensify the anticholinergic (drying) effects of antihistamines and may enhance the effect of pseudoephedrine. Concomitant administration of Brompheniramine Maleate, Pseudoephedrine Hydrochloride, and Dextromethorphan Hydrobromide Syrup and MAOIs should be avoided (see CONTRAINDICATIONS ). Central nervous system (CNS) depressants Antihistamines have additive effects with alcohol and other CNS depressants (hypnotics, sedatives, tranquilizers, antianxiety agents, etc.). Antihypertensive drugs Sympathomimetic may reduce the effects of antihypertensive drugs.",
+        "supporting_text": "Concomitant administration of Brompheniramine Maleate, Pseudoephedrine Hydrochloride, and Dextromethorphan Hydrobromide Syrup and MAOIs should be avoided (see CONTRAINDICATIONS ).",
+        "source_version": "effective 20260316 · version 10",
+        "anchor_drug": "brompheniramine",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"brompheniramine\"&limit=20",
+        "retrieved_at": "2026-07-11T08:49:59.305Z"
+      },
+      {
+        "id": "label:3289:interactions",
+        "claim_text": "FDA label drug-interactions section for dextromethorphan",
+        "source_name": "openFDA-label",
+        "source_id": "01ea6357-24dc-4056-9fd2-9e643650b91f",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=01ea6357-24dc-4056-9fd2-9e643650b91f",
+        "exact_field": "drug_interactions",
+        "quoted_text": "Drug Interactions Monoamine oxidase inhibitors (MAOI) Hyperpyrexia, hypotension, and death have been reported coincident with the coadministration of MAOI and products containing dextromethorphan. In addition, MAOI prolong and intensify the anticholinergic (drying) effects of antihistamines and may enhance the effect of pseudoephedrine. Concomitant administration of brompheniramine maleate, pseudoephedrine hydrochloride, and dextromethorphan hydrobromide syrup and MAOI should be avoided (see CONTRAINDICATIONS ). Central nervous system (CNS) depressants Antihistamines have additive effects with alcohol and other CNS depressants (hypnotics, sedatives, tranquilizers, antianxiety agents, etc.). Antihypertensive drugs Sympathomimetic may reduce the effects of antihypertensive drugs.",
+        "supporting_text": "Concomitant administration of brompheniramine maleate, pseudoephedrine hydrochloride, and dextromethorphan hydrobromide syrup and MAOI should be avoided (see CONTRAINDICATIONS ).",
+        "source_version": "effective 20250904 · version 7",
+        "anchor_drug": "dextromethorphan",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"dextromethorphan\"&limit=20",
+        "retrieved_at": "2026-07-11T08:49:59.305Z"
+      },
+      {
+        "id": "label:8896:interactions",
+        "claim_text": "FDA label drug-interactions section for pseudoephedrine",
+        "source_name": "openFDA-label",
+        "source_id": "036b587a-7bfe-4149-bd05-34a37e3e84b6",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=036b587a-7bfe-4149-bd05-34a37e3e84b6",
+        "exact_field": "drug_interactions",
+        "quoted_text": "DRUG INTERACTIONS Monoamine oxidase (MAO) inhibitors Hyperpyrexia, hypotension, and death have been reported coincident with the coadministration of MAO inhibitors and products containing dextromethorphan. In addition, MAO inhibitors prolong and intensify the anticholinergic (drying) effects of antihistamines and may enhance the effect of pseudoephedrine. Concomitant administration of brompheniramine maleate, pseudoephedrine hydrochloride and dextromethorphan hydrobromide syrup and MAO inhibitors should be avoided (see CONTRAINDICATIONS ). Central nervous system (CNS) depressants Antihistamines have additive effects with alcohol and other CNS depressants (hypnotics, sedatives, tranquilizers, antianxiety agents, etc.). Antihypertensive drugs Sympathomimetic may reduce the effects of antihypertensive drugs.",
+        "supporting_text": "Concomitant administration of brompheniramine maleate, pseudoephedrine hydrochloride and dextromethorphan hydrobromide syrup and MAO inhibitors should be avoided (see CONTRAINDICATIONS ).",
+        "source_version": "effective 20260102 · version 7",
+        "anchor_drug": "pseudoephedrine",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"pseudoephedrine\"&limit=20",
+        "retrieved_at": "2026-07-11T08:49:59.305Z"
+      },
+      {
+        "id": "label:6902:interactions",
+        "claim_text": "FDA label drug-interactions section for methylprednisolone",
+        "source_name": "openFDA-label",
+        "source_id": "22dd75d6-f89a-44f7-8ca6-b64c4e9806dd",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=22dd75d6-f89a-44f7-8ca6-b64c4e9806dd",
+        "exact_field": "drug_interactions",
+        "quoted_text": "Drug Interactions The pharmacokinetic interactions listed below are potentially clinically important. Mutual inhibition of metabolism occurs with concurrent use of cyclosporine and methylprednisolone; therefore, it is possible that adverse events associated with the individual use of either drug may be more apt to occur. Convulsions have been reported with concurrent use of methylprednisolone and cyclosporine. Drugs that induce hepatic enzymes such as phenobarbital, phenytoin, and rifampin may increase the clearance of methylprednisolone and may require increases in methylprednisolone dose to achieve the desired response. Drugs such as troleandomycin and ketoconazole may inhibit the metabolism of methylprednisolone and thus decrease its clearance. Therefore, the dose of methylprednisolone should be titrated to avoid steroid toxicity. Methylprednisolone may increase the clearance of chronic high-dose aspirin. This could lead to decreased salicylate serum levels or increase the risk of salicylate toxicity when methylprednisolone is withdrawn. Aspirin should be used cautiously in conjunction with corticosteroids in patients suffering from hypoprothrombinemia. The effect of methylprednisolone on oral anticoagulants is variable. There are reports of enhanced as well as diminished effects of anticoagulants when given concurrently with corticosteroids. Therefore, coagulation indices should be monitored to maintain the desired anticoagulant effect.",
+        "supporting_text": "This could lead to decreased salicylate serum levels or increase the risk of salicylate toxicity when methylprednisolone is withdrawn.",
+        "source_version": "effective 20260622 · version 20",
+        "anchor_drug": "methylprednisolone",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"methylprednisolone\"&limit=20",
+        "retrieved_at": "2026-07-11T06:50:48.047Z"
+      },
+      {
+        "id": "label:8787:interactions",
+        "claim_text": "FDA label drug-interactions section for propranolol",
+        "source_name": "openFDA-label",
+        "source_id": "015b5e4f-3228-4259-b419-e0e49694a058",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=015b5e4f-3228-4259-b419-e0e49694a058",
+        "exact_field": "drug_interactions",
+        "quoted_text": "Drug Interactions Caution should be exercised when Propranolol Hydrochloride Extended-Release Capsules, USP, are administered with drugs that have an affect on CYP2D6, 1A2, or 2C19 metabolic pathways. Co-administration of such drugs with propranolol may lead to clinically relevant drug interactions and changes on its efficacy and/or toxicity (see Drug Interactions in PHARMACOKINETICS AND DRUG METABOLISM ). Alcohol when used concomitantly with propranolol, may increase plasma levels of propranolol.",
+        "supporting_text": "Alcohol when used concomitantly with propranolol, may increase plasma levels of propranolol.",
+        "source_version": "effective 20250919 · version 7",
+        "anchor_drug": "propranolol",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"propranolol\"&limit=20",
+        "retrieved_at": "2026-07-11T05:47:48.691Z"
+      },
+      {
+        "id": "label:8787:boxed",
+        "claim_text": "FDA boxed warning for propranolol",
+        "source_name": "openFDA-label",
+        "source_id": "015b5e4f-3228-4259-b419-e0e49694a058",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=015b5e4f-3228-4259-b419-e0e49694a058",
+        "exact_field": "boxed_warning",
+        "quoted_text": "Angina Pectoris There have been reports of exacerbation of angina and, in some cases, myocardial infarction, following abrupt discontinuance of propranolol therapy. Therefore, when discontinuance of propranolol is planned, the dosage should be gradually reduced over at least a few weeks, and the patient should be cautioned against interruption or cessation of therapy without the physician's advice. If propranolol therapy is interrupted and exacerbation of angina occurs, it usually is advisable to reinstitute propranolol therapy and take other measures appropriate for the management of unstable angina pectoris. Since coronary artery disease may be unrecognized, it may be prudent to follow the above advice in patients considered at risk of having occult atherosclerotic heart disease who are given propranolol for other indications.",
+        "supporting_text": "Angina Pectoris There have been reports of exacerbation of angina and, in some cases, myocardial infarction, following abrupt discontinuance of propranolol therapy.",
+        "source_version": "effective 20250919 · version 7",
+        "anchor_drug": "propranolol",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"propranolol\"&limit=20",
+        "retrieved_at": "2026-07-11T05:47:48.691Z"
+      },
+      {
+        "id": "label:6835:interactions",
+        "claim_text": "FDA label drug-interactions section for methimazole",
+        "source_name": "openFDA-label",
+        "source_id": "2c6a9c70-4ed6-4f05-bc3d-e8e7aca57c2b",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2c6a9c70-4ed6-4f05-bc3d-e8e7aca57c2b",
+        "exact_field": "drug_interactions",
+        "quoted_text": "Drug Interactions Anticoagulants (oral): Due to potential inhibition of vitamin K activity by methimazole, the activity of oral anticoagulants (e.g., warfarin) may be increased; additional monitoring of PT/INR should be considered, especially before surgical procedures. β-adrenergic blocking agents: Hyperthyroidism may cause an increased clearance of beta blockers with a high extraction ratio. A dose reduction of beta-adrenergic blockers may be needed when a hyperthyroid patient becomes euthyroid. Digitalis glycosides: Serum digitalis levels may be increased when hyperthyroid patients on a stable digitalis glycoside regimen become euthyroid; a reduced dosage of digitalis glycosides may be needed. Theophylline: Theophylline clearance may decrease when hyperthyroid patients on a stable theophylline regimen become euthyroid; a reduced dose of theophylline may be needed.",
+        "supporting_text": ", warfarin) may be increased; additional monitoring of PT/INR should be considered, especially before surgical procedures. β-adrenergic blocking agents: Hyperthyroidism may cause an increased clearance of beta blockers with a high extraction ratio.",
+        "source_version": "effective 20260706 · version 13",
+        "anchor_drug": "methimazole",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"methimazole\"&limit=20",
+        "retrieved_at": "2026-07-11T06:50:48.047Z"
+      },
+      {
+        "id": "label:321064:interactions",
+        "claim_text": "FDA label drug-interactions section for olmesartan",
+        "source_name": "openFDA-label",
+        "source_id": "1df1ff60-6be5-4018-a28c-0d23e5867eba",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1df1ff60-6be5-4018-a28c-0d23e5867eba",
+        "exact_field": "drug_interactions",
+        "quoted_text": "7 DRUG INTERACTIONS Agents increasing potassium levels may lead to increase in serum potassium ( 7.1 ). NSAID use may lead to increased risk of renal impairment and loss of antihypertensive effect ( 7.2 ). Dual inhibition of the renin-angiotensin system: Increased risk of renal impairment, hypotension, and hyperkalemia ( 7.3 ). Lithium: Increases in serum lithium concentrations and lithium toxicity ( 7.4 ). Colesevelam hydrochloride: Consider administering olmesartan at least 4 hours before colesevelam hydrochloride dose ( 7.5 ). 7.1 Agents Increasing Serum Potassium Concomitant use of olmesartan with other agents that block the renin-angiotensin system, potassium-sparing diuretics (e.g., spironolactone, triamterene, amiloride), potassium supplements, salt substitutes containing potassium or other drugs that may increase potassium levels (e.g., heparin) may lead to increases in serum potassium. If co-medication is considered necessary, monitoring of serum potassium is advisable. 7.2 Non-Steroidal Anti-Inflammatory Agents Including Selective Cyclooxygenase-2 Inhibitors (COX-2 Inhibitors) In patients who are elderly, volume-depleted (including those on diuretic therapy), or with compromised renal function, co-administration of NSAIDs, including selective COX-2 inhibitors, with angiotensin II receptor antagonists, including olmesartan medoxomil, may result in deterioration of renal function, including possible acute renal failure. These effects are usually reversible. Monitor renal function periodically in patients receiving olmesartan medoxomil and NSAID therapy. The antihypertensive effect of angiotensin II receptor antagonists, including olmesartan medoxomil may be attenuated by NSAIDs including selective COX-2 inhibitors. 7.3 Dual Blockade of the Renin-Angiotensin System (RAS) Dual blockade of the RAS with angiotensin receptor blockers, ACE inhibitors, or aliskiren is associated with increased risks of hypotension, hyperkalemia, and changes in renal function (including acute renal failure) compared to monotherapy. Most patients receiving the combination of two RAS inhibitors do not obtain any additional benefit compared to monotherapy. In general, avoid combined use of RAS inhibitors. Closely monitor blood pressure, renal function and electrolytes in patients on olmesartan medoxomil and other agents that affect the RAS. Do not co-administer aliskiren with olmesartan medoxomil in patients with diabetes [see Contraindications ( 4 )]. Avoid use of aliskiren with olmesartan medoxomil in patients with renal impairment (GFR <60 ml/min). 7.4 Lithium Increases in serum lithium concentrations and lithium toxicity have been reported during concomitant administration of lithium with angiotensin II receptor antagonists, including olmesartan medoxomil. Monitor serum lithium levels during concomitant use. 7.5 Colesevelam hydrochloride Concurrent administration of bile acid sequestering agent colesevelam hydrochloride reduces the systemic exposure and peak plasma concentration of olmesartan. Administration of olmesartan at least 4 hours prior to colesevelam hydrochloride decreased the drug interaction effect. Consider administering olmesartan at least 4 hours before the colesevelam hydrochloride dose [see Clinical Pharmacology ( 12.3 )] .",
+        "supporting_text": "2 Non-Steroidal Anti-Inflammatory Agents Including Selective Cyclooxygenase-2 Inhibitors (COX-2 Inhibitors) In patients who are elderly, volume-depleted (including those on diuretic therapy), or with compromised renal function, co-administration of NSAIDs, including selective COX-2 inhibitors, with angiotensin II receptor antagonists, including olmesartan medoxomil, may result in deterioration of renal function, including possible acute renal failure.",
+        "source_version": "effective 20260702 · version 2",
+        "anchor_drug": "olmesartan",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"olmesartan\"&limit=20",
+        "retrieved_at": "2026-07-11T08:49:59.305Z"
+      },
+      {
+        "id": "label:321064:boxed",
+        "claim_text": "FDA boxed warning for olmesartan",
+        "source_name": "openFDA-label",
+        "source_id": "1df1ff60-6be5-4018-a28c-0d23e5867eba",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1df1ff60-6be5-4018-a28c-0d23e5867eba",
+        "exact_field": "boxed_warning",
+        "quoted_text": "WARNING: FETAL TOXICITY When pregnancy is detected, discontinue olmesartan medoxomil tablets as soon as possible ( 5.1 , 8.1 ). Drugs that act directly on the renin-angiotensin system can cause injury and death to the developing fetus ( 5.1 , 8.1 ). WARNING: FETAL TOXICITY See full prescribing information for complete boxed warning. When pregnancy is detected, discontinue olmesartan medoxomil tablets as soon as possible ( 5.1 , 8.1 ). Drugs that act directly on the renin-angiotensin system can cause injury and death to the developing fetus ( 5.1 , 8.1 ).",
+        "supporting_text": "WARNING: FETAL TOXICITY When pregnancy is detected, discontinue olmesartan medoxomil tablets as soon as possible ( 5.",
+        "source_version": "effective 20260702 · version 2",
+        "anchor_drug": "olmesartan",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"olmesartan\"&limit=20",
+        "retrieved_at": "2026-07-11T08:49:59.305Z"
+      },
+      {
+        "id": "label:5487:interactions",
+        "claim_text": "FDA label drug-interactions section for hydrochlorothiazide",
+        "source_name": "openFDA-label",
+        "source_id": "0789baef-3424-43ab-a3fb-4908172da565",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0789baef-3424-43ab-a3fb-4908172da565",
+        "exact_field": "drug_interactions",
+        "quoted_text": "Alcohol, barbiturates, or narcotics: potentiation of orthostatic hypotension may occur. Antidiabetic drugs: (oral agents and insulin) dosage adjustment of the antidiabetic drug may be required. Other antihypertensive drugs: additive effect or potentiation. Cholestyramine and colestipol resins: Cholestyramine and colestipol resins bind the hydrochlorothiazide and reduce its absorption from the gastrointestinal tract by up to 85 and 43 percent, respectively. Corticosteroid, ACTH: intensified electrolyte depletion, particularly hypokalemia. Pressor amines (e.g., norepinephrine): possible decreased response to pressor amines but not sufficient to preclude their use. Skeletal muscle relaxants, nondepolarizing (e.g., tubocurarine): possible increased responsiveness to the muscle relaxant. Lithium: generally should not be given with diuretics. Diuretic agents reduce the renal clearance of lithium and greatly increase the risk of lithium toxicity. Refer to the package insert for lithium preparations before use of such preparations with hydrochlorothiazide capsules. Non-steroidal anti-inflammatory drugs: In some patients, the administration of a non-steroidal anti-inflammatory agent can reduce the diuretic, natriuretic, and antihypertensive effects of loop, potassium-sparing and thiazide diuretics. When hydrochlorothiazide capsules and non-steroidal anti-inflammatory agents are used concomitantly, the patients should be observed closely to determine if the desired effect of the diuretic is obtained. Drug/Laboratory Test Interactions: Thiazides should be discontinued before carrying out tests for parathyroid function (see PRECAUTIONS , General ).",
+        "supporting_text": "Refer to the package insert for lithium preparations before use of such preparations with hydrochlorothiazide capsules. Non-steroidal anti-inflammatory drugs: In some patients, the administration of a non-steroidal anti-inflammatory agent can reduce the diuretic, natriuretic, and antihypertensive effects of loop, potassium-sparing and thiazide diuretics.",
+        "source_version": "effective 20260327 · version 13",
+        "anchor_drug": "hydrochlorothiazide",
+        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"hydrochlorothiazide\"&limit=20",
+        "retrieved_at": "2026-07-11T08:49:59.305Z"
+      },
+      {
+        "id": "ddinter:DDInter527:DDInter1662",
+        "claim_text": "DDInter severity for sertraline + dextromethorphan: Major",
+        "source_name": "DDInter",
+        "source_id": "DDInter527/DDInter1662",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
+        "exact_field": "Level",
+        "quoted_text": "Drug_A: Dextromethorphan; Drug_B: Sertraline; Level: Major",
+        "supporting_text": "Drug_A: Dextromethorphan; Drug_B: Sertraline; Level: Major",
+        "subject_drugs": [
+          "Dextromethorphan",
+          "Sertraline"
+        ],
+        "retrieval_query": "local DDInter ddinter_downloads_code_R.csv row: DDInter527 (Dextromethorphan) x DDInter1662 (Sertraline)",
+        "retrieved_at": "2026-07-11T22:27:40.153Z"
+      },
+      {
+        "id": "ddinter:DDInter245:DDInter1662",
+        "claim_text": "DDInter severity for sertraline + brompheniramine: Moderate",
+        "source_name": "DDInter",
+        "source_id": "DDInter245/DDInter1662",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
+        "exact_field": "Level",
+        "quoted_text": "Drug_A: Brompheniramine; Drug_B: Sertraline; Level: Moderate",
+        "supporting_text": "Drug_A: Brompheniramine; Drug_B: Sertraline; Level: Moderate",
+        "subject_drugs": [
+          "Brompheniramine",
+          "Sertraline"
+        ],
+        "retrieval_query": "local DDInter ddinter_downloads_code_R.csv row: DDInter245 (Brompheniramine) x DDInter1662 (Sertraline)",
+        "retrieved_at": "2026-07-11T22:27:40.153Z"
+      },
+      {
+        "id": "ddinter:DDInter1191:DDInter1662",
+        "claim_text": "DDInter severity for sertraline + methylprednisolone: Unknown",
+        "source_name": "DDInter",
+        "source_id": "DDInter1191/DDInter1662",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
+        "exact_field": "Level",
+        "quoted_text": "Drug_A: Methylprednisolone; Drug_B: Sertraline; Level: Unknown",
+        "supporting_text": "Drug_A: Methylprednisolone; Drug_B: Sertraline; Level: Unknown",
+        "subject_drugs": [
+          "Methylprednisolone",
+          "Sertraline"
+        ],
+        "retrieval_query": "local DDInter ddinter_downloads_code_D.csv row: DDInter1191 (Methylprednisolone) x DDInter1662 (Sertraline)",
+        "retrieved_at": "2026-07-11T22:27:40.153Z"
+      },
+      {
+        "id": "ddinter:DDInter1170:DDInter1662",
+        "claim_text": "DDInter severity for sertraline + methimazole: Unknown",
+        "source_name": "DDInter",
+        "source_id": "DDInter1170/DDInter1662",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
+        "exact_field": "Level",
+        "quoted_text": "Drug_A: Methimazole; Drug_B: Sertraline; Level: Unknown",
+        "supporting_text": "Drug_A: Methimazole; Drug_B: Sertraline; Level: Unknown",
+        "subject_drugs": [
+          "Methimazole",
+          "Sertraline"
+        ],
+        "retrieval_query": "local DDInter ddinter_downloads_code_H.csv row: DDInter1170 (Methimazole) x DDInter1662 (Sertraline)",
+        "retrieved_at": "2026-07-11T22:27:40.153Z"
+      },
+      {
+        "id": "ddinter:DDInter527:DDInter245",
+        "claim_text": "DDInter severity for brompheniramine + dextromethorphan: Moderate",
+        "source_name": "DDInter",
+        "source_id": "DDInter527/DDInter245",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
+        "exact_field": "Level",
+        "quoted_text": "Drug_A: Dextromethorphan; Drug_B: Brompheniramine; Level: Moderate",
+        "supporting_text": "Drug_A: Dextromethorphan; Drug_B: Brompheniramine; Level: Moderate",
+        "subject_drugs": [
+          "Dextromethorphan",
+          "Brompheniramine"
+        ],
+        "retrieval_query": "local DDInter ddinter_downloads_code_R.csv row: DDInter527 (Dextromethorphan) x DDInter245 (Brompheniramine)",
+        "retrieved_at": "2026-07-11T22:27:40.153Z"
+      },
+      {
+        "id": "ddinter:DDInter527:DDInter1191",
+        "claim_text": "DDInter severity for dextromethorphan + methylprednisolone: Unknown",
+        "source_name": "DDInter",
+        "source_id": "DDInter527/DDInter1191",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
+        "exact_field": "Level",
+        "quoted_text": "Drug_A: Dextromethorphan; Drug_B: Methylprednisolone; Level: Unknown",
+        "supporting_text": "Drug_A: Dextromethorphan; Drug_B: Methylprednisolone; Level: Unknown",
+        "subject_drugs": [
+          "Dextromethorphan",
+          "Methylprednisolone"
+        ],
+        "retrieval_query": "local DDInter ddinter_downloads_code_D.csv row: DDInter527 (Dextromethorphan) x DDInter1191 (Methylprednisolone)",
+        "retrieved_at": "2026-07-11T22:27:40.153Z"
+      },
+      {
+        "id": "ddinter:DDInter1539:DDInter1545",
+        "claim_text": "DDInter severity for pseudoephedrine + propranolol: Moderate",
+        "source_name": "DDInter",
+        "source_id": "DDInter1539/DDInter1545",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
+        "exact_field": "Level",
+        "quoted_text": "Drug_A: Propranolol; Drug_B: Pseudoephedrine; Level: Moderate",
+        "supporting_text": "Drug_A: Propranolol; Drug_B: Pseudoephedrine; Level: Moderate",
+        "subject_drugs": [
+          "Propranolol",
+          "Pseudoephedrine"
+        ],
+        "retrieval_query": "local DDInter ddinter_downloads_code_R.csv row: DDInter1539 (Propranolol) x DDInter1545 (Pseudoephedrine)",
+        "retrieved_at": "2026-07-11T22:27:40.153Z"
+      },
+      {
+        "id": "ddinter:DDInter1539:DDInter1191",
+        "claim_text": "DDInter severity for methylprednisolone + propranolol: Moderate",
+        "source_name": "DDInter",
+        "source_id": "DDInter1539/DDInter1191",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
+        "exact_field": "Level",
+        "quoted_text": "Drug_A: Propranolol; Drug_B: Methylprednisolone; Level: Moderate",
+        "supporting_text": "Drug_A: Propranolol; Drug_B: Methylprednisolone; Level: Moderate",
+        "subject_drugs": [
+          "Propranolol",
+          "Methylprednisolone"
+        ],
+        "retrieval_query": "local DDInter ddinter_downloads_code_D.csv row: DDInter1539 (Propranolol) x DDInter1191 (Methylprednisolone)",
+        "retrieved_at": "2026-07-11T22:27:40.153Z"
+      },
+      {
+        "id": "ddinter:DDInter1191:DDInter883",
+        "claim_text": "DDInter severity for methylprednisolone + hydrochlorothiazide / olmesartan: Moderate",
+        "source_name": "DDInter",
+        "source_id": "DDInter1191/DDInter883",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
+        "exact_field": "Level",
+        "quoted_text": "Drug_A: Methylprednisolone; Drug_B: Hydrochlorothiazide; Level: Moderate",
+        "supporting_text": "Drug_A: Methylprednisolone; Drug_B: Hydrochlorothiazide; Level: Moderate",
+        "subject_drugs": [
+          "Methylprednisolone",
+          "Hydrochlorothiazide"
+        ],
+        "retrieval_query": "local DDInter ddinter_downloads_code_D.csv row: DDInter1191 (Methylprednisolone) x DDInter883 (Hydrochlorothiazide)",
+        "retrieved_at": "2026-07-11T22:27:40.153Z"
+      },
+      {
+        "id": "ddinter:DDInter1330:DDInter1191",
+        "claim_text": "DDInter severity for methylprednisolone + hydrochlorothiazide 25 MG / olmesartan medoxomil 40 MG Oral Tablet: Moderate",
+        "source_name": "DDInter",
+        "source_id": "DDInter1330/DDInter1191",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
+        "exact_field": "Level",
+        "quoted_text": "Drug_A: Olmesartan; Drug_B: Methylprednisolone; Level: Moderate",
+        "supporting_text": "Drug_A: Olmesartan; Drug_B: Methylprednisolone; Level: Moderate",
+        "subject_drugs": [
+          "Olmesartan",
+          "Methylprednisolone"
+        ],
+        "retrieval_query": "local DDInter ddinter_downloads_code_D.csv row: DDInter1330 (Olmesartan) x DDInter1191 (Methylprednisolone)",
+        "retrieved_at": "2026-07-11T22:27:40.153Z"
+      },
+      {
+        "id": "ddinter:DDInter1539:DDInter1170",
+        "claim_text": "DDInter severity for propranolol + methimazole: Moderate",
+        "source_name": "DDInter",
+        "source_id": "DDInter1539/DDInter1170",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
+        "exact_field": "Level",
+        "quoted_text": "Drug_A: Propranolol; Drug_B: Methimazole; Level: Moderate",
+        "supporting_text": "Drug_A: Propranolol; Drug_B: Methimazole; Level: Moderate",
+        "subject_drugs": [
+          "Propranolol",
+          "Methimazole"
+        ],
+        "retrieval_query": "local DDInter ddinter_downloads_code_H.csv row: DDInter1539 (Propranolol) x DDInter1170 (Methimazole)",
+        "retrieved_at": "2026-07-11T22:27:40.153Z"
+      },
+      {
+        "id": "ddinter:DDInter1170:DDInter883",
+        "claim_text": "DDInter severity for methimazole + hydrochlorothiazide 25 MG / olmesartan medoxomil 40 MG Oral Tablet: Unknown",
+        "source_name": "DDInter",
+        "source_id": "DDInter1170/DDInter883",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
+        "exact_field": "Level",
+        "quoted_text": "Drug_A: Methimazole; Drug_B: Hydrochlorothiazide; Level: Unknown",
+        "supporting_text": "Drug_A: Methimazole; Drug_B: Hydrochlorothiazide; Level: Unknown",
+        "subject_drugs": [
+          "Methimazole",
+          "Hydrochlorothiazide"
+        ],
+        "retrieval_query": "local DDInter ddinter_downloads_code_H.csv row: DDInter1170 (Methimazole) x DDInter883 (Hydrochlorothiazide)",
+        "retrieved_at": "2026-07-11T22:27:40.153Z"
+      }
+    ],
+    "unverified_removed": [],
+    "generated_at": "2026-07-11T22:27:40.153Z",
+    "pipeline": {
+      "mode": "audited-replay",
+      "model": "Claude Opus 4.8",
+      "stages": [
+        "ingest",
+        "retrieve",
+        "synthesize",
+        "verify"
+      ],
+      "ddinter": {
+        "source_rows": 222383,
+        "unique_pairs": 160235,
+        "unique_drugs": 1939,
+        "source_files": 8
+      }
+    }
+  },
+  "generatedAt": "2026-07-11T22:27:40.153Z"
+}
