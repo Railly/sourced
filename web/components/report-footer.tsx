@@ -5,7 +5,7 @@ export function ReportFooter({ generatedAt }: { generatedAt: string }) {
 
   return (
     <footer className="border-t border-hairline mt-4">
-      <div className="mx-auto max-w-3xl px-5 sm:px-8 py-8 text-center">
+      <div className="mx-auto max-w-7xl px-5 py-8 text-center sm:px-8">
         <p className="font-serif-display text-[15px] italic leading-relaxed text-ink-muted text-pretty">
           Sourced never asks the model for a clinical fact. Every claim is retrieved from a cited
           source and verified.

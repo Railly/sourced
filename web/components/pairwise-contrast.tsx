@@ -1,4 +1,7 @@
-import { severityStyle, statusLabel, statusStyle } from "@/lib/severity";
+"use client";
+
+import { useI18n } from "@/lib/i18n";
+import { statusStyle } from "@/lib/severity";
 import type { Finding } from "@/lib/types";
 
 function firstSentence(value: string): string {
@@ -6,6 +9,7 @@ function firstSentence(value: string): string {
 }
 
 export function PairwiseContrast({ finding }: { finding: Finding | undefined }) {
+  const { t } = useI18n();
   if (!finding) return null;
 
   return (
@@ -15,11 +19,10 @@ export function PairwiseContrast({ finding }: { finding: Finding | undefined }) 
           id="pairwise-contrast-heading"
           className="text-[11px] font-semibold uppercase tracking-wide text-ink-faint"
         >
-          Why not just a pairwise checker?
+          {t("pairwise.title")}
         </h2>
         <p className="mt-1.5 text-[13.5px] leading-relaxed text-ink-muted text-pretty">
-          A traditional interaction lookup and Sourced start from the same top finding. One stops at
-          the fact. The other explains what it means for this patient.
+          {t("pairwise.description")}
         </p>
       </div>
 
@@ -32,40 +35,40 @@ export function PairwiseContrast({ finding }: { finding: Finding | undefined }) 
 }
 
 function PairwiseColumn({ finding }: { finding: Finding }) {
-  const severity = severityStyle(finding.severity);
+  const { t } = useI18n();
 
   return (
     <div className="rounded-xl border border-hairline bg-paper sm:rounded-none sm:border-0 sm:border-r sm:border-hairline px-5 sm:px-6 py-5 sm:py-6 flex flex-col">
       <p className="text-[11px] font-semibold uppercase tracking-wide text-ink-faint">
-        Pairwise checker
+        {t("pairwise.checker")}
       </p>
-      <p className="mt-0.5 text-[12px] text-ink-faint">Lexicomp / Micromedex-style lookup</p>
+      <p className="mt-0.5 text-[12px] text-ink-faint">{t("pairwise.lookup")}</p>
 
       <div className="mt-4 flex-1 flex flex-col justify-center rounded-lg border border-hairline-strong bg-paper-raised px-4 py-6 text-center">
         <p className="font-mono-source text-[13px] text-ink-muted">
           {finding.drugs.slice(0, 2).join(" + ")}
         </p>
-        <p className="mt-2 text-[15px] font-medium text-ink">Interaction detected</p>
+        <p className="mt-2 text-[15px] font-medium text-ink">{t("pairwise.detected")}</p>
         <p className="mt-1 text-[13px] text-ink-muted">
-          Severity: <span className="font-semibold text-ink">{severity.label}</span>
+          {t("pairwise.severity", { severity: t(`severity.${finding.severity}` as "severity.major" | "severity.moderate" | "severity.minor") })}
         </p>
       </div>
 
       <p className="mt-4 text-[12px] leading-relaxed text-ink-faint">
-        Correct, but static. No patient context, no mechanism, no source, no next step.
+        {t("pairwise.static")}
       </p>
     </div>
   );
 }
 
 function SourcedColumn({ finding }: { finding: Finding }) {
+  const { t } = useI18n();
   const status = statusStyle(finding.status);
-  const severity = severityStyle(finding.severity);
 
   return (
     <div className="rounded-xl border border-major-border bg-major-bg sm:rounded-none sm:border-0 px-5 sm:px-6 py-5 sm:py-6 flex flex-col">
       <p className="text-[11px] font-semibold uppercase tracking-wide text-major">Sourced</p>
-      <p className="mt-0.5 text-[12px] text-ink-muted">Same finding, with patient context</p>
+      <p className="mt-0.5 text-[12px] text-ink-muted">{t("pairwise.sourced")}</p>
 
       <div className="mt-4 flex flex-col gap-3">
         <div className="flex flex-wrap items-center gap-2.5">
@@ -73,10 +76,10 @@ function SourcedColumn({ finding }: { finding: Finding }) {
             className={`inline-flex items-center gap-1.5 rounded-full ${status.bg} border border-major-border ${status.text} px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide`}
           >
             <span className={`h-1.5 w-1.5 rounded-full ${status.accent}`} aria-hidden="true" />
-            {statusLabel(finding.status)}
+            {t(finding.status === "red-flag" ? "finding.redFlag" : finding.status === "flagged" ? "finding.flagged" : "finding.informational")}
           </span>
           <span className="inline-flex items-center rounded-full border border-hairline-strong px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-ink-muted">
-            {severity.label} severity
+            {t("finding.severity", { severity: t(`severity.${finding.severity}` as "severity.major" | "severity.moderate" | "severity.minor") })}
           </span>
         </div>
 
@@ -90,7 +93,7 @@ function SourcedColumn({ finding }: { finding: Finding }) {
 
         <div className="rounded-lg bg-paper-raised border border-hairline px-4 py-3.5">
           <p className="text-[11px] font-semibold uppercase tracking-wide text-ink-faint">
-            Why this patient
+            {t("finding.whyPatient")}
           </p>
           <p className="mt-1.5 text-[13.5px] leading-relaxed text-ink">
             {finding.why_this_patient}
@@ -115,7 +118,7 @@ function SourcedColumn({ finding }: { finding: Finding }) {
             </svg>
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-wide text-ink-faint">
-                Recommended monitoring
+                {t("finding.monitoring")}
               </p>
               <p className="mt-1 text-[13px] leading-relaxed text-ink">{finding.monitoring}</p>
             </div>
@@ -123,7 +126,7 @@ function SourcedColumn({ finding }: { finding: Finding }) {
         ) : null}
 
         <span className="inline-flex w-fit items-center gap-1.5 rounded-md bg-paper-raised border border-hairline px-2.5 py-1 text-[11px] font-mono-source text-ink-muted">
-          Cited to {finding.evidence_ids.length} sources
+          {t("pairwise.cited", { count: finding.evidence_ids.length })}
         </span>
       </div>
     </div>

@@ -61,6 +61,10 @@ body {
   overflow-x: hidden;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--color-paper);
   color: var(--color-ink);
@@ -80,8 +84,33 @@ body {
   font-family: var(--font-mono), ui-monospace, monospace;
 }
 
+@keyframes question-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.question-reveal {
+  animation: question-reveal 220ms ease-out both;
+}
+
 @media print {
   body {
     background: white;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .question-reveal {
+    animation: none;
   }
 }

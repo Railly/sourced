@@ -1,52 +1,70 @@
-export function PatientHeader({
-  summary,
-  drugs,
-}: {
-  summary: string;
-  drugs: string[];
-}) {
+import type { PatientContext } from "@/lib/types";
+
+export function PatientHeader({ summary, patient }: { summary: string; patient?: PatientContext }) {
+  const title = summary.match(/^.*?[.!?](?=\s|$)/)?.[0] ?? summary;
+  const pending =
+    /INR (?:check|follow-up)[^.]{0,60}pending/i.test(summary) ||
+    /control de INR pendiente/i.test(patient?.note ?? "")
+      ? "INR follow-up pending"
+      : undefined;
+  const duplicate = patient?.duplicate_medications?.[0];
+
   return (
-    <header className="border-b border-hairline bg-paper-raised">
-      <div className="mx-auto max-w-3xl px-5 sm:px-8 py-8 sm:py-10">
-        <div className="flex items-center gap-2.5">
-          <SourcedMark />
-          <span className="text-[13px] font-semibold tracking-wide uppercase text-ink-faint">
-            Medication Safety Review
-          </span>
-        </div>
-
-        <p className="mt-5 font-serif-display text-[17px] sm:text-[18px] leading-relaxed text-ink text-pretty">
-          {summary}
-        </p>
-
-        {drugs.length > 0 ? (
-          <div className="mt-5 flex flex-wrap gap-1.5" aria-label="Active medications">
-            {drugs.map((drug) => (
-              <span
-                key={drug}
-                className="rounded-full border border-hairline-strong bg-paper px-3 py-1 text-[12.5px] font-medium text-ink-muted"
-              >
-                {drug}
-              </span>
-            ))}
-          </div>
-        ) : null}
+    <section aria-labelledby="patient-overview-heading" className="pt-7">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <h1
+          id="patient-overview-heading"
+          className="max-w-4xl font-serif-display text-[22px] leading-snug tracking-[-0.01em] text-ink sm:text-[27px]"
+        >
+          {title}
+        </h1>
+        <span className="shrink-0 rounded-full border border-info-border bg-info-bg px-3 py-1.5 text-[11px] font-semibold text-info">
+          Synthetic or de-identified · no PHI
+        </span>
       </div>
-    </header>
+
+      {patient ? (
+        <dl className="mt-4 grid grid-cols-2 border-y border-hairline sm:grid-cols-3 xl:grid-cols-6">
+          <OverviewCell label="Diagnoses" value={patient.diagnoses.join("; ")} />
+          <OverviewCell
+            label="Medications"
+            value={patient.medications.map((medication) => medication.name).join("; ")}
+          />
+          <OverviewCell label="Allergies" value={patient.allergies.join("; ") || "None recorded"} />
+          <OverviewCell
+            label="Key labs"
+            value={patient.labs.map((lab) => `${lab.name} ${lab.value}${lab.unit ? ` ${lab.unit}` : ""}`).join("; ")}
+          />
+          <OverviewCell label="Pending" value={pending ?? "Review actions below"} />
+          <OverviewCell
+            label="Reconciliation"
+            value={
+              duplicate
+                ? `${duplicate.medications.map((medication) => medication.name).join(" / ")} share ${duplicate.ingredient_name}`
+                : "No duplicate ingredient detected"
+            }
+            warning={Boolean(duplicate)}
+          />
+        </dl>
+      ) : null}
+
+      <details className="group mt-3 text-[12.5px] text-ink-muted">
+        <summary className="w-fit cursor-pointer list-none font-medium text-info focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-info focus-visible:ring-offset-2">
+          Full patient context <span aria-hidden="true">↓</span>
+        </summary>
+        <p className="mt-3 max-w-4xl leading-relaxed text-pretty">{summary}</p>
+      </details>
+    </section>
   );
 }
 
-function SourcedMark() {
+function OverviewCell({ label, value, warning = false }: { label: string; value: string; warning?: boolean }) {
   return (
-    <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" className="h-4.5 w-4.5 text-ink">
-      <rect x="2" y="2" width="16" height="16" rx="4" stroke="currentColor" strokeWidth="1.4" />
-      <path
-        d="M6.5 10.5 9 13l5-6"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
+    <div className="min-w-0 border-b border-hairline px-3 py-4 odd:border-r sm:border-r sm:last:border-r-0 xl:border-b-0 xl:px-4">
+      <dt className="text-[10px] font-semibold uppercase tracking-wide text-ink-faint">{label}</dt>
+      <dd className={`mt-1.5 text-[12px] leading-relaxed ${warning ? "font-medium text-moderate" : "text-ink"}`}>
+        {value}
+      </dd>
+    </div>
   );
 }

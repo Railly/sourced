@@ -1,12 +1,16 @@
+"use client";
+
 import type { UnverifiedClaim } from "@/lib/types";
+import { useI18n } from "@/lib/i18n";
 
 export function VerificationPanel({ rejected }: { rejected: UnverifiedClaim[] }) {
+  const { t } = useI18n();
   if (rejected.length === 0) {
     return (
       <section
         id="verification-status"
-        aria-label="Verification status"
-        className="rounded-xl border border-verified-border bg-verified-bg px-5 py-4 flex items-start gap-3"
+        aria-label={t("verification.label")}
+        className="flex items-start gap-3 rounded-xl border border-verified-border bg-verified-bg px-5 py-4"
       >
         <svg
           aria-hidden="true"
@@ -23,10 +27,9 @@ export function VerificationPanel({ rejected }: { rejected: UnverifiedClaim[] })
           />
         </svg>
         <div>
-          <p className="text-[14px] font-semibold text-verified">All claims traced to source</p>
+          <p className="text-[14px] font-semibold text-verified">{t("verification.allTraced")}</p>
           <p className="mt-0.5 text-[13px] leading-relaxed text-ink-muted">
-            A reviewer agent verified every claim in this report against its cited source before
-            publication. Nothing here was asserted from model memory.
+            {t("verification.allTracedHelp")}
           </p>
         </div>
       </section>
@@ -36,10 +39,10 @@ export function VerificationPanel({ rejected }: { rejected: UnverifiedClaim[] })
   return (
     <section
       id="verification-status"
-      aria-label="Claims rejected by reviewer"
-      className="rounded-xl border border-hairline bg-paper-raised px-5 py-4"
+      aria-label={t("verification.rejectedLabel")}
+      className="overflow-hidden rounded-xl border border-hairline bg-paper-raised"
     >
-      <div className="flex items-start gap-3">
+      <div className="flex items-start gap-3 px-5 py-4 lg:px-6">
         <svg
           aria-hidden="true"
           viewBox="0 0 20 20"
@@ -55,31 +58,39 @@ export function VerificationPanel({ rejected }: { rejected: UnverifiedClaim[] })
           />
         </svg>
         <div>
-          <p className="text-[14px] font-semibold text-ink">Claims the reviewer rejected</p>
+          <p className="text-[14px] font-semibold text-ink">
+            {rejected.length === 1
+              ? t("verification.removedOne")
+              : t("verification.removedMany", { count: rejected.length })}
+          </p>
           <p className="mt-0.5 text-[13px] leading-relaxed text-ink-muted">
-            Before publication, a reviewer agent checked every claim against its source and removed
-            anything it could not verify.
+            {t("verification.removedHelp")}
           </p>
         </div>
       </div>
-      <ul className="mt-4 flex flex-col gap-2.5">
-        {rejected.map((item) => (
-          <li
-            key={item.claim_text}
-            className="rounded-lg border border-hairline px-4 py-3 bg-paper"
-          >
-            <p className="text-[13.5px] leading-relaxed text-ink line-through decoration-ink-faint decoration-1">
-              {item.claim_text}
-            </p>
-            <p className="mt-1.5 text-[12.5px] leading-relaxed text-ink-muted">
-              <span className="font-semibold text-ink-faint uppercase tracking-wide text-[11px]">
-                Rejected —{" "}
-              </span>
-              {item.reason}
-            </p>
-          </li>
-        ))}
-      </ul>
+      <details className="border-t border-hairline bg-paper">
+        <summary className="cursor-pointer px-5 py-3 text-[11px] font-semibold text-info focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-info lg:px-6">
+          {t("verification.inspect")}
+        </summary>
+        <ul className="flex flex-col gap-2.5 border-t border-hairline px-5 py-4 lg:px-6">
+          {rejected.map((item) => (
+            <li
+              key={item.claim_text}
+              className="rounded-lg border border-hairline bg-paper-raised px-4 py-3"
+            >
+              <p className="text-[13.5px] leading-relaxed text-ink line-through decoration-ink-faint decoration-1">
+                {item.claim_text}
+              </p>
+              <p className="mt-1.5 text-[12.5px] leading-relaxed text-ink-muted">
+                <span className="text-[11px] font-semibold uppercase tracking-wide text-ink-faint">
+                  {t("verification.rejected")}
+                </span>
+                {item.reason}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </details>
     </section>
   );
 }
