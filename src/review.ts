@@ -1,0 +1,134 @@
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+import { ingest } from "./ingest/index.ts";
+import { retrieve } from "./retrieve/index.ts";
+import { synthesize } from "./synthesize/index.ts";
+import type { EvidenceObject, Finding, PatientContext, ReviewLocale, SafetyReport } from "./types/index.ts";
+import { verify } from "./verify/index.ts";
+
+export type ReviewStage = "ingest" | "retrieve" | "synthesize" | "verify";
+
+export interface ReviewStageEvent {
+  stage: ReviewStage;
+  status: "running" | "completed";
+  detail?: string;
+}
+
+interface AuditEntry {
+  finding: Finding;
+  evidence: (EvidenceObject & { query: string; timestamp: string })[];
+}
+
+export interface AuditLedger {
+  generated_at: string;
+  findings: AuditEntry[];
+  unverified_removed: SafetyReport["unverified_removed"];
+  report: SafetyReport;
+}
+
+interface RunReviewOptions {
+  now?: string;
+  ddinterPath?: string;
+  onStage?: (event: ReviewStageEvent) => void | Promise<void>;
+  synthesizeReport?: typeof synthesize;
+  verifyReport?: typeof verify;
+  locale?: ReviewLocale;
+}
+
+const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+
+async function emit(
+  handler: RunReviewOptions["onStage"],
+  event: ReviewStageEvent,
+): Promise<void> {
+  await handler?.(event);
+}
+
+export function buildAuditLedger(report: SafetyReport): AuditLedger {
+  const evidenceById = new Map(report.evidence.map((item) => [item.id, item]));
+  return {
+    generated_at: report.generated_at,
+    findings: report.findings.map((finding) => ({
+      finding,
+      evidence: finding.evidence_ids.map((id) => {
+        const item = evidenceById.get(id);
+        if (!item) throw new Error(`audit: verified finding referenced missing evidence_id ${id}`);
+        return { ...item, query: item.retrieval_query, timestamp: item.retrieved_at };
+      }),
+    })),
+    unverified_removed: report.unverified_removed,
+    report,
+  };
+}
+
+export async function runVerifiedReview(
+  raw: unknown,
+  options: RunReviewOptions = {},
+): Promise<SafetyReport> {
+  const now = options.now ?? new Date().toISOString();
+  const ddinterPath = options.ddinterPath ?? resolve(repoRoot, "data/sources/ddinter");
+  const synthesizeReport = options.synthesizeReport ?? synthesize;
+  const verifyReport = options.verifyReport ?? verify;
+  const locale = options.locale ?? "en";
+
+  await emit(options.onStage, { stage: "ingest", status: "running" });
+  const patient = await ingest(raw);
+  const resolvedCount = patient.medications.filter((medication) => medication.rxcui).length;
+  await emit(options.onStage, {
+    stage: "ingest",
+    status: "completed",
+    detail: locale === "es"
+      ? `${resolvedCount}/${patient.medications.length} medicamentos resueltos`
+      : `${resolvedCount}/${patient.medications.length} medications resolved`,
+  });
+
+  await emit(options.onStage, { stage: "retrieve", status: "running" });
+  const retrieval = await retrieve(patient, ddinterPath, now);
+  await emit(options.onStage, {
+    stage: "retrieve",
+    status: "completed",
+    detail: locale === "es"
+      ? `${retrieval.evidence.length} objetos de evidencia citables`
+      : `${retrieval.evidence.length} citable evidence objects`,
+  });
+
+  await emit(options.onStage, { stage: "synthesize", status: "running" });
+  const draft = await synthesizeReport(patient, retrieval.evidence, now, locale);
+  await emit(options.onStage, {
+    stage: "synthesize",
+    status: "completed",
+    detail: locale === "es"
+      ? `${draft.findings.length} hallazgos en borrador`
+      : `${draft.findings.length} draft findings`,
+  });
+
+  await emit(options.onStage, { stage: "verify", status: "running" });
+  const verified = await verifyReport(draft, retrieval.evidence, { patient, locale });
+  const report: SafetyReport = {
+    ...verified,
+    patient,
+    pipeline: {
+      mode: "live",
+      model: "Claude Opus 4.8",
+      stages: ["ingest", "retrieve", "synthesize", "verify"],
+      ddinter: {
+        source_rows: retrieval.ddinter.coverage.rawRows,
+        unique_pairs: retrieval.ddinter.coverage.uniquePairs,
+        unique_drugs: retrieval.ddinter.coverage.uniqueDrugs,
+        source_files: retrieval.ddinter.coverage.files.length,
+      },
+    },
+  };
+  await emit(options.onStage, {
+    stage: "verify",
+    status: "completed",
+    detail: locale === "es"
+      ? `${report.findings.length} hallazgos verificados publicados`
+      : `${report.findings.length} verified findings published`,
+  });
+  return report;
+}
+
+export function patientFromReport(report: SafetyReport): PatientContext | undefined {
+  return report.patient;
+}

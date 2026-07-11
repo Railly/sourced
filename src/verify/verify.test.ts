@@ -50,6 +50,15 @@ test("level 1 removes a finding with no evidence_ids", async () => {
   expect(result.unverified_removed[0]?.reason).toContain("no evidence_ids");
 });
 
+test("level 1 localizes audit reasons in Spanish without changing verification", async () => {
+  const result = await verify(draft({ evidence_ids: [] }), evidence, {
+    adversarial: false,
+    locale: "es",
+  });
+  expect(result.findings).toHaveLength(0);
+  expect(result.unverified_removed[0]?.reason).toContain("no tiene evidence_ids");
+});
+
 test("level 1 removes a finding citing an unknown evidence_id", async () => {
   const result = await verify(draft({ evidence_ids: ["label:999:nope"] }), evidence, {
     adversarial: false,
@@ -75,6 +84,30 @@ test("level 1 dedupes repeated evidence_ids", async () => {
   expect(result.findings[0]?.evidence_ids).toEqual(["label:1:interactions"]);
 });
 
+test("level 1 rejects a severity row bound to the wrong medication pair", async () => {
+  const swappedEvidence: EvidenceObject[] = [
+    {
+      id: "ddinter:wrong",
+      claim_text: "DDInter severity for sertraline + dextromethorphan: Major",
+      source_name: "DDInter",
+      source_id: "a/b",
+      source_url: "https://example.test/ddinter",
+      exact_field: "Level",
+      quoted_text: "Drug_A: Sertraline; Drug_B: Dextromethorphan; Level: Major",
+      subject_drugs: ["Sertraline", "Dextromethorphan"],
+      retrieval_query: "row a x b",
+      retrieved_at: "2026-07-09T00:00:00Z",
+    },
+  ];
+  const result = await verify(
+    draft({ drugs: ["warfarin", "amiodarone"], evidence_ids: ["ddinter:wrong"] }),
+    swappedEvidence,
+    { adversarial: false },
+  );
+  expect(result.findings).toEqual([]);
+  expect(result.unverified_removed[0]?.reason).toContain("outside finding.drugs");
+});
+
 test("level 1 removes patient reasoning that names a medication outside finding scope", async () => {
   const patient: PatientContext = {
     medications: [
@@ -93,6 +126,56 @@ test("level 1 removes patient reasoning that names a medication outside finding 
   const result = await verify(report, evidence, { adversarial: false, patient });
   expect(result.findings).toEqual([]);
   expect(result.unverified_removed[0]?.reason).toContain("outside finding.drugs: amiodarone");
+});
+
+test("level 1 rejects findings that include a historical medication", async () => {
+  const patient: PatientContext = {
+    medications: [
+      { raw: "warfarin", name: "warfarin", rxcui: "1", resolution: "exact", status: "active" },
+      { raw: "amiodarone", name: "amiodarone", rxcui: "2", resolution: "exact", status: "historical" },
+    ],
+    allergies: [],
+    diagnoses: [],
+    labs: [],
+  };
+  const result = await verify(
+    draft({
+      drugs: ["warfarin", "amiodarone"],
+      evidence_ids: ["label:1:interactions"],
+    }),
+    evidence,
+    { adversarial: false, patient },
+  );
+  expect(result.findings).toEqual([]);
+  expect(result.unverified_removed[0]?.reason).toContain("non-active medication(s): amiodarone");
+});
+
+test("level 1 allows a source brand mention when its declared ingredient is in finding scope", async () => {
+  const patient: PatientContext = {
+    medications: [
+      { raw: "sertraline", name: "sertraline", rxcui: "1", resolution: "exact" },
+      {
+        raw: "Bromfed DM (dextromethorphan 10 mg)",
+        name: "Bromfed DM",
+        rxcui: "2",
+        resolution: "approximate",
+        ingredients: [{ rxcui: "3", name: "dextromethorphan" }],
+      },
+    ],
+    allergies: [],
+    diagnoses: [],
+    labs: [],
+  };
+  const result = await verify(
+    draft({
+      drugs: ["sertraline", "dextromethorphan"],
+      why_this_patient: "The source states that this patient received Bromfed DM with sertraline.",
+      evidence_ids: ["label:1:interactions"],
+    }),
+    evidence,
+    { adversarial: false, patient },
+  );
+  expect(result.findings).toHaveLength(1);
 });
 
 test("level 1 removes plural medication context from a single-drug finding", async () => {
@@ -156,7 +239,10 @@ test("level 2 rejects a contradictory supported verdict", async () => {
 test("level 2 receives the exact patient context", async () => {
   const patient: PatientContext = {
     note: "new medication",
-    medications: [],
+    medications: [
+      { raw: "a", name: "a", rxcui: "a", resolution: "exact" },
+      { raw: "b", name: "b", rxcui: "b", resolution: "exact" },
+    ],
     allergies: [],
     diagnoses: ["atrial fibrillation"],
     labs: [{ name: "INR", value: 2.6, unit: "" }],
@@ -175,7 +261,10 @@ test("level 2 receives the exact patient context", async () => {
 
 test("narrative review removes unsupported summary and questions", async () => {
   const patient: PatientContext = {
-    medications: [],
+    medications: [
+      { raw: "a", name: "a", rxcui: "a", resolution: "exact" },
+      { raw: "b", name: "b", rxcui: "b", resolution: "exact" },
+    ],
     allergies: [],
     diagnoses: [],
     labs: [],
@@ -202,9 +291,37 @@ test("narrative review removes unsupported summary and questions", async () => {
   );
 });
 
+test("narrative fallback is localized in Spanish", async () => {
+  const patient: PatientContext = {
+    medications: [
+      { raw: "a", name: "a", rxcui: "a", resolution: "exact" },
+      { raw: "b", name: "b", rxcui: "b", resolution: "exact" },
+    ],
+    allergies: [],
+    diagnoses: [],
+    labs: [],
+  };
+  const result = await verify(draft({ evidence_ids: ["label:1:interactions"] }), evidence, {
+    patient,
+    locale: "es",
+    reviewer: async () => ({ supported: true, unsupported_claims: [] }),
+    narrativeReviewer: async () => ({
+      summary_supported: false,
+      unsupported_summary_claims: ["resumen no respaldado"],
+      supported_question_indexes: [],
+      unsupported_questions: [],
+    }),
+  });
+  expect(result.patient_summary).toBe("Contexto del paciente recibido. Solo se muestran hallazgos verificados.");
+  expect(result.unverified_removed[0]?.reason).toContain("Revisor narrativo");
+});
+
 test("narrative review fails closed when unavailable", async () => {
   const patient: PatientContext = {
-    medications: [],
+    medications: [
+      { raw: "a", name: "a", rxcui: "a", resolution: "exact" },
+      { raw: "b", name: "b", rxcui: "b", resolution: "exact" },
+    ],
     allergies: [],
     diagnoses: [],
     labs: [],
@@ -225,7 +342,10 @@ test("narrative review fails closed when unavailable", async () => {
 
 test("narrative review rejects contradictory supported fields", async () => {
   const patient: PatientContext = {
-    medications: [],
+    medications: [
+      { raw: "a", name: "a", rxcui: "a", resolution: "exact" },
+      { raw: "b", name: "b", rxcui: "b", resolution: "exact" },
+    ],
     allergies: [],
     diagnoses: [],
     labs: [],

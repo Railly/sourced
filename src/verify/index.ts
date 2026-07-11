@@ -1,5 +1,9 @@
 import { callOpus, parseJsonObject } from "../llm.ts";
-import type { EvidenceObject, Finding, PatientContext, SafetyReport } from "../types/index.ts";
+import type { EvidenceObject, Finding, PatientContext, ReviewLocale, SafetyReport } from "../types/index.ts";
+
+function localized(locale: ReviewLocale, english: string, spanish: string): string {
+  return locale === "es" ? spanish : english;
+}
 
 function findingClaimText(finding: Finding): string {
   return finding.headline || finding.mechanism || finding.drugs.join(" + ") || "untitled finding";
@@ -25,10 +29,75 @@ function mentionsMedication(text: string, medication: string): boolean {
   return new RegExp(`(^|[^a-z])${escaped}([^a-z]|$)`, "i").test(text);
 }
 
+function normalizedMedicationName(value: string): string {
+  return value
+    .normalize("NFKD")
+    .replace(/\p{Diacritic}/gu, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+function medicationNameMatches(left: string, right: string): boolean {
+  const normalizedLeft = normalizedMedicationName(left);
+  const normalizedRight = normalizedMedicationName(right);
+  if (normalizedLeft === normalizedRight) return Boolean(normalizedLeft);
+  if (Math.min(normalizedLeft.length, normalizedRight.length) < 5) return false;
+  return Boolean(
+    normalizedLeft &&
+      normalizedRight &&
+      (normalizedLeft.includes(normalizedRight) || normalizedRight.includes(normalizedLeft)),
+  );
+}
+
+function evidenceBindingFailure(
+  finding: Finding,
+  citedEvidence: EvidenceObject[],
+  locale: ReviewLocale,
+): string | undefined {
+  for (const evidence of citedEvidence) {
+    if (
+      evidence.supporting_text &&
+      (!evidence.quoted_text || !evidence.quoted_text.includes(evidence.supporting_text)) &&
+      evidence.source_name !== "DDInter" &&
+      evidence.source_name !== "openFDA-FAERS"
+    ) {
+      return localized(locale, `Evidence ${evidence.id} exposes supporting text that is not present in its quoted source field.`, `La evidencia ${evidence.id} expone texto de respaldo que no está presente en el campo citado de la fuente.`);
+    }
+    if (
+      evidence.anchor_drug &&
+      !finding.drugs.some((drug) => medicationNameMatches(drug, evidence.anchor_drug!))
+    ) {
+      return localized(locale, `Evidence ${evidence.id} is anchored to ${evidence.anchor_drug}, outside finding.drugs.`, `La evidencia ${evidence.id} está anclada a ${evidence.anchor_drug}, fuera de finding.drugs.`);
+    }
+  }
+
+  const ddinterEvidence = citedEvidence.filter((evidence) => evidence.source_name === "DDInter");
+  if (ddinterEvidence.length === 0) return undefined;
+  const subjects = ddinterEvidence.flatMap((evidence) => evidence.subject_drugs ?? []);
+  if (ddinterEvidence.some((evidence) => evidence.subject_drugs?.length !== 2)) {
+    return localized(locale, "DDInter evidence is missing its exact two-drug subject binding.", "La evidencia de DDInter no contiene la vinculación exacta con los dos medicamentos.");
+  }
+  const outside = subjects.filter(
+    (subject) => !finding.drugs.some((drug) => medicationNameMatches(drug, subject)),
+  );
+  if (outside.length > 0) {
+    return localized(locale, `DDInter evidence is bound to medication(s) outside finding.drugs: ${[...new Set(outside)].join(", ")}.`, `La evidencia de DDInter está vinculada a medicamentos fuera de finding.drugs: ${[...new Set(outside)].join(", ")}.`);
+  }
+  const uncovered = finding.drugs.filter(
+    (drug) => !subjects.some((subject) => medicationNameMatches(drug, subject)),
+  );
+  if (uncovered.length > 0) {
+    return localized(locale, `DDInter evidence does not cover finding medication(s): ${uncovered.join(", ")}.`, `La evidencia de DDInter no cubre los medicamentos del hallazgo: ${uncovered.join(", ")}.`);
+  }
+  return undefined;
+}
+
 function level1(
   report: SafetyReport,
   evidence: EvidenceObject[],
   patient: PatientContext | undefined,
+  locale: ReviewLocale,
 ): Level1Result {
   const evidenceById = new Map(evidence.map((item) => [item.id, item]));
   const survivors: Finding[] = [];
@@ -38,7 +107,7 @@ function level1(
     if (finding.evidence_ids.length === 0) {
       removed.push({
         claim_text: findingClaimText(finding),
-        reason: "Finding has no evidence_ids.",
+        reason: localized(locale, "Finding has no evidence_ids.", "El hallazgo no tiene evidence_ids."),
       });
       continue;
     }
@@ -46,11 +115,36 @@ function level1(
     if (missing.length > 0) {
       removed.push({
         claim_text: findingClaimText(finding),
-        reason: `Unresolved evidence_id(s): ${missing.join(", ")}.`,
+        reason: localized(locale, `Unresolved evidence_id(s): ${missing.join(", ")}.`, `evidence_id sin resolver: ${missing.join(", ")}.`),
       });
       continue;
     }
+    const citedEvidence = finding.evidence_ids.flatMap((id) => {
+      const item = evidenceById.get(id);
+      return item ? [item] : [];
+    });
+    const bindingFailure = evidenceBindingFailure(finding, citedEvidence, locale);
+    if (bindingFailure) {
+      removed.push({ claim_text: findingClaimText(finding), reason: bindingFailure });
+      continue;
+    }
     if (patient) {
+      const activeMedicationNames = patient.medications
+        .filter((medication) => (medication.status ?? "active") === "active")
+        .flatMap((medication) => [
+          medication.name,
+          ...(medication.ingredients?.map((ingredient) => ingredient.name) ?? []),
+        ]);
+      const inactiveFindingDrugs = finding.drugs.filter(
+        (drug) => !activeMedicationNames.some((name) => medicationNameMatches(drug, name)),
+      );
+      if (inactiveFindingDrugs.length > 0) {
+        removed.push({
+          claim_text: findingClaimText(finding),
+          reason: localized(locale, `Finding references unresolved or non-active medication(s): ${inactiveFindingDrugs.join(", ")}.`, `El hallazgo menciona medicamentos no resueltos o inactivos: ${inactiveFindingDrugs.join(", ")}.`),
+        });
+        continue;
+      }
       const findingDrugs = new Set(finding.drugs.flatMap(medicationComponents));
       if (
         findingDrugs.size === 1 &&
@@ -60,26 +154,33 @@ function level1(
       ) {
         removed.push({
           claim_text: findingClaimText(finding),
-          reason:
-            "Patient-specific reasoning imports plural medication context into a single-drug finding.",
+          reason: localized(locale, "Patient-specific reasoning imports plural medication context into a single-drug finding.", "El razonamiento específico del paciente incorpora varios medicamentos en un hallazgo de un solo medicamento."),
         });
         continue;
       }
       const outsideScope = [
         ...new Set(
           patient.medications
-            .flatMap((medication) => medicationComponents(medication.name))
-            .filter(
-              (medication) =>
-                !findingDrugs.has(medication) &&
-                mentionsMedication(finding.why_this_patient, medication),
-            ),
+            .filter((medication) => (medication.status ?? "active") === "active")
+            .flatMap((medication) => {
+              const names = [
+                medication.name,
+                ...(medication.ingredients?.map((ingredient) => ingredient.name) ?? []),
+              ];
+              const represented = names.some((name) =>
+                finding.drugs.some((drug) => medicationNameMatches(drug, name)),
+              );
+              if (represented) return [];
+              return medicationComponents(medication.name).filter((name) =>
+                mentionsMedication(finding.why_this_patient, name),
+              );
+            }),
         ),
       ];
       if (outsideScope.length > 0) {
         removed.push({
           claim_text: findingClaimText(finding),
-          reason: `Patient-specific reasoning references medication(s) outside finding.drugs: ${outsideScope.join(", ")}.`,
+          reason: localized(locale, `Patient-specific reasoning references medication(s) outside finding.drugs: ${outsideScope.join(", ")}.`, `El razonamiento específico del paciente menciona medicamentos fuera de finding.drugs: ${outsideScope.join(", ")}.`),
         });
         continue;
       }
@@ -116,6 +217,7 @@ const LEVEL2_SYSTEM = [
   "Patient-specific facts must appear in the patient context. Drug facts, severity, numbers, and monitoring instructions must appear in or be directly entailed by the quoted source text.",
   "Do NOT use outside medical knowledge. If a claim is medically true but NOT present in the quoted text, it is UNSUPPORTED.",
   "Be strict: a specific number, dose, severity level, or monitoring instruction must appear in or be directly entailed by the quoted text.",
+  "Severity mapping policy: quoted severe or life-threatening harm directly entails major severity. Do not reject only because the source says severe rather than major. No other severity escalation is allowed.",
   "Check arithmetic and comparisons. Reject qualitative numeric descriptions such as top, bottom, high, low, near, or borderline unless they follow exactly from the supplied value and bounds.",
   "A rendered Finding must assert a concrete safety issue. If it only says no interaction or no concrete claim is supported, reject it as a non-finding.",
   "Patient context may prove that medications were started, but it cannot prove that unnamed or out-of-scope medications interact. Reject plural medication context in a single-drug finding unless those medications are declared in finding.drugs and supported by the cited sources.",
@@ -186,7 +288,13 @@ function buildLevel2User(
     return {
       evidence_id: id,
       source: e?.source_name,
+      claim_text: e?.claim_text,
+      exact_field: e?.exact_field,
+      subject_drugs: e?.subject_drugs,
+      anchor_drug: e?.anchor_drug,
       quoted_text: e?.quoted_text ?? "(no quoted text on this evidence object)",
+      supporting_text: e?.supporting_text,
+      retrieval_query: e?.retrieval_query,
     };
   });
   return JSON.stringify(
@@ -211,9 +319,10 @@ async function level2Check(
   finding: Finding,
   evidence: EvidenceObject[],
   patient: PatientContext | undefined,
+  locale: ReviewLocale = "en",
 ): Promise<Level2Verdict> {
   const raw = await callOpus(
-    LEVEL2_SYSTEM,
+    `${LEVEL2_SYSTEM}\n${locale === "es" ? "The finding may be written in Spanish. Evaluate it against the unchanged source evidence and return unsupported_claims in clear Spanish." : "Return unsupported_claims in clear English."}`,
     buildLevel2User(finding, evidence, patient),
     level2Schema,
   );
@@ -229,9 +338,10 @@ async function narrativeCheck(
   report: SafetyReport,
   evidence: EvidenceObject[],
   patient: PatientContext,
+  locale: ReviewLocale = "en",
 ): Promise<NarrativeVerdict> {
   const raw = await callOpus(
-    NARRATIVE_SYSTEM,
+    `${NARRATIVE_SYSTEM}\n${locale === "es" ? "The narrative may be written in Spanish. Evaluate it against the unchanged source evidence and return unsupported claims in clear Spanish." : "Return unsupported claims in clear English."}`,
     JSON.stringify(
       {
         patient_context: patient,
@@ -286,6 +396,7 @@ export interface VerifyOptions {
   adversarial?: boolean;
   patient?: PatientContext;
   narrative?: boolean;
+  locale?: ReviewLocale;
   reviewer?: (
     finding: Finding,
     evidence: EvidenceObject[],
@@ -304,9 +415,10 @@ export async function verify(
   options: VerifyOptions = {},
 ): Promise<SafetyReport> {
   const adversarial = options.adversarial ?? true;
-  const reviewer = options.reviewer ?? level2Check;
-  const narrativeReviewer = options.narrativeReviewer ?? narrativeCheck;
-  const { survivors, removed } = level1(report, evidence, options.patient);
+  const locale = options.locale ?? "en";
+  const reviewer = options.reviewer ?? ((finding, citedEvidence, patient) => level2Check(finding, citedEvidence, patient, locale));
+  const narrativeReviewer = options.narrativeReviewer ?? ((candidate, citedEvidence, patient) => narrativeCheck(candidate, citedEvidence, patient, locale));
+  const { survivors, removed } = level1(report, evidence, options.patient, locale);
 
   if (!adversarial) {
     return {
@@ -325,8 +437,7 @@ export async function verify(
     } catch {
       removed.push({
         claim_text: findingClaimText(finding),
-        reason:
-          "Adversarial reviewer unavailable; finding was not rendered because claim-vs-source verification did not complete.",
+        reason: localized(locale, "Adversarial reviewer unavailable; finding was not rendered because claim-vs-source verification did not complete.", "El revisor adversarial no estuvo disponible. El hallazgo no se mostró porque no terminó la verificación contra la fuente."),
       });
       continue;
     }
@@ -335,7 +446,7 @@ export async function verify(
     } else {
       removed.push({
         claim_text: findingClaimText(finding),
-        reason: `Reviewer: claim not supported by cited sources: ${verdict.unsupported_claims.join("; ")}`,
+        reason: localized(locale, `Reviewer: claim not supported by cited sources: ${verdict.unsupported_claims.join("; ")}`, `Revisor: la afirmación no está respaldada por las fuentes citadas: ${verdict.unsupported_claims.join("; ")}`),
       });
     }
   }
@@ -345,11 +456,11 @@ export async function verify(
   const verifyNarrative = options.narrative ?? options.patient !== undefined;
   if (verifyNarrative) {
     if (!options.patient) {
-      patientSummary = "Patient context unavailable. Only verified findings are shown.";
+      patientSummary = localized(locale, "Patient context unavailable. Only verified findings are shown.", "El contexto del paciente no está disponible. Solo se muestran hallazgos verificados.");
       questions = [];
       removed.push({
         claim_text: "Patient summary and clinician questions",
-        reason: "Narrative verification requires the exact patient context.",
+        reason: localized(locale, "Narrative verification requires the exact patient context.", "La verificación narrativa requiere el contexto exacto del paciente."),
       });
     } else {
       try {
@@ -357,9 +468,9 @@ export async function verify(
         if (!verdict.summary_supported || verdict.unsupported_summary_claims.length > 0) {
           removed.push({
             claim_text: report.patient_summary,
-            reason: `Narrative reviewer: ${verdict.unsupported_summary_claims.join("; ") || "summary not fully supported"}`,
+            reason: localized(locale, `Narrative reviewer: ${verdict.unsupported_summary_claims.join("; ") || "summary not fully supported"}`, `Revisor narrativo: ${verdict.unsupported_summary_claims.join("; ") || "el resumen no está completamente respaldado"}`),
           });
-          patientSummary = "Patient context received. Only verified findings are shown.";
+          patientSummary = localized(locale, "Patient context received. Only verified findings are shown.", "Contexto del paciente recibido. Solo se muestran hallazgos verificados.");
         }
         const unsupportedIndexes = new Set(verdict.unsupported_questions.map((item) => item.index));
         const supportedIndexes = new Set(
@@ -370,17 +481,16 @@ export async function verify(
           const unsupported = verdict.unsupported_questions.find((item) => item.index === index);
           removed.push({
             claim_text: question,
-            reason: `Narrative reviewer: ${unsupported?.unsupported_claims.join("; ") || "question not fully supported"}`,
+            reason: localized(locale, `Narrative reviewer: ${unsupported?.unsupported_claims.join("; ") || "question not fully supported"}`, `Revisor narrativo: ${unsupported?.unsupported_claims.join("; ") || "la pregunta no está completamente respaldada"}`),
           });
           return false;
         });
       } catch {
-        patientSummary = "Patient context received. Only verified findings are shown.";
+        patientSummary = localized(locale, "Patient context received. Only verified findings are shown.", "Contexto del paciente recibido. Solo se muestran hallazgos verificados.");
         questions = [];
         removed.push({
           claim_text: "Patient summary and clinician questions",
-          reason:
-            "Narrative reviewer unavailable; narrative claims were not rendered because verification did not complete.",
+          reason: localized(locale, "Narrative reviewer unavailable; narrative claims were not rendered because verification did not complete.", "El revisor narrativo no estuvo disponible. Las afirmaciones narrativas no se mostraron porque la verificación no terminó."),
         });
       }
     }

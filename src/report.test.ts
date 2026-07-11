@@ -12,6 +12,12 @@ const ledger = (await Bun.file(
 const webReport = (await Bun.file(
   new URL("../web/public/data/report.json", import.meta.url),
 ).json()) as SafetyReport;
+const ddinterManifest = await Bun.file(
+  new URL("../data/sources/ddinter/manifest.json", import.meta.url),
+).json();
+const webDdinterManifest = await Bun.file(
+  new URL("../web/public/data/ddinter-manifest.json", import.meta.url),
+).json();
 
 test("cached web report is the exact audited report", () => {
   expect(webReport).toEqual(ledger.report);
@@ -57,4 +63,26 @@ test("cached evidence uses secure, judge-resolvable citation targets", () => {
     expect(evidence.source_url).toStartWith("https://");
     expect(evidence.source_url).not.toContain("ddinter.scbdd.com");
   }
+});
+
+test("cached report carries structured patient context and completed pipeline provenance", () => {
+  expect(webReport.patient?.medications.length).toBeGreaterThan(0);
+  expect(webReport.patient?.duplicate_medications?.[0]?.ingredient_rxcui).toBe("11289");
+  expect(webReport.pipeline?.stages).toEqual(["ingest", "retrieve", "synthesize", "verify"]);
+  expect(webReport.pipeline?.ddinter.source_rows).toBe(ddinterManifest.coverage.rawRows);
+  expect(webReport.pipeline?.ddinter.unique_pairs).toBe(ddinterManifest.coverage.uniquePairs);
+});
+
+test("rendered FDA evidence exposes version and exact supporting text", () => {
+  const labels = webReport.evidence.filter((item) => item.source_name === "openFDA-label");
+  expect(labels.length).toBeGreaterThan(0);
+  for (const label of labels) {
+    expect(label.source_version?.length).toBeGreaterThan(0);
+    expect(label.supporting_text?.length).toBeGreaterThan(0);
+    expect(label.quoted_text).toContain(label.supporting_text!);
+  }
+});
+
+test("web coverage manifest is the exact verified source manifest", () => {
+  expect(webDdinterManifest).toEqual(ddinterManifest);
 });

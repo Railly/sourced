@@ -1,0 +1,91 @@
+[
+  {
+    "id": "renal-electrolyte",
+    "domain": "renal",
+    "_meta": {
+      "kind": "synthetic-realistic",
+      "note": "Synthetic patient, no PHI."
+    },
+    "note": "Paciente de 68 anos con enfermedad renal cronica. Se agrega suplemento de potasio durante el alta.",
+    "medications": [
+      { "raw": "spironolactone 25mg" },
+      { "raw": "potassium chloride 20mEq" }
+    ],
+    "allergies": [],
+    "diagnoses": ["Enfermedad renal cronica"],
+    "labs": [{ "name": "Potasio", "value": 5.1, "unit": "mmol/L", "refLow": 3.5, "refHigh": 5.1 }],
+    "expected_pair": ["spironolactone", "potassium chloride"],
+    "expected_severity": "Major"
+  },
+  {
+    "id": "qt-prolongation",
+    "domain": "qt",
+    "_meta": {
+      "kind": "synthetic-realistic",
+      "note": "Synthetic patient, no PHI."
+    },
+    "note": "Paciente de 74 anos con fibrilacion auricular. Se inicia claritromicina al alta.",
+    "medications": [
+      { "raw": "amiodarone 200mg" },
+      { "raw": "clarithromycin 500mg" }
+    ],
+    "allergies": [],
+    "diagnoses": ["Fibrilacion auricular"],
+    "labs": [],
+    "expected_pair": ["amiodarone", "clarithromycin"],
+    "expected_severity": "Major"
+  },
+  {
+    "id": "serotonergic",
+    "domain": "serotonergic",
+    "_meta": {
+      "kind": "synthetic-realistic",
+      "note": "Synthetic patient, no PHI."
+    },
+    "note": "Paciente de 42 anos en tratamiento con sertralina que consulta por tos y usa dextrometorfano.",
+    "medications": [
+      { "raw": "sertraline 100mg" },
+      { "raw": "dextromethorphan 30mg" }
+    ],
+    "allergies": [],
+    "diagnoses": ["Depresion"],
+    "labs": [],
+    "expected_pair": ["sertraline", "dextromethorphan"],
+    "expected_severity": "Major"
+  },
+  {
+    "id": "therapeutic-duplication",
+    "domain": "duplication",
+    "_meta": {
+      "kind": "synthetic-realistic",
+      "note": "Synthetic patient, no PHI."
+    },
+    "note": "Paciente con dos entradas de anticoagulacion que requieren reconciliacion.",
+    "medications": [
+      { "raw": "warfarin 5mg" },
+      { "raw": "Coumadin 5mg" }
+    ],
+    "allergies": [],
+    "diagnoses": ["Fibrilacion auricular"],
+    "labs": [{ "name": "INR", "value": 2.4, "unit": "", "refLow": 2, "refHigh": 3 }],
+    "expected_ingredient_rxcui": "11289"
+  },
+  {
+    "id": "combination-medication",
+    "domain": "combination",
+    "_meta": {
+      "kind": "synthetic-realistic",
+      "note": "Synthetic patient, no PHI."
+    },
+    "note": "Paciente anticoagulado con warfarina. Se inicia cotrimoxazol por infeccion urinaria.",
+    "medications": [
+      { "raw": "warfarin 5mg" },
+      { "raw": "cotrimoxazole 800/160mg" }
+    ],
+    "allergies": [],
+    "diagnoses": ["Infeccion del tracto urinario"],
+    "labs": [{ "name": "INR", "value": 2.6, "unit": "", "refLow": 2, "refHigh": 3 }],
+    "expected_pair": ["warfarin", "sulfamethoxazole / trimethoprim"],
+    "expected_severity": "Major"
+  }
+]

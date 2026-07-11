@@ -2,29 +2,18 @@ import type {
   EvidenceObject,
   Finding,
   PatientContext,
+  ReviewLocale,
   SafetyReport,
   Severity,
   Status,
 } from "../types/index.ts";
-
-const MODEL = "claude-opus-4-8";
-const ANTHROPIC_MESSAGES_URL = "https://api.anthropic.com/v1/messages";
-const ANTHROPIC_VERSION = "2023-06-01";
+import { callOpus } from "../llm.ts";
 
 interface SynthesisOutput {
   plan: string[];
   patient_summary: string;
   findings: Finding[];
   questions_for_clinician: string[];
-}
-
-interface AnthropicTextBlock {
-  type: string;
-  text?: string;
-}
-
-interface AnthropicMessageResponse {
-  content?: AnthropicTextBlock[];
 }
 
 const statusValues = new Set<Status>(["flagged", "informational", "red-flag"]);
@@ -82,7 +71,7 @@ const outputSchema = {
   },
 } as const;
 
-function buildSystemPrompt(evidenceIds: string[]): string {
+function buildSystemPrompt(evidenceIds: string[], locale: ReviewLocale): string {
   return [
     "You are the SYNTHESIZE layer for Sourced, a medication-safety tool.",
     "HARD CONTRACT: You may only reason over the provided evidence objects. You may not introduce any interaction, adverse-effect, severity, or monitoring claim not present in the retrieved sources. If you cannot cite an evidence_id for a claim, omit the claim.",
@@ -96,12 +85,18 @@ function buildSystemPrompt(evidenceIds: string[]): string {
     "Use conservative patient-context language. Do not call the context an exact or classic scenario for a source; state only the specific facts that match.",
     "When cited timing makes a current patient value clinically relevant, explain the possible future change with may or could language and never state that the outcome will occur.",
     "Use one uncertainty word, not combinations such as may or could.",
+    "Every medication named in why_this_patient must also appear in that finding's drugs array, except a source-stated brand or combination-product container whose declared ingredient is already in finding.drugs. When pair evidence is bound to an ingredient inside a brand product, finding.drugs must contain only the evidence-bound pair; mention the source brand in why_this_patient without adding it as a third interacting drug.",
     "Do not create medication-reconciliation or duplicate-therapy findings unless an EvidenceObject explicitly supports the therapeutic-equivalence claim.",
     "Do not create findings for DDInter Unknown pairs unless another EvidenceObject supports a concrete interaction, adverse effect, severity, or monitoring claim for that pair.",
+    "Every DDInter EvidenceObject whose quoted Level is Major, Moderate, or Minor is mandatory pair evidence. Emit at least one Finding that cites that exact evidence_id and contains both subject_drugs in the same drugs array. Never split a supported pair into separate single-drug findings.",
+    "For a mandatory DDInter pair, assert only the severity and interaction supported by its exact structured row unless another cited EvidenceObject directly supports a more specific claim for that same pair.",
     "A Finding must assert a concrete, supported safety issue. A statement that no interaction or no concrete claim is supported is not a Finding; omit it entirely.",
     "Questions for the clinician must not introduce dosing, monitoring, interaction, adverse-effect, or renal-adjustment claims unsupported by the provided EvidenceObjects.",
     "Do not ask whether to adjust a medication based only on a lab value unless cited evidence explicitly connects that medication, lab, and action.",
     "Questions must not assume their answer. Ask whether duplicate-looking entries are one order or separate orders rather than assuming a single intended order.",
+    locale === "es"
+      ? "Write patient_summary, headline, mechanism, monitoring, why_this_patient, clinician questions, and plan in clear, plain Spanish. Preserve medication names, evidence ids, quoted source wording, numeric values, and units exactly as provided."
+      : "Write patient_summary, headline, mechanism, monitoring, why_this_patient, clinician questions, and plan in clear English. Preserve medication names, evidence ids, quoted source wording, numeric values, and units exactly as provided.",
     "JSON schema: " + JSON.stringify(outputSchema),
     "Return only JSON matching the provided schema. Do not wrap JSON in markdown.",
   ].join("\n");
@@ -197,83 +192,6 @@ function parseSynthesisOutput(text: string): SynthesisOutput {
   };
 }
 
-async function callAnthropic(systemPrompt: string, userPrompt: string): Promise<string> {
-  const key = process.env.ANTHROPIC_API_KEY;
-  if (!key) {
-    throw new Error("ANTHROPIC_API_KEY missing");
-  }
-
-  const response = await fetch(ANTHROPIC_MESSAGES_URL, {
-    method: "POST",
-    headers: {
-      "anthropic-version": ANTHROPIC_VERSION,
-      "content-type": "application/json",
-      "x-api-key": key,
-    },
-    body: JSON.stringify({
-      model: MODEL,
-      max_tokens: 4096,
-      temperature: 0,
-      system: systemPrompt,
-      messages: [{ role: "user", content: userPrompt }],
-    }),
-  });
-
-  if (!response.ok) {
-    const body = await response.text();
-    throw new Error(`Anthropic API failed: ${response.status} ${body.slice(0, 300)}`);
-  }
-
-  const data = (await response.json()) as AnthropicMessageResponse;
-  const text = data.content
-    ?.filter((block) => block.type === "text" && typeof block.text === "string")
-    .map((block) => block.text)
-    .join("\n")
-    .trim();
-
-  if (!text) {
-    throw new Error("Anthropic API returned no text content");
-  }
-  return text;
-}
-
-async function callClaudePrint(systemPrompt: string, userPrompt: string): Promise<string> {
-  const proc = Bun.spawn(
-    [
-      "claude",
-      "-p",
-      "--model",
-      MODEL,
-      "--tools",
-      "",
-      "--no-session-persistence",
-      "--system-prompt",
-      systemPrompt,
-      "--json-schema",
-      JSON.stringify(outputSchema),
-    ],
-    {
-      stdin: "pipe",
-      stdout: "pipe",
-      stderr: "pipe",
-    },
-  );
-
-  proc.stdin.write(userPrompt);
-  proc.stdin.end();
-
-  const [stdout, stderr, exitCode] = await Promise.all([
-    new Response(proc.stdout).text(),
-    new Response(proc.stderr).text(),
-    proc.exited,
-  ]);
-
-  if (exitCode !== 0) {
-    throw new Error(`claude -p failed: ${stderr || stdout}`);
-  }
-  return stdout.trim();
-}
-
 function printPlan(plan: string[]): void {
   console.error("PLAN");
   for (let i = 0; i < plan.length; i++) {
@@ -281,25 +199,241 @@ function printPlan(plan: string[]): void {
   }
 }
 
+function normalizedDrug(value: string): string {
+  return value.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+}
+
+function drugMatches(candidate: string, subject: string): boolean {
+  const normalizedCandidate = normalizedDrug(candidate);
+  const normalizedSubject = normalizedDrug(subject);
+  if (!normalizedCandidate || !normalizedSubject) return false;
+  return normalizedCandidate === normalizedSubject ||
+    normalizedCandidate.includes(normalizedSubject) ||
+    normalizedSubject.includes(normalizedCandidate);
+}
+
+function concretePairEvidence(evidence: EvidenceObject): boolean {
+  return evidence.source_name === "DDInter" &&
+    evidence.subject_drugs?.length === 2 &&
+    typeof evidence.quoted_text === "string" &&
+    /Level:\s*(Major|Moderate|Minor)\b/i.test(evidence.quoted_text);
+}
+
+export function missingRequiredPairEvidence(
+  findings: Finding[],
+  evidence: EvidenceObject[],
+): EvidenceObject[] {
+  return evidence.filter((item) => {
+    if (!concretePairEvidence(item)) return false;
+    const subjects = item.subject_drugs ?? [];
+    return !findings.some((finding) =>
+      finding.evidence_ids.includes(item.id) &&
+      subjects.every((subject) => finding.drugs.some((drug) => drugMatches(drug, subject)))
+    );
+  });
+}
+
+function pairLevel(evidence: EvidenceObject): "Major" | "Moderate" | "Minor" {
+  const level = evidence.quoted_text?.match(/Level:\s*(Major|Moderate|Minor)\b/i)?.[1];
+  if (!level) throw new Error(`synthesize: DDInter evidence ${evidence.id} is missing a concrete level`);
+  return `${level[0]?.toUpperCase()}${level.slice(1).toLowerCase()}` as "Major" | "Moderate" | "Minor";
+}
+
+export function canonicalizeRequiredPairFindings(
+  findings: Finding[],
+  evidence: EvidenceObject[],
+  locale: ReviewLocale = "en",
+): Finding[] {
+  const required = evidence.filter(concretePairEvidence).sort((left, right) => {
+    const leftIndex = findings.findIndex((finding) => finding.evidence_ids.includes(left.id));
+    const rightIndex = findings.findIndex((finding) => finding.evidence_ids.includes(right.id));
+    return leftIndex - rightIndex;
+  });
+  if (required.length === 0) return findings;
+  const requiredIds = new Set(required.map((item) => item.id));
+  const firstRequiredIndex = findings.findIndex((finding) =>
+    finding.evidence_ids.some((id) => requiredIds.has(id))
+  );
+  const insertionIndex = findings.slice(0, Math.max(0, firstRequiredIndex)).filter((finding) =>
+    !finding.evidence_ids.some((id) => requiredIds.has(id))
+  ).length;
+  const retained = findings.filter((finding) =>
+    !finding.evidence_ids.some((id) => requiredIds.has(id))
+  );
+  const canonical = required.map((item): Finding => {
+    const [left, right] = item.subject_drugs as [string, string];
+    const level = pairLevel(item);
+    return {
+      status: level === "Major" ? "red-flag" : level === "Moderate" ? "flagged" : "informational",
+      severity: level.toLowerCase() as Severity,
+      drugs: [left, right],
+      headline: locale === "es" ? `Interacción entre ${left} y ${right}` : `${left} + ${right} interaction`,
+      mechanism: locale === "es"
+        ? `DDInter clasifica el par exacto ${left} + ${right} con gravedad ${level === "Major" ? "mayor" : level === "Moderate" ? "moderada" : "menor"}.`
+        : `DDInter classifies the exact ${left} + ${right} pair as ${level}.`,
+      why_this_patient: locale === "es"
+        ? `Tanto ${left} como ${right} están activos en el episodio de seguridad de medicamentos revisado.`
+        : `Both ${left} and ${right} are active in the reviewed medication-safety episode.`,
+      evidence_ids: [item.id],
+    };
+  });
+  return [
+    ...retained.slice(0, insertionIndex),
+    ...canonical,
+    ...retained.slice(insertionIndex),
+  ];
+}
+
+export function constrainPatientReasoning(
+  findings: Finding[],
+  patient: PatientContext,
+  locale: ReviewLocale = "en",
+): Finding[] {
+  const activeMedications = patient.medications.filter(
+    (medication) => (medication.status ?? "active") === "active",
+  );
+  return findings.map((finding) => {
+    const normalizedReasoning = ` ${normalizedDrug(finding.why_this_patient)} `;
+    const referencesOutsideMedication = activeMedications.some((medication) => {
+      const names = [
+        medication.name,
+        ...(medication.ingredients?.map((ingredient) => ingredient.name) ?? []),
+      ];
+      if (names.some((name) => finding.drugs.some((drug) => drugMatches(drug, name)))) {
+        return false;
+      }
+      return names.some((name) => {
+        const normalizedName = normalizedDrug(name);
+        return normalizedName.length >= 4 && normalizedReasoning.includes(` ${normalizedName} `);
+      });
+    });
+    return referencesOutsideMedication
+      ? {
+          ...finding,
+          why_this_patient: locale === "es"
+            ? "Los medicamentos de este hallazgo están activos en el episodio de seguridad de medicamentos revisado."
+            : "The medications in this finding are active in the reviewed medication-safety episode.",
+        }
+      : finding;
+  });
+}
+
+export function canonicalizeExplicitClassPairs(
+  findings: Finding[],
+  evidence: EvidenceObject[],
+  patient: PatientContext,
+  locale: ReviewLocale = "en",
+): Finding[] {
+  const spironolactoneEvidence = evidence.find((item) =>
+    item.source_name === "openFDA-label" &&
+    drugMatches(item.anchor_drug ?? "", "spironolactone") &&
+    /ACE inhibitors/i.test(item.quoted_text ?? "") &&
+    /severe hyperkalemia/i.test(item.quoted_text ?? "")
+  );
+  if (!spironolactoneEvidence) return findings;
+  const active = patient.medications.filter(
+    (medication) => (medication.status ?? "active") === "active",
+  );
+  const spironolactoneActive = active.some((medication) =>
+    [
+      medication.name,
+      ...(medication.ingredients?.map((ingredient) => ingredient.name) ?? []),
+    ].some((name) => drugMatches(name, "spironolactone"))
+  );
+  let aceClassEvidence: EvidenceObject | undefined;
+  const aceInhibitor = active.find((medication) => {
+    if (drugMatches(medication.name, "spironolactone")) return false;
+    const escapedName = medication.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const structuredClassEvidence = evidence.find((item) =>
+      item.source_name === "openFDA-label" &&
+      drugMatches(item.anchor_drug ?? "", medication.name) &&
+      /ACE inhibitors/i.test(item.quoted_text ?? "") &&
+      new RegExp(`\\b${escapedName}\\b`, "i").test(item.quoted_text ?? "")
+    );
+    const noteDeclaresClass = new RegExp(
+      `(?:${escapedName}.{0,100}ACE inhibitor|ACE inhibitor.{0,100}${escapedName})`,
+      "i",
+    ).test(patient.note ?? "");
+    const declaredInMedication = /\bACE inhibitor\b/i.test(
+      `${medication.raw} ${medication.episode ?? ""} ${medication.start ?? ""} ${medication.end ?? ""} ${medication.source_span ?? ""}`,
+    );
+    if (structuredClassEvidence) aceClassEvidence = structuredClassEvidence;
+    return Boolean(structuredClassEvidence) || declaredInMedication || noteDeclaresClass;
+  });
+  if (!spironolactoneActive || !aceInhibitor) return findings;
+  const pair = [spironolactoneEvidence.anchor_drug ?? "spironolactone", aceInhibitor.name];
+  const retained = findings.filter((finding) =>
+    !pair.every((subject) => finding.drugs.some((drug) => drugMatches(drug, subject)))
+  );
+  const canonical: Finding = {
+    status: "red-flag",
+    severity: "major",
+    drugs: pair,
+    headline: locale === "es"
+      ? `${pair[0]} + ${pair[1]} puede causar hiperpotasemia grave`
+      : `${pair[0]} + ${pair[1]} may lead to severe hyperkalemia`,
+    mechanism: locale === "es"
+      ? "La etiqueta de spironolactone incluye los inhibidores de la ECA entre los fármacos que aumentan el potasio y señala que su administración concomitante puede causar hiperpotasemia grave."
+      : "The spironolactone label lists ACE inhibitors among drugs that increase potassium and states that concomitant administration may lead to severe hyperkalemia.",
+    why_this_patient: locale === "es"
+      ? `Tanto ${pair[0]} como ${pair[1]} están activos en el episodio revisado, y la fuente identifica ${pair[1]} como inhibidor de la ECA.`
+      : `Both ${pair[0]} and ${pair[1]} are active in the reviewed medication-safety episode, and the source identifies ${pair[1]} as an ACE inhibitor.`,
+    evidence_ids: [
+      spironolactoneEvidence.id,
+      ...(aceClassEvidence ? [aceClassEvidence.id] : []),
+    ],
+  };
+  return [canonical, ...retained];
+}
+
 export async function synthesize(
   patient: PatientContext,
   evidence: EvidenceObject[],
   now: string,
+  locale: ReviewLocale = "en",
 ): Promise<SafetyReport> {
-  const systemPrompt = buildSystemPrompt(evidence.map((item) => item.id));
+  const systemPrompt = buildSystemPrompt(evidence.map((item) => item.id), locale);
   const userPrompt = buildUserPrompt(patient, evidence);
 
-  let rawOutput: string;
-  try {
-    rawOutput = await callAnthropic(systemPrompt, userPrompt);
-  } catch {
-    rawOutput = await callClaudePrint(systemPrompt, userPrompt);
+  let rawOutput = await callOpus(systemPrompt, userPrompt, outputSchema);
+  let output = parseSynthesisOutput(rawOutput);
+  let missingPairs = missingRequiredPairEvidence(output.findings, evidence);
+  if (missingPairs.length > 0) {
+    const requirements = missingPairs.map((item) => ({
+      evidence_id: item.id,
+      subject_drugs: item.subject_drugs,
+      quoted_text: item.quoted_text,
+    }));
+    rawOutput = await callOpus(
+      `${systemPrompt}\nThe previous synthesis violated the mandatory DDInter pair contract. Repair every listed pair in one joint Finding and return the complete report JSON again.`,
+      JSON.stringify({ patient, evidence, previous_output: output, missing_mandatory_pairs: requirements }, null, 2),
+      outputSchema,
+    );
+    output = parseSynthesisOutput(rawOutput);
+    missingPairs = missingRequiredPairEvidence(output.findings, evidence);
+    if (missingPairs.length > 0) {
+      throw new Error(
+        `synthesize: missing mandatory DDInter pair findings: ${missingPairs.map((item) => item.subject_drugs?.join(" + ")).join(", ")}`,
+      );
+    }
   }
-
-  const output = parseSynthesisOutput(rawOutput);
+  output = {
+    ...output,
+    findings: constrainPatientReasoning(
+      canonicalizeExplicitClassPairs(
+        canonicalizeRequiredPairFindings(output.findings, evidence, locale),
+        evidence,
+        patient,
+        locale,
+      ),
+      patient,
+      locale,
+    ),
+  };
   printPlan(output.plan);
 
   return {
+    patient,
     patient_summary: output.patient_summary,
     findings: output.findings,
     questions_for_clinician: output.questions_for_clinician,

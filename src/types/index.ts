@@ -4,6 +4,15 @@
 
 export type Severity = "major" | "moderate" | "minor";
 export type Status = "flagged" | "informational" | "red-flag";
+export type ReviewLocale = "en" | "es";
+export type MedicationStatus =
+  | "active"
+  | "historical"
+  | "held"
+  | "stopped"
+  | "one-time"
+  | "indirect-exposure"
+  | "uncertain";
 
 /** A normalized drug from the patient's (possibly Spanish, possibly messy) med list. */
 export interface Medication {
@@ -11,6 +20,18 @@ export interface Medication {
   name: string; // resolved English name, e.g. "Amiodarone"
   rxcui: string | null; // RxNorm concept id; null = unresolved (fail loudly)
   resolution: "exact" | "approximate" | "unresolved";
+  ingredients?: { rxcui: string; name: string }[];
+  status?: MedicationStatus;
+  episode?: string;
+  start?: string;
+  end?: string;
+  source_span?: string;
+}
+
+export interface MedicationDuplicate {
+  ingredient_rxcui: string;
+  ingredient_name: string;
+  medications: { raw: string; name: string; rxcui: string }[];
 }
 
 export interface Lab {
@@ -27,6 +48,19 @@ export interface PatientContext {
   allergies: string[];
   diagnoses: string[];
   labs: Lab[];
+  duplicate_medications?: MedicationDuplicate[];
+}
+
+export interface PipelineRun {
+  mode: "live" | "audited-replay";
+  model: string;
+  stages: Array<"ingest" | "retrieve" | "synthesize" | "verify">;
+  ddinter: {
+    source_rows: number;
+    unique_pairs: number;
+    unique_drugs: number;
+    source_files: number;
+  };
 }
 
 /**
@@ -41,6 +75,10 @@ export interface EvidenceObject {
   source_url: string; // resolvable link a judge can click
   exact_field?: string; // e.g. "drug_interactions" or the quoted label field
   quoted_text?: string; // verbatim text from the source (verifier checks this matches)
+  supporting_text?: string;
+  source_version?: string;
+  subject_drugs?: string[];
+  anchor_drug?: string;
   retrieval_query: string; // the exact query that produced this row
   retrieved_at: string; // ISO timestamp (passed in, never Date.now() in agents)
 }
@@ -58,10 +96,12 @@ export interface Finding {
 }
 
 export interface SafetyReport {
+  patient?: PatientContext;
   patient_summary: string;
   findings: Finding[]; // ranked, highest severity first
   questions_for_clinician: string[];
   evidence: EvidenceObject[]; // the full audit ledger
   unverified_removed: { claim_text: string; reason: string }[]; // what the reviewer rejected
   generated_at: string;
+  pipeline?: PipelineRun;
 }
