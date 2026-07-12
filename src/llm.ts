@@ -8,7 +8,7 @@ const MODEL = "claude-opus-4-8";
 const GATEWAY_MODEL = "anthropic/claude-opus-4.8";
 const ANTHROPIC_MESSAGES_URL = "https://api.anthropic.com/v1/messages";
 const ANTHROPIC_VERSION = "2023-06-01";
-const GATEWAY_TIMEOUT_MS = 55_000;
+const GATEWAY_TIMEOUT_MS = 110_000;
 const API_TIMEOUT_MS = 120_000;
 const CLI_TIMEOUT_MS = 180_000;
 const MAX_PROCESS_OUTPUT = 2_000_000;
@@ -27,6 +27,7 @@ async function callGateway(
     model: GATEWAY_MODEL,
     abortSignal: AbortSignal.timeout(GATEWAY_TIMEOUT_MS),
     maxRetries: 1,
+    maxOutputTokens: 16_000,
     schema: jsonSchema(schema as Parameters<typeof jsonSchema>[0]),
     system,
     prompt: user,
