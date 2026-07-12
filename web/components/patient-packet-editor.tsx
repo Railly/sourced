@@ -16,6 +16,7 @@ import {
   type ReviewMedicationDraft,
 } from "@/lib/review-case";
 import type { MedicationStatus } from "@/lib/types";
+import { TagInput } from "@/components/tag-input";
 import { useI18n } from "@/lib/i18n";
 import { labUnitOptions } from "@/lib/workspace-ux";
 
@@ -54,7 +55,6 @@ export function PatientPacketEditor({
   onConfirm,
   confirmDisabled = false,
   confirmDisabledReason,
-  onAmbiguityClick,
 }: {
   draft: ReviewCaseDraft;
   onChange: (draft: ReviewCaseDraft) => void;
@@ -64,7 +64,6 @@ export function PatientPacketEditor({
   onConfirm?: () => void;
   confirmDisabled?: boolean;
   confirmDisabledReason?: string;
-  onAmbiguityClick?: () => void;
 }) {
   const { t } = useI18n();
   // Only flag a genuine duplicate/same-drug clarification. The specific
@@ -112,34 +111,32 @@ export function PatientPacketEditor({
           </span>
         </div>
         <div className="grid gap-4 sm:grid-cols-2">
-          <label className="block">
+          <div className="block">
             <span className="text-[9.5px] font-semibold uppercase tracking-wide text-ink-faint">{t("packet.diagnoses")}</span>
-            <textarea
+            <TagInput
               id="packet-diagnoses"
               value={draft.diagnoses}
-              onChange={(event) => onChange({ ...draft, diagnoses: event.target.value })}
-              rows={3}
+              onChange={(next) => onChange({ ...draft, diagnoses: next })}
               placeholder={t("packet.noDiagnoses")}
-              className={`${fieldClass} mt-1 resize-none leading-relaxed`}
+              ariaLabel={t("packet.diagnoses")}
             />
             {!draft.diagnoses.trim() ? (
               <span className="mt-1 block text-[10px] leading-relaxed text-ink-faint">{t("packet.addPerLine")}</span>
             ) : null}
-          </label>
-          <label className="block">
+          </div>
+          <div className="block">
             <span className="text-[9.5px] font-semibold uppercase tracking-wide text-ink-faint">{t("packet.allergies")}</span>
-            <textarea
+            <TagInput
               id="packet-allergies"
               value={draft.allergies}
-              onChange={(event) => onChange({ ...draft, allergies: event.target.value })}
-              rows={3}
+              onChange={(next) => onChange({ ...draft, allergies: next })}
               placeholder={t("packet.noAllergies")}
-              className={`${fieldClass} mt-1 resize-none leading-relaxed`}
+              ariaLabel={t("packet.allergies")}
             />
             {!draft.allergies.trim() ? (
               <span className="mt-1 block text-[10px] leading-relaxed text-ink-faint">{t("packet.allergiesHelp")}</span>
             ) : null}
-          </label>
+          </div>
         </div>
       </section>
 
