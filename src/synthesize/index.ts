@@ -54,7 +54,7 @@ const outputSchema = {
           },
           headline: { type: "string", minLength: 1 },
           mechanism: { type: "string", minLength: 1 },
-          monitoring: { type: "string", minLength: 1 },
+          monitoring: { type: "string" },
           why_this_patient: { type: "string", minLength: 1 },
           evidence_ids: {
             type: "array",
