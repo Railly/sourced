@@ -32,9 +32,6 @@ const medicationStatuses: MedicationStatus[] = [
   "uncertain",
 ];
 
-function medicationIdentity(value: string): string {
-  return value.match(/[\p{L}][\p{L}-]{2,}/u)?.[0] ?? value.trim();
-}
 
 function updateMedicationDetails(
   draft: ReviewCaseDraft,
@@ -70,16 +67,13 @@ export function PatientPacketEditor({
   onAmbiguityClick?: () => void;
 }) {
   const { t } = useI18n();
-  const duplicateWarning = ambiguities.find((item) => /medication|medicamento|duplicate|duplicad|warfarin|warfarina|coumadin/i.test(`${item.field} ${item.question}`));
-  const duplicateIndexes = duplicateWarning
-    ? draft.medications.flatMap((medication, index) => {
-        const identity = medicationIdentity(medication);
-        return identity.length >= 3 && duplicateWarning.question.toLocaleLowerCase().includes(identity.toLocaleLowerCase())
-          ? [index]
-          : [];
-      })
-    : [];
-  const duplicateNames = duplicateIndexes.map((index) => medicationIdentity(draft.medications[index] ?? ""));
+  // Only flag a genuine duplicate/same-drug clarification. The specific
+  // medications are named precisely in the clarification question itself, so the
+  // banner stays generic rather than guessing drug names from free text (which
+  // is unsafe in a medication-safety tool).
+  const duplicateWarning = ambiguities.find((item) =>
+    /duplicate|duplicad|duplicidad|same.?drug|same medication|mismo medicamento|misma droga/i.test(item.question),
+  );
 
   return (
     <div
@@ -167,9 +161,7 @@ export function PatientPacketEditor({
               <div>
                 <p className="text-[11.5px] font-semibold text-ink">{t("packet.sharedAmbiguityTitle")}</p>
                 <p className="mt-0.5 text-[10.5px] leading-relaxed text-ink-muted">
-                  {duplicateNames.length >= 2
-                    ? t("packet.sharedAmbiguityBody", { first: duplicateNames[0]!, second: duplicateNames[1]! })
-                    : t("packet.sharedAmbiguityGeneric")}
+                  {t("packet.sharedAmbiguityGeneric")}
                 </p>
               </div>
             </div>
@@ -188,20 +180,18 @@ export function PatientPacketEditor({
             <p className="py-4 text-[11px] text-ink-faint">{t("packet.noMedications")}</p>
           ) : null}
           {draft.medications.map((medication, index) => {
-            const warning = duplicateIndexes.includes(index);
             const details = draft.medicationDetails[index] ?? activeMedicationDraft();
             return (
-              <div key={index} className={`py-2.5 ${warning ? "bg-moderate-bg" : ""}`}>
+              <div key={index} className="py-2.5">
                 <div className="grid grid-cols-[1.5rem_minmax(0,1fr)_auto] items-center gap-2 sm:flex sm:gap-3">
                   <span className="row-span-2 flex h-6 w-6 shrink-0 items-center justify-center sm:row-span-1">
-                    <span className={`h-2 w-2 rounded-full ${warning ? "bg-moderate" : "bg-ink-faint"}`} aria-hidden="true" />
+                    <span className="h-2 w-2 rounded-full bg-ink-faint" aria-hidden="true" />
                   </span>
                   <input
                     data-testid="packet-medication"
                     id={`packet-medication-${index + 1}`}
                     value={medication}
                     aria-label={t("packet.medicationLabel", { index: index + 1 })}
-                    aria-describedby={warning ? "shared-medication-ambiguity" : undefined}
                     placeholder={t("packet.medicationPlaceholder")}
                     onChange={(event) => {
                       const medications = [...draft.medications];

@@ -210,6 +210,7 @@ export function AgentWorkspace({
   const [editingPacket, setEditingPacket] = useState(false);
   const [precomputedReport, setPrecomputedReport] = useState<SafetyReport | null>(null);
   const [staticSpec, setStaticSpec] = useState<Spec | null>(null);
+  const [highlightClarification, setHighlightClarification] = useState(false);
   const agent = useEveAgent();
   const agentBusy = agent.status === "submitted" || agent.status === "streaming";
   const ui = useUIStream({
@@ -279,6 +280,8 @@ export function AgentWorkspace({
 
   function focusAmbiguityQuestion(): void {
     setMobilePane("eve");
+    setHighlightClarification(true);
+    window.setTimeout(() => setHighlightClarification(false), 1400);
     requestAnimationFrame(() => {
       const target = document.getElementById("active-clarification");
       target?.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -529,7 +532,7 @@ export function AgentWorkspace({
             <span className="hidden text-[13px] font-medium text-ink-muted sm:block">{t("app.subtitle")}</span>
           </div>
           <div className="flex items-center gap-3">
-            <label className="inline-flex items-center rounded-md border border-hairline-strong bg-paper px-2 py-1.5 text-[11px] font-semibold text-ink-muted focus-within:border-info focus-within:ring-2 focus-within:ring-info-border">
+            <label className="inline-flex h-9 items-center rounded-md border border-hairline-strong bg-paper px-2.5 text-[12px] font-semibold text-ink-muted focus-within:border-info focus-within:ring-2 focus-within:ring-info-border">
               <span className="sr-only">{t("language.label")}</span>
               <select
                 data-testid="language-switch"
@@ -547,7 +550,7 @@ export function AgentWorkspace({
                 type="button"
                 onClick={reset}
                 aria-label={t("app.newReview")}
-                className="inline-flex items-center gap-2 rounded-md border border-hairline-strong bg-paper px-3 py-2 text-[11.5px] font-semibold hover:border-info hover:text-info focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-info"
+                className="inline-flex h-9 items-center gap-2 rounded-md border border-hairline-strong bg-paper px-3 text-[12px] font-semibold hover:border-info hover:text-info focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-info"
               >
                 <ArrowCounterClockwise className="h-4 w-4" weight="regular" />
                 <span className="hidden sm:inline">{t("app.newReview")}</span>
@@ -654,7 +657,7 @@ export function AgentWorkspace({
                     tabIndex={-1}
                     data-ambiguity-id={ambiguities[0]?.id}
                     data-ambiguity-question={ambiguities[0]?.question}
-                    className="mt-4 flex min-h-[250px] gap-3 rounded-lg border border-info-border bg-info-bg/35 px-4 py-4 outline-none focus-visible:ring-2 focus-visible:ring-info sm:min-h-[190px]"
+                    className={`mt-4 flex min-h-[250px] gap-3 rounded-lg border border-info-border bg-info-bg/35 px-4 py-4 outline-none transition-shadow focus-visible:ring-2 focus-visible:ring-info sm:min-h-[190px] ${highlightClarification ? "ring-2 ring-info ring-offset-2 ring-offset-paper" : ""}`}
                     aria-live="polite"
                     aria-busy={agentBusy}
                   >
@@ -862,7 +865,7 @@ export function AgentWorkspace({
                     ambiguities={ambiguities}
                     sourceName={sourceName}
                     editingHint={editingPacket}
-                    onConfirm={phase === "confirming" ? () => void confirmPacket() : undefined}
+                    onConfirm={() => void confirmPacket()}
                     confirmDisabled={confirmationBlocker !== null}
                     confirmDisabledReason={confirmationBlocker ?? undefined}
                     onAmbiguityClick={focusAmbiguityQuestion}
