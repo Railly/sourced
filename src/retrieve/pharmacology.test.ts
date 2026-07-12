@@ -9,8 +9,6 @@ function profile(over: Partial<PharmacologyProfile> & { drug: string }): Pharmac
     splUrl: "https://example",
     inhibits: new Map(),
     substrateOf: new Map(),
-    qtProlonging: null,
-    anticholinergic: null,
     ...over,
   };
 }
@@ -31,31 +29,30 @@ test("substrate without a matching inhibitor produces no CYP evidence", () => {
   expect(crossReferencePharmacology([a, b], "now").filter((e) => e.id.startsWith("cyp:"))).toHaveLength(0);
 });
 
-test("two QT-labeled drugs yield an additive QT evidence object", () => {
-  const methadone = profile({ drug: "Methadone", qtProlonging: "Methadone can prolong the QT interval." });
-  const metronidazole = profile({ drug: "Metronidazole", qtProlonging: "Metronidazole has been associated with QT prolongation." });
-  const qt = crossReferencePharmacology([methadone, metronidazole], "now").filter((e) => e.id.startsWith("qt:"));
-  expect(qt).toHaveLength(1);
-  expect(qt[0]?.claim_text).toContain("QT");
+test("skips an ambiguous CYP pair where the inhibitor is also a substrate", () => {
+  // amiodarone both inhibits and is a substrate of 2C8 -> role unclear, skip.
+  const amiodarone = profile({ drug: "Amiodarone", inhibits: new Map([["2C8", "q"]]), substrateOf: new Map([["2C8", "q"]]) });
+  const spironolactone = profile({ drug: "Spironolactone", substrateOf: new Map([["2C8", "q"]]) });
+  expect(crossReferencePharmacology([amiodarone, spironolactone], "now").filter((e) => e.id.startsWith("cyp:"))).toHaveLength(0);
 });
 
 test("enrichment names the mechanism and cites the evidence on a matching finding", () => {
   const evidence: EvidenceObject[] = [{
-    id: "qt:Methadone:Metronidazole",
-    claim_text: "Methadone and Metronidazole both carry QT-prolongation warnings; additive torsades risk",
+    id: "cyp:Amiodarone:Warfarin",
+    claim_text: "Amiodarone inhibits CYP2C9 and Warfarin is a substrate, so Amiodarone can raise Warfarin exposure",
     source_name: "openFDA-label",
     source_id: "s",
     source_url: "u",
-    subject_drugs: ["Methadone", "Metronidazole"],
+    subject_drugs: ["Amiodarone", "Warfarin"],
     quoted_text: "q",
     supporting_text: "q",
     retrieval_query: "r",
     retrieved_at: "now",
   }];
-  const finding: Finding = { status: "flagged", severity: "minor", drugs: ["Methadone", "Metronidazole"], headline: "h", mechanism: "DDInter classifies the pair as Minor.", why_this_patient: "w", evidence_ids: ["ddinter:1:2"] };
+  const finding: Finding = { status: "flagged", severity: "major", drugs: ["Warfarin", "Amiodarone"], headline: "h", mechanism: "DDInter classifies the pair as Major.", why_this_patient: "w", evidence_ids: ["ddinter:1:2"] };
   const [enriched] = enrichFindingsMechanism([finding], evidence);
-  expect(enriched?.mechanism).toContain("QT-prolongation");
-  expect(enriched?.evidence_ids).toContain("qt:Methadone:Metronidazole");
+  expect(enriched?.mechanism).toContain("CYP2C9");
+  expect(enriched?.evidence_ids).toContain("cyp:Amiodarone:Warfarin");
 });
 
 test("enrichment leaves a finding with no matching mechanism untouched", () => {

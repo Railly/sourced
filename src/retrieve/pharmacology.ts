@@ -22,29 +22,9 @@ export interface PharmacologyProfile {
   splUrl: string;
   inhibits: Map<string, string>; // CYP enzyme -> verbatim label quote
   substrateOf: Map<string, string>;
-  qtProlonging: string | null; // verbatim quote, or null
-  anticholinergic: string | null;
 }
 
 const GATEWAY_MODEL = "anthropic/claude-sonnet-5";
-
-/** First label sentence matching `pattern` and not a negation, as a quote. */
-function labeledSentence(label: OpenFdaLabel, pattern: RegExp, negation: RegExp): string | null {
-  const blocks = [
-    ...(label.boxed_warning ?? []),
-    ...(label.warnings ?? []),
-    ...(label.warnings_and_cautions ?? []),
-    ...(label.drug_interactions ?? []),
-    ...(label.clinical_pharmacology ?? []),
-  ];
-  for (const block of blocks) {
-    for (const sentence of block.match(/[^.!?]+[.!?]+|[^.!?]+$/g) ?? []) {
-      const s = sentence.trim();
-      if (pattern.test(s) && !negation.test(s.toLowerCase())) return s.slice(0, 400);
-    }
-  }
-  return null;
-}
 
 function labelText(label: OpenFdaLabel): string {
   return [
@@ -147,8 +127,6 @@ export async function extractProfiles(
     for (const item of extracted.cyp_inhibits) if (present(item.quote)) inhibits.set(item.enzyme.toUpperCase().replace(/^CYP/, ""), item.quote);
     const substrateOf = new Map<string, string>();
     for (const item of extracted.cyp_substrate_of) if (present(item.quote)) substrateOf.set(item.enzyme.toUpperCase().replace(/^CYP/, ""), item.quote);
-    // QT / anticholinergic presence is detected deterministically from the label
-    // (the model is inconsistent at flagging these); a labeled sentence is the quote.
     profiles.push({
       drug: med.name,
       rxcui: med.rxcui,
@@ -156,8 +134,6 @@ export async function extractProfiles(
       splUrl: `https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=${setId}`,
       inhibits,
       substrateOf,
-      qtProlonging: labeledSentence(label, /(qtc?\b.{0,40}prolong|prolong.{0,40}\bqtc?\b|torsade)/i, /\b(not|no|without|minimal|unlikely)\b.{0,30}(prolong|qt|torsade)/i),
-      anticholinergic: labeledSentence(label, /anticholinergic/i, /\b(not|no|without|non-?)\b.{0,15}anticholinergic/i),
     });
   }
   return profiles;
@@ -174,6 +150,10 @@ export function crossReferencePharmacology(profiles: PharmacologyProfile[], now:
 
   // One CYP evidence per ordered pair, listing every shared enzyme, so the
   // synthesis sees a single clean mechanism instead of one row per enzyme.
+  // Additive QT and anticholinergic cross-referencing was removed: keyword
+  // detection could not reliably tell a drug's own labeled property from a
+  // caution about co-administered drugs (e.g. a metronidazole label mentioning
+  // QT only in the context of other QT drugs), which produced false pairs.
   for (const a of profiles) {
     for (const b of profiles) {
       if (a.drug.toLowerCase() === b.drug.toLowerCase()) continue;
@@ -181,6 +161,10 @@ export function crossReferencePharmacology(profiles: PharmacologyProfile[], now:
       let quote = "";
       for (const [enzyme, inhibitQuote] of a.inhibits) {
         if (!b.substrateOf.has(enzyme)) continue;
+        // Skip ambiguous enzymes where the "inhibitor" is itself a substrate of
+        // the same CYP, or the "substrate" is also an inhibitor — the role is
+        // unclear and the pair is prone to a reversed mechanism.
+        if (a.substrateOf.has(enzyme) || b.inhibits.has(enzyme)) continue;
         shared.push(enzyme);
         if (!quote) quote = inhibitQuote;
       }
@@ -202,32 +186,6 @@ export function crossReferencePharmacology(profiles: PharmacologyProfile[], now:
     }
   }
 
-  const flagged = (key: "qtProlonging" | "anticholinergic", idPrefix: string, mechanism: (a: string, b: string) => string) => {
-    const drugs = profiles.filter((p) => p[key]);
-    for (let i = 0; i < drugs.length; i += 1) {
-      for (let j = i + 1; j < drugs.length; j += 1) {
-        const a = drugs[i]!;
-        const b = drugs[j]!;
-        evidence.push({
-          id: `${idPrefix}:${a.rxcui ?? a.drug}:${b.rxcui ?? b.drug}`,
-          claim_text: mechanism(a.drug, b.drug),
-          source_name: "openFDA-label",
-          source_id: a.setId,
-          source_url: a.splUrl,
-          exact_field: "warnings",
-          quoted_text: a[key]!,
-          supporting_text: a[key]!,
-          subject_drugs: [a.drug, b.drug],
-          retrieval_query: `FDA labels: ${idPrefix} warnings for ${a.drug} and ${b.drug}`,
-          retrieved_at: now,
-        });
-      }
-    }
-  };
-
-  flagged("qtProlonging", "qt", (a, b) => `${a} and ${b} both carry FDA-labeled QT-prolongation warnings; concurrent use adds QT/torsades risk`);
-  flagged("anticholinergic", "anticholinergic", (a, b) => `${a} and ${b} both carry FDA-labeled anticholinergic activity; concurrent use raises anticholinergic burden`);
-
   return evidence;
 }
 
@@ -248,7 +206,7 @@ function drugMatches(needle: string, haystack: string[]): boolean {
  * on the synthesis model to adopt it.
  */
 export function enrichFindingsMechanism(findings: Finding[], evidence: EvidenceObject[]): Finding[] {
-  const mechanismEvidence = evidence.filter((item) => /^(cyp|qt|anticholinergic):/.test(item.id));
+  const mechanismEvidence = evidence.filter((item) => item.id.startsWith("cyp:"));
   if (mechanismEvidence.length === 0) return findings;
 
   return findings.map((finding) => {

@@ -109,10 +109,7 @@ export async function runVerifiedReview(
   });
 
   await emit(options.onStage, { stage: "synthesize", status: "running" });
-  const synthesized = await synthesizeReport(patient, evidence, now, locale);
-  // Deterministically name the real mechanism on any finding whose pair matches
-  // a source-bound CYP/QT/anticholinergic evidence object.
-  const draft = { ...synthesized, findings: enrichFindingsMechanism(synthesized.findings, evidence) };
+  const draft = await synthesizeReport(patient, evidence, now, locale);
   await emit(options.onStage, {
     stage: "synthesize",
     status: "completed",
@@ -122,7 +119,14 @@ export async function runVerifiedReview(
   });
 
   await emit(options.onStage, { stage: "verify", status: "running" });
-  const verified = await verifyReport(draft, evidence, { patient, locale });
+  const rawVerified = await verifyReport(draft, evidence, { patient, locale });
+  // Name the real CYP mechanism on findings that survived verification, then add
+  // the cited mechanism evidence to the ledger. Done AFTER verify so a mechanism
+  // citation can never delete a source-backed finding — it only enriches survivors.
+  const enrichedFindings = enrichFindingsMechanism(rawVerified.findings, evidence);
+  const citedMechanismIds = new Set(enrichedFindings.flatMap((f) => f.evidence_ids).filter((id) => id.startsWith("cyp:")));
+  const mechanismEvidence = evidence.filter((item) => citedMechanismIds.has(item.id) && !rawVerified.evidence.some((existing) => existing.id === item.id));
+  const verified = { ...rawVerified, findings: enrichedFindings, evidence: [...rawVerified.evidence, ...mechanismEvidence] };
   const withResearch = attachResearchCandidates(verified, patient, retrieval.ddinter);
   const report: SafetyReport = {
     ...withResearch,
