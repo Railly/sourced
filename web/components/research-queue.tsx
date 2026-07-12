@@ -7,22 +7,14 @@ import { useI18n } from "@/lib/i18n";
 
 type RouteState = { status: "idle" | "routing" | "done" | "error"; url?: string; message?: string };
 
-function candidateContext(candidate: ResearchCandidate): string {
-  return [
-    "You are investigating a medication-safety question routed from Sourced.",
-    "Sourced is provenance-first: it never asserts a clinical fact it cannot trace to a cited source (openFDA drug labels, DDInter).",
-    "This question could not be resolved from those cited sources, so it was routed here for deeper investigation.",
-    "Investigate using primary literature and structured databases. Every claim in your answer must be source-backed and citable.",
-    `Basis for routing: ${candidate.reason}`,
-  ].join(" ");
-}
-
 export function ResearchQueue({
   candidates,
   totalKnownUnknown = 0,
+  patientSummary,
 }: {
   candidates: ResearchCandidate[];
   totalKnownUnknown?: number;
+  patientSummary?: string;
 }) {
   const { t } = useI18n();
   const [available, setAvailable] = useState(false);
@@ -52,11 +44,7 @@ export function ResearchQueue({
       const response = await fetch("/api/route-to-science", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({
-          title: `Sourced — ${candidate.drugs.join(" + ") || "medication-safety question"}`,
-          context: candidateContext(candidate),
-          question: candidate.question,
-        }),
+        body: JSON.stringify({ candidate, patientSummary }),
       });
       const data = await response.json();
       if (!response.ok) throw new Error(data.error ?? t("science.error"));

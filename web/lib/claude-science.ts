@@ -110,6 +110,8 @@ export async function routeToClaudeScience(input: {
   });
 
   const frame = await write<{ frame_id: string }>(jar, `/api/projects/${project.project_id}/request`, {
+    // Claude Science runs its reviewer agent by default (checks citations and
+    // calculations) — the same refuse-to-assert discipline Sourced applies.
     input_data: { request: input.question },
     model: input.model ?? "claude-opus-4-8",
   });

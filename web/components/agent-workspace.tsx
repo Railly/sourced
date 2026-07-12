@@ -887,6 +887,7 @@ export function AgentWorkspace({
                         <ResearchQueue
                           candidates={report.research_candidates}
                           totalKnownUnknown={report.research_total_known_unknown}
+                          patientSummary={report.patient_summary}
                         />
                       </div>
                     ) : null}
