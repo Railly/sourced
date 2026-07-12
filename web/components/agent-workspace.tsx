@@ -13,12 +13,14 @@ import {
   Sparkle,
 } from "@phosphor-icons/react";
 import { useEveAgent, type EveMessage } from "eve/react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { useQueryState } from "nuqs";
 import { buildCompletedReviewSpec, buildRunningReviewSpec } from "@/lib/genui/completed-spec";
 import { LiveReviewCanvas, reportFromLiveSpec } from "@/components/genui/live-review-canvas";
 import { SafeReviewLens, buildFallbackSpec } from "@/components/genui/review-lens";
 import { MultimodalComposer } from "@/components/multimodal-composer";
 import { PatientPacketEditor } from "@/components/patient-packet-editor";
+import { LandingSections } from "@/components/landing-sections";
 import { PublishedCaseGallery, type PublishedCase } from "@/components/published-case-gallery";
 import { ResearchQueue } from "@/components/research-queue";
 import { WorkspaceStageRail, type WorkspacePhase } from "@/components/workspace-stage-rail";
@@ -210,7 +212,9 @@ export function AgentWorkspace({
   const [editingPacket, setEditingPacket] = useState(false);
   const [precomputedReport, setPrecomputedReport] = useState<SafetyReport | null>(null);
   const [staticSpec, setStaticSpec] = useState<Spec | null>(null);
-  const [highlightClarification, setHighlightClarification] = useState(false);
+  const [caseParam, setCaseParam] = useQueryState("case");
+  const [langParam, setLangParam] = useQueryState("lang");
+  const deeplinked = useRef(false);
   const agent = useEveAgent();
   const agentBusy = agent.status === "submitted" || agent.status === "streaming";
   const ui = useUIStream({
@@ -235,6 +239,22 @@ export function AgentWorkspace({
   });
   const report = reportFromLiveSpec(staticSpec) ?? reportFromLiveSpec(ui.spec);
   const offline = precomputedReport !== null;
+
+  // Deep links: ?lang sets the locale, ?case auto-loads that published case once.
+  useEffect(() => {
+    if (deeplinked.current) return;
+    deeplinked.current = true;
+    if (langParam === "en" || langParam === "es") setLocale(langParam);
+    const target = caseParam ? publishedCases.find((item) => item.id === caseParam) : undefined;
+    if (target) void loadPublishedCase(target);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- run once on mount
+  }, []);
+
+  // Keep ?lang in sync with the active locale.
+  useEffect(() => {
+    void setLangParam(locale === "en" ? null : locale);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- only when locale changes
+  }, [locale]);
   const agentText = latestAgentText(agent.data.messages);
   const generatedLens = latestToolSpec(agent.data.messages);
   const fallbackLens = useMemo(
@@ -278,16 +298,6 @@ export function AgentWorkspace({
     });
   }
 
-  function focusAmbiguityQuestion(): void {
-    setMobilePane("eve");
-    setHighlightClarification(true);
-    window.setTimeout(() => setHighlightClarification(false), 1400);
-    requestAnimationFrame(() => {
-      const target = document.getElementById("active-clarification");
-      target?.scrollIntoView({ behavior: "smooth", block: "center" });
-      target?.focus({ preventScroll: true });
-    });
-  }
 
   function focusPacketConfirmation(): void {
     setMobilePane("canvas");
@@ -342,6 +352,7 @@ export function AgentWorkspace({
   }
 
   async function loadPublishedCase(item: PublishedCase): Promise<void> {
+    void setCaseParam(item.id);
     setGalleryOpen(false);
     setEditingPacket(false);
     setDeidentified(true);
@@ -503,6 +514,7 @@ export function AgentWorkspace({
   }
 
   function reset(): void {
+    void setCaseParam(null);
     agent.reset();
     ui.clear();
     setStaticSpec(null);
@@ -527,9 +539,17 @@ export function AgentWorkspace({
       <header className="shrink-0 border-b border-hairline bg-paper-raised">
         <div className="flex min-h-16 items-center justify-between gap-4 px-5 sm:px-8">
           <div className="flex min-w-0 items-center gap-4">
-            <span className="shrink-0 font-serif-display text-[27px] leading-none tracking-[-0.02em]">Sourced</span>
+            <a href="#top" className="shrink-0 font-serif-display text-[27px] leading-none tracking-[-0.02em]">Sourced</a>
             <span className="hidden h-7 w-px bg-hairline-strong sm:block" aria-hidden="true" />
             <span className="hidden text-[13px] font-medium text-ink-muted sm:block">{t("app.subtitle")}</span>
+            {!split ? (
+              <nav className="ml-2 hidden items-center gap-4 lg:flex" aria-label={t("nav.label")}>
+                <a href="#how-it-works" className="text-[12.5px] font-medium text-ink-muted hover:text-info">{t("nav.method")}</a>
+                <a href="#data" className="text-[12.5px] font-medium text-ink-muted hover:text-info">{t("nav.data")}</a>
+                <a href="#provenance" className="text-[12.5px] font-medium text-ink-muted hover:text-info">{t("nav.provenance")}</a>
+                <a href="#claude-science" className="text-[12.5px] font-medium text-ink-muted hover:text-info">{t("nav.science")}</a>
+              </nav>
+            ) : null}
           </div>
           <div className="flex items-center gap-3">
             <label className="inline-flex h-9 items-center rounded-md border border-hairline-strong bg-paper px-2.5 text-[12px] font-semibold text-ink-muted focus-within:border-info focus-within:ring-2 focus-within:ring-info-border">
@@ -568,7 +588,8 @@ export function AgentWorkspace({
       </header>
 
       {!split ? (
-        <main className="relative flex min-h-0 flex-1 flex-col items-center overflow-y-auto px-5 py-8 sm:justify-center sm:overflow-visible sm:px-8 sm:pb-[10vh] sm:pt-10">
+        <main className="relative flex min-h-0 flex-1 flex-col items-center overflow-y-auto">
+          <div id="top" className="flex min-h-[calc(100dvh-64px)] w-full flex-col items-center justify-center px-5 py-10 sm:px-8">
           <div className="w-full max-w-2xl">
             <div className="mb-8 text-center">
               <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-info">{t("intake.eyebrow")}</p>
@@ -598,28 +619,30 @@ export function AgentWorkspace({
               placeholder={t("intake.placeholder")}
             />
             {error ? <p className="mt-3 text-center text-[12px] text-major" role="alert">{error}</p> : null}
+            <div className="mt-5 flex w-full flex-col items-stretch gap-2 sm:flex-row sm:justify-center">
+              <button
+                type="button"
+                data-testid="published-cases-trigger"
+                onClick={() => setGalleryOpen(true)}
+                className="inline-flex items-center justify-center gap-2 rounded-lg border border-hairline-strong bg-paper-raised px-4 py-3 text-[12px] font-semibold text-ink shadow-sm hover:border-info hover:text-info focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-info"
+              >
+                <BookOpenText className="h-4 w-4 text-info" weight="regular" />
+                {t("intake.publishedCases")}
+                <span className="text-[9px] font-medium uppercase tracking-wide text-ink-faint">{t("intake.pdfCount", { count: publishedCases.length })}</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => void loadDemo()}
+                className="inline-flex items-center justify-center gap-2 rounded-lg border border-info-border bg-paper-raised px-4 py-3 text-[12px] font-semibold text-info shadow-sm hover:border-info focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-info"
+              >
+                <Sparkle className="h-4 w-4" weight="duotone" />
+                {t("intake.trySynthetic")}
+                <span className="text-[9px] font-medium uppercase tracking-wide text-ink-faint">{t("intake.demoOnly")}</span>
+              </button>
+            </div>
           </div>
-          <div className="mt-4 flex w-full max-w-2xl flex-col items-stretch gap-2 sm:fixed sm:bottom-6 sm:right-6 sm:mt-0 sm:w-auto sm:flex-row sm:items-end">
-            <button
-              type="button"
-              data-testid="published-cases-trigger"
-              onClick={() => setGalleryOpen(true)}
-              className="inline-flex items-center gap-2 rounded-lg border border-hairline-strong bg-paper-raised px-4 py-3 text-[12px] font-semibold text-ink shadow-sm hover:border-info hover:text-info focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-info"
-            >
-              <BookOpenText className="h-4 w-4 text-info" weight="regular" />
-              {t("intake.publishedCases")}
-              <span className="text-[9px] font-medium uppercase tracking-wide text-ink-faint">{t("intake.pdfCount", { count: publishedCases.length })}</span>
-            </button>
-            <button
-              type="button"
-              onClick={() => void loadDemo()}
-              className="inline-flex items-center gap-2 rounded-lg border border-info-border bg-paper-raised px-4 py-3 text-[12px] font-semibold text-info shadow-sm hover:border-info focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-info"
-            >
-              <Sparkle className="h-4 w-4" weight="duotone" />
-              {t("intake.trySynthetic")}
-              <span className="text-[9px] font-medium uppercase tracking-wide text-ink-faint">{t("intake.demoOnly")}</span>
-            </button>
           </div>
+          <LandingSections />
         </main>
       ) : (
         <main className="flex h-[calc(100dvh-65px)] min-h-0 flex-1 flex-col overflow-hidden lg:grid lg:grid-cols-[minmax(420px,0.84fr)_minmax(0,1.16fr)]">
@@ -657,7 +680,7 @@ export function AgentWorkspace({
                     tabIndex={-1}
                     data-ambiguity-id={ambiguities[0]?.id}
                     data-ambiguity-question={ambiguities[0]?.question}
-                    className={`mt-4 flex min-h-[250px] gap-3 rounded-lg border border-info-border bg-info-bg/35 px-4 py-4 outline-none transition-shadow focus-visible:ring-2 focus-visible:ring-info sm:min-h-[190px] ${highlightClarification ? "ring-2 ring-info ring-offset-2 ring-offset-paper" : ""}`}
+                    className="mt-4 flex min-h-[250px] gap-3 rounded-lg border border-info-border bg-info-bg/35 px-4 py-4 outline-none focus-visible:ring-2 focus-visible:ring-info sm:min-h-[190px]"
                     aria-live="polite"
                     aria-busy={agentBusy}
                   >
@@ -870,7 +893,6 @@ export function AgentWorkspace({
                     onConfirm={() => void confirmPacket()}
                     confirmDisabled={confirmationBlocker !== null}
                     confirmDisabledReason={confirmationBlocker ?? undefined}
-                    onAmbiguityClick={focusAmbiguityQuestion}
                   />
                 ) : lensRequested && report ? (
                   generatedLens || !agentBusy ? (
