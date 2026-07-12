@@ -1560,7 +1560,54 @@
         "unique_drugs": 1939,
         "source_files": 8
       }
-    }
+    },
+    "research_candidates": [
+      {
+        "tier": "unresolved-concern",
+        "drugs": [],
+        "reason": "Revisor: la afirmación no está respaldada por las fuentes citadas: El contexto del paciente no confirma que Acetaminophen esté activo de forma independiente; aparece solo como componente de Hydrocodone/APAP y de un producto mal resuelto (By Ache), por lo que la afirmación de que 'Acetaminophen está activo en el episodio' no está claramente respaldada.",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Interacción entre Acetaminophen y Warfarin\"",
+        "source": "adversarial verifier"
+      },
+      {
+        "tier": "unresolved-concern",
+        "drugs": [],
+        "reason": "Revisor narrativo: ¿desea confirmar el plan de anticoagulación al alta con enoxaparina en dosis de tratamiento? (no hay evidencia citada que conecte el pico de INR o el PT del día 8 con un ajuste o confirmación del plan de anticoagulación al alta con enoxaparina)",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Dado que el INR alcanzó un pico de 8.28 el día 8 y el PT del día 8 fue 99 sec (rango 9.4–12.5), ¿desea confirmar el plan de anticoagulación al alta con enoxaparina en dosis de tratamiento?\"",
+        "source": "adversarial verifier"
+      },
+      {
+        "tier": "known-unknown",
+        "drugs": [
+          "Tamoxifen",
+          "Clindamycin"
+        ],
+        "reason": "DDInter documents the Tamoxifen + Clindamycin pair but assigns no severity level.",
+        "question": "Does concurrent Tamoxifen and Clindamycin carry a clinically significant interaction? The pair is catalogued without a graded severity.",
+        "source": "DDInter DDInter1744/DDInter398"
+      },
+      {
+        "tier": "known-unknown",
+        "drugs": [
+          "Vancomycin",
+          "Tamoxifen"
+        ],
+        "reason": "DDInter documents the Vancomycin + Tamoxifen pair but assigns no severity level.",
+        "question": "Does concurrent Vancomycin and Tamoxifen carry a clinically significant interaction? The pair is catalogued without a graded severity.",
+        "source": "DDInter DDInter1916/DDInter1744"
+      },
+      {
+        "tier": "known-unknown",
+        "drugs": [
+          "Tamoxifen",
+          "Metoclopramide"
+        ],
+        "reason": "DDInter documents the Tamoxifen + Metoclopramide pair but assigns no severity level.",
+        "question": "Does concurrent Tamoxifen and Metoclopramide carry a clinically significant interaction? The pair is catalogued without a graded severity.",
+        "source": "DDInter DDInter1744/DDInter1197"
+      }
+    ],
+    "research_total_known_unknown": 29
   },
   "generatedAt": "2026-07-11T22:31:40.189Z"
 }

@@ -723,7 +723,60 @@
         "unique_drugs": 1939,
         "source_files": 8
       }
-    }
+    },
+    "research_candidates": [
+      {
+        "tier": "known-unknown",
+        "drugs": [
+          "Spironolactone",
+          "Acenocoumarol"
+        ],
+        "reason": "DDInter documents the Spironolactone + Acenocoumarol pair but assigns no severity level.",
+        "question": "Does concurrent Spironolactone and Acenocoumarol carry a clinically significant interaction? The pair is catalogued without a graded severity.",
+        "source": "DDInter DDInter1707/DDInter13"
+      },
+      {
+        "tier": "known-unknown",
+        "drugs": [
+          "Furosemide",
+          "Acenocoumarol"
+        ],
+        "reason": "DDInter documents the Furosemide + Acenocoumarol pair but assigns no severity level.",
+        "question": "Does concurrent Furosemide and Acenocoumarol carry a clinically significant interaction? The pair is catalogued without a graded severity.",
+        "source": "DDInter DDInter790/DDInter13"
+      },
+      {
+        "tier": "known-unknown",
+        "drugs": [
+          "Metoprolol",
+          "Acenocoumarol"
+        ],
+        "reason": "DDInter documents the Metoprolol + Acenocoumarol pair but assigns no severity level.",
+        "question": "Does concurrent Metoprolol and Acenocoumarol carry a clinically significant interaction? The pair is catalogued without a graded severity.",
+        "source": "DDInter DDInter1200/DDInter13"
+      },
+      {
+        "tier": "known-unknown",
+        "drugs": [
+          "Ramipril",
+          "Acenocoumarol"
+        ],
+        "reason": "DDInter documents the Ramipril + Acenocoumarol pair but assigns no severity level.",
+        "question": "Does concurrent Ramipril and Acenocoumarol carry a clinically significant interaction? The pair is catalogued without a graded severity.",
+        "source": "DDInter DDInter1565/DDInter13"
+      },
+      {
+        "tier": "known-unknown",
+        "drugs": [
+          "Amiodarone",
+          "Acenocoumarol"
+        ],
+        "reason": "DDInter documents the Amiodarone + Acenocoumarol pair but assigns no severity level.",
+        "question": "Does concurrent Amiodarone and Acenocoumarol carry a clinically significant interaction? The pair is catalogued without a graded severity.",
+        "source": "DDInter DDInter76/DDInter13"
+      }
+    ],
+    "research_total_known_unknown": 6
   },
   "generatedAt": "2026-07-11T22:30:15.653Z"
 }

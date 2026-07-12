@@ -369,7 +369,17 @@
         "unique_drugs": 1939,
         "source_files": 8
       }
-    }
+    },
+    "research_candidates": [
+      {
+        "tier": "unresolved-concern",
+        "drugs": [],
+        "reason": "El hallazgo menciona medicamentos no resueltos o inactivos: non-steroidal anti-inflammatories.",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"El uso conjunto de enalapril y un AINE podría deteriorar la función renal en pacientes vulnerables\"",
+        "source": "adversarial verifier"
+      }
+    ],
+    "research_total_known_unknown": 0
   },
   "generatedAt": "2026-07-11T22:37:52.814Z"
 }

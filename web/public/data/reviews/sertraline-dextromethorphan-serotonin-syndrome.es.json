@@ -855,7 +855,50 @@
         "unique_drugs": 1939,
         "source_files": 8
       }
-    }
+    },
+    "research_candidates": [
+      {
+        "tier": "known-unknown",
+        "drugs": [
+          "Methylprednisolone",
+          "Sertraline"
+        ],
+        "reason": "DDInter documents the Methylprednisolone + Sertraline pair but assigns no severity level.",
+        "question": "Does concurrent Methylprednisolone and Sertraline carry a clinically significant interaction? The pair is catalogued without a graded severity.",
+        "source": "DDInter DDInter1191/DDInter1662"
+      },
+      {
+        "tier": "known-unknown",
+        "drugs": [
+          "Methimazole",
+          "Sertraline"
+        ],
+        "reason": "DDInter documents the Methimazole + Sertraline pair but assigns no severity level.",
+        "question": "Does concurrent Methimazole and Sertraline carry a clinically significant interaction? The pair is catalogued without a graded severity.",
+        "source": "DDInter DDInter1170/DDInter1662"
+      },
+      {
+        "tier": "known-unknown",
+        "drugs": [
+          "Dextromethorphan",
+          "Methylprednisolone"
+        ],
+        "reason": "DDInter documents the Dextromethorphan + Methylprednisolone pair but assigns no severity level.",
+        "question": "Does concurrent Dextromethorphan and Methylprednisolone carry a clinically significant interaction? The pair is catalogued without a graded severity.",
+        "source": "DDInter DDInter527/DDInter1191"
+      },
+      {
+        "tier": "known-unknown",
+        "drugs": [
+          "Methimazole",
+          "Hydrochlorothiazide"
+        ],
+        "reason": "DDInter documents the Methimazole + Hydrochlorothiazide pair but assigns no severity level.",
+        "question": "Does concurrent Methimazole and Hydrochlorothiazide carry a clinically significant interaction? The pair is catalogued without a graded severity.",
+        "source": "DDInter DDInter1170/DDInter883"
+      }
+    ],
+    "research_total_known_unknown": 4
   },
   "generatedAt": "2026-07-11T22:27:40.153Z"
 }

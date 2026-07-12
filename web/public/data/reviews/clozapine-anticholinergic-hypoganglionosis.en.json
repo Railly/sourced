@@ -547,7 +547,17 @@
         "unique_drugs": 1939,
         "source_files": 8
       }
-    }
+    },
+    "research_candidates": [
+      {
+        "tier": "unresolved-concern",
+        "drugs": [],
+        "reason": "Narrative reviewer: A Moderate interaction with diphenhydramine is flagged for alprazolam, risperidone, and propranolol, but no interaction between propranolol and alprazolam or other combinations is asserted; however, the specific claim that each of risperidone, propranolol, and alprazolam has a Moderate interaction with diphenhydramine is supported — the unsupported element is framing all four as intended to continue together with mutual Moderate flags, whereas diphenhydramine's own interaction level to itself is not applicable",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Are the risperidone, propranolol, alprazolam, and diphenhydramine home medications intended to continue together, given the Moderate interaction level flagged for each with diphenhydramine?\"",
+        "source": "adversarial verifier"
+      }
+    ],
+    "research_total_known_unknown": 0
   },
   "generatedAt": "2026-07-11T22:23:33.216Z"
 }

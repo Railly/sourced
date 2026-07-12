@@ -1388,7 +1388,60 @@
         "unique_drugs": 1939,
         "source_files": 8
       }
-    }
+    },
+    "research_candidates": [
+      {
+        "tier": "known-unknown",
+        "drugs": [
+          "Tamoxifen",
+          "Clindamycin"
+        ],
+        "reason": "DDInter documents the Tamoxifen + Clindamycin pair but assigns no severity level.",
+        "question": "Does concurrent Tamoxifen and Clindamycin carry a clinically significant interaction? The pair is catalogued without a graded severity.",
+        "source": "DDInter DDInter1744/DDInter398"
+      },
+      {
+        "tier": "known-unknown",
+        "drugs": [
+          "Tamoxifen",
+          "Metoclopramide"
+        ],
+        "reason": "DDInter documents the Tamoxifen + Metoclopramide pair but assigns no severity level.",
+        "question": "Does concurrent Tamoxifen and Metoclopramide carry a clinically significant interaction? The pair is catalogued without a graded severity.",
+        "source": "DDInter DDInter1744/DDInter1197"
+      },
+      {
+        "tier": "known-unknown",
+        "drugs": [
+          "Acetaminophen",
+          "Tamoxifen"
+        ],
+        "reason": "DDInter documents the Acetaminophen + Tamoxifen pair but assigns no severity level.",
+        "question": "Does concurrent Acetaminophen and Tamoxifen carry a clinically significant interaction? The pair is catalogued without a graded severity.",
+        "source": "DDInter DDInter14/DDInter1744"
+      },
+      {
+        "tier": "known-unknown",
+        "drugs": [
+          "Warfarin",
+          "Clindamycin"
+        ],
+        "reason": "DDInter documents the Warfarin + Clindamycin pair but assigns no severity level.",
+        "question": "Does concurrent Warfarin and Clindamycin carry a clinically significant interaction? The pair is catalogued without a graded severity.",
+        "source": "DDInter DDInter1951/DDInter398"
+      },
+      {
+        "tier": "known-unknown",
+        "drugs": [
+          "Warfarin",
+          "Metoclopramide"
+        ],
+        "reason": "DDInter documents the Warfarin + Metoclopramide pair but assigns no severity level.",
+        "question": "Does concurrent Warfarin and Metoclopramide carry a clinically significant interaction? The pair is catalogued without a graded severity.",
+        "source": "DDInter DDInter1951/DDInter1197"
+      }
+    ],
+    "research_total_known_unknown": 20
   },
   "generatedAt": "2026-07-11T22:19:47.371Z"
 }

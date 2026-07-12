@@ -773,7 +773,54 @@
         "unique_drugs": 1939,
         "source_files": 8
       }
-    }
+    },
+    "research_candidates": [
+      {
+        "tier": "unresolved-concern",
+        "drugs": [],
+        "reason": "Narrative reviewer: No evidence explicitly connects propranolol dose reassessment to hyperthyroidism treatment/thyroid status changes in this patient; the methimazole label discusses beta blocker clearance in hyperthyroid patients becoming euthyroid but is not linked to propranolol here, and the propranolol-methimazole interaction is only labeled Moderate without a dose-adjustment recommendation",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"With this patient's hyperthyroidism being treated, do you plan to reassess the propranolol dose as thyroid status changes?\"",
+        "source": "adversarial verifier"
+      },
+      {
+        "tier": "unresolved-concern",
+        "drugs": [],
+        "reason": "Narrative reviewer: No quoted evidence explicitly connects methylprednisolone co-administered with hydrochlorothiazide to a recommendation to check electrolytes; the HCTZ label notes corticosteroid/ACTH causes intensified electrolyte depletion but does not name methylprednisolone, and the methylprednisolone-HCTZ interaction is only labeled Moderate without an electrolyte monitoring action",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Is the methylprednisolone dose pack still in progress, and should electrolytes be checked while it is co-administered with hydrochlorothiazide?\"",
+        "source": "adversarial verifier"
+      },
+      {
+        "tier": "known-unknown",
+        "drugs": [
+          "Methimazole",
+          "Sertraline"
+        ],
+        "reason": "DDInter documents the Methimazole + Sertraline pair but assigns no severity level.",
+        "question": "Does concurrent Methimazole and Sertraline carry a clinically significant interaction? The pair is catalogued without a graded severity.",
+        "source": "DDInter DDInter1170/DDInter1662"
+      },
+      {
+        "tier": "known-unknown",
+        "drugs": [
+          "Methylprednisolone",
+          "Sertraline"
+        ],
+        "reason": "DDInter documents the Methylprednisolone + Sertraline pair but assigns no severity level.",
+        "question": "Does concurrent Methylprednisolone and Sertraline carry a clinically significant interaction? The pair is catalogued without a graded severity.",
+        "source": "DDInter DDInter1191/DDInter1662"
+      },
+      {
+        "tier": "known-unknown",
+        "drugs": [
+          "Methimazole",
+          "Hydrochlorothiazide"
+        ],
+        "reason": "DDInter documents the Methimazole + Hydrochlorothiazide pair but assigns no severity level.",
+        "question": "Does concurrent Methimazole and Hydrochlorothiazide carry a clinically significant interaction? The pair is catalogued without a graded severity.",
+        "source": "DDInter DDInter1170/DDInter883"
+      }
+    ],
+    "research_total_known_unknown": 4
   },
   "generatedAt": "2026-07-11T22:17:06.292Z"
 }

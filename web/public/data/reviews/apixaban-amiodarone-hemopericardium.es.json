@@ -464,7 +464,17 @@
         "unique_drugs": 1939,
         "source_files": 8
       }
-    }
+    },
+    "research_candidates": [
+      {
+        "tier": "unresolved-concern",
+        "drugs": [],
+        "reason": "Revisor narrativo: Que alguno de los medicamentos (amiodarona o apixabán) se haya suspendido tras el hemopericardio: ambos figuran como activos y no hay evidencia de suspensión",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"¿La amiodarona 200mg al día y el apixabán 5mg dos veces al día siguen indicados como órdenes activas, o alguno se ha suspendido tras el hemopericardio?\"",
+        "source": "adversarial verifier"
+      }
+    ],
+    "research_total_known_unknown": 0
   },
   "generatedAt": "2026-07-11T22:28:55.427Z"
 }

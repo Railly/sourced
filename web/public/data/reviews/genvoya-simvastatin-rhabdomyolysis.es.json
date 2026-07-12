@@ -301,7 +301,24 @@
         "unique_drugs": 1939,
         "source_files": 8
       }
-    }
+    },
+    "research_candidates": [
+      {
+        "tier": "unresolved-concern",
+        "drugs": [],
+        "reason": "Revisor: la afirmación no está respaldada por las fuentes citadas: La severidad se declara como moderate, pero las fuentes citadas describen exacerbaciones agudas GRAVES de hepatitis B (severe acute exacerbations), lo que corresponde a severidad mayor; la clasificación moderate es incorrecta.; El razonamiento why_this_patient afirma un riesgo de exacerbación de hepatitis B en pacientes coinfectados con VHB, pero el contexto del paciente indica hepatitis C y hepatitis A, no hepatitis B; no hay evidencia de coinfección por VHB en el contexto del paciente.; El hallazgo describe un escenario de interrupción de componentes de Genvoya, pero el contexto del paciente no documenta que emtricitabina o tenofovir hayan sido interrumpidos en un paciente con VHB.",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Advertencia enmarcada sobre exacerbación aguda grave de hepatitis B tras interrumpir componentes de Genvoya\"",
+        "source": "adversarial verifier"
+      },
+      {
+        "tier": "unresolved-concern",
+        "drugs": [],
+        "reason": "Revisor narrativo: El nuevo régimen antirretroviral que se inició cinco meses después: no hay evidencia citada que describa su composición; el contexto solo indica 'Anacin Aspirin Regimen Pill' (aspirina) como resolución aproximada, sin datos sobre cobicistat u otros inhibidores de CYP3A4 en ese régimen",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"¿El nuevo régimen antirretroviral iniciado cinco meses después incluye algún producto que contenga cobicistat u otro inhibidor de CYP3A4 que pudiera coincidir con una estatina?\"",
+        "source": "adversarial verifier"
+      }
+    ],
+    "research_total_known_unknown": 0
   },
   "generatedAt": "2026-07-11T22:34:05.026Z"
 }

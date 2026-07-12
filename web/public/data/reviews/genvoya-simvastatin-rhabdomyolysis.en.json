@@ -301,7 +301,24 @@
         "unique_drugs": 1939,
         "source_files": 8
       }
-    }
+    },
+    "research_candidates": [
+      {
+        "tier": "unresolved-concern",
+        "drugs": [],
+        "reason": "Reviewer: claim not supported by cited sources: The finding's severity is labeled moderate, but the quoted sources describe severe acute exacerbations of hepatitis B, which entails major severity, not moderate.; The why_this_patient reasoning cites documented hepatitis coinfection as relevant, but the patient context lists hepatitis C and hepatitis A only, not hepatitis B; the boxed warnings apply specifically to HBV-infected individuals, so the risk is not supported for this patient.; The elvitegravir source attributes the hepatitis B exacerbation risk to discontinuation of EMTRIVA (emtricitabine) or VIREAD (tenofovir) components; it does not establish elvitegravir itself as a cause of the exacerbation.",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Discontinuing emtricitabine- and tenofovir-containing therapy may cause severe acute exacerbation of hepatitis B\"",
+        "source": "adversarial verifier"
+      },
+      {
+        "tier": "unresolved-concern",
+        "drugs": [],
+        "reason": "Narrative reviewer: The premise that hepatitis B coinfection status is relevant to this patient is not established; the patient context documents HIV, rhabdomyolysis-induced AKI, hepatitis C, and hepatitis A, but no mention of hepatitis B.",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Does this patient have documented hepatitis B coinfection status, and is hepatic function being monitored around any change or discontinuation of the emtricitabine- and tenofovir-containing regimen?\"",
+        "source": "adversarial verifier"
+      }
+    ],
+    "research_total_known_unknown": 0
   },
   "generatedAt": "2026-07-11T22:21:44.054Z"
 }

@@ -300,7 +300,20 @@
         "unique_drugs": 1939,
         "source_files": 8
       }
-    }
+    },
+    "research_candidates": [
+      {
+        "tier": "known-unknown",
+        "drugs": [
+          "Warfarin",
+          "Furosemide"
+        ],
+        "reason": "DDInter documents the Warfarin + Furosemide pair but assigns no severity level.",
+        "question": "Does concurrent Warfarin and Furosemide carry a clinically significant interaction? The pair is catalogued without a graded severity.",
+        "source": "DDInter DDInter1951/DDInter790"
+      }
+    ],
+    "research_total_known_unknown": 1
   },
   "generatedAt": "2026-07-12T05:29:05.911Z"
 }

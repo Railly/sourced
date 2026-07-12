@@ -472,7 +472,17 @@
         "unique_drugs": 1939,
         "source_files": 8
       }
-    }
+    },
+    "research_candidates": [
+      {
+        "tier": "unresolved-concern",
+        "drugs": [],
+        "reason": "Narrative reviewer: The interaction between amiodarone and apixaban was cited/documented as causing the hemopericardium; the evidence only lists a Moderate-level interaction between amiodarone and apixaban and does not connect it to hemopericardium.",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"The medication list shows amiodarone 200mg daily and apixaban 5mg twice a day; given the cited interaction between these agents and the presentation with hemopericardium, how should ongoing anticoagulation be managed?\"",
+        "source": "adversarial verifier"
+      }
+    ],
+    "research_total_known_unknown": 0
   },
   "generatedAt": "2026-07-11T22:18:14.348Z"
 }

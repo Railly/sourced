@@ -561,7 +561,47 @@
         "unique_drugs": 1939,
         "source_files": 8
       }
-    }
+    },
+    "research_candidates": [
+      {
+        "tier": "unresolved-concern",
+        "drugs": [],
+        "reason": "Narrative reviewer: The methadone label advises to evaluate for respiratory depression and sedation with concomitant metoclopramide; the label's CNS depressant advice references benzodiazepines, alcohol, and other CNS depressants but does not identify metoclopramide as a CNS depressant, and no quoted evidence establishes metoclopramide as a CNS depressant.",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Should the methadone label's advice to evaluate for respiratory depression and sedation with concomitant CNS depressants be applied given the concurrent metoclopramide administration?\"",
+        "source": "adversarial verifier"
+      },
+      {
+        "tier": "known-unknown",
+        "drugs": [
+          "Metronidazole",
+          "Metoclopramide"
+        ],
+        "reason": "DDInter documents the Metronidazole + Metoclopramide pair but assigns no severity level.",
+        "question": "Does concurrent Metronidazole and Metoclopramide carry a clinically significant interaction? The pair is catalogued without a graded severity.",
+        "source": "DDInter DDInter1202/DDInter1197"
+      },
+      {
+        "tier": "known-unknown",
+        "drugs": [
+          "Ceftriaxone",
+          "Metoclopramide"
+        ],
+        "reason": "DDInter documents the Ceftriaxone + Metoclopramide pair but assigns no severity level.",
+        "question": "Does concurrent Ceftriaxone and Metoclopramide carry a clinically significant interaction? The pair is catalogued without a graded severity.",
+        "source": "DDInter DDInter334/DDInter1197"
+      },
+      {
+        "tier": "known-unknown",
+        "drugs": [
+          "Metronidazole",
+          "Ceftriaxone"
+        ],
+        "reason": "DDInter documents the Metronidazole + Ceftriaxone pair but assigns no severity level.",
+        "question": "Does concurrent Metronidazole and Ceftriaxone carry a clinically significant interaction? The pair is catalogued without a graded severity.",
+        "source": "DDInter DDInter1202/DDInter334"
+      }
+    ],
+    "research_total_known_unknown": 3
   },
   "generatedAt": "2026-07-11T22:22:32.995Z"
 }

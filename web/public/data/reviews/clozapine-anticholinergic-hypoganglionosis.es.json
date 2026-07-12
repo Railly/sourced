@@ -582,7 +582,9 @@
         "unique_drugs": 1939,
         "source_files": 8
       }
-    }
+    },
+    "research_candidates": [],
+    "research_total_known_unknown": 0
   },
   "generatedAt": "2026-07-11T22:35:42.892Z"
 }

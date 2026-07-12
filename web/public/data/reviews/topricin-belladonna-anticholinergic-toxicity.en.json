@@ -374,7 +374,38 @@
         "unique_drugs": 1939,
         "source_files": 8
       }
-    }
+    },
+    "research_candidates": [
+      {
+        "tier": "unresolved-concern",
+        "drugs": [],
+        "reason": "Finding references unresolved or non-active medication(s): non-steroidal anti-inflammatories.",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Enalapril combined with NSAIDs may worsen renal function in at-risk patients\"",
+        "source": "adversarial verifier"
+      },
+      {
+        "tier": "unresolved-concern",
+        "drugs": [],
+        "reason": "Finding references unresolved or non-active medication(s): lorazepam.",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Belladonna-containing product with a benzodiazepine may increase CNS-depressant risk\"",
+        "source": "adversarial verifier"
+      },
+      {
+        "tier": "unresolved-concern",
+        "drugs": [],
+        "reason": "Narrative reviewer: The belladonna product label cited describes belladonna and opium suppositories with opioid content; the patient's product is Topricin topical cream containing belladonna, and the label's sedation/respiratory depression warnings for the opium-containing suppository are not shown to apply to the patient's product.",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Given the withheld physostigmine decision after lorazepam administration, is there a plan to monitor for the sedation and respiratory depression the belladonna product label describes with concomitant benzodiazepine use?\"",
+        "source": "adversarial verifier"
+      },
+      {
+        "tier": "unresolved-concern",
+        "drugs": [],
+        "reason": "Narrative reviewer: No quoted evidence connects the rise in creatine kinase from 98 to 1837 IU/L to pravastatin; the pravastatin label discusses myopathy/rhabdomyolysis risk only with specific interacting drugs (gemfibrozil, cyclosporine, macrolides, niacin, fibrates, colchicine), none of which are in this patient's medication list, so review of pravastatin in the context of the CK change is not supported.",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"The repeat creatine kinase of 1837 IU/L is markedly higher than the initial 98 IU/L; can you confirm whether the ongoing pravastatin was reviewed in the context of this change?\"",
+        "source": "adversarial verifier"
+      }
+    ],
+    "research_total_known_unknown": 0
   },
   "generatedAt": "2026-07-11T22:25:52.822Z"
 }

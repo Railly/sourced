@@ -391,7 +391,31 @@
         "unique_drugs": 1939,
         "source_files": 8
       }
-    }
+    },
+    "research_candidates": [
+      {
+        "tier": "unresolved-concern",
+        "drugs": [],
+        "reason": "El hallazgo menciona medicamentos no resueltos o inactivos: dexamethasone.",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Los corticosteroides pueden disminuir el efecto hipoglucemiante de insulin lispro\"",
+        "source": "adversarial verifier"
+      },
+      {
+        "tier": "unresolved-concern",
+        "drugs": [],
+        "reason": "El hallazgo menciona medicamentos no resueltos o inactivos: dexamethasone.",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Los corticosteroides pueden disminuir el efecto hipoglucemiante de insulin glargine\"",
+        "source": "adversarial verifier"
+      },
+      {
+        "tier": "unresolved-concern",
+        "drugs": [],
+        "reason": "Revisor narrativo: La pregunta afirma que la insulin lispro e insulin glargine 'continúan como tratamiento para la diabetes tipo 1', lo cual es un hecho del paciente correcto, pero la premisa de que la dexametasona podría 'seguir estando activa' contradice el contexto del paciente donde la dexametasona tiene estado histórico",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"¿La dexametasona sigue estando activa o se ha suspendido, dado que la insulin lispro e insulin glargine continúan como tratamiento para la diabetes tipo 1?\"",
+        "source": "adversarial verifier"
+      }
+    ],
+    "research_total_known_unknown": 0
   },
   "generatedAt": "2026-07-11T22:37:04.408Z"
 }

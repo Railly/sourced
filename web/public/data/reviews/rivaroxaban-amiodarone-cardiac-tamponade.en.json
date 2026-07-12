@@ -285,7 +285,17 @@
         "unique_drugs": 1939,
         "source_files": 8
       }
-    }
+    },
+    "research_candidates": [
+      {
+        "tier": "unresolved-concern",
+        "drugs": [],
+        "reason": "Narrative reviewer: The amiodarone boxed warning directs baseline and periodic liver transaminases and chest imaging; however, the boxed warning specifies chest X-ray at initiation and every 3 to 6 months, not generic 'chest imaging,' but the transaminase monitoring is supported — the combined phrasing requesting these as a directed pair is only partially supported (chest X-ray, not chest imaging generically).",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Have baseline and periodic liver transaminases and chest imaging been arranged as directed by the amiodarone boxed warning?\"",
+        "source": "adversarial verifier"
+      }
+    ],
+    "research_total_known_unknown": 0
   },
   "generatedAt": "2026-07-11T22:19:04.887Z"
 }
