@@ -3,29 +3,35 @@
   "locale": "es",
   "intake": {
     "case": {
-      "note": "Case report PMC12695512 / PMID 40984660. 38-year-old man with allergic rhinitis, seven episodes of anaphylaxis at home, one progressing to anaphylactic shock. Reactions coincided with periods during which his children were receiving penicillin therapy (indirect exposure to penicillins). Baseline serum tryptase 4.10 μg/L. Specific IgE positive only for amoxicillin (0.26 kUA/L). Skin prick tests positive to amoxicillin and ampicillin; intradermal positive to penicillin G. Cephalosporins (cefuroxime, ceftriaxone) negative on skin and provocation testing.",
+      "note": "Case report PMC12695512 / PMID 40984660. 38-year-old man with allergic rhinitis and seven episodes of anaphylaxis at home. Reactions coincided with periods when his children were receiving penicillin therapy. Indirect exposure to penicillins identified as trigger.",
       "medications": [
         {
           "raw": "Amoxicillin",
-          "status": "indirect-exposure",
-          "source_span": "Licking his child's spoon containing traces of amoxicillin syrup"
+          "episode": "Indirect exposure trigger for anaphylaxis episode: drinking from his child's glass containing traces of a crushed amoxicillin tablet; onset 10 min; generalised angioedema, vomiting, dyspnea, loss of consciousness",
+          "source_span": "Licking his child's spoon containing traces of amoxicillin syrup",
+          "status": "indirect-exposure"
         },
         {
-          "raw": "Amoxicillin",
-          "status": "indirect-exposure",
-          "source_span": "Licking his child's spoon containing traces of amoxicillin syrup"
+          "raw": "Amoxicillin (syrup, child's spoon traces)",
+          "episode": "Indirect exposure trigger for anaphylaxis episode: licking his child's spoon containing traces of amoxicillin syrup; onset 5 min; palmo-plantar itching, head itching, facial angioedema, dyspnea",
+          "source_span": "Licking his child's spoon containing traces of amoxicillin syrup",
+          "status": "indirect-exposure"
+        },
+        {
+          "raw": "Oral corticosteroids",
+          "episode": "Treatment given for one anaphylaxis episode (amoxicillin syrup trigger)",
+          "source_span": "Oral corticosteroids",
+          "status": "one-time"
         }
       ],
       "allergies": [
-        "Penicillins (amoxicillin, ampicillin, penicillin G sensitisation confirmed)",
-        "Allergic rhinitis",
-        "No hypersensitivity to cefuroxime or ceftriaxone (negative tests)"
+        "Penicillins (sensitisation confirmed; positive skin prick to amoxicillin and ampicillin, intradermal to penicillin G)",
+        "Amoxicillin (specific IgE positive 0.26 kUA/L)"
       ],
       "diagnoses": [
-        "Recurrent idiopathic anaphylaxis (seven episodes at home)",
-        "Anaphylactic shock (one episode)",
-        "Allergy by proxy to penicillins",
-        "Allergic rhinitis"
+        "Allergic rhinitis",
+        "Recurrent anaphylaxis (seven episodes), one progressing to anaphylactic shock",
+        "Immediate-type hypersensitivity to penicillins by proxy/indirect exposure"
       ],
       "labs": [
         {
@@ -34,7 +40,7 @@
           "unit": "μg/L"
         },
         {
-          "name": "Specific IgE amoxicillin",
+          "name": "Specific IgE amoxicillin (ImmunoCAP)",
           "value": 0.26,
           "unit": "kUA/L"
         }
@@ -42,17 +48,17 @@
     },
     "ambiguities": [
       {
-        "id": "amox-1-span",
-        "field": "medications[0].source_span",
-        "question": "El primer episodio de amoxicilina corresponde a lamer la cuchara del hijo con restos de jarabe de amoxicilina. ¿Confirma que debe registrarse como exposición indirecta distinta del segundo episodio?"
+        "id": "amb-1",
+        "field": "medications[2].status",
+        "question": "Los corticosteroides orales figuran como tratamiento de un episodio; ¿confirma que fueron una dosis puntual de rescate y no una medicación crónica?"
       },
       {
-        "id": "amox-status",
-        "field": "medications[].status",
-        "question": "Ambas exposiciones a amoxicilina provienen del contacto con medicación de los hijos (por proxy). ¿Confirma que corresponden a exposición indirecta y no a medicación activa del paciente?"
+        "id": "amb-2",
+        "field": "medications",
+        "question": "La amoxicilina aparece como exposición indirecta a través de los hijos (jarabe y comprimido triturado); ¿confirma que el paciente nunca la tomó directamente?"
       }
     ],
-    "sourceSummary": "Reporte de caso (PMC12695512) de un hombre de 38 años con anafilaxia recurrente por exposición indirecta a penicilinas de sus hijos. Se identifican dos exposiciones a amoxicilina por contacto con utensilios del hijo (cuchara con jarabe y vaso con restos de comprimido triturado), ambas clasificadas como exposición indirecta. La fuente contiene un solo caso."
+    "sourceSummary": "Reporte de caso (PMC12695512) de varón de 38 años con rinitis alérgica y siete episodios de anafilaxia por exposición indirecta a penicilinas de sus hijos. Se registran dos desencadenantes de amoxicilina por contacto indirecto y corticosteroides orales como tratamiento puntual. Sensibilización a penicilinas confirmada por pruebas cutáneas e IgE específica."
   },
   "report": {
     "patient": {
@@ -69,10 +75,11 @@
             }
           ],
           "status": "indirect-exposure",
+          "episode": "Indirect exposure trigger for anaphylaxis episode: drinking from his child's glass containing traces of a crushed amoxicillin tablet; onset 10 min; generalised angioedema, vomiting, dyspnea, loss of consciousness",
           "source_span": "Licking his child's spoon containing traces of amoxicillin syrup"
         },
         {
-          "raw": "Amoxicillin",
+          "raw": "Amoxicillin (syrup, child's spoon traces)",
           "rxcui": "723",
           "name": "amoxicillin",
           "resolution": "exact",
@@ -83,19 +90,28 @@
             }
           ],
           "status": "indirect-exposure",
+          "episode": "Indirect exposure trigger for anaphylaxis episode: licking his child's spoon containing traces of amoxicillin syrup; onset 5 min; palmo-plantar itching, head itching, facial angioedema, dyspnea",
           "source_span": "Licking his child's spoon containing traces of amoxicillin syrup"
+        },
+        {
+          "raw": "Oral corticosteroids",
+          "rxcui": "1453443",
+          "name": "CORTICOSTEROIDS",
+          "resolution": "approximate",
+          "ingredients": [],
+          "status": "one-time",
+          "episode": "Treatment given for one anaphylaxis episode (amoxicillin syrup trigger)",
+          "source_span": "Oral corticosteroids"
         }
       ],
       "allergies": [
-        "Penicillins (amoxicillin, ampicillin, penicillin G sensitisation confirmed)",
-        "Allergic rhinitis",
-        "No hypersensitivity to cefuroxime or ceftriaxone (negative tests)"
+        "Penicillins (sensitisation confirmed; positive skin prick to amoxicillin and ampicillin, intradermal to penicillin G)",
+        "Amoxicillin (specific IgE positive 0.26 kUA/L)"
       ],
       "diagnoses": [
-        "Recurrent idiopathic anaphylaxis (seven episodes at home)",
-        "Anaphylactic shock (one episode)",
-        "Allergy by proxy to penicillins",
-        "Allergic rhinitis"
+        "Allergic rhinitis",
+        "Recurrent anaphylaxis (seven episodes), one progressing to anaphylactic shock",
+        "Immediate-type hypersensitivity to penicillins by proxy/indirect exposure"
       ],
       "labs": [
         {
@@ -104,22 +120,25 @@
           "unit": "μg/L"
         },
         {
-          "name": "Specific IgE amoxicillin",
+          "name": "Specific IgE amoxicillin (ImmunoCAP)",
           "value": 0.26,
           "unit": "kUA/L"
         }
       ],
-      "note": "Case report PMC12695512 / PMID 40984660. 38-year-old man with allergic rhinitis, seven episodes of anaphylaxis at home, one progressing to anaphylactic shock. Reactions coincided with periods during which his children were receiving penicillin therapy (indirect exposure to penicillins). Baseline serum tryptase 4.10 μg/L. Specific IgE positive only for amoxicillin (0.26 kUA/L). Skin prick tests positive to amoxicillin and ampicillin; intradermal positive to penicillin G. Cephalosporins (cefuroxime, ceftriaxone) negative on skin and provocation testing."
+      "note": "Case report PMC12695512 / PMID 40984660. 38-year-old man with allergic rhinitis and seven episodes of anaphylaxis at home. Reactions coincided with periods when his children were receiving penicillin therapy. Indirect exposure to penicillins identified as trigger."
     },
-    "patient_summary": "Hombre de 38 años con rinitis alérgica y antecedente de siete episodios de anafilaxia en casa, uno con shock anafiláctico. La única exposición registrada a medicamento es indirecta a amoxicilina (lamer una cuchara con restos de jarabe de amoxicilina del hijo). Alergia a penicilinas confirmada (amoxicilina, ampicilina, penicilina G). Triptasa sérica basal 4.1 μg/L. IgE específica a amoxicilina 0.26 kUA/L. Sin hipersensibilidad a cefuroxima ni ceftriaxona (pruebas negativas). No se aportaron objetos de evidencia para evaluar interacciones o reacciones adversas.",
+    "patient_summary": "Hombre de 38 años con rinitis alérgica y antecedente de siete episodios de anafilaxia en el domicilio, uno de ellos con progresión a shock anafiláctico. Se identificó la exposición indirecta a penicilinas como desencadenante (por ejemplo, beber del vaso o lamer la cuchara de su hijo con trazas de amoxicilina). Presenta alergia confirmada a penicilinas (pruebas cutáneas positivas a amoxicilina y ampicilina, intradérmica a penicilina G) y a amoxicilina (IgE específica positiva 0,26 kUA/L). Los medicamentos registrados son amoxicilina únicamente como exposición indirecta y corticoides orales administrados una sola vez como tratamiento de un episodio. Laboratorios: triptasa sérica basal 4,1 μg/L; IgE específica a amoxicilina 0,26 kUA/L.",
     "findings": [],
     "questions_for_clinician": [
-      "Los dos registros de amoxicilina aparecen duplicados con el mismo texto de origen: ¿corresponden a una sola exposición indirecta o a exposiciones separadas?",
-      "¿Puede aportar objetos de evidencia sobre la amoxicilina para poder evaluar cualquier riesgo relacionado con la exposición registrada?"
+      "No se proporcionaron objetos de evidencia; ¿pueden aportarse las fuentes necesarias para evaluar posibles interacciones o riesgos de seguridad?",
+      "¿La amoxicilina figura solo como exposición indirecta desencadenante de anafilaxia y no como un medicamento que el paciente tome de forma activa?",
+      "¿Los corticoides orales fueron una única administración como tratamiento del episodio y no una terapia continua?"
     ],
     "evidence": [],
     "unverified_removed": [],
-    "generated_at": "2026-07-11T22:38:47.434Z",
+    "generated_at": "2026-07-12T08:44:33.267Z",
+    "research_candidates": [],
+    "research_total_known_unknown": 0,
     "pipeline": {
       "mode": "audited-replay",
       "model": "Claude Opus 4.8",
@@ -135,9 +154,7 @@
         "unique_drugs": 1939,
         "source_files": 8
       }
-    },
-    "research_candidates": [],
-    "research_total_known_unknown": 0
+    }
   },
-  "generatedAt": "2026-07-11T22:38:47.434Z"
+  "generatedAt": "2026-07-12T08:44:33.267Z"
 }

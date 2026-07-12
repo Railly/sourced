@@ -3,62 +3,79 @@
   "locale": "es",
   "intake": {
     "case": {
-      "note": "Case no 1: 36 year old female with rheumatic heart disease, severe MS, severe AS, severe TR, atrial fibrillation. Underwent mitral and aortic valve replacement with tricuspid commissurotomy. Presented POD 33 with hyperkalemia (K 7.87 meq/L) after combined ACE inhibitor, spironolactone, and potassium-rich diet (7-8 bananas/day). Managed with antihyperkalemic treatment and recovered.",
+      "note": "Case no 1 extracted per instructions. Source contains two cases; only the first labeled case was extracted. Episode: hyperkalemia (serum potassium 7.87 meq/L) presenting on POD 33 during combined therapy with ACE inhibitor, spironolactone, and potassium-rich diet.",
       "medications": [
         {
           "raw": "Spironolactone",
-          "episode": "Combined therapy associated with hyperkalemia episode; on POD 28 changed to furosemide with spironolactone 40/25 mg BD",
-          "start": "POD 28 (furosemide with spironolactone 40/25 mg BD)",
+          "episode": "Hyperkalemia during combined therapy per title",
+          "source_span": "Combined Therapy with Angiotensin-converting Enzyme Inhibitor, Spironolactone, and Diet Rich in Potassium",
+          "status": "active"
+        },
+        {
+          "raw": "furosemide with spironolactone 40/25 mg BD",
+          "episode": "Medication on POD 28, before POD 33 hyperkalemia event",
+          "start": "On POD 28",
           "source_span": "On POD 28, her medication was changed to furosemide with spironolactone 40/25 mg BD",
           "status": "active"
         },
         {
           "raw": "tablet furosemide 40 mg once daily (OD)",
-          "episode": "Started on admission; continued at discharge and POD 28; part of therapy during hyperkalemia episode",
-          "start": "started on admission",
-          "source_span": "She was started on tablet furosemide 40 mg once daily (OD) along with tablet metoprolol 25 mg twice a day.",
+          "episode": "Started at admission before surgery",
+          "source_span": "She was started on tablet furosemide 40 mg once daily (OD)",
           "status": "active"
         },
         {
           "raw": "tablet metoprolol 25 mg twice a day",
-          "episode": "Started on admission along with furosemide; not listed in later discharge/POD 28 regimens",
-          "start": "started on admission",
+          "episode": "Started at admission before surgery",
           "source_span": "She was started on tablet furosemide 40 mg once daily (OD) along with tablet metoprolol 25 mg twice a day.",
           "status": "active"
         },
         {
           "raw": "tablet ramipril 5 mg HS",
-          "episode": "ACE inhibitor prescribed at discharge POD 9; part of combined therapy with hyperkalemia",
-          "start": "POD 9 (discharge)",
+          "episode": "Discharge prescription POD 9",
+          "start": "discharged on the postoperative day (POD) 9",
           "source_span": "tablet ramipril 5 mg HS",
           "status": "active"
         },
         {
           "raw": "tablet amiodarone 200 mg OD",
-          "episode": "Prescribed at discharge POD 9; not listed in POD 28 regimen",
-          "start": "POD 9 (discharge)",
+          "episode": "Discharge prescription POD 9",
+          "start": "discharged on the postoperative day (POD) 9",
           "source_span": "She was discharged on the postoperative day (POD) 9 with prescription of tablet furosemide 40 mg OD, tablet aldactone 100 mg OD, tablet ramipril 5 mg HS, and tablet amiodarone 200 mg OD, and ecosprin 150 mg OD.",
           "status": "active"
         },
         {
+          "raw": "ecosprin 150 mg OD",
+          "episode": "Discharge prescription POD 9",
+          "start": "discharged on the postoperative day (POD) 9",
+          "source_span": "She was discharged on the postoperative day (POD) 9 with prescription of tablet furosemide 40 mg OD, tablet aldactone 100 mg OD, tablet ramipril 5 mg HS, and tablet amiodarone 200 mg OD, and ecosprin 150 mg OD.",
+          "status": "active"
+        },
+        {
+          "raw": "tablet aldactone 100 mg OD",
+          "episode": "On POD 28 medication list",
+          "start": "On POD 28",
+          "source_span": "tablet aldactone 100 mg OD, and tablet digoxin 0.25 mg OD",
+          "status": "active"
+        },
+        {
           "raw": "tablet acenocoumarol",
-          "episode": "Added POD 28 as part of regimen preceding hyperkalemia episode POD 33",
-          "start": "POD 28",
-          "source_span": "On POD 28, her medication was changed to furosemide with spironolactone 40/25 mg BD, tablet acenocoumarol, tablet aldactone 100 mg OD, and tablet digoxin 0.",
+          "episode": "Added on POD 28",
+          "start": "On POD 28",
+          "source_span": "tablet acenocoumarol",
           "status": "active"
         },
         {
           "raw": "tablet digoxin 0.25 mg OD",
-          "episode": "Added POD 28 as part of regimen preceding hyperkalemia episode POD 33",
-          "start": "POD 28",
+          "episode": "Added on POD 28",
+          "start": "On POD 28",
           "source_span": "tablet digoxin 0.25 mg OD",
           "status": "active"
         },
         {
           "raw": "intravenous (IV) calcium gluconate",
-          "episode": "Given as antihyperkalemic treatment during POD 33 emergency presentation",
-          "start": "POD 33 (emergency management)",
-          "source_span": "She was managed with aggressive antihyperkalemic treatment with intravenous (IV) calcium gluconate, glucose-insulin drip, soda-bicarbonate, loop diuretics, K+ binding resins, and IV fluids.",
+          "episode": "Antihyperkalemic treatment at POD 33 presentation",
+          "source_span": "aggressive antihyperkalemic treatment with intravenous (IV) calcium gluconate",
           "status": "one-time"
         }
       ],
@@ -68,8 +85,11 @@
         "severe mitral stenosis (MS)",
         "severe aortic stenosis (AS)",
         "severe tricuspid regurgitation (TR)",
+        "dyspnea on exertion for the last 1½ years",
+        "New York Heart Association Class III",
+        "CHF 7 months back",
         "atrial fibrillation rhythm",
-        "CHF (7 months back)",
+        "hepatomegaly",
         "hyperkalemia with serum potassium of 7.87 meq/L",
         "hyponatremia with serum sodium 129 mmol/L",
         "hypocalcemia"
@@ -121,12 +141,7 @@
           "unit": "mg/dl"
         },
         {
-          "name": "heart rate (ECG)",
-          "value": 30,
-          "unit": "beats/min"
-        },
-        {
-          "name": "potassium (post-treatment)",
+          "name": "potassium (after treatment)",
           "value": 4.5,
           "unit": "meq/L"
         }
@@ -136,30 +151,35 @@
       {
         "id": "source-scope",
         "field": "patient scope",
-        "question": "La fuente contiene dos casos (Case no 1 y Case no 2). Se extrajo solo el primer caso claramente etiquetado. ¿Confirma que el alcance de la revisión debe limitarse al Caso no 1?"
+        "question": "La fuente contiene dos casos (Caso 1 y Caso 2). Extraje solo el primer caso claramente etiquetado. ¿Confirma que el alcance de la revisión debe limitarse al Caso 1?"
       },
       {
         "id": "amb-metoprolol-timing",
-        "field": "medications[metoprolol].status",
-        "question": "El metoprolol se inició al ingreso pero no aparece en las prescripciones de alta (POD 9) ni en el régimen de POD 28. ¿Se suspendió antes del episodio de hiperpotasemia o continuó activo?"
+        "field": "medications[metoprolol]",
+        "question": "El metoprolol se inició al ingreso pero no aparece en las listas posteriores. ¿Estaba activo durante el episodio de hiperpotasemia del POD 33 o se suspendió antes?"
       },
       {
         "id": "amb-amiodarone-timing",
-        "field": "medications[amiodarone].status",
-        "question": "La amiodarona se prescribió al alta (POD 9) pero no aparece en el régimen de POD 28. ¿Continuaba activa durante el episodio de hiperpotasemia (POD 33) o se suspendió?"
+        "field": "medications[amiodarone]",
+        "question": "La amiodarona se prescribió al alta en POD 9 pero no figura en la lista de POD 28. ¿Continuaba activa durante el episodio del POD 33?"
       },
       {
-        "id": "amb-aldactone-duplicate",
-        "field": "medications",
-        "question": "La fuente menciona 'aldactone 100 mg OD' junto con 'spironolactone 40/25 mg BD' en el mismo régimen. Aldactone es una marca de espironolactona: ¿se trata de una duplicación terapéutica o son dos productos distintos que deben confirmarse?"
+        "id": "amb-ecosprin-timing",
+        "field": "medications[ecosprin]",
+        "question": "El ecosprin se prescribió al alta en POD 9 pero no figura en la lista de POD 28, donde se añadió acenocumarol. ¿Se suspendió el ecosprin o seguía activo durante el episodio?"
       },
       {
-        "id": "amb-ecosprin",
+        "id": "amb-spironolactone-duplicate",
+        "field": "medications[spironolactone/aldactone]",
+        "question": "La fuente menciona 'spironolactone', 'furosemide con spironolactone 40/25 mg' y 'aldactone' por separado. ¿Se trata de terapias duplicadas o solapadas que deben conciliarse?"
+      },
+      {
+        "id": "amb-loop-diuretics",
         "field": "medications",
-        "question": "La fuente indica 'ecosprin 150 mg OD' al alta. ¿Debe registrarse esta exposición y confirmar su identidad como medicamento?"
+        "question": "El tratamiento del POD 33 incluye 'loop diuretics' sin nombre específico. ¿Debe confirmarse a qué diurético de asa se refiere?"
       }
     ],
-    "sourceSummary": "Reporte de caso (PMC6489390) sobre hiperpotasemia postquirúrgica cardíaca durante terapia combinada con IECA, espironolactona y dieta rica en potasio. Se extrajo el Caso no 1: mujer de 36 años con valvulopatía reumática, tras reemplazo valvular, que presentó hiperpotasemia (K 7.87 meq/L) en POD 33. Existe un segundo caso no extraído."
+    "sourceSummary": "Reporte de caso (PMC6489390): mujer de 36 años poscirugía cardíaca que desarrolló hiperpotasemia (K+ 7,87 meq/L) en POD 33 durante terapia combinada con IECA, espironolactona y dieta rica en potasio (7-8 bananas/día). Se extrajo solo el Caso 1. Fechas expresadas como días postoperatorios sin fechas calendario."
   },
   "report": {
     "patient": {
@@ -176,8 +196,27 @@
             }
           ],
           "status": "active",
-          "episode": "Combined therapy associated with hyperkalemia episode; on POD 28 changed to furosemide with spironolactone 40/25 mg BD",
-          "start": "POD 28 (furosemide with spironolactone 40/25 mg BD)",
+          "episode": "Hyperkalemia during combined therapy per title",
+          "source_span": "Combined Therapy with Angiotensin-converting Enzyme Inhibitor, Spironolactone, and Diet Rich in Potassium"
+        },
+        {
+          "raw": "furosemide with spironolactone 40/25 mg BD",
+          "rxcui": "392462",
+          "name": "furosemide / spironolactone",
+          "resolution": "approximate",
+          "ingredients": [
+            {
+              "rxcui": "4603",
+              "name": "furosemide"
+            },
+            {
+              "rxcui": "9997",
+              "name": "spironolactone"
+            }
+          ],
+          "status": "active",
+          "episode": "Medication on POD 28, before POD 33 hyperkalemia event",
+          "start": "On POD 28",
           "source_span": "On POD 28, her medication was changed to furosemide with spironolactone 40/25 mg BD"
         },
         {
@@ -192,9 +231,8 @@
             }
           ],
           "status": "active",
-          "episode": "Started on admission; continued at discharge and POD 28; part of therapy during hyperkalemia episode",
-          "start": "started on admission",
-          "source_span": "She was started on tablet furosemide 40 mg once daily (OD) along with tablet metoprolol 25 mg twice a day."
+          "episode": "Started at admission before surgery",
+          "source_span": "She was started on tablet furosemide 40 mg once daily (OD)"
         },
         {
           "raw": "tablet metoprolol 25 mg twice a day",
@@ -208,8 +246,7 @@
             }
           ],
           "status": "active",
-          "episode": "Started on admission along with furosemide; not listed in later discharge/POD 28 regimens",
-          "start": "started on admission",
+          "episode": "Started at admission before surgery",
           "source_span": "She was started on tablet furosemide 40 mg once daily (OD) along with tablet metoprolol 25 mg twice a day."
         },
         {
@@ -224,8 +261,8 @@
             }
           ],
           "status": "active",
-          "episode": "ACE inhibitor prescribed at discharge POD 9; part of combined therapy with hyperkalemia",
-          "start": "POD 9 (discharge)",
+          "episode": "Discharge prescription POD 9",
+          "start": "discharged on the postoperative day (POD) 9",
           "source_span": "tablet ramipril 5 mg HS"
         },
         {
@@ -240,9 +277,35 @@
             }
           ],
           "status": "active",
-          "episode": "Prescribed at discharge POD 9; not listed in POD 28 regimen",
-          "start": "POD 9 (discharge)",
+          "episode": "Discharge prescription POD 9",
+          "start": "discharged on the postoperative day (POD) 9",
           "source_span": "She was discharged on the postoperative day (POD) 9 with prescription of tablet furosemide 40 mg OD, tablet aldactone 100 mg OD, tablet ramipril 5 mg HS, and tablet amiodarone 200 mg OD, and ecosprin 150 mg OD."
+        },
+        {
+          "raw": "ecosprin 150 mg OD",
+          "name": "ecosprin OD",
+          "rxcui": null,
+          "resolution": "unresolved",
+          "status": "active",
+          "episode": "Discharge prescription POD 9",
+          "start": "discharged on the postoperative day (POD) 9",
+          "source_span": "She was discharged on the postoperative day (POD) 9 with prescription of tablet furosemide 40 mg OD, tablet aldactone 100 mg OD, tablet ramipril 5 mg HS, and tablet amiodarone 200 mg OD, and ecosprin 150 mg OD."
+        },
+        {
+          "raw": "tablet aldactone 100 mg OD",
+          "rxcui": "151317",
+          "name": "Aldactone",
+          "resolution": "approximate",
+          "ingredients": [
+            {
+              "rxcui": "9997",
+              "name": "spironolactone"
+            }
+          ],
+          "status": "active",
+          "episode": "On POD 28 medication list",
+          "start": "On POD 28",
+          "source_span": "tablet aldactone 100 mg OD, and tablet digoxin 0.25 mg OD"
         },
         {
           "raw": "tablet acenocoumarol",
@@ -256,9 +319,9 @@
             }
           ],
           "status": "active",
-          "episode": "Added POD 28 as part of regimen preceding hyperkalemia episode POD 33",
-          "start": "POD 28",
-          "source_span": "On POD 28, her medication was changed to furosemide with spironolactone 40/25 mg BD, tablet acenocoumarol, tablet aldactone 100 mg OD, and tablet digoxin 0."
+          "episode": "Added on POD 28",
+          "start": "On POD 28",
+          "source_span": "tablet acenocoumarol"
         },
         {
           "raw": "tablet digoxin 0.25 mg OD",
@@ -272,8 +335,8 @@
             }
           ],
           "status": "active",
-          "episode": "Added POD 28 as part of regimen preceding hyperkalemia episode POD 33",
-          "start": "POD 28",
+          "episode": "Added on POD 28",
+          "start": "On POD 28",
           "source_span": "tablet digoxin 0.25 mg OD"
         },
         {
@@ -288,9 +351,8 @@
             }
           ],
           "status": "one-time",
-          "episode": "Given as antihyperkalemic treatment during POD 33 emergency presentation",
-          "start": "POD 33 (emergency management)",
-          "source_span": "She was managed with aggressive antihyperkalemic treatment with intravenous (IV) calcium gluconate, glucose-insulin drip, soda-bicarbonate, loop diuretics, K+ binding resins, and IV fluids."
+          "episode": "Antihyperkalemic treatment at POD 33 presentation",
+          "source_span": "aggressive antihyperkalemic treatment with intravenous (IV) calcium gluconate"
         }
       ],
       "allergies": [],
@@ -299,8 +361,11 @@
         "severe mitral stenosis (MS)",
         "severe aortic stenosis (AS)",
         "severe tricuspid regurgitation (TR)",
+        "dyspnea on exertion for the last 1½ years",
+        "New York Heart Association Class III",
+        "CHF 7 months back",
         "atrial fibrillation rhythm",
-        "CHF (7 months back)",
+        "hepatomegaly",
         "hyperkalemia with serum potassium of 7.87 meq/L",
         "hyponatremia with serum sodium 129 mmol/L",
         "hypocalcemia"
@@ -352,19 +417,53 @@
           "unit": "mg/dl"
         },
         {
-          "name": "heart rate (ECG)",
-          "value": 30,
-          "unit": "beats/min"
-        },
-        {
-          "name": "potassium (post-treatment)",
+          "name": "potassium (after treatment)",
           "value": 4.5,
           "unit": "meq/L"
         }
       ],
-      "note": "Case no 1: 36 year old female with rheumatic heart disease, severe MS, severe AS, severe TR, atrial fibrillation. Underwent mitral and aortic valve replacement with tricuspid commissurotomy. Presented POD 33 with hyperkalemia (K 7.87 meq/L) after combined ACE inhibitor, spironolactone, and potassium-rich diet (7-8 bananas/day). Managed with antihyperkalemic treatment and recovered."
+      "duplicate_medications": [
+        {
+          "ingredient_rxcui": "9997",
+          "ingredient_name": "spironolactone",
+          "medications": [
+            {
+              "raw": "Spironolactone",
+              "name": "spironolactone",
+              "rxcui": "9997"
+            },
+            {
+              "raw": "furosemide with spironolactone 40/25 mg BD",
+              "name": "furosemide / spironolactone",
+              "rxcui": "392462"
+            },
+            {
+              "raw": "tablet aldactone 100 mg OD",
+              "name": "Aldactone",
+              "rxcui": "151317"
+            }
+          ]
+        },
+        {
+          "ingredient_rxcui": "4603",
+          "ingredient_name": "furosemide",
+          "medications": [
+            {
+              "raw": "furosemide with spironolactone 40/25 mg BD",
+              "name": "furosemide / spironolactone",
+              "rxcui": "392462"
+            },
+            {
+              "raw": "tablet furosemide 40 mg once daily (OD)",
+              "name": "Furosemide",
+              "rxcui": "4603"
+            }
+          ]
+        }
+      ],
+      "note": "Case no 1 extracted per instructions. Source contains two cases; only the first labeled case was extracted. Episode: hyperkalemia (serum potassium 7.87 meq/L) presenting on POD 33 during combined therapy with ACE inhibitor, spironolactone, and potassium-rich diet."
     },
-    "patient_summary": "Mujer de 36 años con cardiopatía reumática, estenosis mitral severa, estenosis aórtica severa, regurgitación tricúspide severa y ritmo de fibrilación auricular, que se sometió a reemplazo valvular mitral y aórtico con comisurotomía tricúspide. Su régimen incluye spironolactone, furosemide, metoprolol, ramipril, amiodarone, acenocoumarol y digoxin. Presentó en el día postoperatorio 33 una hiperkalemia con potasio sérico de 7.87 meq/L tras terapia combinada. Los laboratorios registrados incluyen potasio sérico 7.87 meq/L, sodio sérico 129 mmol/L, hemoglobina 9.6 gm%, pH 7.28, creatinina sérica 1.1 mg%, BUN 17 mg/dl y potasio posterior al tratamiento 4.5 meq/L.",
+    "patient_summary": "Mujer con cardiopatía reumática, estenosis mitral y aórtica graves, regurgitación tricuspídea grave, insuficiencia cardíaca y fibrilación auricular. Toma espironolactona, furosemida/espironolactona 40/25 mg, furosemida 40 mg, metoprolol 25 mg dos veces al día, ramipril 5 mg, amiodarona 200 mg, aldactona 100 mg, acenocumarol, digoxina 0,25 mg y recibió gluconato de calcio intravenoso una vez. Presentó hiperpotasemia con potasio sérico de 7,87 meq/L, hiponatremia con sodio sérico de 129 mmol/L e hipocalcemia. El potasio tras el tratamiento fue de 4,5 meq/L. La creatinina sérica fue de 1,1 mg% y el BUN de 17 mg/dl.",
     "findings": [
       {
         "status": "red-flag",
@@ -388,62 +487,14 @@
           "amiodarone",
           "digoxin"
         ],
-        "headline": "Amiodarone aumenta la concentración de digoxin",
-        "mechanism": "La etiqueta de amiodarone indica que la administración con digoxin causa un aumento de la concentración de digoxin y recomienda reducir la digoxin a la mitad o descontinuarla. La etiqueta de digoxin señala un aumento de la concentración sérica de digoxin del 70% con amiodarone y recomienda medir las concentraciones séricas antes de iniciar y reducir la dosis aproximadamente 30 a 50%.",
-        "why_this_patient": "La paciente recibe amiodarone 200 mg OD y digoxin 0.25 mg OD de forma concomitante, lo que podría elevar la concentración de digoxin según lo descrito en las etiquetas.",
+        "headline": "La amiodarona aumenta la concentración de digoxina",
+        "mechanism": "Según la etiqueta de la amiodarona, la coadministración aumenta la concentración de digoxina; se indica reducir la digoxina a la mitad o suspenderla. La etiqueta de la digoxina cuantifica un aumento del 70% en su concentración sérica con amiodarona.",
+        "why_this_patient": "La paciente toma amiodarone 200 mg y digoxin 0,25 mg de forma concurrente, combinación en la que la fuente indica un aumento de la concentración de digoxina.",
         "evidence_ids": [
           "label:703:interactions",
           "label:3407:interactions"
         ],
-        "monitoring": "Medir las concentraciones séricas de digoxin y vigilar signos de toxicidad; la etiqueta recomienda reducir la dosis de digoxin."
-      },
-      {
-        "status": "flagged",
-        "severity": "major",
-        "drugs": [
-          "furosemide",
-          "ramipril"
-        ],
-        "headline": "Furosemide combinado con un inhibidor de la ECA puede causar hipotensión severa y deterioro renal",
-        "mechanism": "La etiqueta de furosemide indica que su combinación con inhibidores de la enzima convertidora de angiotensina o bloqueadores del receptor de angiotensina II puede provocar hipotensión severa y deterioro de la función renal, incluyendo insuficiencia renal, y que puede ser necesaria una interrupción o reducción de la dosis.",
-        "why_this_patient": "La paciente recibe furosemide 40 mg junto con ramipril 5 mg, combinación para la cual la etiqueta describe riesgo de hipotensión severa y deterioro renal.",
-        "evidence_ids": [
-          "label:4603:interactions",
-          "label:35296:interactions"
-        ],
-        "monitoring": "Vigilar la presión arterial y la función renal; la etiqueta indica que puede ser necesaria una interrupción o reducción de la dosis de furosemide o del inhibidor de la ECA."
-      },
-      {
-        "status": "flagged",
-        "severity": "moderate",
-        "drugs": [
-          "spironolactone",
-          "digoxin"
-        ],
-        "headline": "Spironolactone aumenta la exposición a digoxin e interfiere con su medición",
-        "mechanism": "La etiqueta de spironolactone indica que este y sus metabolitos aumentan la exposición aparente a digoxin y que puede interferir con los ensayos radioinmunológicos de digoxin; recomienda medir las concentraciones séricas de digoxin antes de iniciar spironolactone con un ensayo que no interactúe, y reducir la dosis de digoxin. La etiqueta de digoxin señala un aumento de la concentración sérica del 25% con spironolactone.",
-        "why_this_patient": "La paciente recibe spironolactone y digoxin de forma concomitante, lo que podría aumentar la exposición a digoxin e interferir con su medición según lo descrito en las etiquetas.",
-        "evidence_ids": [
-          "label:9997:interactions",
-          "label:3407:interactions"
-        ],
-        "monitoring": "Medir las concentraciones séricas de digoxin con un ensayo adecuado antes de iniciar spironolactone y continuar la monitorización según indican las etiquetas."
-      },
-      {
-        "status": "flagged",
-        "severity": "moderate",
-        "drugs": [
-          "metoprolol",
-          "digoxin"
-        ],
-        "headline": "Metoprolol combinado con digitálicos puede aumentar el riesgo de bradicardia",
-        "mechanism": "La etiqueta de metoprolol indica que el uso concomitante de glucósidos digitálicos con betabloqueadores puede aumentar el riesgo de bradicardia, ya que los digitálicos y los betabloqueadores disminuyen la conducción auriculoventricular y la frecuencia cardíaca, con posibles efectos aditivos de reducción de la frecuencia cardíaca.",
-        "why_this_patient": "La paciente recibe metoprolol y digoxin, y presentó una frecuencia cardíaca de 30 beats/min en ECG; la combinación podría tener efectos aditivos de reducción de la frecuencia cardíaca según lo descrito en la etiqueta.",
-        "evidence_ids": [
-          "label:6918:interactions",
-          "label:3407:interactions"
-        ],
-        "monitoring": "Vigilar la frecuencia cardíaca cuando se combinan metoprolol y digoxin."
+        "monitoring": "Medir las concentraciones séricas de digoxina antes de iniciar y reducir la dosis aproximadamente entre 30 y 50% o modificar la frecuencia de dosificación, y continuar la monitorización."
       },
       {
         "status": "flagged",
@@ -452,35 +503,53 @@
           "amiodarone",
           "metoprolol"
         ],
-        "headline": "Amiodarone combinado con betabloqueadores puede potenciar la bradicardia",
-        "mechanism": "La etiqueta de amiodarone clasifica a los betabloqueadores como cronotropos negativos y señala que potencian los efectos electrofisiológicos y hemodinámicos de amiodarone, resultando en bradicardia, paro sinusal y bloqueo AV; recomienda monitorizar la frecuencia cardíaca.",
-        "why_this_patient": "La paciente recibe amiodarone y metoprolol, y presentó una frecuencia cardíaca de 30 beats/min en ECG; la combinación podría potenciar la bradicardia según lo descrito en la etiqueta.",
+        "headline": "La amiodarona puede aumentar la exposición al metoprolol",
+        "mechanism": "amiodarone inhibits CYP2D6 and metoprolol is a substrate of CYP2D6, so amiodarone can raise metoprolol exposure",
+        "why_this_patient": "La paciente toma amiodarone 200 mg y metoprolol 25 mg dos veces al día de forma concurrente, combinación en la que las fuentes citadas describen aumento de exposición y efectos aditivos sobre la frecuencia cardíaca.",
         "evidence_ids": [
-          "label:703:interactions",
-          "label:6918:interactions"
+          "cyp:703:6918",
+          "label:703:interactions"
         ],
-        "monitoring": "Monitorizar la frecuencia cardíaca cuando se combinan amiodarone y metoprolol."
+        "monitoring": "Monitorizar la frecuencia cardíaca según la etiqueta de la amiodarona."
       },
       {
         "status": "flagged",
-        "severity": "major",
+        "severity": "moderate",
         "drugs": [
-          "ramipril",
+          "spironolactone",
           "digoxin"
         ],
-        "headline": "El inhibidor de la ECA puede afectar la excreción de digoxin",
-        "mechanism": "La etiqueta de digoxin indica que una disminución de la tasa de filtración glomerular o de la secreción tubular, como la que producen los inhibidores de la ECA, puede afectar la excreción de digoxin.",
-        "why_this_patient": "La paciente recibe ramipril y digoxin de forma concomitante, y ramipril podría afectar la excreción de digoxin según lo descrito en la etiqueta.",
+        "headline": "La espironolactona aumenta la exposición aparente a la digoxina",
+        "mechanism": "Según la etiqueta de la espironolactona, esta y sus metabolitos aumentan la exposición aparente a la digoxina. La etiqueta de la digoxina cuantifica un aumento del 25% en su concentración sérica con espironolactona.",
+        "why_this_patient": "Los medicamentos de este hallazgo están activos en el episodio de seguridad de medicamentos revisado.",
         "evidence_ids": [
+          "label:9997:interactions",
           "label:3407:interactions"
         ],
-        "monitoring": "Vigilar las concentraciones séricas de digoxin y los signos de toxicidad, dado que la etiqueta señala que la digoxin tiene un índice terapéutico estrecho."
+        "monitoring": "Medir las concentraciones séricas de digoxina antes de iniciar la espironolactona con un ensayo que no interactúe con ella, y considerar reducir la dosis de digoxina aproximadamente entre 15 y 30% o modificar la frecuencia de dosificación, continuando la monitorización."
+      },
+      {
+        "status": "flagged",
+        "severity": "moderate",
+        "drugs": [
+          "furosemide",
+          "ramipril"
+        ],
+        "headline": "Furosemida con inhibidor de la ECA: riesgo de hipotensión y deterioro renal",
+        "mechanism": "Según la etiqueta de la furosemida, la combinación con inhibidores de la ECA o ARB puede provocar hipotensión grave y deterioro de la función renal, incluyendo insuficiencia renal. La etiqueta del ramipril indica posibilidad de reducción excesiva de la presión arterial en pacientes con diuréticos.",
+        "why_this_patient": "La paciente toma furosemide junto con ramipril 5 mg, combinación en la que las fuentes citadas describen riesgo de hipotensión y deterioro renal.",
+        "evidence_ids": [
+          "label:4603:interactions",
+          "label:35296:interactions"
+        ],
+        "monitoring": "Según la etiqueta de la furosemida, puede ser necesaria una interrupción o reducción de la dosis de furosemida, inhibidores de la ECA o ARB."
       }
     ],
     "questions_for_clinician": [
-      "Las entradas de spironolactone y aldactone que aparecen en el régimen, ¿corresponden a una sola orden o son órdenes separadas?",
-      "Dado que la etiqueta de amiodarone recomienda reducir la digoxin a la mitad o descontinuarla al combinarse, ¿desea revisar la dosis actual de digoxin de esta paciente?",
-      "Considerando que la etiqueta de furosemide indica que la combinación con un inhibidor de la ECA puede requerir interrupción o reducción de dosis, ¿desea revisar las dosis de furosemide y ramipril?"
+      "Las entradas de espironolactona (Spironolactone, aldactone 100 mg y la combinación furosemide/spironolactone 40/25 mg) ¿corresponden a una sola orden o a órdenes separadas?",
+      "Las entradas de furosemida (furosemide 40 mg y la combinación furosemide/spironolactone 40/25 mg) ¿corresponden a una sola orden o a órdenes separadas?",
+      "¿Confirma que la paciente toma ramipril y espironolactona de forma concurrente, dada la recomendación de la etiqueta de comprobar el potasio sérico en esta situación?",
+      "El registro incluye ecosprin 150 mg como no resuelto; ¿puede confirmar la identidad de este medicamento para completar la revisión?"
     ],
     "evidence": [
       {
@@ -603,7 +672,7 @@
         "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=53e5aec1-052b-454e-e063-6394a90a87f3",
         "exact_field": "drug_interactions",
         "quoted_text": "7 DRUG INTERACTIONS Digoxin has a narrow therapeutic index, increased monitoring of serum digoxin concentrations and for potential signs and symptoms of clinical toxicity is necessary when initiating, adjusting, or discontinuing drugs that may interact with digoxin. Prescribers should consult the prescribing information of any drug which is co-prescribed with digoxin for potential drug interaction information. PGP Inducers/Inhibitors: Drugs that induce or inhibit PGP have the potential to alter digoxin pharmacokinetics. ( 7.1 ) The potential for drug-drug interactions must be considered prior to and during drug therapy. See full prescribing information. ( 7.2 , 7.3 , 12.3 ) 7.1 P-Glycoprotein (PGP) Inducers/Inhibitors Digoxin is a substrate of P-glycoprotein, at the level of intestinal absorption, renal tubular section and biliary-intestinal secretion. Therefore, drugs that induce/ inhibit P-glycoprotein have the potential to alter digoxin pharmacokinetics. 7.2 Pharmacokinetic Drug Interactions Digoxin concentrations increased greater than 50% Digoxin Serum Concentration Increase Digoxin AUC Increase Recommendations Amiodarone 70% NA Measure serum digoxin concentrations before initiating concomitant drugs. Reduce digoxin concentrations by decreasing dose by approximately 30 to 50% or by modifying the dosing frequency and continue monitoring. Captopril 58% 39% Clarithromycin NA 70% Dronedarone NA 150% Gentamicin 129 to 212% NA Erythromycin 100% NA Itraconazole 80% NA Lapatinib NA 180% Propafenone NA 60 to 270% Quinidine 100% NA Ranolazine 50% NA Ritonavir NA 86% Telaprevir 50% 85% Tetracycline 100% NA Verapamil 50 to 75% NA Digoxin concentrations increased less than 50% Atorvastatin 22% 15% Measure serum digoxin concentrations before initiating concomitant drugs. Reduce digoxin concentrations by decreasing the dose by approximately 15 to 30% or by modifying the dosing frequency and continue monitoring. Carvedilol 16% 14% Conivaptan 33% 43% Diltiazem 20% NA Indomethacin 40% NA Mirabegron 29% 27% Nefazodone 27% 15% Nifedipine 45% NA Propantheline 24% 24% Quinine NA 33% Rabeprazole 29% 19% Saquinavir 27% 49% Spironolactone 25% NA Telmisartan 20 to 49% NA Ticagrelor 31% 28% Tolvaptan 30% 20% Trimethoprim 22 to 28% NA Digoxin concentrations increased, but magnitude is unclear Alprazolam, azithromycin, cyclosporine, diclofenac, diphenoxylate, epoprostenol, esomeprazole, ibuprofen, ketoconazole, lansoprazole, metformin, omeprazole Measure serum digoxin concentrations before initiating concomitant drugs. Continue monitoring and reduce digoxin dose as necessary. NA = Not available/reported Digoxin concentrations decreased Acarbose, activated charcoal, albuterol, antacids, certain cancer chemotherapy or radiation therapy, cholestyramine, colestipol, extenatide, kaolin-pectin, meals high in bran, metoclopramide, miglitol, neomycin, penicillamine, phenytoin, rifampin, St. John’s Wort, sucralfate and sulfasalazine Measure serum digoxin concentrations before initiating concomitant drugs. Continue monitoring and increase digoxin dose by approximately 20 to 40% as necessary. 7.3 Potentially Significant Pharmacodynamic Drug Interactions Because of considerable variability of pharmacodynamic interactions, the dosage of digoxin should be individualized when patients receive these medications concurrently. Drugs that Affect Renal Function A decline in GFR or tubular secretion, as from ACE inhibitors, angiotensin receptor blockers, nonsteroidal anti-inflammatory drugs [NSAIDS], COX-2 inhibitors may impair the excretion of digoxin. Antiarrthymics Dofetilide Concomitant administration with digoxin was associated with a higher rate of torsades de pointes Sotalol Proarrhythmic events were more common in patients receiving sotalol and digoxin than on either alone; it is not clear whether this represents an interaction or is related to the presence of CHF, a known risk factor for proarrhythmia, in patients receiving digoxin. Dronedarone Sudden death was ",
-        "supporting_text": "2 Pharmacokinetic Drug Interactions Digoxin concentrations increased greater than 50% Digoxin Serum Concentration Increase Digoxin AUC Increase Recommendations Amiodarone 70% NA Measure serum digoxin concentrations before initiating concomitant drugs. Reduce digoxin concentrations by decreasing dose by approximately 30 to 50% or by modifying the dosing frequency and continue monitoring.",
+        "supporting_text": "Carvedilol 16% 14% Conivaptan 33% 43% Diltiazem 20% NA Indomethacin 40% NA Mirabegron 29% 27% Nefazodone 27% 15% Nifedipine 45% NA Propantheline 24% 24% Quinine NA 33% Rabeprazole 29% 19% Saquinavir 27% 49% Spironolactone 25% NA Telmisartan 20 to 49% NA Ticagrelor 31% 28% Tolvaptan 30% 20% Trimethoprim 22 to 28% NA Digoxin concentrations increased, but magnitude is unclear Alprazolam, azithromycin, cyclosporine, diclofenac, diphenoxylate, epoprostenol, esomeprazole, ibuprofen, ketoconazole, lansoprazole, metformin, omeprazole Measure serum digoxin concentrations before initiating concomitant drugs. Continue monitoring and reduce digoxin dose as necessary.",
         "source_version": "effective 20260610 · version 1",
         "anchor_drug": "digoxin",
         "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"digoxin\"&limit=20",
@@ -611,7 +680,7 @@
       },
       {
         "id": "ddinter:DDInter1707:DDInter13",
-        "claim_text": "DDInter severity for spironolactone + acenocoumarol: Unknown",
+        "claim_text": "DDInter severity for Aldactone + acenocoumarol: Unknown",
         "source_name": "DDInter",
         "source_id": "DDInter1707/DDInter13",
         "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
@@ -623,7 +692,7 @@
           "Acenocoumarol"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_B.csv row: DDInter1707 (Spironolactone) x DDInter13 (Acenocoumarol)",
-        "retrieved_at": "2026-07-11T22:30:15.653Z"
+        "retrieved_at": "2026-07-12T08:26:38.072Z"
       },
       {
         "id": "ddinter:DDInter790:DDInter13",
@@ -639,7 +708,7 @@
           "Acenocoumarol"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_B.csv row: DDInter790 (Furosemide) x DDInter13 (Acenocoumarol)",
-        "retrieved_at": "2026-07-11T22:30:15.653Z"
+        "retrieved_at": "2026-07-12T08:26:38.072Z"
       },
       {
         "id": "ddinter:DDInter1200:DDInter13",
@@ -655,7 +724,7 @@
           "Acenocoumarol"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_B.csv row: DDInter1200 (Metoprolol) x DDInter13 (Acenocoumarol)",
-        "retrieved_at": "2026-07-11T22:30:15.653Z"
+        "retrieved_at": "2026-07-12T08:26:38.072Z"
       },
       {
         "id": "ddinter:DDInter1565:DDInter13",
@@ -671,7 +740,7 @@
           "Acenocoumarol"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_B.csv row: DDInter1565 (Ramipril) x DDInter13 (Acenocoumarol)",
-        "retrieved_at": "2026-07-11T22:30:15.653Z"
+        "retrieved_at": "2026-07-12T08:26:38.072Z"
       },
       {
         "id": "ddinter:DDInter76:DDInter13",
@@ -687,7 +756,7 @@
           "Acenocoumarol"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_B.csv row: DDInter76 (Amiodarone) x DDInter13 (Acenocoumarol)",
-        "retrieved_at": "2026-07-11T22:30:15.653Z"
+        "retrieved_at": "2026-07-12T08:26:38.072Z"
       },
       {
         "id": "ddinter:DDInter554:DDInter13",
@@ -703,28 +772,40 @@
           "Acenocoumarol"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_B.csv row: DDInter554 (Digoxin) x DDInter13 (Acenocoumarol)",
-        "retrieved_at": "2026-07-11T22:30:15.653Z"
+        "retrieved_at": "2026-07-12T08:26:38.072Z"
+      },
+      {
+        "id": "cyp:703:6918",
+        "claim_text": "amiodarone inhibits CYP2D6 and metoprolol is a substrate of CYP2D6, so amiodarone can raise metoprolol exposure",
+        "source_name": "openFDA-label",
+        "source_id": "4c149392-a4f0-4e2d-a13f-2b94810005de",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4c149392-a4f0-4e2d-a13f-2b94810005de",
+        "exact_field": "clinical_pharmacology",
+        "quoted_text": "Amiodarone inhibits P-glycoprotein and CYP1A2, CYP2C9, CYP2D6, and CYP3A, increasing exposure to other drugs.",
+        "supporting_text": "Amiodarone inhibits P-glycoprotein and CYP1A2, CYP2C9, CYP2D6, and CYP3A, increasing exposure to other drugs.",
+        "subject_drugs": [
+          "amiodarone",
+          "metoprolol"
+        ],
+        "retrieval_query": "FDA labels: amiodarone inhibits CYP2D6 × metoprolol substrate",
+        "retrieved_at": "2026-07-12T08:26:38.072Z"
       }
     ],
-    "unverified_removed": [],
-    "generated_at": "2026-07-11T22:30:15.653Z",
-    "pipeline": {
-      "mode": "audited-replay",
-      "model": "Claude Opus 4.8",
-      "stages": [
-        "ingest",
-        "retrieve",
-        "synthesize",
-        "verify"
-      ],
-      "ddinter": {
-        "source_rows": 222383,
-        "unique_pairs": 160235,
-        "unique_drugs": 1939,
-        "source_files": 8
+    "unverified_removed": [
+      {
+        "claim_text": "Metoprolol con digitálicos puede aumentar el riesgo de bradicardia",
+        "reason": "Revisor: la afirmación no está respaldada por las fuentes citadas: La instrucción de monitorización 'Monitor patients closely, when the combination cannot be avoided' aparece en la sección 7.3 (inhibidores de CYP2D6), no en la sección 7.4 sobre digitálicos y otros fármacos que disminuyen la frecuencia cardíaca; la etiqueta no incluye una instrucción de monitorización específica para la combinación de metoprolol con glucósidos digitálicos."
       }
-    },
+    ],
+    "generated_at": "2026-07-12T08:26:38.072Z",
     "research_candidates": [
+      {
+        "tier": "unresolved-concern",
+        "drugs": [],
+        "reason": "Revisor: la afirmación no está respaldada por las fuentes citadas: La instrucción de monitorización 'Monitor patients closely, when the combination cannot be avoided' aparece en la sección 7.3 (inhibidores de CYP2D6), no en la sección 7.4 sobre digitálicos y otros fármacos que disminuyen la frecuencia cardíaca; la etiqueta no incluye una instrucción de monitorización específica para la combinación de metoprolol con glucósidos digitálicos.",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Metoprolol con digitálicos puede aumentar el riesgo de bradicardia\"",
+        "source": "adversarial verifier"
+      },
       {
         "tier": "known-unknown",
         "drugs": [
@@ -764,19 +845,25 @@
         "reason": "DDInter documents the Ramipril + Acenocoumarol pair but assigns no severity level.",
         "question": "Does concurrent Ramipril and Acenocoumarol carry a clinically significant interaction? The pair is catalogued without a graded severity.",
         "source": "DDInter DDInter1565/DDInter13"
-      },
-      {
-        "tier": "known-unknown",
-        "drugs": [
-          "Amiodarone",
-          "Acenocoumarol"
-        ],
-        "reason": "DDInter documents the Amiodarone + Acenocoumarol pair but assigns no severity level.",
-        "question": "Does concurrent Amiodarone and Acenocoumarol carry a clinically significant interaction? The pair is catalogued without a graded severity.",
-        "source": "DDInter DDInter76/DDInter13"
       }
     ],
-    "research_total_known_unknown": 6
+    "research_total_known_unknown": 6,
+    "pipeline": {
+      "mode": "audited-replay",
+      "model": "Claude Opus 4.8",
+      "stages": [
+        "ingest",
+        "retrieve",
+        "synthesize",
+        "verify"
+      ],
+      "ddinter": {
+        "source_rows": 222383,
+        "unique_pairs": 160235,
+        "unique_drugs": 1939,
+        "source_files": 8
+      }
+    }
   },
-  "generatedAt": "2026-07-11T22:30:15.653Z"
+  "generatedAt": "2026-07-12T08:26:38.072Z"
 }

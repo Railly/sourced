@@ -3,41 +3,41 @@
   "locale": "en",
   "intake": {
     "case": {
-      "note": "50-year-old female with AIDS not compliant with anti-retroviral therapy, polysubstance abuse and opioid dependence on methadone maintenance, presented to ED found vomiting and confused. Reported heroin and cocaine use. Developed Torsades de Pointes shortly after metronidazole infusion, following metoclopramide administration, on background of methadone maintenance.",
+      "note": "Case report PMC7931031/PMID 33562182: 50-year-old female with AIDS (non-compliant with anti-retroviral therapy), polysubstance abuse, opioid dependence on methadone maintenance. Presented after being found vomiting and confused. TdP occurred shortly after metronidazole infusion following metoclopramide administration.",
       "medications": [
         {
           "raw": "Methadone",
-          "episode": "Methadone maintenance; part of the drug combination implicated in the QT prolongation and Torsades de Pointes episode",
+          "episode": "Methadone maintenance; urine toxicology positive for methadone; implicated in TdP interaction per title",
           "source_span": "opioid dependence on methadone maintenance",
           "status": "active"
         },
         {
           "raw": "Metoclopramide (IV 10 mg)",
-          "episode": "Given in ED for nausea and vomiting, ~45 min before metronidazole; part of interaction causing Torsades de Pointes",
+          "episode": "Given IV in ED for nausea/vomiting; metronidazole started ~45 min after; TdP occurred shortly after metronidazole infusion",
           "source_span": "She received intravenous (IV) metoclopramide 10 mg.",
           "status": "active"
         },
         {
           "raw": "Metronidazole (IV)",
-          "episode": "Given for suspected aspiration pneumonia; TdP occurred shortly after infusion stopped",
+          "episode": "Given for suspected aspiration pneumonia; TdP shortly after infusion stopped",
           "source_span": "She was given IV ceftriaxone and metronidazole for suspected aspiration pneumonia.",
           "status": "active"
         },
         {
           "raw": "Ceftriaxone (IV)",
-          "episode": "Given for suspected aspiration pneumonia during the episode",
+          "episode": "Given for suspected aspiration pneumonia during ED stay",
           "source_span": "She was given IV ceftriaxone and metronidazole for suspected aspiration pneumonia.",
           "status": "active"
         },
         {
           "raw": "Potassium chloride (IV)",
-          "episode": "Given after TdP as electrolyte repletion; treatment dose",
+          "episode": "Given after TdP episode following cardiology consult",
           "source_span": "IV potassium chloride and magnesium sulfate were given.",
           "status": "one-time"
         },
         {
           "raw": "Magnesium sulfate (IV)",
-          "episode": "Given after TdP as electrolyte repletion; treatment dose",
+          "episode": "Given after TdP episode following cardiology consult",
           "source_span": "IV potassium chloride and magnesium sulfate were given.",
           "status": "one-time"
         }
@@ -45,9 +45,9 @@
       "allergies": [],
       "diagnoses": [
         "Torsades de Pointes",
-        "Acquired immunodeficiency syndrome not compliant with anti-retroviral therapy",
+        "Acquired immunodeficiency syndrome (not compliant with anti-retroviral therapy)",
         "Polysubstance abuse",
-        "Opioid dependence on methadone maintenance",
+        "Opioid dependence",
         "Suspected aspiration pneumonia",
         "Sinus bradycardia"
       ],
@@ -98,11 +98,6 @@
           "unit": "ms"
         },
         {
-          "name": "EKG rate",
-          "value": 40,
-          "unit": "per minute"
-        },
-        {
           "name": "Ejection fraction",
           "value": 47,
           "unit": "%"
@@ -111,22 +106,17 @@
     },
     "ambiguities": [
       {
-        "id": "amb-methadone-timing",
+        "id": "amb-1",
+        "field": "medications[0].raw",
+        "question": "Heroin and cocaine use are reported (self-reported use and positive urine toxicology). Should these substances be recorded as medication exposures for this episode, or excluded as illicit substance use?"
+      },
+      {
+        "id": "amb-2",
         "field": "medications[0].status",
-        "question": "The source states the patient was on methadone maintenance and lists methadone as part of the interaction causing TdP, but no explicit dosing during this ED encounter is documented. Confirm methadone was active during the target episode."
-      },
-      {
-        "id": "amb-heroin-cocaine",
-        "field": "medications",
-        "question": "Urine toxicology was positive for cocaine and opioids, and the patient reported using heroin and cocaine. Should these substances be recorded as exposures, and with what status?"
-      },
-      {
-        "id": "amb-bp-transcription",
-        "field": "case.note",
-        "question": "Confirm the blood pressure value of 128/80 mm Hg was not captured as a lab; it was not extracted as a numeric lab. Please confirm no additional vitals need recording."
+        "question": "Methadone is described as maintenance therapy and was confirmed on urine toxicology; can you confirm it was active during the TdP episode as the title implies combined-therapy involvement?"
       }
     ],
-    "sourceSummary": "Single published case report (PMC7931031) of a 50-year-old female on methadone maintenance who developed Torsades de Pointes shortly after IV metronidazole, given after IV metoclopramide, with concurrent ceftriaxone; potassium chloride and magnesium sulfate given post-event. All source-listed medications extracted with verbatim spans."
+    "sourceSummary": "Single case report (PMC7931031) of a 50-year-old female with AIDS, polysubstance abuse, and methadone maintenance who developed Torsades de Pointes after receiving IV metoclopramide followed by IV metronidazole. Ceftriaxone was co-administered; potassium chloride and magnesium sulfate given post-event. Blood pressure 128/80 mm Hg noted."
   },
   "report": {
     "patient": {
@@ -143,7 +133,7 @@
             }
           ],
           "status": "active",
-          "episode": "Methadone maintenance; part of the drug combination implicated in the QT prolongation and Torsades de Pointes episode",
+          "episode": "Methadone maintenance; urine toxicology positive for methadone; implicated in TdP interaction per title",
           "source_span": "opioid dependence on methadone maintenance"
         },
         {
@@ -158,7 +148,7 @@
             }
           ],
           "status": "active",
-          "episode": "Given in ED for nausea and vomiting, ~45 min before metronidazole; part of interaction causing Torsades de Pointes",
+          "episode": "Given IV in ED for nausea/vomiting; metronidazole started ~45 min after; TdP occurred shortly after metronidazole infusion",
           "source_span": "She received intravenous (IV) metoclopramide 10 mg."
         },
         {
@@ -173,7 +163,7 @@
             }
           ],
           "status": "active",
-          "episode": "Given for suspected aspiration pneumonia; TdP occurred shortly after infusion stopped",
+          "episode": "Given for suspected aspiration pneumonia; TdP shortly after infusion stopped",
           "source_span": "She was given IV ceftriaxone and metronidazole for suspected aspiration pneumonia."
         },
         {
@@ -188,7 +178,7 @@
             }
           ],
           "status": "active",
-          "episode": "Given for suspected aspiration pneumonia during the episode",
+          "episode": "Given for suspected aspiration pneumonia during ED stay",
           "source_span": "She was given IV ceftriaxone and metronidazole for suspected aspiration pneumonia."
         },
         {
@@ -203,7 +193,7 @@
             }
           ],
           "status": "one-time",
-          "episode": "Given after TdP as electrolyte repletion; treatment dose",
+          "episode": "Given after TdP episode following cardiology consult",
           "source_span": "IV potassium chloride and magnesium sulfate were given."
         },
         {
@@ -218,16 +208,16 @@
             }
           ],
           "status": "one-time",
-          "episode": "Given after TdP as electrolyte repletion; treatment dose",
+          "episode": "Given after TdP episode following cardiology consult",
           "source_span": "IV potassium chloride and magnesium sulfate were given."
         }
       ],
       "allergies": [],
       "diagnoses": [
         "Torsades de Pointes",
-        "Acquired immunodeficiency syndrome not compliant with anti-retroviral therapy",
+        "Acquired immunodeficiency syndrome (not compliant with anti-retroviral therapy)",
         "Polysubstance abuse",
-        "Opioid dependence on methadone maintenance",
+        "Opioid dependence",
         "Suspected aspiration pneumonia",
         "Sinus bradycardia"
       ],
@@ -278,42 +268,75 @@
           "unit": "ms"
         },
         {
-          "name": "EKG rate",
-          "value": 40,
-          "unit": "per minute"
-        },
-        {
           "name": "Ejection fraction",
           "value": 47,
           "unit": "%"
         }
       ],
-      "note": "50-year-old female with AIDS not compliant with anti-retroviral therapy, polysubstance abuse and opioid dependence on methadone maintenance, presented to ED found vomiting and confused. Reported heroin and cocaine use. Developed Torsades de Pointes shortly after metronidazole infusion, following metoclopramide administration, on background of methadone maintenance."
+      "note": "Case report PMC7931031/PMID 33562182: 50-year-old female with AIDS (non-compliant with anti-retroviral therapy), polysubstance abuse, opioid dependence on methadone maintenance. Presented after being found vomiting and confused. TdP occurred shortly after metronidazole infusion following metoclopramide administration."
     },
-    "patient_summary": "50-year-old female with AIDS not compliant with anti-retroviral therapy, polysubstance abuse, and opioid dependence on methadone maintenance. She presented vomiting and confused and developed Torsades de Pointes after receiving IV metoclopramide 10 mg and IV metronidazole, on a background of methadone maintenance. Active or one-time medications include methadone, metoclopramide, metronidazole, ceftriaxone, potassium chloride, and magnesium sulfate. Labs include serum potassium 3.5 meq/L, magnesium 2.1 meq/L, creatinine 0.5 mg/dL, heart rate 44 per minute, QT interval 512 ms, QTc at admission 460 ms, QTc at follow up 542 ms, QTc after two days 432 ms, EKG rate 40 per minute, and ejection fraction 47%.",
+    "patient_summary": "50-year-old female with AIDS (non-compliant with anti-retroviral therapy), polysubstance abuse, and opioid dependence on methadone maintenance who presented after being found vomiting and confused. During the ED stay she received IV metoclopramide 10 mg and IV metronidazole and ceftriaxone for suspected aspiration pneumonia, and developed Torsades de Pointes. Recorded values include serum potassium 3.5 meq/L, magnesium 2.1 meq/L, creatinine 0.5 mg/dL, heart rate 44 per minute, QT interval 512 ms, QTc admission 460 ms, QTc follow up 542 ms, QTc after two days 432 ms, and ejection fraction 47%. IV potassium chloride and magnesium sulfate were given one time after the TdP episode.",
     "findings": [
       {
-        "status": "red-flag",
-        "severity": "major",
+        "status": "flagged",
+        "severity": "moderate",
         "drugs": [
-          "methadone",
+          "Methadone",
+          "Metoclopramide"
+        ],
+        "headline": "Methadone + Metoclopramide interaction",
+        "mechanism": "DDInter classifies the exact Methadone + Metoclopramide pair as Moderate.",
+        "why_this_patient": "Both Methadone and Metoclopramide are active in the reviewed medication-safety episode.",
+        "evidence_ids": [
+          "ddinter:DDInter1166:DDInter1197"
+        ]
+      },
+      {
+        "status": "informational",
+        "severity": "minor",
+        "drugs": [
+          "Methadone",
+          "Metronidazole"
+        ],
+        "headline": "Methadone + Metronidazole interaction",
+        "mechanism": "DDInter classifies the exact Methadone + Metronidazole pair as Minor.",
+        "why_this_patient": "Both Methadone and Metronidazole are active in the reviewed medication-safety episode.",
+        "evidence_ids": [
+          "ddinter:DDInter1166:DDInter1202"
+        ]
+      },
+      {
+        "status": "informational",
+        "severity": "minor",
+        "drugs": [
           "metronidazole"
         ],
-        "headline": "Additive QT-prolongation and torsades risk with methadone plus metronidazole",
-        "mechanism": "methadone and metronidazole both carry FDA-labeled QT-prolongation warnings; concurrent use adds QT/torsades risk",
-        "why_this_patient": "This patient developed Torsades de Pointes shortly after the metronidazole infusion on a background of methadone maintenance, and her measured QTc rose to 542 ms at follow up. Both drugs carry labeled QT-prolongation warnings, which could contribute to further arrhythmia risk while both are present.",
+        "headline": "Metronidazole label notes QT prolongation with QT-prolonging drugs",
+        "mechanism": "The metronidazole label states that QT prolongation has been reported, particularly when metronidazole was administered with drugs with the potential for prolonging the QT interval.",
+        "why_this_patient": "This patient received IV metronidazole and had a QT interval of 512 ms, a QTc follow up of 542 ms, and developed Torsades de Pointes; the label statement about QT prolongation when metronidazole is given with QT-prolonging drugs may be relevant to this clinical picture.",
         "evidence_ids": [
-          "qt:6813:6922",
-          "label:6813:interactions",
           "label:6922:interactions"
+        ]
+      },
+      {
+        "status": "informational",
+        "severity": "moderate",
+        "drugs": [
+          "methadone"
         ],
-        "monitoring": "Monitor QT/QTc and cardiac rhythm during concurrent use as supported by the labeled QT-prolongation warnings."
+        "headline": "Methadone interaction section: CYP inhibitors can raise methadone concentration",
+        "mechanism": "The methadone label states that concomitant use of methadone with CYP3A4, CYP2B6, CYP2C19, CYP2C9, or CYP2D6 inhibitors can increase the plasma concentration of methadone, resulting in increased or prolonged opioid effects, and may result in a fatal overdose.",
+        "why_this_patient": "This patient is maintained on methadone; the label describes how added CYP-inhibiting drugs could increase methadone exposure, which may be relevant when new medications are introduced during this admission.",
+        "evidence_ids": [
+          "label:6813:interactions"
+        ],
+        "monitoring": "Per the label, if concomitant use is necessary, consider dosage reduction of methadone and evaluate patients at frequent intervals for respiratory depression and sedation."
       }
     ],
     "questions_for_clinician": [
-      "The record shows metoclopramide inhibiting CYP2D6 in vitro but the label states it is unlikely to interact with CYP2D6 substrates such as methadone in vivo at therapeutically relevant concentrations; do you want this noted given the concurrent methadone use?",
-      "Serum potassium is 3.5 meq/L and magnesium is 2.1 meq/L with a QTc of 542 ms at follow up; would you like to review electrolyte status in the context of the observed QT prolongation?",
-      "Are metoclopramide, metronidazole, and ceftriaxone one-time ED administrations or continuing orders, so the QT-relevant combinations can be assessed accurately?"
+      "The metronidazole label notes QT prolongation has been reported when it is given with drugs that can prolong the QT interval; given this patient's QT interval of 512 ms and QTc follow up of 542 ms, should the combination of QT-relevant agents be reviewed?",
+      "IV potassium chloride and magnesium sulfate are listed as one-time orders given after the TdP episode; can you confirm whether these were single administrations or ongoing orders?",
+      "Is the metoclopramide a single ED dose or an ongoing order, so its overlap with methadone can be assessed?"
     ],
     "evidence": [
       {
@@ -414,7 +437,7 @@
           "Metoclopramide"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_A.csv row: DDInter1166 (Methadone) x DDInter1197 (Metoclopramide)",
-        "retrieved_at": "2026-07-12T07:22:50.720Z"
+        "retrieved_at": "2026-07-12T08:35:02.016Z"
       },
       {
         "id": "ddinter:DDInter1166:DDInter1202",
@@ -430,7 +453,7 @@
           "Metronidazole"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_A.csv row: DDInter1166 (Methadone) x DDInter1202 (Metronidazole)",
-        "retrieved_at": "2026-07-12T07:22:50.720Z"
+        "retrieved_at": "2026-07-12T08:35:02.016Z"
       },
       {
         "id": "ddinter:DDInter1202:DDInter1197",
@@ -446,7 +469,7 @@
           "Metoclopramide"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_A.csv row: DDInter1202 (Metronidazole) x DDInter1197 (Metoclopramide)",
-        "retrieved_at": "2026-07-12T07:22:50.720Z"
+        "retrieved_at": "2026-07-12T08:35:02.016Z"
       },
       {
         "id": "ddinter:DDInter334:DDInter1197",
@@ -462,7 +485,7 @@
           "Metoclopramide"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_A.csv row: DDInter334 (Ceftriaxone) x DDInter1197 (Metoclopramide)",
-        "retrieved_at": "2026-07-12T07:22:50.720Z"
+        "retrieved_at": "2026-07-12T08:35:02.016Z"
       },
       {
         "id": "ddinter:DDInter1202:DDInter334",
@@ -478,83 +501,12 @@
           "Ceftriaxone"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_A.csv row: DDInter1202 (Metronidazole) x DDInter334 (Ceftriaxone)",
-        "retrieved_at": "2026-07-12T07:22:50.720Z"
-      },
-      {
-        "id": "cyp:6915:6813",
-        "claim_text": "metoclopramide inhibits CYP2D6 and methadone is a substrate of CYP2D6, so metoclopramide can raise methadone exposure",
-        "source_name": "openFDA-label",
-        "source_id": "15d616d7-2f4c-4882-a03c-fcc86c18f5f8",
-        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=15d616d7-2f4c-4882-a03c-fcc86c18f5f8",
-        "exact_field": "clinical_pharmacology",
-        "quoted_text": "Although in vitro studies suggest that metoclopramide can inhibit CYP2D6, metoclopramide is unlikely to interact with CYP2D6 substrates in vivo at therapeutically relevant concentrations.",
-        "supporting_text": "Although in vitro studies suggest that metoclopramide can inhibit CYP2D6, metoclopramide is unlikely to interact with CYP2D6 substrates in vivo at therapeutically relevant concentrations.",
-        "subject_drugs": [
-          "metoclopramide",
-          "methadone"
-        ],
-        "retrieval_query": "FDA labels: metoclopramide inhibits CYP2D6 × methadone substrate",
-        "retrieved_at": "2026-07-12T07:22:50.720Z"
-      },
-      {
-        "id": "qt:6813:6922",
-        "claim_text": "methadone and metronidazole both carry FDA-labeled QT-prolongation warnings; concurrent use adds QT/torsades risk",
-        "source_name": "openFDA-label",
-        "source_id": "4a44bde6-c348-4316-b0e0-c24b407cb823",
-        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4a44bde6-c348-4316-b0e0-c24b407cb823",
-        "exact_field": "warnings",
-        "quoted_text": "Li f e - T hreatening QT Prolongation Q T interval prolongation and serious arrhythmia (torsades de pointes) have occurred during treatment with methadone.",
-        "supporting_text": "Li f e - T hreatening QT Prolongation Q T interval prolongation and serious arrhythmia (torsades de pointes) have occurred during treatment with methadone.",
-        "subject_drugs": [
-          "methadone",
-          "metronidazole"
-        ],
-        "retrieval_query": "FDA labels: qt warnings for methadone and metronidazole",
-        "retrieved_at": "2026-07-12T07:22:50.720Z"
-      },
-      {
-        "id": "anticholinergic:6813:6915",
-        "claim_text": "methadone and metoclopramide both carry FDA-labeled anticholinergic activity; concurrent use raises anticholinergic burden",
-        "source_name": "openFDA-label",
-        "source_id": "4a44bde6-c348-4316-b0e0-c24b407cb823",
-        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4a44bde6-c348-4316-b0e0-c24b407cb823",
-        "exact_field": "warnings",
-        "quoted_text": "Anticholinergic Drugs Clinical Impact: The concomitant use of anticholinergic drugs may increase risk of urinary retention and/or severe constipation, which may lead to paralytic ileus.",
-        "supporting_text": "Anticholinergic Drugs Clinical Impact: The concomitant use of anticholinergic drugs may increase risk of urinary retention and/or severe constipation, which may lead to paralytic ileus.",
-        "subject_drugs": [
-          "methadone",
-          "metoclopramide"
-        ],
-        "retrieval_query": "FDA labels: anticholinergic warnings for methadone and metoclopramide",
-        "retrieved_at": "2026-07-12T07:22:50.720Z"
+        "retrieved_at": "2026-07-12T08:35:02.016Z"
       }
     ],
-    "unverified_removed": [
-      {
-        "claim_text": "Methadone + Metoclopramide interaction",
-        "reason": "Reviewer: claim not supported by cited sources: The mechanism claim that metoclopramide inhibits CYP2D6 and can raise methadone exposure is contradicted by the cited source, which states metoclopramide is unlikely to interact with CYP2D6 substrates in vivo at therapeutically relevant concentrations. The quoted text does not support that metoclopramide can raise methadone exposure.; The claim that methadone is a substrate of CYP2D6 is not stated in the quoted source text."
-      },
-      {
-        "claim_text": "Methadone + Metronidazole interaction",
-        "reason": "Reviewer: claim not supported by cited sources: The mechanism states metronidazole carries an FDA-labeled QT-prolongation warning, but the quoted source text only mentions QT prolongation and torsades de pointes for methadone, not metronidazole.; The claim that concurrent use adds QT/torsades risk is not supported; the quoted text only describes methadone's individual risk and does not describe an additive effect from concurrent use with metronidazole."
-      }
-    ],
-    "generated_at": "2026-07-12T07:22:50.720Z",
+    "unverified_removed": [],
+    "generated_at": "2026-07-12T08:35:02.016Z",
     "research_candidates": [
-      {
-        "tier": "unresolved-concern",
-        "drugs": [],
-        "reason": "Reviewer: claim not supported by cited sources: The mechanism claim that metoclopramide inhibits CYP2D6 and can raise methadone exposure is contradicted by the cited source, which states metoclopramide is unlikely to interact with CYP2D6 substrates in vivo at therapeutically relevant concentrations. The quoted text does not support that metoclopramide can raise methadone exposure.; The claim that methadone is a substrate of CYP2D6 is not stated in the quoted source text.",
-        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Methadone + Metoclopramide interaction\"",
-        "source": "adversarial verifier"
-      },
-      {
-        "tier": "unresolved-concern",
-        "drugs": [],
-        "reason": "Reviewer: claim not supported by cited sources: The mechanism states metronidazole carries an FDA-labeled QT-prolongation warning, but the quoted source text only mentions QT prolongation and torsades de pointes for methadone, not metronidazole.; The claim that concurrent use adds QT/torsades risk is not supported; the quoted text only describes methadone's individual risk and does not describe an additive effect from concurrent use with metronidazole.",
-        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Methadone + Metronidazole interaction\"",
-        "source": "adversarial verifier"
-      },
       {
         "tier": "known-unknown",
         "drugs": [
@@ -604,5 +556,5 @@
       }
     }
   },
-  "generatedAt": "2026-07-12T07:22:50.720Z"
+  "generatedAt": "2026-07-12T08:35:02.016Z"
 }

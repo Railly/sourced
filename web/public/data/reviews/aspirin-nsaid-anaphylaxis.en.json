@@ -3,66 +3,40 @@
   "locale": "en",
   "intake": {
     "case": {
-      "note": "Case report PMC10492403 / PMID 37684617. 45 year old woman referred after anaphylaxis-type reaction with ibuprofen use; oral ASA challenge reproduced symptoms; passed acetaminophen and celecoxib challenges.",
+      "note": "Case report PMC10492403 / PMID 37684617. 45 year old woman referred to Allergy and Immunology after anaphylaxis-type reaction with ibuprofen use. Underwent oral ASA challenge with reaction; passed acetaminophen and celecoxib challenges.",
       "medications": [
         {
           "raw": "ASA",
-          "status": "active",
+          "status": "one-time",
           "source_span": "She previously tolerated ibuprofen, naproxen, and acetaminophen and had no history of urticaria, angioedema, asthma, or nasal polyps."
         },
         {
-          "raw": "ibuprofen",
-          "episode": "developing acute onset dyspnea, lip swelling, and generalized urticaria with ibuprofen use",
-          "source_span": "generalized urticaria with ibuprofen use requiring treatment with intramuscular epinephrine",
-          "status": "active"
+          "raw": "Ibuprofen",
+          "status": "one-time",
+          "source_span": "An otherwise healthy 45 year old woman was referred to the Allergy and Immunology clinic after developing acute onset dyspnea, lip swelling, and generalized urticaria with ibuprofen use requiring treatment with intramuscular epinephrine in the emergency department."
         },
         {
-          "raw": "Epinephrine (intramuscular)",
-          "episode": "treatment for the acute reaction in the emergency department; rebound symptoms during ASA oral challenge requiring 2 doses",
-          "source_span": "requiring treatment with intramuscular epinephrine in the emergency department",
-          "status": "one-time"
+          "raw": "Epinephrine",
+          "status": "one-time",
+          "source_span": "An otherwise healthy 45 year old woman was referred to the Allergy and Immunology clinic after developing acute onset dyspnea, lip swelling, and generalized urticaria with ibuprofen use requiring treatment with intramuscular epinephrine in the emergency department."
         },
         {
-          "raw": "acetaminophen",
-          "episode": "passed treatment dose challenge on subsequent visits",
-          "source_span": "On subsequent visits she passed treatment dose acetaminophen and celecoxib challenges",
-          "status": "one-time"
+          "raw": "Acetaminophen",
+          "status": "one-time",
+          "source_span": "On subsequent visits she passed treatment dose acetaminophen and celecoxib challenges."
         },
         {
-          "raw": "celecoxib",
-          "episode": "passed treatment dose challenge on subsequent visits",
-          "source_span": "On subsequent visits she passed treatment dose acetaminophen and celecoxib challenges",
-          "status": "one-time"
+          "raw": "Celecoxib",
+          "status": "one-time",
+          "source_span": "On subsequent visits she passed treatment dose acetaminophen and celecoxib challenges."
         }
       ],
-      "allergies": [
-        "possible anaphylaxis to ASA and structurally unrelated NSAIDs",
-        "urticaria and throat irritation with ASA oral challenge",
-        "dyspnea, lip swelling, and generalized urticaria with ibuprofen"
-      ],
-      "diagnoses": [
-        "Possible anaphylaxis to ASA and structurally unrelated NSAIDs"
-      ],
+      "allergies": [],
+      "diagnoses": [],
       "labs": []
     },
-    "ambiguities": [
-      {
-        "id": "amb-asa-span",
-        "field": "medications[].source_span",
-        "question": "The medication 'ASA' appears only in the article title and in the oral challenge description ('an oral challenge to ASA whereby she developed urticaria and throat irritation'). Please confirm ASA should be recorded as an active episode exposure via the oral challenge rather than a chronic medication."
-      },
-      {
-        "id": "amb-asa-status",
-        "field": "medications[].status",
-        "question": "ASA was administered as an oral challenge that reproduced symptoms and required epinephrine. Should ASA be classified as active (episode trigger) or as a one-time diagnostic challenge dose?"
-      },
-      {
-        "id": "amb-ibuprofen-history",
-        "field": "medications[].status",
-        "question": "The source states she 'previously tolerated ibuprofen, naproxen, and acetaminophen' but the reaction occurred 'with ibuprofen use.' Please confirm ibuprofen is the active episode trigger despite prior tolerance, and clarify whether naproxen should be recorded as a separate historical exposure."
-      }
-    ],
-    "sourceSummary": "Single published case report (PMC10492403) of a 45-year-old woman with possible anaphylaxis to ASA and NSAIDs. Medications extracted: ibuprofen (episode trigger), intramuscular epinephrine (treatment), ASA (oral challenge/title), and acetaminophen and celecoxib (passed challenge doses). No labs or numeric values were reported."
+    "ambiguities": [],
+    "sourceSummary": "title: \"A case of possible anaphylaxis to ASA and structurally unrelated NSAIDs\""
   },
   "report": {
     "patient": {
@@ -78,11 +52,11 @@
               "name": "aspirin"
             }
           ],
-          "status": "active",
+          "status": "one-time",
           "source_span": "She previously tolerated ibuprofen, naproxen, and acetaminophen and had no history of urticaria, angioedema, asthma, or nasal polyps."
         },
         {
-          "raw": "ibuprofen",
+          "raw": "Ibuprofen",
           "rxcui": "5640",
           "name": "ibuprofen",
           "resolution": "exact",
@@ -92,12 +66,11 @@
               "name": "ibuprofen"
             }
           ],
-          "status": "active",
-          "episode": "developing acute onset dyspnea, lip swelling, and generalized urticaria with ibuprofen use",
-          "source_span": "generalized urticaria with ibuprofen use requiring treatment with intramuscular epinephrine"
+          "status": "one-time",
+          "source_span": "An otherwise healthy 45 year old woman was referred to the Allergy and Immunology clinic after developing acute onset dyspnea, lip swelling, and generalized urticaria with ibuprofen use requiring treatment with intramuscular epinephrine in the emergency department."
         },
         {
-          "raw": "Epinephrine (intramuscular)",
+          "raw": "Epinephrine",
           "rxcui": "3992",
           "name": "epinephrine",
           "resolution": "exact",
@@ -108,11 +81,10 @@
             }
           ],
           "status": "one-time",
-          "episode": "treatment for the acute reaction in the emergency department; rebound symptoms during ASA oral challenge requiring 2 doses",
-          "source_span": "requiring treatment with intramuscular epinephrine in the emergency department"
+          "source_span": "An otherwise healthy 45 year old woman was referred to the Allergy and Immunology clinic after developing acute onset dyspnea, lip swelling, and generalized urticaria with ibuprofen use requiring treatment with intramuscular epinephrine in the emergency department."
         },
         {
-          "raw": "acetaminophen",
+          "raw": "Acetaminophen",
           "rxcui": "161",
           "name": "acetaminophen",
           "resolution": "exact",
@@ -123,11 +95,10 @@
             }
           ],
           "status": "one-time",
-          "episode": "passed treatment dose challenge on subsequent visits",
-          "source_span": "On subsequent visits she passed treatment dose acetaminophen and celecoxib challenges"
+          "source_span": "On subsequent visits she passed treatment dose acetaminophen and celecoxib challenges."
         },
         {
-          "raw": "celecoxib",
+          "raw": "Celecoxib",
           "rxcui": "140587",
           "name": "celecoxib",
           "resolution": "exact",
@@ -138,89 +109,57 @@
             }
           ],
           "status": "one-time",
-          "episode": "passed treatment dose challenge on subsequent visits",
-          "source_span": "On subsequent visits she passed treatment dose acetaminophen and celecoxib challenges"
+          "source_span": "On subsequent visits she passed treatment dose acetaminophen and celecoxib challenges."
         }
       ],
-      "allergies": [
-        "possible anaphylaxis to ASA and structurally unrelated NSAIDs",
-        "urticaria and throat irritation with ASA oral challenge",
-        "dyspnea, lip swelling, and generalized urticaria with ibuprofen"
-      ],
-      "diagnoses": [
-        "Possible anaphylaxis to ASA and structurally unrelated NSAIDs"
-      ],
+      "allergies": [],
+      "diagnoses": [],
       "labs": [],
-      "note": "Case report PMC10492403 / PMID 37684617. 45 year old woman referred after anaphylaxis-type reaction with ibuprofen use; oral ASA challenge reproduced symptoms; passed acetaminophen and celecoxib challenges."
+      "note": "Case report PMC10492403 / PMID 37684617. 45 year old woman referred to Allergy and Immunology after anaphylaxis-type reaction with ibuprofen use. Underwent oral ASA challenge with reaction; passed acetaminophen and celecoxib challenges."
     },
-    "patient_summary": "45 year old woman referred after an anaphylaxis-type reaction with ibuprofen use, including acute onset dyspnea, lip swelling, and generalized urticaria treated with intramuscular epinephrine. An oral aspirin challenge reproduced urticaria and throat irritation, while she passed acetaminophen and celecoxib challenges. Her active medication list includes aspirin and ibuprofen, with epinephrine, acetaminophen, and celecoxib recorded as one-time uses. No labs are provided.",
-    "findings": [
+    "patient_summary": "Patient context received. Only verified findings are shown.",
+    "findings": [],
+    "questions_for_clinician": [],
+    "evidence": [],
+    "unverified_removed": [
       {
-        "status": "flagged",
-        "severity": "major",
-        "drugs": [
-          "ibuprofen",
-          "aspirin"
-        ],
-        "headline": "Ibuprofen may interfere with the antiplatelet effect of aspirin",
-        "mechanism": "Pharmacodynamic studies have demonstrated interference with the antiplatelet activity of aspirin when ibuprofen 400 mg, given three times daily, is administered with enteric-coated low-dose aspirin; the interaction exists even following a once-daily regimen of ibuprofen 400 mg, particularly when ibuprofen is dosed prior to aspirin. When ibuprofen is administered with aspirin, its protein binding is reduced, although the clearance of free ibuprofen is not altered.",
-        "why_this_patient": "This patient has both aspirin and ibuprofen on her active medication list, so the potential interference of ibuprofen with the antiplatelet effect of aspirin and the increased risk of cardiovascular events could be relevant if both are taken together.",
-        "evidence_ids": [
-          "label:5640:interactions"
-        ],
-        "monitoring": "For patients taking low-dose aspirin for cardio protection who require analgesics, the label states to consider use of a NSAID that does not interfere with the antiplatelet effect of aspirin, or non-NSAID analgesics, where appropriate. Concomitant administration of ibuprofen and aspirin is not generally recommended because of the potential for increased adverse effects."
+        "claim_text": "A 45 year old woman was referred to Allergy and Immunology after an acute reaction (dyspnea, lip swelling, generalized urticaria) following ibuprofen use, treated with intramuscular epinephrine. She subsequently underwent an oral aspirin challenge and passed acetaminophen and celecoxib challenges. The listed medications (aspirin, ibuprofen, epinephrine, acetaminophen, celecoxib) are documented as one-time diagnostic-challenge or acute-treatment agents rather than ongoing concurrent therapy.",
+        "reason": "Narrative reviewer: The summary asserts the patient underwent an oral aspirin challenge, but the patient context does not state this; the aspirin source span only references tolerance of ibuprofen, naproxen, and acetaminophen with no aspirin challenge described.; The claim that all listed medications are documented as one-time diagnostic-challenge or acute-treatment agents is not supported by the evidence, which is empty; medication statuses labeled 'one-time' are not corroborated by quoted evidence."
       },
       {
-        "status": "flagged",
-        "severity": "major",
-        "drugs": [
-          "ibuprofen"
-        ],
-        "headline": "Ibuprofen carries a boxed warning for cardiovascular thrombotic and gastrointestinal risks",
-        "mechanism": "Nonsteroidal anti-inflammatory drugs cause an increased risk of serious cardiovascular thrombotic events, including myocardial infarction and stroke, which can be fatal; this risk may occur early in treatment and may increase with duration of use. NSAIDs also cause an increased risk of serious gastrointestinal adverse events including bleeding, ulceration, and perforation, which can occur at any time and without warning symptoms.",
-        "why_this_patient": "Ibuprofen is on this patient's active medication list, so the boxed-warning cardiovascular thrombotic and gastrointestinal risks of ibuprofen could apply to her.",
-        "evidence_ids": [
-          "label:5640:boxed"
-        ],
-        "monitoring": "Ibuprofen is contraindicated in the setting of coronary artery bypass graft (CABG) surgery. Elderly patients are at greater risk for serious gastrointestinal events."
-      }
-    ],
-    "questions_for_clinician": [
-      "Are the active listings of aspirin and ibuprofen intended to be taken concurrently, or are these separate or historical orders?",
-      "Given the documented reaction history to aspirin and ibuprofen, is continued use of either agent still intended?"
-    ],
-    "evidence": [
-      {
-        "id": "label:5640:interactions",
-        "claim_text": "FDA label drug-interactions section for ibuprofen",
-        "source_name": "openFDA-label",
-        "source_id": "0170876a-d8cd-4a2d-8397-db2acdf72ffb",
-        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0170876a-d8cd-4a2d-8397-db2acdf72ffb",
-        "exact_field": "drug_interactions",
-        "quoted_text": "Drug Interactions ACE-inhibitors Reports suggest that NSAIDs may diminish the antihypertensive effect of ACE-inhibitors. This interaction should be given consideration in patients taking NSAIDs concomitantly with ACE-inhibitors. Aspirin Pharmacodynamic studies have demonstrated interference with the antiplatelet activity of aspirin when ibuprofen 400 mg, given three times daily, is administered with enteric-coated low-dose aspirin. The interaction exists even following a once-daily regimen of ibuprofen 400 mg, particularly when ibuprofen is dosed prior to aspirin. The interaction is alleviated if immediate-release low-dose aspirin is dosed at least 2 hours prior to a once-daily regimen of ibuprofen; however, this finding cannot be extended to enteric-coated low-dose aspirin [see Clinical Pharmacology/Pharmacodynamics ]. Because there may be an increased risk of cardiovascular events due to the interference of ibuprofen with the antiplatelet effect of aspirin, for patients taking low-dose aspirin for cardio protection who require analgesics, consider use of a NSAID that does not interfere with the antiplatelet effect of aspirin, or non-NSAID analgesics, where appropriate. When Ibuprofen tablets are administered with aspirin, its protein binding is reduced, although the clearance of free Ibuprofen tablets is not altered. The clinical significance of this interaction is not known; however, as with other NSAIDs, concomitant administration of ibuprofen and aspirin is not generally recommended because of the potential for increased adverse effects. Diuretics Clinical studies, as well as post marketing observations, have shown that Ibuprofen tablets can reduce the natriuretic effect-of furosemide and thiazides in some patients. This response has been attributed to inhibition of renal prostaglandin synthesis. During concomitant therapy with NSAIDs, the patient should be observed closely for signs of renal failure [see PRECAUTIONS, Renal Effects ], as well as to assure diuretic efficacy. Lithium Ibuprofen produced an elevation of plasma lithium levels and a reduction in renal lithium clearance in a study of eleven normal volunteers. The mean minimum lithium concentration increased 15% and the renal clearance of lithium was decreased by 19% during this period of concomitant drug administration. This effect has been attributed to inhibition of renal prostaglandin synthesis by ibuprofen. Thus, when ibuprofen and lithium are administered concurrently, subjects should be observed carefully for signs of lithium toxicity. (Read circulars for lithium preparation before use of such concurrent therapy.) Methotrexate NSAIDs have been reported to competitively inhibit methotrexate accumulation in rabbit kidney slices. This may indicate that they could enhance the toxicity of methotrexate. Caution should be used when NSAIDs are administered concomitantly with methotrexate. Warfarin-type anticoagulants Several short-term controlled studies failed to show that Ibuprofen tablets significantly affected prothrombin times or a variety of other clotting factors when administered to individuals on coumarin-type anticoagulants. However, because bleeding has been reported when Ibuprofen tablets and other NSAIDs have been administered to patients on coumarin-type anticoagulants, the physician should be cautious when administering Ibuprofen tablets to patients on anticoagulants. The effects of warfarin and NSAIDs on GI bleeding are synergistic, such that the users of both drugs together have a risk of serious GI bleeding higher than users of either drug alone. H-2 Antagonists In studies with human volunteers, co-administration of cimetidine or ranitidine with ibuprofen had no substantive effect on ibuprofen serum concentrations.",
-        "supporting_text": "Because there may be an increased risk of cardiovascular events due to the interference of ibuprofen with the antiplatelet effect of aspirin, for patients taking low-dose aspirin for cardio protection who require analgesics, consider use of a NSAID that does not interfere with the antiplatelet effect of aspirin, or non-NSAID analgesics, where appropriate. When Ibuprofen tablets are administered with aspirin, its protein binding is reduced, although the clearance of free Ibuprofen tablets is not altered.",
-        "source_version": "effective 20260217 · version 3",
-        "anchor_drug": "ibuprofen",
-        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"ibuprofen\"&limit=20",
-        "retrieved_at": "2026-07-11T22:24:27.245Z"
+        "claim_text": "Are any of the listed agents (aspirin, ibuprofen, epinephrine, acetaminophen, celecoxib) intended as ongoing medications, or were they all one-time challenge or acute-treatment doses as the note indicates?",
+        "reason": "Narrative reviewer: Premise that the note indicates all agents were one-time challenge or acute-treatment doses is not supported by any quoted evidence (evidence is empty)."
       },
       {
-        "id": "label:5640:boxed",
-        "claim_text": "FDA boxed warning for ibuprofen",
-        "source_name": "openFDA-label",
-        "source_id": "0170876a-d8cd-4a2d-8397-db2acdf72ffb",
-        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0170876a-d8cd-4a2d-8397-db2acdf72ffb",
-        "exact_field": "boxed_warning",
-        "quoted_text": "Cardiovascular Thrombotic Events Nonsteroidal anti-inflammatory drugs (NSAIDs) cause an increased risk of serious cardiovascular thrombotic events, including myocardial infarction and stroke, which can be fatal. This risk may occur early in treatment and may increase with duration of use. [See WARNINGS and PRECAUTIONS ]. Ibuprofen tablets are contraindicated in the setting of coronary artery bypass graft (CABG) surgery [see CONTRAINDICATIONS and WARNINGS ]. Gastrointestinal Risk NSAIDS cause an increased risk of serious gastrointestinal adverse events including bleeding, ulceration, and perforation of the stomach or intestines, which can be fatal. These events can occur at any time during use and without warning symptoms. Elderly patients are at greater risk for serious gastrointestinal events. [See WARNINGS ].",
-        "supporting_text": "Cardiovascular Thrombotic Events Nonsteroidal anti-inflammatory drugs (NSAIDs) cause an increased risk of serious cardiovascular thrombotic events, including myocardial infarction and stroke, which can be fatal.",
-        "source_version": "effective 20260217 · version 3",
-        "anchor_drug": "ibuprofen",
-        "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"ibuprofen\"&limit=20",
-        "retrieved_at": "2026-07-11T22:24:27.245Z"
+        "claim_text": "Should any allergy or intolerance documentation be updated in the record based on the challenge results described?",
+        "reason": "Narrative reviewer: The requested action to update allergy or intolerance documentation based on challenge results has no quoted evidence connecting the challenge results to a documentation update; evidence is empty."
       }
     ],
-    "unverified_removed": [],
-    "generated_at": "2026-07-11T22:24:27.245Z",
+    "generated_at": "2026-07-12T08:39:30.499Z",
+    "research_candidates": [
+      {
+        "tier": "unresolved-concern",
+        "drugs": [],
+        "reason": "Narrative reviewer: The summary asserts the patient underwent an oral aspirin challenge, but the patient context does not state this; the aspirin source span only references tolerance of ibuprofen, naproxen, and acetaminophen with no aspirin challenge described.; The claim that all listed medications are documented as one-time diagnostic-challenge or acute-treatment agents is not supported by the evidence, which is empty; medication statuses labeled 'one-time' are not corroborated by quoted evidence.",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"A 45 year old woman was referred to Allergy and Immunology after an acute reaction (dyspnea, lip swelling, generalized urticaria) following ibuprofen use, treated with intramuscular epinephrine. She subsequently underwent an oral aspirin challenge and passed acetaminophen and celecoxib challenges. The listed medications (aspirin, ibuprofen, epinephrine, acetaminophen, celecoxib) are documented as one-time diagnostic-challenge or acute-treatment agents rather than ongoing concurrent therapy.\"",
+        "source": "adversarial verifier"
+      },
+      {
+        "tier": "unresolved-concern",
+        "drugs": [],
+        "reason": "Narrative reviewer: Premise that the note indicates all agents were one-time challenge or acute-treatment doses is not supported by any quoted evidence (evidence is empty).",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Are any of the listed agents (aspirin, ibuprofen, epinephrine, acetaminophen, celecoxib) intended as ongoing medications, or were they all one-time challenge or acute-treatment doses as the note indicates?\"",
+        "source": "adversarial verifier"
+      },
+      {
+        "tier": "unresolved-concern",
+        "drugs": [],
+        "reason": "Narrative reviewer: The requested action to update allergy or intolerance documentation based on challenge results has no quoted evidence connecting the challenge results to a documentation update; evidence is empty.",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Should any allergy or intolerance documentation be updated in the record based on the challenge results described?\"",
+        "source": "adversarial verifier"
+      }
+    ],
+    "research_total_known_unknown": 0,
     "pipeline": {
       "mode": "audited-replay",
       "model": "Claude Opus 4.8",
@@ -236,9 +175,7 @@
         "unique_drugs": 1939,
         "source_files": 8
       }
-    },
-    "research_candidates": [],
-    "research_total_known_unknown": 0
+    }
   },
-  "generatedAt": "2026-07-11T22:24:27.245Z"
+  "generatedAt": "2026-07-12T08:39:30.499Z"
 }

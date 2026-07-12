@@ -3,62 +3,59 @@
   "locale": "en",
   "intake": {
     "case": {
-      "note": "80-year-old male with paroxysmal atrial fibrillation, HFpEF, COPD, tobacco dependence, benign essential hypertension, and stage 3 CKD presented with shortness of breath, orthopnea, lower extremity edema, and cough of two weeks. AFib diagnosed two weeks prior during admission for COPD exacerbation and cellulitis; converted to sinus rhythm with IV diltiazem. Discharged on apixaban, metoprolol succinate, and started on amiodarone. Presented with hemopericardium/large pericardial effusion; received prothrombin complex concentrate to reverse apixaban and urgent pericardiocentesis. Case report of possible drug-drug interaction between Eliquis (apixaban) and amiodarone resulting in hemopericardium.",
+      "note": "Case: 80-year-old male with hemopericardium, possible DDI between apixaban (Eliquis) and amiodarone. PMC7990001 / PMID 33777573. Paroxysmal AFib diagnosed two weeks prior; discharged on apixaban, metoprolol succinate, and started on amiodarone. Presented with pericardial effusion/hemopericardium; received PCC reversal and pericardiocentesis.",
       "medications": [
         {
-          "raw": "Amiodarone 200mg daily",
-          "episode": "Started on amiodarone outpatient at same discharge before presentation with hemopericardium; named in title as part of suspected interaction",
+          "raw": "amiodarone 200mg daily",
+          "episode": "Started outpatient two weeks prior after paroxysmal atrial fibrillation diagnosis; implicated in DDI leading to hemopericardium",
           "start": "started on amiodarone 200mg daily outpatient",
           "source_span": "he was also started on amiodarone 200mg daily outpatient",
           "status": "active"
         },
         {
-          "raw": "apixaban 5mg twice a day (BID) (Eliquis)",
-          "episode": "Discharged home on apixaban two weeks prior; named in title as part of suspected interaction resulting in hemopericardium",
+          "raw": "apixaban 5mg twice a day (BID)",
+          "episode": "Discharged home on apixaban after paroxysmal atrial fibrillation diagnosis two weeks prior; implicated in DDI leading to hemopericardium",
           "start": "discharged home with 5mg twice a day (BID) of apixaban",
           "source_span": "he was discharged home with 5mg twice a day (BID) of apixaban",
           "status": "active"
         },
         {
           "raw": "metoprolol succinate 12.5mg BID",
-          "episode": "Discharged home on metoprolol succinate for rate control two weeks prior to presentation",
-          "start": "discharged home with ... metoprolol succinate 12.5mg BID for rate control",
+          "episode": "Discharged home for rate control after paroxysmal atrial fibrillation diagnosis two weeks prior",
+          "start": "metoprolol succinate 12.5mg BID for rate control",
           "source_span": "metoprolol succinate 12.5mg BID for rate control",
           "status": "active"
         },
         {
           "raw": "20mg IV diltiazem",
-          "episode": "Given during prior admission to convert atrial fibrillation to sinus rhythm",
+          "episode": "Given two weeks prior during prior admission for rate control/conversion of atrial fibrillation, before the target hemopericardium episode",
           "source_span": "He converted to sinus rhythm after receiving 20mg IV diltiazem",
           "status": "one-time"
         },
         {
-          "raw": "50 units/kg of prothrombin complex concentrate",
-          "episode": "Given on ED presentation to reverse effect of apixaban",
+          "raw": "prothrombin complex concentrate 50 units/kg",
+          "episode": "Given during ED presentation to reverse apixaban effect",
           "source_span": "He immediately received 50 units/kg of prothrombin complex concentrate to reverse the effect of apixaban",
           "status": "one-time"
         },
         {
-          "raw": "20mg of furosemide",
-          "episode": "Given for diuresis during the hemopericardium admission",
+          "raw": "furosemide 20mg",
+          "episode": "Given during admission for diuresis after pericardiocentesis",
           "source_span": "he required diuresis with 20mg of furosemide for complete resolution",
           "status": "one-time"
         }
       ],
       "allergies": [],
       "diagnoses": [
-        "paroxysmal atrial fibrillation",
-        "heart failure with preserved ejection fraction",
-        "chronic obstructive pulmonary disease",
-        "tobacco dependence",
-        "benign essential hypertension",
-        "stage 3 chronic kidney disease",
-        "hemopericardium",
-        "large pericardial effusion",
-        "COPD exacerbation",
-        "cellulitis of the right shin",
-        "grade 2 diastolic dysfunction",
-        "premature ventricular contraction"
+        "Paroxysmal atrial fibrillation",
+        "Heart failure with preserved ejection fraction",
+        "Chronic obstructive pulmonary disease",
+        "Tobacco dependence",
+        "Benign essential hypertension",
+        "Stage 3 chronic kidney disease",
+        "Hemopericardium / large pericardial effusion",
+        "COPD exacerbation (prior admission)",
+        "Cellulitis of the right shin (prior admission)"
       ],
       "labs": [
         {
@@ -67,13 +64,28 @@
           "unit": "g/dL"
         },
         {
+          "name": "Hemoglobin baseline",
+          "value": 12,
+          "unit": "g/dL"
+        },
+        {
           "name": "Creatinine",
           "value": 1.67,
           "unit": "mg/dL"
         },
         {
+          "name": "Creatinine baseline",
+          "value": 1.42,
+          "unit": "mg/dL"
+        },
+        {
           "name": "GFR",
           "value": 40,
+          "unit": "mL/min"
+        },
+        {
+          "name": "GFR baseline",
+          "value": 50,
           "unit": "mL/min"
         },
         {
@@ -92,11 +104,6 @@
           "unit": "pg/mL"
         },
         {
-          "name": "Ejection fraction",
-          "value": 62,
-          "unit": "%"
-        },
-        {
           "name": "Respiratory rate",
           "value": 32,
           "unit": "breaths per minute"
@@ -110,33 +117,33 @@
           "name": "Heart rate",
           "value": 77,
           "unit": "beats per minute"
+        },
+        {
+          "name": "Ejection fraction",
+          "value": 62,
+          "unit": "%"
         }
       ]
     },
     "ambiguities": [
       {
-        "id": "amb-metoprolol-formulation",
-        "field": "medications[].raw",
-        "question": "The source states 'metoprolol succinate 12.5mg BID'; please confirm the intended formulation and dosing, as metoprolol succinate is typically dosed once daily."
+        "id": "amb-1",
+        "field": "medications[0].raw",
+        "question": "The title names 'Eliquis and Amiodarone' as the interacting therapies; please confirm Eliquis and apixaban refer to the same drug and should not be listed as separate exposures."
       },
       {
-        "id": "amb-apixaban-eliquis-duplicate",
-        "field": "medications[].raw",
-        "question": "The title refers to 'Eliquis' and the case text refers to 'apixaban'; please confirm these refer to the same single medication and not a duplicate exposure."
-      },
-      {
-        "id": "amb-bp-transcription",
-        "field": "labs",
-        "question": "Blood pressure was stated as 114/78mmHg but was not captured as a discrete lab value; please confirm whether it should be recorded."
+        "id": "amb-2",
+        "field": "medications",
+        "question": "Apixaban, amiodarone, and metoprolol were all started about two weeks before the hemopericardium episode; please confirm all three were concurrently active during the target episode."
       }
     ],
-    "sourceSummary": "Single published case report (PMC7990001) of an 80-year-old male with paroxysmal AF, HFpEF, COPD, and CKD who developed hemopericardium during concurrent apixaban (Eliquis), metoprolol succinate, and amiodarone therapy. Prior diltiazem, and treatment-phase prothrombin complex concentrate and furosemide were one-time exposures."
+    "sourceSummary": "Single published case report (PMC7990001) of an 80-year-old male with a possible drug-drug interaction between apixaban (Eliquis) and amiodarone resulting in hemopericardium. Chronic AFib therapy (apixaban, metoprolol succinate, amiodarone) started ~2 weeks prior; presented with large pericardial effusion, treated with PCC reversal, pericardiocentesis, and furosemide."
   },
   "report": {
     "patient": {
       "medications": [
         {
-          "raw": "Amiodarone 200mg daily",
+          "raw": "amiodarone 200mg daily",
           "rxcui": "703",
           "name": "amiodarone",
           "resolution": "exact",
@@ -147,12 +154,12 @@
             }
           ],
           "status": "active",
-          "episode": "Started on amiodarone outpatient at same discharge before presentation with hemopericardium; named in title as part of suspected interaction",
+          "episode": "Started outpatient two weeks prior after paroxysmal atrial fibrillation diagnosis; implicated in DDI leading to hemopericardium",
           "start": "started on amiodarone 200mg daily outpatient",
           "source_span": "he was also started on amiodarone 200mg daily outpatient"
         },
         {
-          "raw": "apixaban 5mg twice a day (BID) (Eliquis)",
+          "raw": "apixaban 5mg twice a day (BID)",
           "rxcui": "1364430",
           "name": "apixaban",
           "resolution": "exact",
@@ -163,7 +170,7 @@
             }
           ],
           "status": "active",
-          "episode": "Discharged home on apixaban two weeks prior; named in title as part of suspected interaction resulting in hemopericardium",
+          "episode": "Discharged home on apixaban after paroxysmal atrial fibrillation diagnosis two weeks prior; implicated in DDI leading to hemopericardium",
           "start": "discharged home with 5mg twice a day (BID) of apixaban",
           "source_span": "he was discharged home with 5mg twice a day (BID) of apixaban"
         },
@@ -179,8 +186,8 @@
             }
           ],
           "status": "active",
-          "episode": "Discharged home on metoprolol succinate for rate control two weeks prior to presentation",
-          "start": "discharged home with ... metoprolol succinate 12.5mg BID for rate control",
+          "episode": "Discharged home for rate control after paroxysmal atrial fibrillation diagnosis two weeks prior",
+          "start": "metoprolol succinate 12.5mg BID for rate control",
           "source_span": "metoprolol succinate 12.5mg BID for rate control"
         },
         {
@@ -195,11 +202,11 @@
             }
           ],
           "status": "one-time",
-          "episode": "Given during prior admission to convert atrial fibrillation to sinus rhythm",
+          "episode": "Given two weeks prior during prior admission for rate control/conversion of atrial fibrillation, before the target hemopericardium episode",
           "source_span": "He converted to sinus rhythm after receiving 20mg IV diltiazem"
         },
         {
-          "raw": "50 units/kg of prothrombin complex concentrate",
+          "raw": "prothrombin complex concentrate 50 units/kg",
           "rxcui": "1670383",
           "name": "Prothrombin complex concentrate",
           "resolution": "approximate",
@@ -210,14 +217,14 @@
             }
           ],
           "status": "one-time",
-          "episode": "Given on ED presentation to reverse effect of apixaban",
+          "episode": "Given during ED presentation to reverse apixaban effect",
           "source_span": "He immediately received 50 units/kg of prothrombin complex concentrate to reverse the effect of apixaban"
         },
         {
-          "raw": "20mg of furosemide",
+          "raw": "furosemide 20mg",
           "rxcui": "4603",
-          "name": "Furosemide",
-          "resolution": "approximate",
+          "name": "furosemide",
+          "resolution": "exact",
           "ingredients": [
             {
               "rxcui": "4603",
@@ -225,24 +232,21 @@
             }
           ],
           "status": "one-time",
-          "episode": "Given for diuresis during the hemopericardium admission",
+          "episode": "Given during admission for diuresis after pericardiocentesis",
           "source_span": "he required diuresis with 20mg of furosemide for complete resolution"
         }
       ],
       "allergies": [],
       "diagnoses": [
-        "paroxysmal atrial fibrillation",
-        "heart failure with preserved ejection fraction",
-        "chronic obstructive pulmonary disease",
-        "tobacco dependence",
-        "benign essential hypertension",
-        "stage 3 chronic kidney disease",
-        "hemopericardium",
-        "large pericardial effusion",
-        "COPD exacerbation",
-        "cellulitis of the right shin",
-        "grade 2 diastolic dysfunction",
-        "premature ventricular contraction"
+        "Paroxysmal atrial fibrillation",
+        "Heart failure with preserved ejection fraction",
+        "Chronic obstructive pulmonary disease",
+        "Tobacco dependence",
+        "Benign essential hypertension",
+        "Stage 3 chronic kidney disease",
+        "Hemopericardium / large pericardial effusion",
+        "COPD exacerbation (prior admission)",
+        "Cellulitis of the right shin (prior admission)"
       ],
       "labs": [
         {
@@ -251,13 +255,28 @@
           "unit": "g/dL"
         },
         {
+          "name": "Hemoglobin baseline",
+          "value": 12,
+          "unit": "g/dL"
+        },
+        {
           "name": "Creatinine",
           "value": 1.67,
           "unit": "mg/dL"
         },
         {
+          "name": "Creatinine baseline",
+          "value": 1.42,
+          "unit": "mg/dL"
+        },
+        {
           "name": "GFR",
           "value": 40,
+          "unit": "mL/min"
+        },
+        {
+          "name": "GFR baseline",
+          "value": 50,
           "unit": "mL/min"
         },
         {
@@ -276,11 +295,6 @@
           "unit": "pg/mL"
         },
         {
-          "name": "Ejection fraction",
-          "value": 62,
-          "unit": "%"
-        },
-        {
           "name": "Respiratory rate",
           "value": 32,
           "unit": "breaths per minute"
@@ -294,11 +308,16 @@
           "name": "Heart rate",
           "value": 77,
           "unit": "beats per minute"
+        },
+        {
+          "name": "Ejection fraction",
+          "value": 62,
+          "unit": "%"
         }
       ],
-      "note": "80-year-old male with paroxysmal atrial fibrillation, HFpEF, COPD, tobacco dependence, benign essential hypertension, and stage 3 CKD presented with shortness of breath, orthopnea, lower extremity edema, and cough of two weeks. AFib diagnosed two weeks prior during admission for COPD exacerbation and cellulitis; converted to sinus rhythm with IV diltiazem. Discharged on apixaban, metoprolol succinate, and started on amiodarone. Presented with hemopericardium/large pericardial effusion; received prothrombin complex concentrate to reverse apixaban and urgent pericardiocentesis. Case report of possible drug-drug interaction between Eliquis (apixaban) and amiodarone resulting in hemopericardium."
+      "note": "Case: 80-year-old male with hemopericardium, possible DDI between apixaban (Eliquis) and amiodarone. PMC7990001 / PMID 33777573. Paroxysmal AFib diagnosed two weeks prior; discharged on apixaban, metoprolol succinate, and started on amiodarone. Presented with pericardial effusion/hemopericardium; received PCC reversal and pericardiocentesis."
     },
-    "patient_summary": "80-year-old male with paroxysmal atrial fibrillation, HFpEF, COPD, tobacco dependence, benign essential hypertension, and stage 3 chronic kidney disease. Two weeks before this presentation he was discharged on apixaban 5mg twice a day and metoprolol succinate 12.5mg BID, and was started on amiodarone 200mg daily. He presented with hemopericardium and a large pericardial effusion, received prothrombin complex concentrate to reverse apixaban, and underwent urgent pericardiocentesis, followed by furosemide diuresis. Current labs include INR 3, GFR 40 mL/min, creatinine 1.67 mg/dL, hemoglobin 10.8 g/dL, and heart rate 77 beats per minute.",
+    "patient_summary": "80-year-old male with paroxysmal atrial fibrillation, heart failure with preserved ejection fraction, COPD, tobacco dependence, essential hypertension, and stage 3 chronic kidney disease. Two weeks before this presentation he was discharged on apixaban 5mg twice daily and metoprolol succinate 12.5mg BID, and started on amiodarone 200mg daily. He presented with hemopericardium/large pericardial effusion and received prothrombin complex concentrate reversal, pericardiocentesis, and furosemide. Active regimen includes amiodarone, apixaban, and metoprolol succinate. Labs include hemoglobin 10.8 g/dL (baseline 12 g/dL), creatinine 1.67 mg/dL (baseline 1.42 mg/dL), GFR 40 mL/min (baseline 50 mL/min), BUN 31 mg/dL, INR 3, and NT-BNP 729 pg/mL.",
     "findings": [
       {
         "status": "flagged",
@@ -308,10 +327,11 @@
           "Apixaban"
         ],
         "headline": "Amiodarone + Apixaban interaction",
-        "mechanism": "DDInter classifies the exact Amiodarone + Apixaban pair as Moderate.",
+        "mechanism": "amiodarone inhibits CYP1A2, CYP2C9, CYP2C19 and apixaban is a substrate of these enzymes, so amiodarone can raise apixaban exposure",
         "why_this_patient": "Both Amiodarone and Apixaban are active in the reviewed medication-safety episode.",
         "evidence_ids": [
-          "ddinter:DDInter76:DDInter108"
+          "ddinter:DDInter76:DDInter108",
+          "cyp:703:1364430"
         ]
       },
       {
@@ -319,20 +339,22 @@
         "severity": "moderate",
         "drugs": [
           "amiodarone",
-          "metoprolol"
+          "metoprolol succinate"
         ],
-        "headline": "Amiodarone plus a beta blocker may potentiate bradycardia, sinus arrest, and AV block",
-        "mechanism": "The amiodarone label lists beta blockers among negative chronotropes and states that concomitant use potentiates the electrophysiologic and hemodynamic effects of amiodarone, resulting in bradycardia, sinus arrest, and AV block.",
-        "why_this_patient": "This patient takes amiodarone 200mg daily together with metoprolol succinate 12.5mg BID for rate control; the amiodarone label groups beta blockers such as metoprolol among negative chronotropes. Current heart rate is 77 beats per minute.",
+        "headline": "Amiodarone can increase metoprolol exposure via CYP2D6 inhibition",
+        "mechanism": "amiodarone inhibits CYP2D6 and metoprolol succinate is a substrate of CYP2D6, so amiodarone can raise metoprolol succinate exposure",
+        "why_this_patient": "This patient takes amiodarone 200mg daily together with metoprolol succinate 12.5mg BID for rate control. Increased metoprolol exposure from amiodarone CYP2D6 inhibition could affect heart rate; heart rate is 77 beats per minute.",
         "evidence_ids": [
+          "cyp:703:221124",
+          "label:221124:interactions",
           "label:703:interactions"
         ],
-        "monitoring": "The amiodarone label advises to monitor heart rate with concomitant use of negative chronotropes."
+        "monitoring": "The metoprolol label advises monitoring patients closely when the combination with a CYP2D6 inhibitor cannot be avoided; amiodarone label additionally notes beta blockers as negative chronotropes that potentiate bradycardia, sinus arrest, and AV block and advises monitoring heart rate."
       }
     ],
     "questions_for_clinician": [
-      "Given amiodarone's cited effect of potentiating bradycardia, sinus arrest, and AV block when combined with negative chronotropes such as beta blockers, is continued heart-rate monitoring in place for the amiodarone plus metoprolol succinate combination?",
-      "Are there any additional CYP3A4 or P-gp inhibitors in this patient's regimen that could further increase apixaban exposure?"
+      "Should heart rate be monitored while amiodarone and metoprolol succinate are continued together, per the label guidance on CYP2D6 inhibition and negative chronotrope effects?",
+      "Are the amiodarone, apixaban, and metoprolol succinate entries all confirmed as active concurrent orders following this admission?"
     ],
     "evidence": [
       {
@@ -447,16 +469,74 @@
           "Apixaban"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_B.csv row: DDInter76 (Amiodarone) x DDInter108 (Apixaban)",
-        "retrieved_at": "2026-07-11T22:18:14.348Z"
+        "retrieved_at": "2026-07-12T08:20:47.772Z"
+      },
+      {
+        "id": "cyp:703:1364430",
+        "claim_text": "amiodarone inhibits CYP1A2, CYP2C9, CYP2C19 and apixaban is a substrate of these enzymes, so amiodarone can raise apixaban exposure",
+        "source_name": "openFDA-label",
+        "source_id": "4c149392-a4f0-4e2d-a13f-2b94810005de",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4c149392-a4f0-4e2d-a13f-2b94810005de",
+        "exact_field": "clinical_pharmacology",
+        "quoted_text": "Amiodarone inhibits P-glycoprotein and CYP1A2, CYP2C9, CYP2D6, and CYP3A, increasing exposure to other drugs.",
+        "supporting_text": "Amiodarone inhibits P-glycoprotein and CYP1A2, CYP2C9, CYP2D6, and CYP3A, increasing exposure to other drugs.",
+        "subject_drugs": [
+          "amiodarone",
+          "apixaban"
+        ],
+        "retrieval_query": "FDA labels: amiodarone inhibits CYP1A2, CYP2C9, CYP2C19 × apixaban substrate",
+        "retrieved_at": "2026-07-12T08:20:47.772Z"
+      },
+      {
+        "id": "cyp:703:221124",
+        "claim_text": "amiodarone inhibits CYP2D6 and metoprolol succinate is a substrate of CYP2D6, so amiodarone can raise metoprolol succinate exposure",
+        "source_name": "openFDA-label",
+        "source_id": "4c149392-a4f0-4e2d-a13f-2b94810005de",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4c149392-a4f0-4e2d-a13f-2b94810005de",
+        "exact_field": "clinical_pharmacology",
+        "quoted_text": "Amiodarone inhibits P-glycoprotein and CYP1A2, CYP2C9, CYP2D6, and CYP3A, increasing exposure to other drugs.",
+        "supporting_text": "Amiodarone inhibits P-glycoprotein and CYP1A2, CYP2C9, CYP2D6, and CYP3A, increasing exposure to other drugs.",
+        "subject_drugs": [
+          "amiodarone",
+          "metoprolol succinate"
+        ],
+        "retrieval_query": "FDA labels: amiodarone inhibits CYP2D6 × metoprolol succinate substrate",
+        "retrieved_at": "2026-07-12T08:20:47.772Z"
+      },
+      {
+        "id": "cyp:703:6918",
+        "claim_text": "amiodarone inhibits CYP2D6 and metoprolol is a substrate of CYP2D6, so amiodarone can raise metoprolol exposure",
+        "source_name": "openFDA-label",
+        "source_id": "4c149392-a4f0-4e2d-a13f-2b94810005de",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4c149392-a4f0-4e2d-a13f-2b94810005de",
+        "exact_field": "clinical_pharmacology",
+        "quoted_text": "Amiodarone inhibits P-glycoprotein and CYP1A2, CYP2C9, CYP2D6, and CYP3A, increasing exposure to other drugs.",
+        "supporting_text": "Amiodarone inhibits P-glycoprotein and CYP1A2, CYP2C9, CYP2D6, and CYP3A, increasing exposure to other drugs.",
+        "subject_drugs": [
+          "amiodarone",
+          "metoprolol"
+        ],
+        "retrieval_query": "FDA labels: amiodarone inhibits CYP2D6 × metoprolol substrate",
+        "retrieved_at": "2026-07-12T08:20:47.772Z"
       }
     ],
     "unverified_removed": [
       {
-        "claim_text": "The medication list shows amiodarone 200mg daily and apixaban 5mg twice a day; given the cited interaction between these agents and the presentation with hemopericardium, how should ongoing anticoagulation be managed?",
-        "reason": "Narrative reviewer: The interaction between amiodarone and apixaban was cited/documented as causing the hemopericardium; the evidence only lists a Moderate-level interaction between amiodarone and apixaban and does not connect it to hemopericardium."
+        "claim_text": "Given the concurrent amiodarone and apixaban with hemopericardium, is any change to the apixaban dose indicated in line with the label guidance on combined P-gp and strong CYP3A4 inhibitors?",
+        "reason": "Narrative reviewer: Question asserts amiodarone is a combined P-gp and strong CYP3A4 inhibitor triggering the apixaban dose-reduction label guidance; the evidence states amiodarone inhibits P-gp and CYP3A but does not characterize it as a strong CYP3A4 inhibitor, so the label's combined P-gp and strong CYP3A4 inhibitor dose-reduction guidance is not explicitly connected to amiodarone."
       }
     ],
-    "generated_at": "2026-07-11T22:18:14.348Z",
+    "generated_at": "2026-07-12T08:20:47.772Z",
+    "research_candidates": [
+      {
+        "tier": "unresolved-concern",
+        "drugs": [],
+        "reason": "Narrative reviewer: Question asserts amiodarone is a combined P-gp and strong CYP3A4 inhibitor triggering the apixaban dose-reduction label guidance; the evidence states amiodarone inhibits P-gp and CYP3A but does not characterize it as a strong CYP3A4 inhibitor, so the label's combined P-gp and strong CYP3A4 inhibitor dose-reduction guidance is not explicitly connected to amiodarone.",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Given the concurrent amiodarone and apixaban with hemopericardium, is any change to the apixaban dose indicated in line with the label guidance on combined P-gp and strong CYP3A4 inhibitors?\"",
+        "source": "adversarial verifier"
+      }
+    ],
+    "research_total_known_unknown": 0,
     "pipeline": {
       "mode": "audited-replay",
       "model": "Claude Opus 4.8",
@@ -472,17 +552,7 @@
         "unique_drugs": 1939,
         "source_files": 8
       }
-    },
-    "research_candidates": [
-      {
-        "tier": "unresolved-concern",
-        "drugs": [],
-        "reason": "Narrative reviewer: The interaction between amiodarone and apixaban was cited/documented as causing the hemopericardium; the evidence only lists a Moderate-level interaction between amiodarone and apixaban and does not connect it to hemopericardium.",
-        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"The medication list shows amiodarone 200mg daily and apixaban 5mg twice a day; given the cited interaction between these agents and the presentation with hemopericardium, how should ongoing anticoagulation be managed?\"",
-        "source": "adversarial verifier"
-      }
-    ],
-    "research_total_known_unknown": 0
+    }
   },
-  "generatedAt": "2026-07-11T22:18:14.348Z"
+  "generatedAt": "2026-07-12T08:20:47.772Z"
 }

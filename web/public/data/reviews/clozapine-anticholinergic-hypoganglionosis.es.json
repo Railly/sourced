@@ -3,11 +3,11 @@
   "locale": "es",
   "intake": {
     "case": {
-      "note": "45-year-old Caucasian male with schizoaffective disorder and chronic constipation, brought to ED for acute encephalopathy. Home clozapine 1,200 mg daily (duration unclear, started years ago). Working diagnosis of anticholinergic toxicity; clozapine held. Developed ileus with large stool burden, treated with enemas, polyethylene glycol, and IV neostigmine, ultimately total colectomy with end ileostomy. Final diagnosis: acquired hypoganglionosis. Clozapine later slowly restarted at lower levels.",
+      "note": "45-year-old male with schizoaffective disorder and chronic constipation presenting with acute encephalopathy while taking clozapine. Working diagnosis of anticholinergic toxicity; developed ileus/acquired hypoganglionosis requiring total colectomy. Clozapine held on arrival and later slowly restarted.",
       "medications": [
         {
           "raw": "Clozapine, total of 1,200 mg daily",
-          "episode": "Home medication; taking clozapine at presentation for acute encephalopathy; held during hospitalization then later restarted",
+          "episode": "Home medication taken during episode of acute encephalopathy/anticholinergic toxicity; started years ago in adulthood; held on arrival",
           "start": "started on the clozapine therapy years ago in his adulthood",
           "end": "the patient's home clozapine was held",
           "source_span": "His home medications included a total of 1,200 mg of clozapine daily.",
@@ -15,50 +15,44 @@
         },
         {
           "raw": "risperidone",
-          "episode": "Home medication at presentation",
+          "episode": "Home medication during episode of acute encephalopathy",
           "source_span": "He was also taking risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine.",
           "status": "active"
         },
         {
           "raw": "propranolol",
-          "episode": "Home medication at presentation",
+          "episode": "Home medication during episode of acute encephalopathy",
           "source_span": "He was also taking risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine.",
           "status": "active"
         },
         {
           "raw": "linaclotide",
-          "episode": "Home medication at presentation",
+          "episode": "Home medication during episode of acute encephalopathy",
           "source_span": "He was also taking risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine.",
           "status": "active"
         },
         {
           "raw": "benztropine",
-          "episode": "Home medication at presentation",
+          "episode": "Home medication during episode of acute encephalopathy",
           "source_span": "He was also taking risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine.",
           "status": "active"
         },
         {
           "raw": "alprazolam",
-          "episode": "Home medication at presentation",
+          "episode": "Home medication during episode of acute encephalopathy",
           "source_span": "He was also taking risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine.",
           "status": "active"
         },
         {
           "raw": "diphenhydramine",
-          "episode": "Home medication at presentation",
+          "episode": "Home medication during episode of acute encephalopathy",
           "source_span": "He was also taking risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine.",
           "status": "active"
         },
         {
-          "raw": "polyethylene glycol, administered via nasogastric tube and per rectum",
-          "episode": "Treatment during hospitalization for ileus/stool burden",
-          "source_span": "aggressive medical therapy including frequent tap water enemas and polyethylene glycol administered via nasogastric tube and per rectum",
-          "status": "one-time"
-        },
-        {
-          "raw": "two doses of intravenous neostigmine",
-          "episode": "Treatment in ICU for stool evacuation",
-          "source_span": "The patient was transferred to the intensive care unit and treated with two doses of intravenous neostigmine with significant evacuation of stool.",
+          "raw": "intravenous neostigmine, two doses",
+          "episode": "Given as treatment for stool burden/ileus in the ICU during hospitalization",
+          "source_span": "treated with two doses of intravenous neostigmine with significant evacuation of stool",
           "status": "one-time"
         }
       ],
@@ -68,82 +62,87 @@
         "chronic constipation",
         "acute encephalopathy",
         "anticholinergic toxicity (working diagnosis)",
-        "urinary retention",
         "ileus",
-        "acquired hypoganglionosis (HG)"
+        "acquired hypoganglionosis (HG)",
+        "urinary retention"
       ],
       "labs": [
         {
-          "name": "Clozapine level",
+          "name": "clozapine level",
           "value": 735,
           "unit": "mcg/L",
           "refLow": 25,
           "refHigh": 440
         },
         {
-          "name": "Norclozapine level",
+          "name": "norclozapine level",
           "value": 449,
           "unit": "mcg/L",
           "refLow": 25,
           "refHigh": 440
         },
         {
-          "name": "Hemoglobin",
+          "name": "hemoglobin",
           "value": 11.8,
           "unit": "g/dL"
         },
         {
-          "name": "Repeat serum clozapine level",
+          "name": "repeat serum clozapine level",
           "value": 433,
           "unit": "mcg/L"
         },
         {
-          "name": "Repeat norclozapine level",
+          "name": "repeat norclozapine level",
           "value": 121,
           "unit": "mcg/L"
         },
         {
-          "name": "Temperature",
+          "name": "temperature",
           "value": 38.5,
           "unit": "°Celsius"
+        },
+        {
+          "name": "rectosigmoid colon dilatation",
+          "value": 7,
+          "unit": "cm"
+        },
+        {
+          "name": "proximal colon dilatation",
+          "value": 8.4,
+          "unit": "cm"
         }
       ]
     },
     "ambiguities": [
       {
-        "id": "amb-benztropine",
-        "field": "medications[].raw",
-        "question": "El texto fuente incluye 'benztropine' entre los medicamentos domiciliarios, pero no aparecía en la lista de cadenas proporcionada. ¿Confirma que benztropine debe incluirse como medicamento activo?"
-      },
-      {
         "id": "amb-clozapine-duration",
-        "field": "medications[].start",
-        "question": "La duración de la clozapina es incierta ('It is unclear how long he was taking this dose'). ¿Puede confirmar desde cuándo tomaba la dosis de 1,200 mg diarios?"
+        "field": "medications[0].start",
+        "question": "La fuente indica que se desconoce cuánto tiempo llevaba tomando la dosis de clozapina y los años exactos de tratamiento. ¿Puede confirmar la fecha o duración de inicio de la clozapina?"
       },
       {
         "id": "amb-clozapine-restart",
-        "field": "medications[].status",
-        "question": "La clozapina fue suspendida durante la hospitalización y luego reiniciada lentamente. ¿Debe registrarse este reinicio como una exposición separada o mantenerse como activa con suspensión temporal durante el episodio?"
+        "field": "medications[0].status",
+        "question": "La clozapina se suspendió al ingreso y luego se reinició lentamente durante la hospitalización. ¿Debe registrarse el reinicio como una exposición separada?"
       },
       {
-        "id": "amb-tapwater",
-        "field": "medications[].raw",
-        "question": "Se administraron enemas de agua corriente ('tap water enemas'). ¿Desea que se registren como exposición de tratamiento junto con el polietilenglicol?"
+        "id": "amb-anticholinergic-dupe",
+        "field": "medications",
+        "question": "Varios medicamentos domiciliarios (benztropina, difenhidramina, clozapina) tienen efectos anticolinérgicos. ¿Desea señalar esta posible duplicación de efecto anticolinérgico?"
       }
     ],
-    "sourceSummary": "Reporte de caso único (PMC7333039) de un varón de 45 años con trastorno esquizoafectivo y estreñimiento crónico que tomaba clozapina 1,200 mg/día y presentó encefalopatía aguda e íleo con hipoganglionosis adquirida. Medicamentos domiciliarios: clozapina, risperidona, propranolol, linaclotida, benztropina, alprazolam y difenhidramina. Tratamientos hospitalarios: polietilenglicol y neostigmina intravenosa. La clozapina fue suspendida y luego reiniciada."
+    "sourceSummary": "Reporte de caso único (PMC7333039) de un varón de 45 años con trastorno esquizoafectivo y estreñimiento crónico que presenta encefalopatía aguda tomando clozapina. Se listan medicamentos domiciliarios y dos dosis de neostigmina intravenosa como tratamiento hospitalario."
   },
   "report": {
     "patient": {
       "medications": [
         {
           "raw": "Clozapine, total of 1,200 mg daily",
-          "rxcui": "360362",
-          "name": "Ivax brand of clozapine",
-          "resolution": "approximate",
+          "rxcui": "2626",
+          "name": "clozapine",
+          "resolution": "exact",
           "ingredients": [],
           "status": "active",
-          "episode": "Home medication; taking clozapine at presentation for acute encephalopathy; held during hospitalization then later restarted",
+          "episode": "Home medication taken during episode of acute encephalopathy/anticholinergic toxicity; started years ago in adulthood; held on arrival",
           "start": "started on the clozapine therapy years ago in his adulthood",
           "end": "the patient's home clozapine was held",
           "source_span": "His home medications included a total of 1,200 mg of clozapine daily."
@@ -160,7 +159,7 @@
             }
           ],
           "status": "active",
-          "episode": "Home medication at presentation",
+          "episode": "Home medication during episode of acute encephalopathy",
           "source_span": "He was also taking risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine."
         },
         {
@@ -175,7 +174,7 @@
             }
           ],
           "status": "active",
-          "episode": "Home medication at presentation",
+          "episode": "Home medication during episode of acute encephalopathy",
           "source_span": "He was also taking risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine."
         },
         {
@@ -190,7 +189,7 @@
             }
           ],
           "status": "active",
-          "episode": "Home medication at presentation",
+          "episode": "Home medication during episode of acute encephalopathy",
           "source_span": "He was also taking risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine."
         },
         {
@@ -205,7 +204,7 @@
             }
           ],
           "status": "active",
-          "episode": "Home medication at presentation",
+          "episode": "Home medication during episode of acute encephalopathy",
           "source_span": "He was also taking risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine."
         },
         {
@@ -220,7 +219,7 @@
             }
           ],
           "status": "active",
-          "episode": "Home medication at presentation",
+          "episode": "Home medication during episode of acute encephalopathy",
           "source_span": "He was also taking risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine."
         },
         {
@@ -235,26 +234,11 @@
             }
           ],
           "status": "active",
-          "episode": "Home medication at presentation",
+          "episode": "Home medication during episode of acute encephalopathy",
           "source_span": "He was also taking risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine."
         },
         {
-          "raw": "polyethylene glycol, administered via nasogastric tube and per rectum",
-          "rxcui": "8516",
-          "name": "Polyethylene Glycol",
-          "resolution": "approximate",
-          "ingredients": [
-            {
-              "rxcui": "8516",
-              "name": "polyethylene glycols"
-            }
-          ],
-          "status": "one-time",
-          "episode": "Treatment during hospitalization for ileus/stool burden",
-          "source_span": "aggressive medical therapy including frequent tap water enemas and polyethylene glycol administered via nasogastric tube and per rectum"
-        },
-        {
-          "raw": "two doses of intravenous neostigmine",
+          "raw": "intravenous neostigmine, two doses",
           "rxcui": "7315",
           "name": "neostigmine",
           "resolution": "approximate",
@@ -265,8 +249,8 @@
             }
           ],
           "status": "one-time",
-          "episode": "Treatment in ICU for stool evacuation",
-          "source_span": "The patient was transferred to the intensive care unit and treated with two doses of intravenous neostigmine with significant evacuation of stool."
+          "episode": "Given as treatment for stool burden/ileus in the ICU during hospitalization",
+          "source_span": "treated with two doses of intravenous neostigmine with significant evacuation of stool"
         }
       ],
       "allergies": [],
@@ -275,49 +259,59 @@
         "chronic constipation",
         "acute encephalopathy",
         "anticholinergic toxicity (working diagnosis)",
-        "urinary retention",
         "ileus",
-        "acquired hypoganglionosis (HG)"
+        "acquired hypoganglionosis (HG)",
+        "urinary retention"
       ],
       "labs": [
         {
-          "name": "Clozapine level",
+          "name": "clozapine level",
           "value": 735,
           "unit": "mcg/L",
           "refLow": 25,
           "refHigh": 440
         },
         {
-          "name": "Norclozapine level",
+          "name": "norclozapine level",
           "value": 449,
           "unit": "mcg/L",
           "refLow": 25,
           "refHigh": 440
         },
         {
-          "name": "Hemoglobin",
+          "name": "hemoglobin",
           "value": 11.8,
           "unit": "g/dL"
         },
         {
-          "name": "Repeat serum clozapine level",
+          "name": "repeat serum clozapine level",
           "value": 433,
           "unit": "mcg/L"
         },
         {
-          "name": "Repeat norclozapine level",
+          "name": "repeat norclozapine level",
           "value": 121,
           "unit": "mcg/L"
         },
         {
-          "name": "Temperature",
+          "name": "temperature",
           "value": 38.5,
           "unit": "°Celsius"
+        },
+        {
+          "name": "rectosigmoid colon dilatation",
+          "value": 7,
+          "unit": "cm"
+        },
+        {
+          "name": "proximal colon dilatation",
+          "value": 8.4,
+          "unit": "cm"
         }
       ],
-      "note": "45-year-old Caucasian male with schizoaffective disorder and chronic constipation, brought to ED for acute encephalopathy. Home clozapine 1,200 mg daily (duration unclear, started years ago). Working diagnosis of anticholinergic toxicity; clozapine held. Developed ileus with large stool burden, treated with enemas, polyethylene glycol, and IV neostigmine, ultimately total colectomy with end ileostomy. Final diagnosis: acquired hypoganglionosis. Clozapine later slowly restarted at lower levels."
+      "note": "45-year-old male with schizoaffective disorder and chronic constipation presenting with acute encephalopathy while taking clozapine. Working diagnosis of anticholinergic toxicity; developed ileus/acquired hypoganglionosis requiring total colectomy. Clozapine held on arrival and later slowly restarted."
     },
-    "patient_summary": "Hombre de 45 años con trastorno esquizoafectivo y estreñimiento crónico, traído por encefalopatía aguda. Sus medicamentos en casa incluían clozapine 1,200 mg al día, risperidone, propranolol, linaclotide, benztropine, alprazolam y diphenhydramine. Durante la hospitalización desarrolló íleo con gran carga de heces, tratado con enemas, polyethylene glycol y neostigmine intravenosa, con colectomía total y ileostomía terminal; el diagnóstico final fue hipoganglionosis adquirida. El nivel de Clozapine fue 735 mcg/L (referencia 25–440) y el de Norclozapine 449 mcg/L (referencia 25–440); un nivel repetido de clozapine fue 433 mcg/L y de norclozapine 121 mcg/L. La hemoglobina fue 11.8 g/dL y la temperatura 38.5 °Celsius. El clozapine se suspendió durante la hospitalización y luego se reinició lentamente.",
+    "patient_summary": "Hombre de 45 años con trastorno esquizoafectivo y estreñimiento crónico que ingresó con encefalopatía aguda mientras tomaba clozapina, con diagnóstico de trabajo de toxicidad anticolinérgica. Desarrolló íleo/hipoganglionosis adquirida que requirió colectomía total. Sus medicamentos domiciliarios incluían clozapina, risperidona, propranolol, linaclotida, benztropina, alprazolam y difenhidramina. El nivel de clozapina fue 735 mcg/L (referencia 25–440) y el de norclozapina 449 mcg/L (referencia 25–440); niveles repetidos posteriores fueron 433 mcg/L de clozapina y 121 mcg/L de norclozapina. Se administró neostigmina intravenosa como tratamiento puntual en la UCI.",
     "findings": [
       {
         "status": "flagged",
@@ -363,9 +357,8 @@
       }
     ],
     "questions_for_clinician": [
-      "¿Las entradas de clozapine y su reinicio corresponden a una sola orden o a órdenes separadas que deban conciliarse?",
-      "¿Está previsto continuar el uso concomitante de risperidone, propranolol, alprazolam y diphenhydramine, dado que la evidencia estructurada clasifica cada par con diphenhydramine como nivel Moderate?",
-      "¿Se planea alguna revisión del uso concomitante de alprazolam con diphenhydramine considerando la advertencia de la etiqueta sobre efectos depresores del SNC aditivos?"
+      "¿Las entradas domiciliarias de risperidona, propranolol, alprazolam y difenhidramina corresponden a órdenes activas y concurrentes, o algunas han sido suspendidas durante la hospitalización?",
+      "¿Está previsto reanudar la difenhidramina junto con el alprazolam tras el alta, dado el efecto depresor aditivo del SNC descrito en la etiqueta?"
     ],
     "evidence": [
       {
@@ -508,7 +501,7 @@
           "Diphenhydramine"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_D.csv row: DDInter1605 (Risperidone) x DDInter569 (Diphenhydramine)",
-        "retrieved_at": "2026-07-12T07:01:14.789Z"
+        "retrieved_at": "2026-07-12T08:38:23.133Z"
       },
       {
         "id": "ddinter:DDInter1539:DDInter569",
@@ -524,7 +517,7 @@
           "Diphenhydramine"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_D.csv row: DDInter1539 (Propranolol) x DDInter569 (Diphenhydramine)",
-        "retrieved_at": "2026-07-12T07:01:14.789Z"
+        "retrieved_at": "2026-07-12T08:38:23.133Z"
       },
       {
         "id": "ddinter:DDInter54:DDInter569",
@@ -540,11 +533,11 @@
           "Diphenhydramine"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_D.csv row: DDInter54 (Alprazolam) x DDInter569 (Diphenhydramine)",
-        "retrieved_at": "2026-07-12T07:01:14.789Z"
+        "retrieved_at": "2026-07-12T08:38:23.133Z"
       }
     ],
     "unverified_removed": [],
-    "generated_at": "2026-07-12T07:01:14.789Z",
+    "generated_at": "2026-07-12T08:38:23.133Z",
     "research_candidates": [],
     "research_total_known_unknown": 0,
     "pipeline": {
@@ -564,5 +557,5 @@
       }
     }
   },
-  "generatedAt": "2026-07-12T07:01:14.789Z"
+  "generatedAt": "2026-07-12T08:38:23.133Z"
 }

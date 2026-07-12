@@ -3,43 +3,35 @@
   "locale": "es",
   "intake": {
     "case": {
-      "note": "50-year-old female with AIDS not compliant with anti-retroviral therapy, polysubstance abuse and opioid dependence on methadone maintenance, presented with vomiting and confusion. Developed Torsades de Pointes shortly after metronidazole infusion following metoclopramide administration.",
+      "note": "Case report PMC7931031 / PMID 33562182. 50-year-old female with AIDS non-compliant with anti-retroviral therapy, polysubstance abuse, and opioid dependence on methadone maintenance. Presented to ED found vomiting and confused. Developed nausea/vomiting, received IV metoclopramide 10 mg; developed fever, given IV ceftriaxone and metronidazole for suspected aspiration pneumonia. Metronidazole started ~45 min after metoclopramide, infused over 30 min. Shortly after infusion stopped, developed Torsades de Pointes requiring defibrillation. IV potassium chloride and magnesium sulfate given.",
       "medications": [
         {
           "raw": "Methadone",
-          "episode": "Torsades de Pointes during methadone maintenance with metoclopramide and metronidazole",
           "status": "active",
           "source_span": "Her urine toxicology was positive for methadone, cocaine and opioids."
         },
         {
           "raw": "Metoclopramide (IV metoclopramide 10 mg)",
-          "episode": "Received in ED for nausea/vomiting prior to TdP",
-          "start": "about 45 min before metronidazole",
           "status": "active",
           "source_span": "She received intravenous (IV) metoclopramide 10 mg."
         },
         {
           "raw": "Metronidazole (IV)",
-          "episode": "Given for suspected aspiration pneumonia; TdP shortly after infusion stopped",
-          "start": "about 45 min after the metoclopramide was given, infused over 30 min",
           "status": "active",
           "source_span": "(B) Onset of Torsades de Pointes (TdP) shortly after metronidazole infusion."
         },
         {
           "raw": "Ceftriaxone (IV)",
-          "episode": "Given for suspected aspiration pneumonia",
           "status": "active",
           "source_span": "She was given IV ceftriaxone and metronidazole for suspected aspiration pneumonia."
         },
         {
           "raw": "Potassium chloride (IV)",
-          "episode": "Given after TdP episode, post-defibrillation",
           "status": "one-time",
           "source_span": "IV potassium chloride and magnesium sulfate were given."
         },
         {
           "raw": "Magnesium sulfate (IV)",
-          "episode": "Given after TdP episode, post-defibrillation",
           "status": "one-time",
           "source_span": "IV potassium chloride and magnesium sulfate were given."
         }
@@ -86,18 +78,8 @@
           "unit": "ms"
         },
         {
-          "name": "QTc (corrected QT) on admission",
+          "name": "QTc (admission)",
           "value": 460,
-          "unit": "ms"
-        },
-        {
-          "name": "QTc follow up",
-          "value": 542,
-          "unit": "ms"
-        },
-        {
-          "name": "QTc after two days",
-          "value": 432,
           "unit": "ms"
         },
         {
@@ -106,9 +88,19 @@
           "unit": "per minute"
         },
         {
+          "name": "QTc (follow up)",
+          "value": 542,
+          "unit": "ms"
+        },
+        {
           "name": "Ejection fraction",
           "value": 47,
           "unit": "%"
+        },
+        {
+          "name": "QTc (over next two days)",
+          "value": 432,
+          "unit": "ms"
         }
       ]
     },
@@ -116,20 +108,25 @@
       {
         "id": "amb-methadone-timing",
         "field": "medications[0].status",
-        "question": "¿La metadona de mantenimiento estaba activa durante el episodio de Torsades de Pointes? El texto indica dependencia de opioides en mantenimiento con metadona y toxicología positiva para metadona, pero no especifica la última dosis administrada."
+        "question": "El paciente estaba en mantenimiento con metadona; ¿confirma que la metadona seguía activa durante el episodio de Torsades de Pointes (no fue suspendida antes del evento)?"
+      },
+      {
+        "id": "amb-metronidazole-status",
+        "field": "medications[2].status",
+        "question": "El metronidazol se detuvo poco antes de la Torsades de Pointes; se clasificó como activo durante el episodio. ¿Confirma que fue parte de la terapia concurrente que precipitó el evento?"
       },
       {
         "id": "amb-heroin-cocaine",
         "field": "medications",
-        "question": "La paciente refirió uso de heroína y cocaína (toxicología positiva para cocaína y opioides). ¿Deben registrarse estas sustancias como exposiciones medicamentosas del episodio?"
+        "question": "La fuente menciona uso de heroína y cocaína y toxicología positiva. ¿Desea que estas exposiciones (heroína, cocaína, opioides) se registren como medicamentos/exposiciones adicionales?"
       },
       {
-        "id": "amb-source-span",
-        "field": "medications[].source_span",
-        "question": "No se incluyeron fragmentos verbatim (source_span) para cada medicamento. ¿Desea que confirme y añada los fragmentos exactos del texto fuente para cada exposición?"
+        "id": "amb-bp-transcription",
+        "field": "labs",
+        "question": "La presión arterial 128/80 mm Hg no se registró como un valor numérico de laboratorio. ¿Confirma que no se requiere incluirla como campo separado?"
       }
     ],
-    "sourceSummary": "Reporte de caso (PMC7931031) de una mujer de 50 años con SIDA, abuso de polisustancias y dependencia de opioides en mantenimiento con metadona, que desarrolló Torsades de Pointes tras recibir metoclopramida y luego metronidazol IV. También recibió ceftriaxona, y tras el episodio se administraron cloruro de potasio y sulfato de magnesio IV. Se preservan valores de laboratorio y EKG exactamente como se indicaron."
+    "sourceSummary": "Reporte de caso (PMC7931031) de una mujer de 50 años con Torsades de Pointes atribuida a la interacción entre metadona, metoclopramida y metronidazol. Episodio objetivo: Torsades de Pointes durante terapia combinada. Metadona (crónica), metoclopramida IV y metronidazol IV se marcan como activos durante el episodio; cloruro de potasio y sulfato de magnesio IV se administraron una vez tras el evento."
   },
   "report": {
     "patient": {
@@ -146,7 +143,6 @@
             }
           ],
           "status": "active",
-          "episode": "Torsades de Pointes during methadone maintenance with metoclopramide and metronidazole",
           "source_span": "Her urine toxicology was positive for methadone, cocaine and opioids."
         },
         {
@@ -161,8 +157,6 @@
             }
           ],
           "status": "active",
-          "episode": "Received in ED for nausea/vomiting prior to TdP",
-          "start": "about 45 min before metronidazole",
           "source_span": "She received intravenous (IV) metoclopramide 10 mg."
         },
         {
@@ -177,8 +171,6 @@
             }
           ],
           "status": "active",
-          "episode": "Given for suspected aspiration pneumonia; TdP shortly after infusion stopped",
-          "start": "about 45 min after the metoclopramide was given, infused over 30 min",
           "source_span": "(B) Onset of Torsades de Pointes (TdP) shortly after metronidazole infusion."
         },
         {
@@ -193,7 +185,6 @@
             }
           ],
           "status": "active",
-          "episode": "Given for suspected aspiration pneumonia",
           "source_span": "She was given IV ceftriaxone and metronidazole for suspected aspiration pneumonia."
         },
         {
@@ -208,7 +199,6 @@
             }
           ],
           "status": "one-time",
-          "episode": "Given after TdP episode, post-defibrillation",
           "source_span": "IV potassium chloride and magnesium sulfate were given."
         },
         {
@@ -223,7 +213,6 @@
             }
           ],
           "status": "one-time",
-          "episode": "Given after TdP episode, post-defibrillation",
           "source_span": "IV potassium chloride and magnesium sulfate were given."
         }
       ],
@@ -269,18 +258,8 @@
           "unit": "ms"
         },
         {
-          "name": "QTc (corrected QT) on admission",
+          "name": "QTc (admission)",
           "value": 460,
-          "unit": "ms"
-        },
-        {
-          "name": "QTc follow up",
-          "value": 542,
-          "unit": "ms"
-        },
-        {
-          "name": "QTc after two days",
-          "value": 432,
           "unit": "ms"
         },
         {
@@ -289,14 +268,24 @@
           "unit": "per minute"
         },
         {
+          "name": "QTc (follow up)",
+          "value": 542,
+          "unit": "ms"
+        },
+        {
           "name": "Ejection fraction",
           "value": 47,
           "unit": "%"
+        },
+        {
+          "name": "QTc (over next two days)",
+          "value": 432,
+          "unit": "ms"
         }
       ],
-      "note": "50-year-old female with AIDS not compliant with anti-retroviral therapy, polysubstance abuse and opioid dependence on methadone maintenance, presented with vomiting and confusion. Developed Torsades de Pointes shortly after metronidazole infusion following metoclopramide administration."
+      "note": "Case report PMC7931031 / PMID 33562182. 50-year-old female with AIDS non-compliant with anti-retroviral therapy, polysubstance abuse, and opioid dependence on methadone maintenance. Presented to ED found vomiting and confused. Developed nausea/vomiting, received IV metoclopramide 10 mg; developed fever, given IV ceftriaxone and metronidazole for suspected aspiration pneumonia. Metronidazole started ~45 min after metoclopramide, infused over 30 min. Shortly after infusion stopped, developed Torsades de Pointes requiring defibrillation. IV potassium chloride and magnesium sulfate given."
     },
-    "patient_summary": "Mujer de 50 años con SIDA sin cumplir terapia antirretroviral, abuso de múltiples sustancias y dependencia de opioides en mantenimiento con methadone. Ingresó con vómitos y confusión, y presentó Torsades de Pointes poco después de la infusión de metronidazole tras recibir metoclopramide. Diagnósticos incluyen Torsades de Pointes, bradicardia sinusal y QTc prolongado. En los laboratorios: potasio sérico 3.5 meq/L, magnesio 2.1 meq/L, creatinina 0.5 mg/dL, frecuencia cardíaca 44 por minuto, intervalo QT 512 ms, QTc de ingreso 460 ms, QTc de seguimiento 542 ms, QTc a los dos días 432 ms, frecuencia en EKG 40 por minuto y fracción de eyección 47 %. Recibió también ceftriaxone, y tras el episodio se administraron potassium chloride y magnesium sulfate por vía IV.",
+    "patient_summary": "Mujer de 50 años con SIDA sin adherencia a la terapia antirretroviral, abuso de múltiples sustancias y dependencia de opioides en mantenimiento con metadona. Ingresó por vómitos y confusión. Recibió metoclopramida IV 10 mg y, ante fiebre, ceftriaxona y metronidazol IV por sospecha de neumonía por aspiración. Presentó Torsades de Pointes que requirió desfibrilación. Laboratorios: potasio 3.5 meq/L, magnesio 2.1 meq/L, creatinina 0.5 mg/dL, frecuencia cardíaca 44 por minuto, intervalo QT 512 ms, QTc de ingreso 460 ms, QTc de seguimiento 542 ms, fracción de eyección 47 %. Recibió cloruro de potasio y sulfato de magnesio IV como dosis única.",
     "findings": [
       {
         "status": "flagged",
@@ -328,8 +317,9 @@
       }
     ],
     "questions_for_clinician": [
-      "¿Las entradas de methadone, metoclopramide y metronidazole corresponden a órdenes distintas activas de forma simultánea o a administraciones puntuales separadas en el tiempo?",
-      "Dado que la etiqueta de metronidazole reporta prolongación del QT al administrarse con fármacos que prolongan el QT, ¿se desea revisar la continuidad de metronidazole en el contexto del QTc prolongado documentado?"
+      "La etiqueta de metronidazol indica que se ha reportado prolongación del QT cuando se administra con fármacos que prolongan el QT; ¿desea revisar los agentes que prolongan el QT en esta paciente con QTc de seguimiento de 542 ms y antecedente de Torsades de Pointes?",
+      "La etiqueta de metoclopramida recomienda evitar el uso concomitante con depresores del sistema nervioso central como los opiáceos; ¿desea reconsiderar el uso conjunto con metadona en esta paciente?",
+      "¿El cloruro de potasio y el sulfato de magnesio IV fueron órdenes de dosis única o parte de un plan de reposición continua?"
     ],
     "evidence": [
       {
@@ -430,7 +420,7 @@
           "Metoclopramide"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_A.csv row: DDInter1166 (Methadone) x DDInter1197 (Metoclopramide)",
-        "retrieved_at": "2026-07-11T22:34:54.072Z"
+        "retrieved_at": "2026-07-12T08:36:05.574Z"
       },
       {
         "id": "ddinter:DDInter1166:DDInter1202",
@@ -446,7 +436,7 @@
           "Metronidazole"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_A.csv row: DDInter1166 (Methadone) x DDInter1202 (Metronidazole)",
-        "retrieved_at": "2026-07-11T22:34:54.072Z"
+        "retrieved_at": "2026-07-12T08:36:05.574Z"
       },
       {
         "id": "ddinter:DDInter1202:DDInter1197",
@@ -462,7 +452,7 @@
           "Metoclopramide"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_A.csv row: DDInter1202 (Metronidazole) x DDInter1197 (Metoclopramide)",
-        "retrieved_at": "2026-07-11T22:34:54.072Z"
+        "retrieved_at": "2026-07-12T08:36:05.574Z"
       },
       {
         "id": "ddinter:DDInter334:DDInter1197",
@@ -478,7 +468,7 @@
           "Metoclopramide"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_A.csv row: DDInter334 (Ceftriaxone) x DDInter1197 (Metoclopramide)",
-        "retrieved_at": "2026-07-11T22:34:54.072Z"
+        "retrieved_at": "2026-07-12T08:36:05.574Z"
       },
       {
         "id": "ddinter:DDInter1202:DDInter334",
@@ -494,40 +484,12 @@
           "Ceftriaxone"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_A.csv row: DDInter1202 (Metronidazole) x DDInter334 (Ceftriaxone)",
-        "retrieved_at": "2026-07-11T22:34:54.072Z"
+        "retrieved_at": "2026-07-12T08:36:05.574Z"
       }
     ],
-    "unverified_removed": [
-      {
-        "claim_text": "Dado que la etiqueta de metoclopramide recomienda evitar el uso concomitante con depresores del SNC como los opiáceos, ¿se desea mantener metoclopramide junto con methadone en esta paciente?",
-        "reason": "Revisor narrativo: La etiqueta de metoclopramide recomienda evitar el uso concomitante con opiáceos: la evidencia indica 'Avoid metoclopramide or the interacting drug, depending on the importance of the drug to the patient', no una recomendación absoluta de evitar; sin embargo el premisa de que la interacción existe está soportada. La afirmación de 'recomienda evitar el uso concomitante con depresores del SNC como los opiáceos' no coincide exactamente con la intervención citada."
-      }
-    ],
-    "generated_at": "2026-07-11T22:34:54.072Z",
-    "pipeline": {
-      "mode": "audited-replay",
-      "model": "Claude Opus 4.8",
-      "stages": [
-        "ingest",
-        "retrieve",
-        "synthesize",
-        "verify"
-      ],
-      "ddinter": {
-        "source_rows": 222383,
-        "unique_pairs": 160235,
-        "unique_drugs": 1939,
-        "source_files": 8
-      }
-    },
+    "unverified_removed": [],
+    "generated_at": "2026-07-12T08:36:05.574Z",
     "research_candidates": [
-      {
-        "tier": "unresolved-concern",
-        "drugs": [],
-        "reason": "Revisor narrativo: La etiqueta de metoclopramide recomienda evitar el uso concomitante con opiáceos: la evidencia indica 'Avoid metoclopramide or the interacting drug, depending on the importance of the drug to the patient', no una recomendación absoluta de evitar; sin embargo el premisa de que la interacción existe está soportada. La afirmación de 'recomienda evitar el uso concomitante con depresores del SNC como los opiáceos' no coincide exactamente con la intervención citada.",
-        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Dado que la etiqueta de metoclopramide recomienda evitar el uso concomitante con depresores del SNC como los opiáceos, ¿se desea mantener metoclopramide junto con methadone en esta paciente?\"",
-        "source": "adversarial verifier"
-      },
       {
         "tier": "known-unknown",
         "drugs": [
@@ -559,7 +521,23 @@
         "source": "DDInter DDInter1202/DDInter334"
       }
     ],
-    "research_total_known_unknown": 3
+    "research_total_known_unknown": 3,
+    "pipeline": {
+      "mode": "audited-replay",
+      "model": "Claude Opus 4.8",
+      "stages": [
+        "ingest",
+        "retrieve",
+        "synthesize",
+        "verify"
+      ],
+      "ddinter": {
+        "source_rows": 222383,
+        "unique_pairs": 160235,
+        "unique_drugs": 1939,
+        "source_files": 8
+      }
+    }
   },
-  "generatedAt": "2026-07-11T22:34:54.072Z"
+  "generatedAt": "2026-07-12T08:36:05.574Z"
 }

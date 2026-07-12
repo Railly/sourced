@@ -3,61 +3,59 @@
   "locale": "es",
   "intake": {
     "case": {
-      "note": "40-year-old man presented with headache, blurry vision, and altered mentation. Anticholinergic toxicity suspected secondary to overuse of over-the-counter Topricin cream (containing belladonna). PMC5935428 / PMID 29736357.",
+      "note": "40-year-old man presented with headache, blurry vision, and altered mentation. Anticholinergic toxicity suspected secondary to overuse of Topricin cream (containing belladonna). PMC5935428 / PMID 29736357.",
       "medications": [
         {
           "raw": "pravastatin",
-          "episode": "daily medication prior to presentation",
+          "episode": "daily medication before presentation",
           "status": "active",
           "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories for musculoskeletal pains."
         },
         {
           "raw": "metoprolol",
-          "episode": "daily medication prior to presentation",
+          "episode": "daily medication before presentation",
           "status": "active",
           "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories for musculoskeletal pains."
         },
         {
           "raw": "enalapril",
-          "episode": "daily medication prior to presentation",
+          "episode": "daily medication before presentation",
           "status": "active",
           "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories for musculoskeletal pains."
         },
         {
           "raw": "non-steroidal anti-inflammatories for musculoskeletal pains",
-          "episode": "daily medication prior to presentation",
+          "episode": "daily medication before presentation",
           "status": "active",
           "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories for musculoskeletal pains."
         },
         {
-          "raw": "Topricin (topical pain relief) cream",
-          "episode": "applied liberally two days prior to presentation, suspected cause of anticholinergic toxicity",
+          "raw": "Topricin (topical pain relief) cream (belladonna)",
+          "episode": "applied liberally two days prior to presentation for left foot pain; suspected cause of anticholinergic toxicity",
           "start": "Two days prior to presentation",
           "status": "active",
-          "source_span": "Two days prior to presentation, he had developed severe pain in his left foot which he treated with over-the-counter Topricin (topical pain relief) cream."
+          "source_span": "Topricin"
         },
         {
           "raw": "Lorazepam",
-          "episode": "administered in emergency department for acute delirium",
+          "episode": "administered for acute delirium in the emergency department",
           "status": "one-time",
           "source_span": "Lorazepam was administered for acute delirium."
         },
         {
           "raw": "Physostigmine",
-          "episode": "recommended as diagnostic tool but decision taken to withhold due to recent benzodiazepine use",
+          "episode": "recommended as a diagnostic tool but decision taken to withhold due to recent benzodiazepine use",
           "status": "held",
           "source_span": "Physostigmine was then recommended as a diagnostic tool."
         }
       ],
       "allergies": [],
       "diagnoses": [
-        "Anticholinergic toxicity secondary to overuse of Topricin cream (homeopathic medication)",
+        "Anticholinergic toxicity secondary to overuse of Topricin cream",
         "hypertension",
         "dyslipidemia",
-        "hypercholesterolemia",
-        "sinus tachycardia",
         "acute delirium",
-        "altered mental status"
+        "sinus tachycardia"
       ],
       "labs": [
         {
@@ -94,22 +92,22 @@
     },
     "ambiguities": [
       {
-        "id": "amb-topricin-identity",
-        "field": "medications[].raw",
-        "question": "El Topricin es una crema homeopática de venta libre que contiene belladona; ¿desea confirmar la identidad exacta del producto y sus ingredientes antes de normalizar?"
+        "id": "amb-topricin-dose",
+        "field": "medications[Topricin].episode",
+        "question": "La fuente indica que la cantidad y frecuencia exactas de la crema Topricin eran desconocidas. ¿Puede confirmar la exposición si dispone de más detalles?"
       },
       {
         "id": "amb-nsaid-identity",
-        "field": "medications[].raw",
-        "question": "La fuente menciona 'antiinflamatorios no esteroideos' sin nombrar un fármaco específico; ¿puede confirmar cuál AINE se utilizaba?"
+        "field": "medications[non-steroidal anti-inflammatories]",
+        "question": "La fuente menciona antiinflamatorios no esteroideos sin especificar el fármaco concreto. ¿Puede confirmar la identidad exacta del AINE?"
       },
       {
-        "id": "amb-physostigmine-status",
-        "field": "medications[].status",
-        "question": "La fisostigmina fue recomendada pero se decidió no administrarla; ¿confirma que se registre como retenida (held) y no administrada?"
+        "id": "amb-physostigmine",
+        "field": "medications[Physostigmine].status",
+        "question": "La fisostigmina se recomendó como herramienta diagnóstica pero se decidió no administrarla. ¿Confirma que nunca se administró (retenida)?"
       }
     ],
-    "sourceSummary": "Reporte de caso (PMC5935428) de un hombre de 40 años con toxicidad anticolinérgica por uso excesivo de crema Topricin (con belladona). Medicamentos diarios: pravastatina, metoprolol, enalapril y AINE. Se administró lorazepam para delirio agudo; se recomendó fisostigmina pero se retuvo. Fuente contiene un solo caso."
+    "sourceSummary": "Caso único de un varón de 40 años con toxicidad anticolinérgica por uso excesivo de crema Topricin (con belladona). Medicación diaria: pravastatina, metoprolol, enalapril y AINE. Se administró lorazepam para delirio agudo y se consideró fisostigmina pero se retuvo."
   },
   "report": {
     "patient": {
@@ -126,7 +124,7 @@
             }
           ],
           "status": "active",
-          "episode": "daily medication prior to presentation",
+          "episode": "daily medication before presentation",
           "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories for musculoskeletal pains."
         },
         {
@@ -141,7 +139,7 @@
             }
           ],
           "status": "active",
-          "episode": "daily medication prior to presentation",
+          "episode": "daily medication before presentation",
           "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories for musculoskeletal pains."
         },
         {
@@ -156,7 +154,7 @@
             }
           ],
           "status": "active",
-          "episode": "daily medication prior to presentation",
+          "episode": "daily medication before presentation",
           "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories for musculoskeletal pains."
         },
         {
@@ -166,18 +164,18 @@
           "resolution": "approximate",
           "ingredients": [],
           "status": "active",
-          "episode": "daily medication prior to presentation",
+          "episode": "daily medication before presentation",
           "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories for musculoskeletal pains."
         },
         {
-          "raw": "Topricin (topical pain relief) cream",
+          "raw": "Topricin (topical pain relief) cream (belladonna)",
           "name": "Topricin cream",
           "rxcui": null,
           "resolution": "unresolved",
           "status": "active",
-          "episode": "applied liberally two days prior to presentation, suspected cause of anticholinergic toxicity",
+          "episode": "applied liberally two days prior to presentation for left foot pain; suspected cause of anticholinergic toxicity",
           "start": "Two days prior to presentation",
-          "source_span": "Two days prior to presentation, he had developed severe pain in his left foot which he treated with over-the-counter Topricin (topical pain relief) cream."
+          "source_span": "Topricin"
         },
         {
           "raw": "Lorazepam",
@@ -191,7 +189,7 @@
             }
           ],
           "status": "one-time",
-          "episode": "administered in emergency department for acute delirium",
+          "episode": "administered for acute delirium in the emergency department",
           "source_span": "Lorazepam was administered for acute delirium."
         },
         {
@@ -206,19 +204,17 @@
             }
           ],
           "status": "held",
-          "episode": "recommended as diagnostic tool but decision taken to withhold due to recent benzodiazepine use",
+          "episode": "recommended as a diagnostic tool but decision taken to withhold due to recent benzodiazepine use",
           "source_span": "Physostigmine was then recommended as a diagnostic tool."
         }
       ],
       "allergies": [],
       "diagnoses": [
-        "Anticholinergic toxicity secondary to overuse of Topricin cream (homeopathic medication)",
+        "Anticholinergic toxicity secondary to overuse of Topricin cream",
         "hypertension",
         "dyslipidemia",
-        "hypercholesterolemia",
-        "sinus tachycardia",
         "acute delirium",
-        "altered mental status"
+        "sinus tachycardia"
       ],
       "labs": [
         {
@@ -252,42 +248,42 @@
           "unit": "beats per minute"
         }
       ],
-      "note": "40-year-old man presented with headache, blurry vision, and altered mentation. Anticholinergic toxicity suspected secondary to overuse of over-the-counter Topricin cream (containing belladonna). PMC5935428 / PMID 29736357."
+      "note": "40-year-old man presented with headache, blurry vision, and altered mentation. Anticholinergic toxicity suspected secondary to overuse of Topricin cream (containing belladonna). PMC5935428 / PMID 29736357."
     },
-    "patient_summary": "Hombre de 40 años que se presentó con cefalea, visión borrosa y alteración del estado mental, con sospecha de toxicidad anticolinérgica por uso excesivo de crema Topricin de venta libre. Sus medicamentos diarios previos eran pravastatina, metoprolol, enalapril y antiinflamatorios no esteroideos. En urgencias recibió lorazepam por delirio agudo, y se decidió retener la fisostigmina. Entre sus diagnósticos figuran hipertensión, dislipidemia, hipercolesterolemia, taquicardia sinusal, delirio agudo y estado mental alterado. Los laboratorios incluyen lipoproteína de baja densidad de 114 mg/dL, creatina quinasa (CK) inicial de 98 IU/L, CK repetida de 1837 IU/L, nitrógeno ureico en sangre de 29 mg/dL, creatinina de 1.59 mg/dL y frecuencia cardiaca de 135 latidos por minuto.",
+    "patient_summary": "Hombre de 40 años que se presentó con cefalea, visión borrosa y alteración del estado mental, con sospecha de toxicidad anticolinérgica secundaria al uso excesivo de crema Topricin (que contiene belladona). Sus medicamentos diarios eran pravastatina, metoprolol, enalapril y antiinflamatorios no esteroideos (AINE) para dolores musculoesqueléticos. En urgencias recibió lorazepam por delirio agudo; se recomendó fisostigmina como herramienta diagnóstica pero se decidió retenerla por el uso reciente de benzodiazepina. Diagnósticos: toxicidad anticolinérgica, hipertensión, dislipidemia, delirio agudo y taquicardia sinusal. Laboratorios: lipoproteína de baja densidad 114 mg/dL, creatina quinasa (CK) inicial 98 IU/L, CK repetida 1837 IU/L, nitrógeno ureico en sangre 29 mg/dL, creatinina 1.59 mg/dL y frecuencia cardíaca 135 latidos por minuto.",
     "findings": [
       {
-        "status": "informational",
-        "severity": "minor",
+        "status": "flagged",
+        "severity": "moderate",
         "drugs": [
-          "metoprolol"
+          "enalapril",
+          "NON-STEROIDAL ANTI-INFLAMMATORY ANALGESICS"
         ],
-        "headline": "El metoprolol puede tener efecto aditivo con otros fármacos que disminuyen la frecuencia cardiaca o la presión arterial",
-        "mechanism": "Según la etiqueta de metoprolol, la administración conjunta de betabloqueantes con fármacos que disminuyen la frecuencia cardiaca puede producir efectos aditivos de reducción de la frecuencia cardiaca, y con otros fármacos que disminuyen la presión arterial puede producir un efecto hipotensor aumentado. Los inhibidores de CYP2D6 pueden aumentar la concentración de metoprolol.",
-        "why_this_patient": "Este paciente toma metoprolol y tiene hipertensión y taquicardia sinusal con una frecuencia cardiaca de 135 latidos por minuto; la información de la etiqueta sobre efectos aditivos sobre la frecuencia cardiaca y la presión arterial se incluye como contexto.",
+        "headline": "El uso conjunto de enalapril y AINE puede deteriorar la función renal",
+        "mechanism": "Según la etiqueta de enalapril, en pacientes ancianos, con depleción de volumen (incluidos los que reciben diuréticos) o con función renal comprometida, la coadministración de AINE, incluidos los inhibidores selectivos de la COX-2, con inhibidores de la ECA como enalapril puede resultar en deterioro de la función renal, incluida una posible insuficiencia renal aguda. La etiqueta también señala que los AINE pueden disminuir el efecto antihipertensivo de los inhibidores de la ECA.",
+        "why_this_patient": "El paciente toma enalapril junto con antiinflamatorios no esteroideos para dolores musculoesqueléticos. Su creatinina es de 1.59 mg/dL y su nitrógeno ureico en sangre es de 29 mg/dL, por lo que la combinación podría contribuir a un deterioro de la función renal según lo descrito en la etiqueta.",
         "evidence_ids": [
-          "label:6918:interactions"
+          "label:3827:interactions"
         ],
-        "monitoring": "La etiqueta indica monitorizar estrechamente a los pacientes cuando la combinación no pueda evitarse."
+        "monitoring": "La etiqueta recomienda monitorizar periódicamente la función renal en pacientes que reciben enalapril y terapia con AINE."
       },
       {
         "status": "informational",
         "severity": "minor",
         "drugs": [
-          "pravastatin"
+          "enalapril"
         ],
-        "headline": "La pravastatina tiene interacciones que aumentan el riesgo de miopatía y rabdomiólisis",
-        "mechanism": "Según la etiqueta de pravastatina, la pravastatina es sustrato del transportador OATP1B1 y sus niveles plasmáticos pueden aumentar de forma significativa con inhibidores de OATP1B1. La etiqueta lista fármacos que aumentan el riesgo de miopatía y rabdomiólisis cuando se usan de forma concomitante, como gemfibrozilo, ciclosporina, ciertos macrólidos, niacina, fibratos y colchicina.",
-        "why_this_patient": "Este paciente toma pravastatina y presenta una CK repetida de 1837 IU/L frente a una CK inicial de 98 IU/L; la información de la etiqueta sobre miopatía y rabdomiólisis se incluye como contexto, sin que la evidencia proporcionada vincule estos fármacos con ese valor.",
+        "headline": "Advertencia enmarcada de enalapril sobre toxicidad fetal",
+        "mechanism": "Los fármacos que actúan directamente sobre el sistema renina-angiotensina pueden causar daño y muerte al feto en desarrollo. La etiqueta indica que, cuando se detecte un embarazo, se debe suspender enalapril lo antes posible.",
+        "why_this_patient": "El paciente recibe enalapril de forma diaria. Esta advertencia enmarcada aplica a la información sobre el fármaco, aunque el paciente es un hombre.",
         "evidence_ids": [
-          "label:42463:interactions"
-        ],
-        "monitoring": "La etiqueta recomienda vigilar signos y síntomas de miopatía, especialmente durante el inicio del tratamiento y el aumento de dosis, en los casos en que se decide el uso concomitante."
+          "label:3827:boxed"
+        ]
       }
     ],
     "questions_for_clinician": [
-      "Según la etiqueta de enalapril, en pacientes con función renal comprometida el uso concomitante de AINE puede deteriorar la función renal; ¿desea monitorizar periódicamente la función renal en este paciente que toma enalapril y antiinflamatorios no esteroideos?",
-      "¿Los antiinflamatorios no esteroideos registrados corresponden a un único fármaco o a varios productos distintos?"
+      "¿Qué antiinflamatorio no esteroideo específico está tomando el paciente y con qué frecuencia, para valorar la interacción descrita en la etiqueta de enalapril?",
+      "¿El paciente toma actualmente algún medicamento adicional que coincida con los que las etiquetas de pravastatina o metoprolol identifican como interacciones, ya que ninguno de los medicamentos activos registrados coincide con esas listas?"
     ],
     "evidence": [
       {
@@ -347,13 +343,10 @@
         "retrieved_at": "2026-07-11T22:25:52.822Z"
       }
     ],
-    "unverified_removed": [
-      {
-        "claim_text": "El uso conjunto de enalapril y un AINE podría deteriorar la función renal en pacientes vulnerables",
-        "reason": "El hallazgo menciona medicamentos no resueltos o inactivos: non-steroidal anti-inflammatories."
-      }
-    ],
-    "generated_at": "2026-07-11T22:37:52.814Z",
+    "unverified_removed": [],
+    "generated_at": "2026-07-12T08:43:12.750Z",
+    "research_candidates": [],
+    "research_total_known_unknown": 0,
     "pipeline": {
       "mode": "audited-replay",
       "model": "Claude Opus 4.8",
@@ -369,17 +362,7 @@
         "unique_drugs": 1939,
         "source_files": 8
       }
-    },
-    "research_candidates": [
-      {
-        "tier": "unresolved-concern",
-        "drugs": [],
-        "reason": "El hallazgo menciona medicamentos no resueltos o inactivos: non-steroidal anti-inflammatories.",
-        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"El uso conjunto de enalapril y un AINE podría deteriorar la función renal en pacientes vulnerables\"",
-        "source": "adversarial verifier"
-      }
-    ],
-    "research_total_known_unknown": 0
+    }
   },
-  "generatedAt": "2026-07-11T22:37:52.814Z"
+  "generatedAt": "2026-07-12T08:43:12.750Z"
 }

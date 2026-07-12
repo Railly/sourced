@@ -3,54 +3,42 @@
   "locale": "en",
   "intake": {
     "case": {
-      "note": "40-year-old man presented with headache, blurry vision, and altered mentation. Anticholinergic toxicity secondary to overuse of Topricin cream (containing belladonna). PMC5935428 / PMID 29736357.",
+      "note": "Anticholinergic Toxicity Secondary to Overuse of Topricin Cream, a Homeopathic Medication. 40-year-old man presented with headache, blurry vision, and altered mentation. PMH: hypertension and dyslipidemia. Two days prior to presentation he treated severe left foot pain with over-the-counter Topricin cream applied liberally without respecting the recommended dosage; review of ingredients revealed belladonna. Anticholinergic toxicity secondary to Topricin overuse was suspected. Physostigmine was recommended as a diagnostic tool but withheld due to recent benzodiazepine use and lack of imminent need.",
       "medications": [
         {
           "raw": "pravastatin",
-          "episode": "daily medication prior to and during presentation",
-          "start": "daily medication",
-          "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories",
-          "status": "active"
+          "status": "active",
+          "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories for musculoskeletal pains."
         },
         {
           "raw": "metoprolol",
-          "episode": "daily medication prior to and during presentation",
-          "start": "daily medication",
-          "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories",
-          "status": "active"
+          "status": "active",
+          "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories for musculoskeletal pains."
         },
         {
           "raw": "enalapril",
-          "episode": "daily medication prior to and during presentation",
-          "start": "daily medication",
-          "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories",
-          "status": "active"
+          "status": "active",
+          "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories for musculoskeletal pains."
         },
         {
           "raw": "non-steroidal anti-inflammatories for musculoskeletal pains",
-          "episode": "daily medication prior to and during presentation",
-          "start": "daily medication",
-          "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories for musculoskeletal pains",
-          "status": "active"
+          "status": "active",
+          "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories for musculoskeletal pains."
         },
         {
-          "raw": "Topricin (topical pain relief) cream, containing belladonna",
-          "episode": "applied 2 days prior to presentation; suspected cause of anticholinergic toxicity",
-          "start": "Two days prior to presentation",
-          "source_span": "Topricin",
-          "status": "active"
+          "raw": "Topricin (topical pain relief) cream; ingredients revealed belladonna",
+          "status": "active",
+          "source_span": "Topricin"
         },
         {
           "raw": "Lorazepam",
-          "episode": "administered in ED for acute delirium during episode",
-          "source_span": "Lorazepam was administered for acute delirium",
-          "status": "one-time"
+          "status": "one-time",
+          "source_span": "Lorazepam was administered for acute delirium."
         },
         {
           "raw": "Physostigmine",
-          "episode": "recommended as diagnostic tool but withheld",
-          "source_span": "Physostigmine was then recommended as a diagnostic tool. However, due to the recent use of a benzodiazepine and the lack of imminent need, a decision was taken to withhold",
-          "status": "held"
+          "status": "held",
+          "source_span": "Physostigmine was then recommended as a diagnostic tool."
         }
       ],
       "allergies": [],
@@ -58,6 +46,7 @@
         "Anticholinergic toxicity secondary to overuse of Topricin cream",
         "hypertension",
         "dyslipidemia",
+        "hypercholesterolemia",
         "acute delirium",
         "sinus tachycardia"
       ],
@@ -86,22 +75,32 @@
           "name": "creatinine",
           "value": 1.59,
           "unit": "mg/dL"
+        },
+        {
+          "name": "heart rate (sinus tachycardia)",
+          "value": 135,
+          "unit": "beats per minute"
         }
       ]
     },
     "ambiguities": [
       {
-        "id": "amb1",
-        "field": "medications[].status",
-        "question": "Topricin cream (containing belladonna) was applied by the patient himself in overuse and is the suspected cause of the episode; confirm it should be classified as active patient exposure rather than indirect exposure."
+        "id": "amb-nsaid-identity",
+        "field": "medications[3].raw",
+        "question": "The source lists 'non-steroidal anti-inflammatories' without naming a specific agent. Can you confirm the specific NSAID(s) the patient was taking?"
       },
       {
-        "id": "amb2",
-        "field": "medications[].raw",
-        "question": "The source lists 'non-steroidal anti-inflammatories' without naming a specific agent or dose. Please confirm the specific NSAID identity."
+        "id": "amb-topricin-active",
+        "field": "medications[4].status",
+        "question": "Topricin cream was applied liberally two days before presentation and is the suspected cause; can you confirm it was still being used during the episode (classified as active)?"
+      },
+      {
+        "id": "amb-physostigmine-held",
+        "field": "medications[6].status",
+        "question": "Physostigmine was recommended but withheld due to recent benzodiazepine use. Can you confirm it was never administered (classified as held)?"
       }
     ],
-    "sourceSummary": "Single case report (PMC5935428) of a 40-year-old man with anticholinergic toxicity from overuse of belladonna-containing Topricin cream. Home medications include pravastatin, metoprolol, enalapril, and NSAIDs; lorazepam given for delirium; physostigmine recommended but withheld."
+    "sourceSummary": "Single case report (PMC5935428) of a 40-year-old man with anticholinergic toxicity from overuse of over-the-counter Topricin cream containing belladonna. Chronic medications (pravastatin, metoprolol, enalapril, NSAIDs) captured as active. Lorazepam given once for acute delirium (one-time). Physostigmine recommended but withheld (held). Labs and vitals preserved verbatim."
   },
   "report": {
     "patient": {
@@ -118,9 +117,7 @@
             }
           ],
           "status": "active",
-          "episode": "daily medication prior to and during presentation",
-          "start": "daily medication",
-          "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories"
+          "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories for musculoskeletal pains."
         },
         {
           "raw": "metoprolol",
@@ -134,9 +131,7 @@
             }
           ],
           "status": "active",
-          "episode": "daily medication prior to and during presentation",
-          "start": "daily medication",
-          "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories"
+          "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories for musculoskeletal pains."
         },
         {
           "raw": "enalapril",
@@ -150,9 +145,7 @@
             }
           ],
           "status": "active",
-          "episode": "daily medication prior to and during presentation",
-          "start": "daily medication",
-          "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories"
+          "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories for musculoskeletal pains."
         },
         {
           "raw": "non-steroidal anti-inflammatories for musculoskeletal pains",
@@ -161,12 +154,10 @@
           "resolution": "approximate",
           "ingredients": [],
           "status": "active",
-          "episode": "daily medication prior to and during presentation",
-          "start": "daily medication",
-          "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories for musculoskeletal pains"
+          "source_span": "His daily medications were pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories for musculoskeletal pains."
         },
         {
-          "raw": "Topricin (topical pain relief) cream, containing belladonna",
+          "raw": "Topricin (topical pain relief) cream; ingredients revealed belladonna",
           "rxcui": "89781",
           "name": "BELLADONNA",
           "resolution": "approximate",
@@ -177,8 +168,6 @@
             }
           ],
           "status": "active",
-          "episode": "applied 2 days prior to presentation; suspected cause of anticholinergic toxicity",
-          "start": "Two days prior to presentation",
           "source_span": "Topricin"
         },
         {
@@ -193,8 +182,7 @@
             }
           ],
           "status": "one-time",
-          "episode": "administered in ED for acute delirium during episode",
-          "source_span": "Lorazepam was administered for acute delirium"
+          "source_span": "Lorazepam was administered for acute delirium."
         },
         {
           "raw": "Physostigmine",
@@ -208,8 +196,7 @@
             }
           ],
           "status": "held",
-          "episode": "recommended as diagnostic tool but withheld",
-          "source_span": "Physostigmine was then recommended as a diagnostic tool. However, due to the recent use of a benzodiazepine and the lack of imminent need, a decision was taken to withhold"
+          "source_span": "Physostigmine was then recommended as a diagnostic tool."
         }
       ],
       "allergies": [],
@@ -217,6 +204,7 @@
         "Anticholinergic toxicity secondary to overuse of Topricin cream",
         "hypertension",
         "dyslipidemia",
+        "hypercholesterolemia",
         "acute delirium",
         "sinus tachycardia"
       ],
@@ -245,14 +233,35 @@
           "name": "creatinine",
           "value": 1.59,
           "unit": "mg/dL"
+        },
+        {
+          "name": "heart rate (sinus tachycardia)",
+          "value": 135,
+          "unit": "beats per minute"
         }
       ],
-      "note": "40-year-old man presented with headache, blurry vision, and altered mentation. Anticholinergic toxicity secondary to overuse of Topricin cream (containing belladonna). PMC5935428 / PMID 29736357."
+      "note": "Anticholinergic Toxicity Secondary to Overuse of Topricin Cream, a Homeopathic Medication. 40-year-old man presented with headache, blurry vision, and altered mentation. PMH: hypertension and dyslipidemia. Two days prior to presentation he treated severe left foot pain with over-the-counter Topricin cream applied liberally without respecting the recommended dosage; review of ingredients revealed belladonna. Anticholinergic toxicity secondary to Topricin overuse was suspected. Physostigmine was recommended as a diagnostic tool but withheld due to recent benzodiazepine use and lack of imminent need."
     },
-    "patient_summary": "A 40-year-old man presented with headache, blurry vision, and altered mentation, diagnosed with anticholinergic toxicity attributed to overuse of a topical cream containing belladonna. His ongoing daily medications include pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories for musculoskeletal pain. He also has hypertension, dyslipidemia, acute delirium, and sinus tachycardia. In the emergency department he received lorazepam for acute delirium, and physostigmine was recommended but withheld given recent benzodiazepine use. Reported labs include low-density lipoprotein 114 mg/dL, an initial creatine kinase of 98 IU/L rising to 1837 IU/L on repeat, blood urea nitrogen 29 mg/dL, and creatinine 1.59 mg/dL.",
-    "findings": [],
+    "patient_summary": "A 40-year-old man with hypertension and dyslipidemia presented with headache, blurry vision, and altered mentation after liberally applying over-the-counter Topricin cream containing belladonna, leading to suspected anticholinergic toxicity, acute delirium, and sinus tachycardia. His usual daily medications include pravastatin, metoprolol, enalapril, and non-steroidal anti-inflammatories. Lorazepam was given once for acute delirium, and physostigmine was recommended as a diagnostic tool but withheld due to recent benzodiazepine use. Labs include low-density lipoprotein 114 mg/dL, initial creatine kinase 98 IU/L rising to a repeat of 1837 IU/L, blood urea nitrogen 29 mg/dL, creatinine 1.59 mg/dL, and heart rate 135 beats per minute.",
+    "findings": [
+      {
+        "status": "flagged",
+        "severity": "moderate",
+        "drugs": [
+          "enalapril",
+          "NON-STEROIDAL ANTI-INFLAMMATORY ANALGESICS"
+        ],
+        "headline": "Enalapril label warns NSAIDs may deteriorate renal function in at-risk patients",
+        "mechanism": "Per the enalapril label, in patients who are elderly, volume-depleted, or with compromised renal function, coadministration of NSAIDs with ACE inhibitors including enalapril may result in deterioration of renal function, including possible acute renal failure; NSAIDs may also diminish the antihypertensive effect.",
+        "why_this_patient": "This patient takes both enalapril and non-steroidal anti-inflammatories daily for musculoskeletal pains, and his creatinine is 1.59 mg/dL with blood urea nitrogen 29 mg/dL; the label states this combination may deteriorate renal function in patients with compromised renal function.",
+        "evidence_ids": [
+          "label:3827:interactions"
+        ],
+        "monitoring": "The label recommends monitoring renal function periodically in patients receiving enalapril and NSAID therapy."
+      }
+    ],
     "questions_for_clinician": [
-      "The daily medication list includes both enalapril and non-steroidal anti-inflammatories; are these separate active orders, and should renal function be monitored per the enalapril label given the reported creatinine and blood urea nitrogen values?"
+      "Is the patient's non-steroidal anti-inflammatory use ongoing, and given the enalapril label's guidance to monitor renal function periodically in patients receiving enalapril and NSAID therapy, is continued renal monitoring planned?"
     ],
     "evidence": [
       {
@@ -342,23 +351,43 @@
     ],
     "unverified_removed": [
       {
-        "claim_text": "Enalapril combined with NSAIDs may worsen renal function in at-risk patients",
-        "reason": "Finding references unresolved or non-active medication(s): non-steroidal anti-inflammatories."
-      },
-      {
-        "claim_text": "Belladonna-containing product with a benzodiazepine may increase CNS-depressant risk",
+        "claim_text": "Belladonna label warns of additive risks when combined with benzodiazepines or other CNS depressants",
         "reason": "Finding references unresolved or non-active medication(s): lorazepam."
       },
       {
-        "claim_text": "Given the withheld physostigmine decision after lorazepam administration, is there a plan to monitor for the sedation and respiratory depression the belladonna product label describes with concomitant benzodiazepine use?",
-        "reason": "Narrative reviewer: The belladonna product label cited describes belladonna and opium suppositories with opioid content; the patient's product is Topricin topical cream containing belladonna, and the label's sedation/respiratory depression warnings for the opium-containing suppository are not shown to apply to the patient's product."
+        "claim_text": "Given that lorazepam was administered once and the belladonna label describes additive CNS depressant risk, should the patient be monitored closely for respiratory depression and sedation as the label advises?",
+        "reason": "Narrative reviewer: The belladonna evidence describes additive CNS depressant risk in the context of benzodiazepines and other CNS depressants; however this is from a belladonna and opium suppository label describing opioid-related risks, and the patient's belladonna exposure is via Topricin topical cream (containing belladonna extract, not the opium-containing suppository). The evidence's additive CNS depression/respiratory depression risk is tied to opioid content not established for the patient's product."
       },
       {
-        "claim_text": "The repeat creatine kinase of 1837 IU/L is markedly higher than the initial 98 IU/L; can you confirm whether the ongoing pravastatin was reviewed in the context of this change?",
-        "reason": "Narrative reviewer: No quoted evidence connects the rise in creatine kinase from 98 to 1837 IU/L to pravastatin; the pravastatin label discusses myopathy/rhabdomyolysis risk only with specific interacting drugs (gemfibrozil, cyclosporine, macrolides, niacin, fibrates, colchicine), none of which are in this patient's medication list, so review of pravastatin in the context of the CK change is not supported."
+        "claim_text": "Is Topricin cream being discontinued so that belladonna exposure is stopped?",
+        "reason": "Narrative reviewer: No quoted evidence connects discontinuation of Topricin cream to stopping belladonna exposure; there is no evidence supporting the discontinuation action for the topical product."
       }
     ],
-    "generated_at": "2026-07-11T22:25:52.822Z",
+    "generated_at": "2026-07-12T08:42:22.307Z",
+    "research_candidates": [
+      {
+        "tier": "unresolved-concern",
+        "drugs": [],
+        "reason": "Finding references unresolved or non-active medication(s): lorazepam.",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Belladonna label warns of additive risks when combined with benzodiazepines or other CNS depressants\"",
+        "source": "adversarial verifier"
+      },
+      {
+        "tier": "unresolved-concern",
+        "drugs": [],
+        "reason": "Narrative reviewer: The belladonna evidence describes additive CNS depressant risk in the context of benzodiazepines and other CNS depressants; however this is from a belladonna and opium suppository label describing opioid-related risks, and the patient's belladonna exposure is via Topricin topical cream (containing belladonna extract, not the opium-containing suppository). The evidence's additive CNS depression/respiratory depression risk is tied to opioid content not established for the patient's product.",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Given that lorazepam was administered once and the belladonna label describes additive CNS depressant risk, should the patient be monitored closely for respiratory depression and sedation as the label advises?\"",
+        "source": "adversarial verifier"
+      },
+      {
+        "tier": "unresolved-concern",
+        "drugs": [],
+        "reason": "Narrative reviewer: No quoted evidence connects discontinuation of Topricin cream to stopping belladonna exposure; there is no evidence supporting the discontinuation action for the topical product.",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Is Topricin cream being discontinued so that belladonna exposure is stopped?\"",
+        "source": "adversarial verifier"
+      }
+    ],
+    "research_total_known_unknown": 0,
     "pipeline": {
       "mode": "audited-replay",
       "model": "Claude Opus 4.8",
@@ -374,38 +403,7 @@
         "unique_drugs": 1939,
         "source_files": 8
       }
-    },
-    "research_candidates": [
-      {
-        "tier": "unresolved-concern",
-        "drugs": [],
-        "reason": "Finding references unresolved or non-active medication(s): non-steroidal anti-inflammatories.",
-        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Enalapril combined with NSAIDs may worsen renal function in at-risk patients\"",
-        "source": "adversarial verifier"
-      },
-      {
-        "tier": "unresolved-concern",
-        "drugs": [],
-        "reason": "Finding references unresolved or non-active medication(s): lorazepam.",
-        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Belladonna-containing product with a benzodiazepine may increase CNS-depressant risk\"",
-        "source": "adversarial verifier"
-      },
-      {
-        "tier": "unresolved-concern",
-        "drugs": [],
-        "reason": "Narrative reviewer: The belladonna product label cited describes belladonna and opium suppositories with opioid content; the patient's product is Topricin topical cream containing belladonna, and the label's sedation/respiratory depression warnings for the opium-containing suppository are not shown to apply to the patient's product.",
-        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Given the withheld physostigmine decision after lorazepam administration, is there a plan to monitor for the sedation and respiratory depression the belladonna product label describes with concomitant benzodiazepine use?\"",
-        "source": "adversarial verifier"
-      },
-      {
-        "tier": "unresolved-concern",
-        "drugs": [],
-        "reason": "Narrative reviewer: No quoted evidence connects the rise in creatine kinase from 98 to 1837 IU/L to pravastatin; the pravastatin label discusses myopathy/rhabdomyolysis risk only with specific interacting drugs (gemfibrozil, cyclosporine, macrolides, niacin, fibrates, colchicine), none of which are in this patient's medication list, so review of pravastatin in the context of the CK change is not supported.",
-        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"The repeat creatine kinase of 1837 IU/L is markedly higher than the initial 98 IU/L; can you confirm whether the ongoing pravastatin was reviewed in the context of this change?\"",
-        "source": "adversarial verifier"
-      }
-    ],
-    "research_total_known_unknown": 0
+    }
   },
-  "generatedAt": "2026-07-11T22:25:52.822Z"
+  "generatedAt": "2026-07-12T08:42:22.307Z"
 }

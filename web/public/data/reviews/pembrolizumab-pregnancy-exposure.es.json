@@ -3,98 +3,99 @@
   "locale": "es",
   "intake": {
     "case": {
-      "note": "Case report PMC11761911 / PMID 39857724. Multiparous patient with Hodgkin's lymphoma (nodular sclerosis subtype, diagnosed October 2020) and type 1 diabetes, treated with pembrolizumab during pregnancy. Episode reviewed: pembrolizumab treatment during pregnancy with 18F-FDG PET/CT exposure. Pregnancy dated ~24 weeks on 6 June 2023, estimated LMP 20 December 2022. Successful delivery at 37.5 weeks September 2023.",
+      "note": "Case report PMC11761911 / PMID 39857724. Multiparous patient with Hodgkin's lymphoma (nodular sclerosis subtype) diagnosed October 2020, with pre-existing type 1 diabetes. Episode under review: pregnancy outcome during pembrolizumab treatment and 18F-FDG PET/CT exposure.",
       "medications": [
         {
           "raw": "Pembrolizumab",
-          "episode": "Treatment given during pregnancy; 11 cycles September 2022 to May 2023; from July 2022 to December 2022 (six cycles of 200 mg) with possible sixth cycle in periconceptional period; 200 mg in February, March, April, May during first and second trimester",
-          "start": "September 2022 / July 2022",
+          "episode": "Treatment during pregnancy episode; 11 cycles between September 2022 and May 2023; six cycles July 2022 to December 2022 (200 mg) with possible periconceptional cycle; 200 mg February, March, April, May during first and second trimester",
+          "start": "September 2022 (also July 2022 per reconstruction)",
           "end": "May 2023",
           "source_span": "treatment with pembrolizumab was started (11 cycles between September 2022 and May 2023)",
           "status": "active"
         },
         {
-          "raw": "Insulin lispro",
-          "episode": "Ongoing treatment for type 1 diabetes",
-          "start": "Before October 2020",
+          "raw": "Insulin Lispro",
+          "episode": "Ongoing treatment for type 1 diabetes at time of HL diagnosis (October 2020)",
           "source_span": "already undergoing treatment for type 1 diabetes with Insulin Lispro and Glargine",
           "status": "active"
         },
         {
-          "raw": "Insulin glargine",
-          "episode": "Ongoing treatment for type 1 diabetes",
-          "start": "Before October 2020",
+          "raw": "Insulin Glargine",
+          "episode": "Ongoing treatment for type 1 diabetes at time of HL diagnosis (October 2020)",
           "source_span": "already undergoing treatment for type 1 diabetes with Insulin Lispro and Glargine",
           "status": "active"
         },
         {
           "raw": "Doxorubicin (ABVD protocol)",
-          "episode": "ABVD chemotherapy for Hodgkin's lymphoma, before pembrolizumab pregnancy episode",
+          "episode": "ABVD chemotherapy November 2020 to April 2021, before pregnancy episode",
           "start": "November 2020",
           "end": "April 2021",
-          "source_span": "ABVD protocol (Doxorubicin, Bleomycin, Vinblastine, and Dacarbazine) from November 2020 to April 2021",
+          "source_span": "chemotherapy treatment according to the ABVD protocol (Doxorubicin, Bleomycin, Vinblastine, and Dacarbazine) from November 2020 to April 2021",
           "status": "historical"
         },
         {
           "raw": "Bleomycin (ABVD protocol)",
-          "episode": "ABVD chemotherapy for Hodgkin's lymphoma, before pembrolizumab pregnancy episode",
+          "episode": "ABVD chemotherapy November 2020 to April 2021, before pregnancy episode",
           "start": "November 2020",
           "end": "April 2021",
-          "source_span": "ABVD protocol (Doxorubicin, Bleomycin, Vinblastine, and Dacarbazine) from November 2020 to April 2021",
+          "source_span": "chemotherapy treatment according to the ABVD protocol (Doxorubicin, Bleomycin, Vinblastine, and Dacarbazine) from November 2020 to April 2021",
           "status": "historical"
         },
         {
           "raw": "Vinblastine (ABVD protocol)",
-          "episode": "ABVD chemotherapy for Hodgkin's lymphoma, before pembrolizumab pregnancy episode",
+          "episode": "ABVD chemotherapy November 2020 to April 2021, before pregnancy episode",
           "start": "November 2020",
           "end": "April 2021",
-          "source_span": "ABVD protocol (Doxorubicin, Bleomycin, Vinblastine, and Dacarbazine) from November 2020 to April 2021",
+          "source_span": "chemotherapy treatment according to the ABVD protocol (Doxorubicin, Bleomycin, Vinblastine, and Dacarbazine) from November 2020 to April 2021",
           "status": "historical"
         },
         {
           "raw": "Dacarbazine (ABVD protocol)",
-          "episode": "ABVD chemotherapy for Hodgkin's lymphoma, before pembrolizumab pregnancy episode",
+          "episode": "ABVD chemotherapy November 2020 to April 2021, before pregnancy episode",
           "start": "November 2020",
           "end": "April 2021",
-          "source_span": "ABVD protocol (Doxorubicin, Bleomycin, Vinblastine, and Dacarbazine) from November 2020 to April 2021",
+          "source_span": "chemotherapy treatment according to the ABVD protocol (Doxorubicin, Bleomycin, Vinblastine, and Dacarbazine) from November 2020 to April 2021",
           "status": "historical"
         },
         {
           "raw": "Dexamethasone",
-          "episode": "Second-line therapy for persistent disease, before pembrolizumab pregnancy episode",
+          "episode": "Second-line therapy after ABVD, before pregnancy episode",
           "source_span": "second-line therapy with Dexamethasone, Cisplatin, and Cytarabine was initiated",
           "status": "historical"
         },
         {
           "raw": "Cisplatin",
-          "episode": "Second-line therapy for persistent disease, before pembrolizumab pregnancy episode",
+          "episode": "Second-line therapy after ABVD, before pregnancy episode",
           "source_span": "second-line therapy with Dexamethasone, Cisplatin, and Cytarabine was initiated",
           "status": "historical"
         },
         {
           "raw": "Cytarabine",
-          "episode": "Second-line therapy for persistent disease, before pembrolizumab pregnancy episode",
+          "episode": "Second-line therapy after ABVD, before pregnancy episode",
           "source_span": "second-line therapy with Dexamethasone, Cisplatin, and Cytarabine was initiated",
           "status": "historical"
         },
         {
           "raw": "Bendamustine",
-          "episode": "Chemotherapy for disease progression, before pembrolizumab pregnancy episode",
+          "episode": "Chemotherapy for disease progression, four cycles between January 2021 and June 2022, before pregnancy episode",
+          "start": "January 2021",
+          "end": "June 2022",
           "source_span": "she underwent chemotherapy with Brentuximab and Bendamustine, followed by Brentuximab Vedotin (four cycles between January 2021 and June 2022)",
           "status": "historical"
         },
         {
-          "raw": "Brentuximab vedotin",
-          "episode": "Chemotherapy for disease progression, before pembrolizumab pregnancy episode",
+          "raw": "Brentuximab Vedotin",
+          "episode": "Chemotherapy for disease progression, four cycles between January 2021 and June 2022, before pregnancy episode",
           "start": "January 2021",
           "end": "June 2022",
-          "source_span": "followed by Brentuximab Vedotin (four cycles between January 2021 and June 2022)",
+          "source_span": "she underwent chemotherapy with Brentuximab and Bendamustine, followed by Brentuximab Vedotin (four cycles between January 2021 and June 2022)",
           "status": "historical"
         }
       ],
       "allergies": [],
       "diagnoses": [
         "Hodgkin's lymphoma (HL), nodular sclerosis subtype, diagnosed October 2020",
+        "Classical Hodgkin lymphoma",
         "Type 1 diabetes",
         "Premature rupture of membranes (PROM)"
       ],
@@ -102,22 +103,27 @@
     },
     "ambiguities": [
       {
-        "id": "amb-brentuximab",
-        "field": "medications.raw",
-        "question": "La fuente menciona 'Brentuximab and Bendamustine, followed by Brentuximab Vedotin'. ¿'Brentuximab' y 'Brentuximab Vedotin' son el mismo fármaco o dos exposiciones distintas? Por favor confirme la identidad para evitar un posible duplicado."
+        "id": "amb-brentuximab-identity",
+        "field": "medications[].raw",
+        "question": "La fuente menciona 'Brentuximab' y 'Brentuximab Vedotin'. ¿Debe considerarse 'Brentuximab' como el mismo fármaco 'Brentuximab Vedotin' o como una exposición separada? Confirme la identidad antes de normalizar."
       },
       {
-        "id": "amb-brentuximab-dates",
-        "field": "medications.end",
-        "question": "La fuente indica que Brentuximab Vedotin fueron 'four cycles between January 2021 and June 2022', pero también describe esta terapia como posterior a la terapia de segunda línea de 2021. ¿Puede confirmar las fechas de inicio y fin de Brentuximab/Brentuximab Vedotin, ya que el orden cronológico parece inconsistente?"
+        "id": "amb-bendamustine-dates",
+        "field": "medications[].start",
+        "question": "El texto indica que la progresión ocurrió 'posteriormente' a la terapia de segunda línea, pero asigna a Bendamustina y Brentuximab Vedotin fechas de enero 2021 a junio 2022, que se solapan con protocolos previos. ¿Puede confirmar la cronología correcta de estos tratamientos?"
       },
       {
-        "id": "amb-pembro-cycles",
-        "field": "medications.episode",
-        "question": "La fuente da varios rangos para pembrolizumab (11 ciclos entre septiembre 2022 y mayo 2023; seis ciclos de julio 2022 a diciembre 2022; 200 mg en febrero, marzo, abril, mayo). ¿Puede confirmar el cronograma correcto de dosis y ciclos de pembrolizumab durante el episodio de embarazo?"
+        "id": "amb-insulin-status",
+        "field": "medications[].status",
+        "question": "Las insulinas Lispro y Glargine se describen como tratamiento en curso en octubre 2020. ¿Continuaron activas durante el embarazo (episodio objetivo)? La fuente no indica suspensión."
+      },
+      {
+        "id": "amb-pembrolizumab-cycles",
+        "field": "medications[].episode",
+        "question": "La fuente da recuentos de ciclos de pembrolizumab distintos (11 ciclos sept 2022–may 2023; seis ciclos jul–dic 2022; dosis feb–may). ¿Puede aclarar la cronología y dosis exactas del pembrolizumab?"
       }
     ],
-    "sourceSummary": "Reporte de caso (PMC11761911) de una paciente con linfoma de Hodgkin y diabetes tipo 1 tratada con pembrolizumab durante el embarazo, con exposición a PET/CT con 18F-FDG. Se extrajo un único caso claramente identificado. Insulina lispro y glargina figuran como tratamiento activo continuo; las quimioterapias previas (ABVD, segunda línea, brentuximab/bendamustina) se clasifican como históricas por finalizar antes del episodio de embarazo con pembrolizumab."
+    "sourceSummary": "Reporte de caso único (PMC11761911) de una paciente con linfoma de Hodgkin y diabetes tipo 1, tratada con pembrolizumab durante el embarazo y expuesta a PET/CT con 18F-FDG. Se extrajeron los medicamentos con su cronología relativa al episodio de embarazo. Los quimioterápicos previos (ABVD, segunda línea, brentuximab/bendamustina) se marcaron como históricos por finalizar antes del embarazo; pembrolizumab e insulinas como activos."
   },
   "report": {
     "patient": {
@@ -134,13 +140,13 @@
             }
           ],
           "status": "active",
-          "episode": "Treatment given during pregnancy; 11 cycles September 2022 to May 2023; from July 2022 to December 2022 (six cycles of 200 mg) with possible sixth cycle in periconceptional period; 200 mg in February, March, April, May during first and second trimester",
-          "start": "September 2022 / July 2022",
+          "episode": "Treatment during pregnancy episode; 11 cycles between September 2022 and May 2023; six cycles July 2022 to December 2022 (200 mg) with possible periconceptional cycle; 200 mg February, March, April, May during first and second trimester",
+          "start": "September 2022 (also July 2022 per reconstruction)",
           "end": "May 2023",
           "source_span": "treatment with pembrolizumab was started (11 cycles between September 2022 and May 2023)"
         },
         {
-          "raw": "Insulin lispro",
+          "raw": "Insulin Lispro",
           "rxcui": "86009",
           "name": "insulin lispro",
           "resolution": "exact",
@@ -151,12 +157,11 @@
             }
           ],
           "status": "active",
-          "episode": "Ongoing treatment for type 1 diabetes",
-          "start": "Before October 2020",
+          "episode": "Ongoing treatment for type 1 diabetes at time of HL diagnosis (October 2020)",
           "source_span": "already undergoing treatment for type 1 diabetes with Insulin Lispro and Glargine"
         },
         {
-          "raw": "Insulin glargine",
+          "raw": "Insulin Glargine",
           "rxcui": "274783",
           "name": "insulin glargine",
           "resolution": "exact",
@@ -167,8 +172,7 @@
             }
           ],
           "status": "active",
-          "episode": "Ongoing treatment for type 1 diabetes",
-          "start": "Before October 2020",
+          "episode": "Ongoing treatment for type 1 diabetes at time of HL diagnosis (October 2020)",
           "source_span": "already undergoing treatment for type 1 diabetes with Insulin Lispro and Glargine"
         },
         {
@@ -183,10 +187,10 @@
             }
           ],
           "status": "historical",
-          "episode": "ABVD chemotherapy for Hodgkin's lymphoma, before pembrolizumab pregnancy episode",
+          "episode": "ABVD chemotherapy November 2020 to April 2021, before pregnancy episode",
           "start": "November 2020",
           "end": "April 2021",
-          "source_span": "ABVD protocol (Doxorubicin, Bleomycin, Vinblastine, and Dacarbazine) from November 2020 to April 2021"
+          "source_span": "chemotherapy treatment according to the ABVD protocol (Doxorubicin, Bleomycin, Vinblastine, and Dacarbazine) from November 2020 to April 2021"
         },
         {
           "raw": "Bleomycin (ABVD protocol)",
@@ -200,10 +204,10 @@
             }
           ],
           "status": "historical",
-          "episode": "ABVD chemotherapy for Hodgkin's lymphoma, before pembrolizumab pregnancy episode",
+          "episode": "ABVD chemotherapy November 2020 to April 2021, before pregnancy episode",
           "start": "November 2020",
           "end": "April 2021",
-          "source_span": "ABVD protocol (Doxorubicin, Bleomycin, Vinblastine, and Dacarbazine) from November 2020 to April 2021"
+          "source_span": "chemotherapy treatment according to the ABVD protocol (Doxorubicin, Bleomycin, Vinblastine, and Dacarbazine) from November 2020 to April 2021"
         },
         {
           "raw": "Vinblastine (ABVD protocol)",
@@ -217,10 +221,10 @@
             }
           ],
           "status": "historical",
-          "episode": "ABVD chemotherapy for Hodgkin's lymphoma, before pembrolizumab pregnancy episode",
+          "episode": "ABVD chemotherapy November 2020 to April 2021, before pregnancy episode",
           "start": "November 2020",
           "end": "April 2021",
-          "source_span": "ABVD protocol (Doxorubicin, Bleomycin, Vinblastine, and Dacarbazine) from November 2020 to April 2021"
+          "source_span": "chemotherapy treatment according to the ABVD protocol (Doxorubicin, Bleomycin, Vinblastine, and Dacarbazine) from November 2020 to April 2021"
         },
         {
           "raw": "Dacarbazine (ABVD protocol)",
@@ -234,10 +238,10 @@
             }
           ],
           "status": "historical",
-          "episode": "ABVD chemotherapy for Hodgkin's lymphoma, before pembrolizumab pregnancy episode",
+          "episode": "ABVD chemotherapy November 2020 to April 2021, before pregnancy episode",
           "start": "November 2020",
           "end": "April 2021",
-          "source_span": "ABVD protocol (Doxorubicin, Bleomycin, Vinblastine, and Dacarbazine) from November 2020 to April 2021"
+          "source_span": "chemotherapy treatment according to the ABVD protocol (Doxorubicin, Bleomycin, Vinblastine, and Dacarbazine) from November 2020 to April 2021"
         },
         {
           "raw": "Dexamethasone",
@@ -251,7 +255,7 @@
             }
           ],
           "status": "historical",
-          "episode": "Second-line therapy for persistent disease, before pembrolizumab pregnancy episode",
+          "episode": "Second-line therapy after ABVD, before pregnancy episode",
           "source_span": "second-line therapy with Dexamethasone, Cisplatin, and Cytarabine was initiated"
         },
         {
@@ -266,7 +270,7 @@
             }
           ],
           "status": "historical",
-          "episode": "Second-line therapy for persistent disease, before pembrolizumab pregnancy episode",
+          "episode": "Second-line therapy after ABVD, before pregnancy episode",
           "source_span": "second-line therapy with Dexamethasone, Cisplatin, and Cytarabine was initiated"
         },
         {
@@ -281,7 +285,7 @@
             }
           ],
           "status": "historical",
-          "episode": "Second-line therapy for persistent disease, before pembrolizumab pregnancy episode",
+          "episode": "Second-line therapy after ABVD, before pregnancy episode",
           "source_span": "second-line therapy with Dexamethasone, Cisplatin, and Cytarabine was initiated"
         },
         {
@@ -296,11 +300,13 @@
             }
           ],
           "status": "historical",
-          "episode": "Chemotherapy for disease progression, before pembrolizumab pregnancy episode",
+          "episode": "Chemotherapy for disease progression, four cycles between January 2021 and June 2022, before pregnancy episode",
+          "start": "January 2021",
+          "end": "June 2022",
           "source_span": "she underwent chemotherapy with Brentuximab and Bendamustine, followed by Brentuximab Vedotin (four cycles between January 2021 and June 2022)"
         },
         {
-          "raw": "Brentuximab vedotin",
+          "raw": "Brentuximab Vedotin",
           "rxcui": "1147320",
           "name": "brentuximab vedotin",
           "resolution": "exact",
@@ -311,25 +317,56 @@
             }
           ],
           "status": "historical",
-          "episode": "Chemotherapy for disease progression, before pembrolizumab pregnancy episode",
+          "episode": "Chemotherapy for disease progression, four cycles between January 2021 and June 2022, before pregnancy episode",
           "start": "January 2021",
           "end": "June 2022",
-          "source_span": "followed by Brentuximab Vedotin (four cycles between January 2021 and June 2022)"
+          "source_span": "she underwent chemotherapy with Brentuximab and Bendamustine, followed by Brentuximab Vedotin (four cycles between January 2021 and June 2022)"
         }
       ],
       "allergies": [],
       "diagnoses": [
         "Hodgkin's lymphoma (HL), nodular sclerosis subtype, diagnosed October 2020",
+        "Classical Hodgkin lymphoma",
         "Type 1 diabetes",
         "Premature rupture of membranes (PROM)"
       ],
       "labs": [],
-      "note": "Case report PMC11761911 / PMID 39857724. Multiparous patient with Hodgkin's lymphoma (nodular sclerosis subtype, diagnosed October 2020) and type 1 diabetes, treated with pembrolizumab during pregnancy. Episode reviewed: pembrolizumab treatment during pregnancy with 18F-FDG PET/CT exposure. Pregnancy dated ~24 weeks on 6 June 2023, estimated LMP 20 December 2022. Successful delivery at 37.5 weeks September 2023."
+      "note": "Case report PMC11761911 / PMID 39857724. Multiparous patient with Hodgkin's lymphoma (nodular sclerosis subtype) diagnosed October 2020, with pre-existing type 1 diabetes. Episode under review: pregnancy outcome during pembrolizumab treatment and 18F-FDG PET/CT exposure."
     },
-    "patient_summary": "Paciente multípara con linfoma de Hodgkin (subtipo esclerosis nodular, diagnosticado en octubre de 2020) y diabetes tipo 1, tratada con pembrolizumab durante el embarazo. Recibe tratamiento continuo para la diabetes tipo 1 con insulin lispro e insulin glargine. Entre los tratamientos históricos figura dexametasona como parte de una terapia de segunda línea. La evidencia disponible corresponde a las secciones de interacciones de las fichas técnicas de insulin lispro e insulin glargine.",
-    "findings": [],
+    "patient_summary": "Paciente multípara con linfoma de Hodgkin (subtipo esclerosis nodular) diagnosticado en octubre de 2020 y diabetes tipo 1 preexistente. Entre sus tratamientos activos figuran insulina lispro e insulina glargina para la diabetes tipo 1, junto con pembrolizumab administrado durante el embarazo. La evidencia disponible corresponde a las secciones de interacciones de las etiquetas de la insulina lispro y la insulina glargina. No se dispone de datos de laboratorio ni de alergias registradas.",
+    "findings": [
+      {
+        "status": "informational",
+        "severity": "minor",
+        "drugs": [
+          "insulin lispro"
+        ],
+        "headline": "La etiqueta de la insulina lispro describe clases de fármacos que pueden alterar el control de la glucosa",
+        "mechanism": "Según la etiqueta, ciertos fármacos pueden aumentar el riesgo de hipoglucemia y otros pueden disminuir el efecto reductor de glucosa de la insulina lispro; entre los que pueden disminuir ese efecto se incluyen los corticosteroides.",
+        "why_this_patient": "La paciente recibe insulina lispro para su diabetes tipo 1. La evidencia enumera clases de fármacos que pueden modificar el efecto de la insulina, por lo que se aporta como información para el seguimiento del control glucémico.",
+        "evidence_ids": [
+          "label:86009:interactions"
+        ],
+        "monitoring": "La etiqueta indica que pueden requerirse ajustes de dosis y una mayor frecuencia de monitorización de glucosa cuando la insulina lispro se coadministra con estos fármacos."
+      },
+      {
+        "status": "informational",
+        "severity": "minor",
+        "drugs": [
+          "insulin glargine"
+        ],
+        "headline": "La etiqueta de la insulina glargina describe clases de fármacos que pueden alterar el control de la glucosa",
+        "mechanism": "Según la etiqueta, ciertos fármacos pueden aumentar el riesgo de hipoglucemia y otros pueden disminuir el efecto reductor de glucosa de la insulina glargina; entre los que pueden disminuir ese efecto se incluyen los corticosteroides.",
+        "why_this_patient": "La paciente recibe insulina glargina para su diabetes tipo 1. La evidencia enumera clases de fármacos que pueden modificar el efecto de la insulina, por lo que se aporta como información para el seguimiento del control glucémico.",
+        "evidence_ids": [
+          "label:274783:interactions"
+        ],
+        "monitoring": "La etiqueta indica que pueden requerirse aumentos de dosis y una mayor frecuencia de monitorización de glucosa cuando la insulina glargina se coadministra con estos fármacos."
+      }
+    ],
     "questions_for_clinician": [
-      "¿Se ha planificado, durante los periodos en que coincidan corticosteroides con las insulinas, una monitorización de glucosa acorde con lo indicado en las fichas técnicas?"
+      "¿La insulina lispro y la insulina glargina corresponden a órdenes separadas o forman parte de un mismo esquema de tratamiento para la diabetes tipo 1?",
+      "¿Está la paciente recibiendo actualmente algún corticosteroide u otro fármaco de las clases descritas en las etiquetas de la insulina que pudiera requerir mayor frecuencia de monitorización de glucosa?"
     ],
     "evidence": [
       {
@@ -361,21 +398,10 @@
         "retrieved_at": "2026-07-11T22:25:04.726Z"
       }
     ],
-    "unverified_removed": [
-      {
-        "claim_text": "Los corticosteroides pueden disminuir el efecto hipoglucemiante de insulin lispro",
-        "reason": "El hallazgo menciona medicamentos no resueltos o inactivos: dexamethasone."
-      },
-      {
-        "claim_text": "Los corticosteroides pueden disminuir el efecto hipoglucemiante de insulin glargine",
-        "reason": "El hallazgo menciona medicamentos no resueltos o inactivos: dexamethasone."
-      },
-      {
-        "claim_text": "¿La dexametasona sigue estando activa o se ha suspendido, dado que la insulin lispro e insulin glargine continúan como tratamiento para la diabetes tipo 1?",
-        "reason": "Revisor narrativo: La pregunta afirma que la insulin lispro e insulin glargine 'continúan como tratamiento para la diabetes tipo 1', lo cual es un hecho del paciente correcto, pero la premisa de que la dexametasona podría 'seguir estando activa' contradice el contexto del paciente donde la dexametasona tiene estado histórico"
-      }
-    ],
-    "generated_at": "2026-07-11T22:37:04.408Z",
+    "unverified_removed": [],
+    "generated_at": "2026-07-12T08:41:29.256Z",
+    "research_candidates": [],
+    "research_total_known_unknown": 0,
     "pipeline": {
       "mode": "audited-replay",
       "model": "Claude Opus 4.8",
@@ -391,31 +417,7 @@
         "unique_drugs": 1939,
         "source_files": 8
       }
-    },
-    "research_candidates": [
-      {
-        "tier": "unresolved-concern",
-        "drugs": [],
-        "reason": "El hallazgo menciona medicamentos no resueltos o inactivos: dexamethasone.",
-        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Los corticosteroides pueden disminuir el efecto hipoglucemiante de insulin lispro\"",
-        "source": "adversarial verifier"
-      },
-      {
-        "tier": "unresolved-concern",
-        "drugs": [],
-        "reason": "El hallazgo menciona medicamentos no resueltos o inactivos: dexamethasone.",
-        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Los corticosteroides pueden disminuir el efecto hipoglucemiante de insulin glargine\"",
-        "source": "adversarial verifier"
-      },
-      {
-        "tier": "unresolved-concern",
-        "drugs": [],
-        "reason": "Revisor narrativo: La pregunta afirma que la insulin lispro e insulin glargine 'continúan como tratamiento para la diabetes tipo 1', lo cual es un hecho del paciente correcto, pero la premisa de que la dexametasona podría 'seguir estando activa' contradice el contexto del paciente donde la dexametasona tiene estado histórico",
-        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"¿La dexametasona sigue estando activa o se ha suspendido, dado que la insulin lispro e insulin glargine continúan como tratamiento para la diabetes tipo 1?\"",
-        "source": "adversarial verifier"
-      }
-    ],
-    "research_total_known_unknown": 0
+    }
   },
-  "generatedAt": "2026-07-11T22:37:04.408Z"
+  "generatedAt": "2026-07-12T08:41:29.256Z"
 }

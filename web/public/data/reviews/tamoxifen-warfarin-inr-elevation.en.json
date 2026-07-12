@@ -3,82 +3,88 @@
   "locale": "en",
   "intake": {
     "case": {
-      "note": "Case report PMC7292708 / PMID 32542167. 79-year-old woman presenting after motor vehicle collision with multiple rib fractures, neck pain, open wound with dislocated metatarsal joint. Hypercoagulation/INR fluctuations reviewed during concomitant tamoxifen and warfarin therapy.",
+      "note": "Case report: Hypercoagulation from Concomitant Administration of Tamoxifen and Warfarin. 79-year-old woman presented after a motor vehicle collision with multiple rib fractures, neck pain, and open wound with dislocated metatarsal joint. PMH: metastatic breast cancer, nausea/vomiting, DVT. On tamoxifen and warfarin chronically; enoxaparin bridging for subtherapeutic INR. Serial INR rose to peak 8.28 with warfarin held; vitamin K one dose given.",
       "medications": [
         {
           "raw": "Tamoxifen 20 mg by mouth daily",
-          "episode": "On chronic therapy for the past 15 months for metastatic breast cancer; home dose restarted on day two of hospitalization",
-          "start": "For the past 15 months; home dose restarted on day two of hospitalization",
-          "source_span": "the patient had been on tamoxifen 20 mg by mouth daily for metastatic breast cancer",
-          "status": "active"
+          "episode": "Hypercoagulation during concomitant tamoxifen and warfarin therapy",
+          "start": "For the past 15 months",
+          "status": "active",
+          "source_span": "For the past 15 months, the patient had been on tamoxifen 20 mg by mouth daily for metastatic breast cancer and on warfarin alternating between 4 mg to 6 mg by mouth daily for three years due to DVT."
         },
         {
           "raw": "Warfarin alternating between 4 mg to 6 mg by mouth daily",
-          "episode": "On chronic therapy for three years for DVT; home dose restarted day two, reduced day four, held from day five onward",
-          "start": "on warfarin alternating between 4 mg to 6 mg by mouth daily for three years",
-          "end": "On day five, her warfarin was held; continued to be held thereafter",
+          "episode": "Hypercoagulation during concomitant tamoxifen and warfarin therapy; warfarin held from day 5 onward due to rising INR",
+          "start": "for three years due to DVT",
+          "end": "held from day five of hospitalization",
           "source_span": "on warfarin alternating between 4 mg to 6 mg by mouth daily for three years due to DVT",
           "status": "active"
         },
         {
-          "raw": "Enoxaparin, treatment doses (70 mg SUBQ daily)",
-          "episode": "Started in outpatient setting due to subtherapeutic INR, restarted on admission, held days 4-6, reinitiated, discharged on it",
-          "start": "placed on treatment doses of enoxaparin in the outpatient setting; restarted upon hospital admission",
-          "source_span": "discharged on day 12 to a skilled nursing facility on treatment doses of enoxaparin",
+          "raw": "treatment doses of enoxaparin",
+          "episode": "Bridging anticoagulation for subtherapeutic INR; held on days 4-6, reinitiated, continued at discharge",
+          "start": "in the outpatient setting due to the subtherapeutic INR values",
+          "end": "discharged on day 12 on treatment doses of enoxaparin",
+          "source_span": "The patient improved and was discharged on day 12 to a skilled nursing facility on treatment doses of enoxaparin.",
           "status": "active"
         },
         {
-          "raw": "Phytonadione (vitamin-K) 2.5 mg by mouth",
-          "episode": "One dose administered on day eight when INR peaked to 8.28",
-          "start": "day eight of hospitalization",
-          "source_span": "One dose of vitamin-K 2.5 mg by mouth was administered on day eight",
+          "raw": "vitamin-K 2.5 mg by mouth",
+          "episode": "One dose administered on day eight for peak INR 8.28",
+          "source_span": "One dose of vitamin-K 2.5 mg by mouth was administered on day eight of hospitalization",
+          "status": "one-time"
+        },
+        {
+          "raw": "Phytonadione 2.5 mg po x 1",
+          "episode": "Reversal agent administered per medication table",
+          "source_span": "Phytonadione\n\n2.5 mg po x 1",
           "status": "one-time"
         },
         {
           "raw": "Cefepime 1 gm IV",
-          "episode": "Administered during hospitalization",
+          "episode": "Antibiotic coverage during hospitalization",
           "source_span": "Cefepime\n\n1 gm IV x 1\n1 gm IV q 12h",
           "status": "active"
         },
         {
           "raw": "Cefazolin 1 gm IV",
-          "episode": "Administered during hospitalization",
+          "episode": "Antibiotic coverage during hospitalization",
           "source_span": "Cefazolin\n1 gm IV x 1 dose\n1 gm IV q8h",
           "status": "active"
         },
         {
           "raw": "Clindamycin 600 mg IV",
-          "episode": "Administered during hospitalization",
+          "episode": "Antibiotic coverage during hospitalization",
           "source_span": "Clindamycin\n\n600 mg IV x 2\n600 mg IV q8h",
           "status": "active"
         },
         {
-          "raw": "Vancomycin 1 gm IV",
-          "episode": "One dose during hospitalization",
+          "raw": "Vancomycin 1 gm IV x 1",
+          "episode": "Antibiotic administered per medication table",
           "source_span": "Vancomycin\n\n1 gm IV x 1",
           "status": "one-time"
         },
         {
-          "raw": "Metoclopramide 5 mg po / 5 mg IV",
-          "episode": "Administered during hospitalization",
+          "raw": "Metoclopramide",
+          "episode": "Antiemetic administered during hospitalization",
           "source_span": "Metoclopramide\n\n5 mg po x 2",
           "status": "active"
         },
         {
-          "raw": "Ondansetron 4 mg IV",
-          "episode": "Administered during hospitalization",
+          "raw": "Ondansetron 4mg IV",
+          "episode": "Antiemetic administered during hospitalization",
           "source_span": "Ondansetron\n\n4mg IV x 1",
           "status": "active"
         },
         {
-          "raw": "Promethazine 6.25 mg IV",
-          "episode": "Administered during hospitalization",
+          "raw": "Promethazine 6.25 mg IV x 1",
+          "episode": "Antiemetic administered during hospitalization",
           "source_span": "Promethazine\n\n6.25 mg IV x 1",
           "status": "active"
         },
         {
-          "raw": "Hydrocodone/APAP (acetaminophen)",
-          "episode": "Administered during hospitalization",
+          "raw": "Hydrocodone/APAP",
+          "episode": "Analgesic administered during hospitalization",
           "source_span": "Hydrocodone/APAP\n\n1 tab po\n3 tab po",
           "status": "active"
         }
@@ -118,7 +124,7 @@
         {
           "name": "PT",
           "value": 14.5,
-          "unit": "sec",
+          "unit": "sec(s)",
           "refLow": 9.4,
           "refHigh": 12.5
         },
@@ -128,35 +134,45 @@
           "unit": ""
         },
         {
-          "name": "INR peak day 8",
+          "name": "INR peak",
           "value": 8.28,
           "unit": ""
+        },
+        {
+          "name": "INR on admission",
+          "value": 1.33,
+          "unit": ""
+        },
+        {
+          "name": "blood pressure systolic",
+          "value": 89,
+          "unit": "mmHg"
+        },
+        {
+          "name": "blood pressure diastolic",
+          "value": 46,
+          "unit": "mmHg"
         }
       ]
     },
     "ambiguities": [
       {
-        "id": "amb-warfarin-status",
-        "field": "medications.Warfarin.status",
-        "question": "The case title frames the event as occurring during concomitant tamoxifen and warfarin therapy, but warfarin was held from day five onward. Confirm warfarin should remain 'active' for the episode with the discontinuation recorded in end."
+        "id": "amb-warfarin-end",
+        "field": "medications[].end",
+        "question": "Warfarin was held from day five and continued to be held; the source does not state a permanent discontinuation. Please confirm whether warfarin was resumed after discharge or remained held/stopped."
       },
       {
-        "id": "amb-enoxaparin-timing",
-        "field": "medications.Enoxaparin.status",
-        "question": "Enoxaparin was held days 4-6 then reinitiated and continued at discharge. Confirm 'active' status is correct for the episode rather than treating the mid-episode hold separately."
+        "id": "amb-metoclopramide-identity",
+        "field": "medications[].raw",
+        "question": "The metoclopramide entry in the medication table lists multiple dosing lines (5 mg po x 2; 5 mg po x 2, 5 mg IV x 1; 5 mg IV x 4). Please confirm the intended dose/route representation for the safety record."
       },
       {
-        "id": "amb-hydrocodone-apap",
-        "field": "medications.Hydrocodone/APAP.raw",
-        "question": "The combination product is documented as 'Hydrocodone/APAP' with separately tabulated total daily acetaminophen (APAP). Confirm the intended ingredient identities and dosing."
-      },
-      {
-        "id": "amb-inr-unit",
-        "field": "labs.INR.unit",
-        "question": "INR is reported without a unit in the source. Confirm it should remain unitless."
+        "id": "amb-inr-value",
+        "field": "labs[].value",
+        "question": "The narrative states INR peaked to 8.28 on day eight, while Table 1 lists 8.2 for that day. Please confirm the correct peak INR value."
       }
     ],
-    "sourceSummary": "Single mechanically extracted PMC case report (PMC7292708) of a 79-year-old woman with metastatic breast cancer and DVT on chronic tamoxifen and warfarin, reviewed for hypercoagulation/INR fluctuations during concomitant therapy after a motor vehicle collision. Inpatient medications and serial labs were captured from the case narrative and Table 1."
+    "sourceSummary": "Single PMC case report (PMC7292708) of a 79-year-old woman with hypercoagulation during concomitant tamoxifen and warfarin therapy after a motor vehicle collision. Chronic tamoxifen and warfarin plus enoxaparin bridging were active during the episode; warfarin was held from day 5 with a one-time vitamin K/phytonadione reversal dose. Inpatient antibiotics, antiemetics, and analgesics were also administered. Serial Hgb/Hct/PT/INR labs preserved as stated."
   },
   "report": {
     "patient": {
@@ -165,7 +181,7 @@
           "raw": "Tamoxifen 20 mg by mouth daily",
           "rxcui": "10324",
           "name": "tamoxifen",
-          "resolution": "approximate",
+          "resolution": "exact",
           "ingredients": [
             {
               "rxcui": "10324",
@@ -173,9 +189,9 @@
             }
           ],
           "status": "active",
-          "episode": "On chronic therapy for the past 15 months for metastatic breast cancer; home dose restarted on day two of hospitalization",
-          "start": "For the past 15 months; home dose restarted on day two of hospitalization",
-          "source_span": "the patient had been on tamoxifen 20 mg by mouth daily for metastatic breast cancer"
+          "episode": "Hypercoagulation during concomitant tamoxifen and warfarin therapy",
+          "start": "For the past 15 months",
+          "source_span": "For the past 15 months, the patient had been on tamoxifen 20 mg by mouth daily for metastatic breast cancer and on warfarin alternating between 4 mg to 6 mg by mouth daily for three years due to DVT."
         },
         {
           "raw": "Warfarin alternating between 4 mg to 6 mg by mouth daily",
@@ -189,13 +205,13 @@
             }
           ],
           "status": "active",
-          "episode": "On chronic therapy for three years for DVT; home dose restarted day two, reduced day four, held from day five onward",
-          "start": "on warfarin alternating between 4 mg to 6 mg by mouth daily for three years",
-          "end": "On day five, her warfarin was held; continued to be held thereafter",
+          "episode": "Hypercoagulation during concomitant tamoxifen and warfarin therapy; warfarin held from day 5 onward due to rising INR",
+          "start": "for three years due to DVT",
+          "end": "held from day five of hospitalization",
           "source_span": "on warfarin alternating between 4 mg to 6 mg by mouth daily for three years due to DVT"
         },
         {
-          "raw": "Enoxaparin, treatment doses (70 mg SUBQ daily)",
+          "raw": "treatment doses of enoxaparin",
           "rxcui": "67108",
           "name": "enoxaparin",
           "resolution": "approximate",
@@ -206,33 +222,34 @@
             }
           ],
           "status": "active",
-          "episode": "Started in outpatient setting due to subtherapeutic INR, restarted on admission, held days 4-6, reinitiated, discharged on it",
-          "start": "placed on treatment doses of enoxaparin in the outpatient setting; restarted upon hospital admission",
-          "source_span": "discharged on day 12 to a skilled nursing facility on treatment doses of enoxaparin"
+          "episode": "Bridging anticoagulation for subtherapeutic INR; held on days 4-6, reinitiated, continued at discharge",
+          "start": "in the outpatient setting due to the subtherapeutic INR values",
+          "end": "discharged on day 12 on treatment doses of enoxaparin",
+          "source_span": "The patient improved and was discharged on day 12 to a skilled nursing facility on treatment doses of enoxaparin."
         },
         {
-          "raw": "Phytonadione (vitamin-K) 2.5 mg by mouth",
-          "rxcui": "629024",
-          "name": "By Ache",
-          "resolution": "approximate",
+          "raw": "vitamin-K 2.5 mg by mouth",
+          "rxcui": "11258",
+          "name": "vitamin K",
+          "resolution": "exact",
           "ingredients": [
             {
-              "rxcui": "161",
-              "name": "acetaminophen"
-            },
-            {
-              "rxcui": "33408",
-              "name": "phenyltoloxamine"
-            },
-            {
-              "rxcui": "9518",
-              "name": "salicylamide"
+              "rxcui": "11258",
+              "name": "vitamin K"
             }
           ],
           "status": "one-time",
-          "episode": "One dose administered on day eight when INR peaked to 8.28",
-          "start": "day eight of hospitalization",
-          "source_span": "One dose of vitamin-K 2.5 mg by mouth was administered on day eight"
+          "episode": "One dose administered on day eight for peak INR 8.28",
+          "source_span": "One dose of vitamin-K 2.5 mg by mouth was administered on day eight of hospitalization"
+        },
+        {
+          "raw": "Phytonadione 2.5 mg po x 1",
+          "name": "Phytonadione x 1",
+          "rxcui": null,
+          "resolution": "unresolved",
+          "status": "one-time",
+          "episode": "Reversal agent administered per medication table",
+          "source_span": "Phytonadione\n\n2.5 mg po x 1"
         },
         {
           "raw": "Cefepime 1 gm IV",
@@ -246,7 +263,7 @@
             }
           ],
           "status": "active",
-          "episode": "Administered during hospitalization",
+          "episode": "Antibiotic coverage during hospitalization",
           "source_span": "Cefepime\n\n1 gm IV x 1\n1 gm IV q 12h"
         },
         {
@@ -261,7 +278,7 @@
             }
           ],
           "status": "active",
-          "episode": "Administered during hospitalization",
+          "episode": "Antibiotic coverage during hospitalization",
           "source_span": "Cefazolin\n1 gm IV x 1 dose\n1 gm IV q8h"
         },
         {
@@ -276,11 +293,11 @@
             }
           ],
           "status": "active",
-          "episode": "Administered during hospitalization",
+          "episode": "Antibiotic coverage during hospitalization",
           "source_span": "Clindamycin\n\n600 mg IV x 2\n600 mg IV q8h"
         },
         {
-          "raw": "Vancomycin 1 gm IV",
+          "raw": "Vancomycin 1 gm IV x 1",
           "rxcui": "1807513",
           "name": "vancomycin 1 GM Injection",
           "resolution": "approximate",
@@ -291,13 +308,13 @@
             }
           ],
           "status": "one-time",
-          "episode": "One dose during hospitalization",
+          "episode": "Antibiotic administered per medication table",
           "source_span": "Vancomycin\n\n1 gm IV x 1"
         },
         {
-          "raw": "Metoclopramide 5 mg po / 5 mg IV",
-          "rxcui": "267035",
-          "name": "metoclopramide dihydrochloride",
+          "raw": "Metoclopramide",
+          "rxcui": "6915",
+          "name": "metoclopramide",
           "resolution": "exact",
           "ingredients": [
             {
@@ -306,11 +323,11 @@
             }
           ],
           "status": "active",
-          "episode": "Administered during hospitalization",
+          "episode": "Antiemetic administered during hospitalization",
           "source_span": "Metoclopramide\n\n5 mg po x 2"
         },
         {
-          "raw": "Ondansetron 4 mg IV",
+          "raw": "Ondansetron 4mg IV",
           "rxcui": "26225",
           "name": "ondansetron",
           "resolution": "exact",
@@ -321,14 +338,14 @@
             }
           ],
           "status": "active",
-          "episode": "Administered during hospitalization",
+          "episode": "Antiemetic administered during hospitalization",
           "source_span": "Ondansetron\n\n4mg IV x 1"
         },
         {
-          "raw": "Promethazine 6.25 mg IV",
+          "raw": "Promethazine 6.25 mg IV x 1",
           "rxcui": "8745",
           "name": "promethazine",
-          "resolution": "exact",
+          "resolution": "approximate",
           "ingredients": [
             {
               "rxcui": "8745",
@@ -336,11 +353,11 @@
             }
           ],
           "status": "active",
-          "episode": "Administered during hospitalization",
+          "episode": "Antiemetic administered during hospitalization",
           "source_span": "Promethazine\n\n6.25 mg IV x 1"
         },
         {
-          "raw": "Hydrocodone/APAP (acetaminophen)",
+          "raw": "Hydrocodone/APAP",
           "rxcui": "214182",
           "name": "acetaminophen / hydrocodone",
           "resolution": "exact",
@@ -355,7 +372,7 @@
             }
           ],
           "status": "active",
-          "episode": "Administered during hospitalization",
+          "episode": "Analgesic administered during hospitalization",
           "source_span": "Hydrocodone/APAP\n\n1 tab po\n3 tab po"
         }
       ],
@@ -394,7 +411,7 @@
         {
           "name": "PT",
           "value": 14.5,
-          "unit": "sec",
+          "unit": "sec(s)",
           "refLow": 9.4,
           "refHigh": 12.5
         },
@@ -404,14 +421,29 @@
           "unit": ""
         },
         {
-          "name": "INR peak day 8",
+          "name": "INR peak",
           "value": 8.28,
           "unit": ""
+        },
+        {
+          "name": "INR on admission",
+          "value": 1.33,
+          "unit": ""
+        },
+        {
+          "name": "blood pressure systolic",
+          "value": 89,
+          "unit": "mmHg"
+        },
+        {
+          "name": "blood pressure diastolic",
+          "value": 46,
+          "unit": "mmHg"
         }
       ],
-      "note": "Case report PMC7292708 / PMID 32542167. 79-year-old woman presenting after motor vehicle collision with multiple rib fractures, neck pain, open wound with dislocated metatarsal joint. Hypercoagulation/INR fluctuations reviewed during concomitant tamoxifen and warfarin therapy."
+      "note": "Case report: Hypercoagulation from Concomitant Administration of Tamoxifen and Warfarin. 79-year-old woman presented after a motor vehicle collision with multiple rib fractures, neck pain, and open wound with dislocated metatarsal joint. PMH: metastatic breast cancer, nausea/vomiting, DVT. On tamoxifen and warfarin chronically; enoxaparin bridging for subtherapeutic INR. Serial INR rose to peak 8.28 with warfarin held; vitamin K one dose given."
     },
-    "patient_summary": "79-year-old woman admitted after a motor vehicle collision with multiple rib fractures, neck pain, an open wound with a dislocated metatarsal joint, and hospital-acquired pneumonia. She has metastatic breast cancer on chronic tamoxifen 20 mg daily and a three-year history of DVT treated with warfarin (4-6 mg daily), which was restarted, reduced, then held from day five onward. She was managed with treatment-dose enoxaparin and received antibiotics (cefepime, cefazolin, clindamycin, vancomycin), antiemetics (metoclopramide, ondansetron, promethazine), and hydrocodone/acetaminophen. INR fluctuated during the stay, peaking at 8.28 on day eight, when one dose of vitamin K was given. Recent labs: Hgb 10.6 g/dL (ref 12-16), Hct 32.6% (ref 37-47), Platelets 305 thou/cu mm (ref 150-450), PT 14.5 sec (ref 9.4-12.5), INR 1.33.",
+    "patient_summary": "79-year-old woman admitted after a motor vehicle collision with multiple rib fractures, neck pain, and an open wound with a dislocated metatarsal joint. Her history includes metastatic breast cancer, deep venous thrombosis, and nausea/vomiting. She had been on chronic tamoxifen 20 mg daily and warfarin 4-6 mg daily; during this admission her INR rose from 1.33 on admission to a peak of 8.28, warfarin was held from day 5, one dose of vitamin K 2.5 mg was given, and enoxaparin was used for bridging. She also received antibiotics (cefepime, cefazolin, clindamycin, vancomycin), antiemetics (metoclopramide, ondansetron, promethazine), and hydrocodone/acetaminophen. Labs: Hgb 10.6 g/dL (ref 12-16), Hct 32.6% (ref 37-47), Platelets 305 thou/cu mm (ref 150-450), PT 14.5 sec (ref 9.4-12.5), INR 1.33, INR peak 8.28, blood pressure 89/46 mmHg.",
     "findings": [
       {
         "status": "red-flag",
@@ -459,14 +491,28 @@
         "status": "flagged",
         "severity": "moderate",
         "drugs": [
-          "Acetaminophen",
-          "Warfarin"
+          "Tamoxifen",
+          "Ondansetron"
         ],
-        "headline": "Acetaminophen + Warfarin interaction",
-        "mechanism": "DDInter classifies the exact Acetaminophen + Warfarin pair as Moderate.",
-        "why_this_patient": "Both Acetaminophen and Warfarin are active in the reviewed medication-safety episode.",
+        "headline": "Tamoxifen + Ondansetron interaction",
+        "mechanism": "DDInter classifies the exact Tamoxifen + Ondansetron pair as Moderate.",
+        "why_this_patient": "Both Tamoxifen and Ondansetron are active in the reviewed medication-safety episode.",
         "evidence_ids": [
-          "ddinter:DDInter14:DDInter1951"
+          "ddinter:DDInter1744:DDInter1342"
+        ]
+      },
+      {
+        "status": "flagged",
+        "severity": "moderate",
+        "drugs": [
+          "Tamoxifen",
+          "Promethazine"
+        ],
+        "headline": "Tamoxifen + Promethazine interaction",
+        "mechanism": "DDInter classifies the exact Tamoxifen + Promethazine pair as Moderate.",
+        "why_this_patient": "Both Tamoxifen and Promethazine are active in the reviewed medication-safety episode.",
+        "evidence_ids": [
+          "ddinter:DDInter1744:DDInter1533"
         ]
       },
       {
@@ -501,28 +547,14 @@
         "status": "flagged",
         "severity": "moderate",
         "drugs": [
-          "Tamoxifen",
-          "Ondansetron"
+          "Acetaminophen",
+          "Warfarin"
         ],
-        "headline": "Tamoxifen + Ondansetron interaction",
-        "mechanism": "DDInter classifies the exact Tamoxifen + Ondansetron pair as Moderate.",
-        "why_this_patient": "Both Tamoxifen and Ondansetron are active in the reviewed medication-safety episode.",
+        "headline": "Acetaminophen + Warfarin interaction",
+        "mechanism": "DDInter classifies the exact Acetaminophen + Warfarin pair as Moderate.",
+        "why_this_patient": "Both Acetaminophen and Warfarin are active in the reviewed medication-safety episode.",
         "evidence_ids": [
-          "ddinter:DDInter1744:DDInter1342"
-        ]
-      },
-      {
-        "status": "flagged",
-        "severity": "moderate",
-        "drugs": [
-          "Tamoxifen",
-          "Promethazine"
-        ],
-        "headline": "Tamoxifen + Promethazine interaction",
-        "mechanism": "DDInter classifies the exact Tamoxifen + Promethazine pair as Moderate.",
-        "why_this_patient": "Both Tamoxifen and Promethazine are active in the reviewed medication-safety episode.",
-        "evidence_ids": [
-          "ddinter:DDInter1744:DDInter1533"
+          "ddinter:DDInter14:DDInter1951"
         ]
       },
       {
@@ -580,29 +612,12 @@
         "evidence_ids": [
           "ddinter:DDInter884:DDInter1533"
         ]
-      },
-      {
-        "status": "informational",
-        "severity": "major",
-        "drugs": [
-          "warfarin"
-        ],
-        "headline": "Warfarin bleeding-risk signal and boxed warning",
-        "mechanism": "The warfarin FDA boxed warning states warfarin sodium can cause major or fatal bleeding and requires regular INR monitoring. A FAERS spontaneous-report signal co-mentions warfarin and haemorrhage in 19,773 reports (co-reporting, not causation).",
-        "why_this_patient": "This patient was on chronic warfarin for DVT with fluctuating INR that peaked to 8.28 on day eight; her Hgb 10.6 g/dL and Hct 32.6% are below their reference low bounds, and warfarin was held from day five onward.",
-        "evidence_ids": [
-          "label:11289:boxed",
-          "faers:11289:haemorrhage"
-        ],
-        "monitoring": "Warfarin label advises regular INR monitoring in all treated patients and instructing patients to report signs and symptoms of bleeding."
       }
     ],
     "questions_for_clinician": [
-      "Are the overlapping tamoxifen and warfarin orders intended to continue together, and how should prothrombin time/INR be monitored given the label's recommendation for careful monitoring during coadministration?",
-      "Given warfarin was held from day five and treatment-dose enoxaparin was continued, is concurrent anticoagulant overlap intended, and should close clinical and laboratory monitoring be arranged as the enoxaparin label advises?",
-      "Are promethazine and metoclopramide intended as concurrent antiemetics, and should one be avoided given the label caution about additive extrapyramidal and CNS-depressant effects?",
-      "Is the hydrocodone/APAP order intended to continue alongside promethazine and metoclopramide, considering the label guidance on reduced narcotic dosing and CNS depression?",
-      "Do the multiple antiemetic entries (metoclopramide, ondansetron, promethazine) represent separate active orders or a single intended regimen?"
+      "The medication list shows both a vitamin K entry (rxcui 11258) and an unresolved Phytonadione 2.5 mg po x 1 entry; are these one and the same one-time dose or two separate orders?",
+      "Warfarin was held from day 5 with a peak INR of 8.28 and the patient was discharged on treatment-dose enoxaparin; what is the intended plan for resuming or not resuming warfarin alongside chronic tamoxifen?",
+      "Given the documented tamoxifen–warfarin hypercoagulation episode, what INR monitoring interval is planned if these agents are used together again?"
     ],
     "evidence": [
       {
@@ -753,7 +768,7 @@
         "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=15d616d7-2f4c-4882-a03c-fcc86c18f5f8",
         "exact_field": "drug_interactions",
         "quoted_text": "7 DRUG INTERACTIONS Antipsychotics : Potential for additive effects, including TD, EPS, and NMS; avoid concomitant use. ( 7.1 ) CNS depressants : Increased risk of CNS depression. Avoid concomitant use and monitor for adverse reactions. ( 7.1 ) Strong CYP2D6 inhibitors (e.g., quinidine, bupropion, fluoxetine, and paroxetine) : See Full Prescribing Information for recommended dosage reductions. ( 2.2 , 2.3 , 7.1 ) MAO inhibitors : Increased risk of hypertension; avoid concomitant use. ( 5.5 , 7.1 ) Additional drug interactions : See Full Prescribing Information. ( 7.1 , 7.2 ) 7.1 Effects of Other Drugs on Metoclopramide Table 3 displays the effects of other drugs on metoclopramide. Table 3. Effects of Other Drugs on Metoclopramide Antipsychotics Clinical Impact Potential for additive effects, including increased frequency and severity of tardive dyskinesia (TD), other extrapyramidal symptoms (EPS), and neuroleptic malignant syndrome (NMS). Intervention Avoid concomitant use [ see Warnings and Precautions ( 5.1 , 5.2 , 5.3 ) ]. Strong CYP2D6 Inhibitors, not Included in Antipsychotic Category Above Clinical Impact Increased plasma concentrations of metoclopramide; risk of exacerbation of extrapyramidal symptoms [ see Clinical Pharmacology ( 12.3 ) ]. Intervention Reduce the metoclopramide dosage [ see Dosage and Administration ( 2.2 , 2.3 ) ]. Examples quinidine, bupropion, fluoxetine, and paroxetine Monoamine Oxidase Inhibitors Clinical Impact Increased risk of hypertension [ see Warnings and Precautions ( 5.5 ) ]. Intervention Avoid concomitant use. Central Nervous System (CNS) Depressants Clinical Impact Increased risk of CNS depression [ see Warnings and Precautions ( 5.8 ) ]. Intervention Avoid metoclopramide or the interacting drug, depending on the importance of the drug to the patient. Examples alcohol, sedatives, hypnotics, opiates and anxiolytics Drugs that Impair Gastrointestinal Motility Clinical Impact Decreased systemic absorption of metoclopramide. Intervention Monitor for reduced therapeutic effect. Examples antiperistaltic antidiarrheal drugs, anticholinergic drugs, and opiates Dopaminergic Agonists and Other Drugs that Increase Dopamine Concentrations Clinical Impact Decreased therapeutic effect of metoclopramide due to opposing effects on dopamine. Intervention Monitor for reduced therapeutic effect. Examples apomorphine, bromocriptine, cabergoline, levodopa, pramipexole, ropinirole, and rotigotine 7.2 Effects of Metoclopramide on Other Drugs Table 4 displays the effects of metoclopramide on other drugs. Table 4. Effects of Metoclopramide on Other Drugs Dopaminergic Agonists and Drugs Increasing Dopamine Concentrations Clinical Impact Opposing effects of metoclopramide and the interacting drug on dopamine. Potential exacerbation of symptoms (e.g., parkinsonian symptoms). Intervention Avoid concomitant use [ see Warnings and Precautions ( 5.2 ) ]. Examples Apomorphine, bromocriptine, cabergoline, levodopa, pramipexole, ropinirole, rotigotine Succinylcholine, Mivacurium Clinical Impact Metoclopramide inhibits plasma cholinesterase leading to enhanced neuromuscular blockade. Intervention Monitor for signs and symptoms of prolonged neuromuscular blockade Drugs with Absorption Altered due to Increased Gastrointestinal Motility Clinical Impact The effect of metoclopramide on other drugs is variable. Increased gastrointestinal (GI) motility by metoclopramide may impact absorption of other drugs leading to decreased or increased drug exposure. Intervention Drugs with Decreased Absorption (e.g., digoxin, atovaquone, posaconazole oral suspension Interaction does not apply to posaconazole delayed-release tablets , fosfomycin) : Monitor for reduced therapeutic effect of the interacting drug. For digoxin monitor therapeutic drug concentrations and increase the digoxin dose as needed (see prescribing information for digoxin). Drugs with Increased Absorption (e.g., sirolimus, tacrolimus, cyclosporine) : Monitor therapeutic dr",
-        "supporting_text": "Insulin Clinical Impact Increased GI motility by metoclopramide may increase delivery of food to the intestines and increase blood glucose. Intervention Monitor blood glucose and adjust insulin dosage regimen as needed.",
+        "supporting_text": "1 ) MAO inhibitors : Increased risk of hypertension; avoid concomitant use.",
         "source_version": "effective 20260527 · version 3",
         "anchor_drug": "metoclopramide",
         "retrieval_query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:\"metoclopramide\"&limit=20",
@@ -857,7 +872,7 @@
           "Warfarin"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_B.csv row: DDInter1744 (Tamoxifen) x DDInter1951 (Warfarin)",
-        "retrieved_at": "2026-07-11T22:19:47.371Z"
+        "retrieved_at": "2026-07-12T08:28:16.814Z"
       },
       {
         "id": "ddinter:DDInter1744:DDInter398",
@@ -873,11 +888,11 @@
           "Clindamycin"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_D.csv row: DDInter1744 (Tamoxifen) x DDInter398 (Clindamycin)",
-        "retrieved_at": "2026-07-11T22:19:47.371Z"
+        "retrieved_at": "2026-07-12T08:28:16.814Z"
       },
       {
         "id": "ddinter:DDInter1744:DDInter1197",
-        "claim_text": "DDInter severity for tamoxifen + metoclopramide dihydrochloride: Unknown",
+        "claim_text": "DDInter severity for tamoxifen + metoclopramide: Unknown",
         "source_name": "DDInter",
         "source_id": "DDInter1744/DDInter1197",
         "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
@@ -889,7 +904,7 @@
           "Metoclopramide"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_A.csv row: DDInter1744 (Tamoxifen) x DDInter1197 (Metoclopramide)",
-        "retrieved_at": "2026-07-11T22:19:47.371Z"
+        "retrieved_at": "2026-07-12T08:28:16.814Z"
       },
       {
         "id": "ddinter:DDInter1744:DDInter1342",
@@ -905,7 +920,7 @@
           "Ondansetron"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_A.csv row: DDInter1744 (Tamoxifen) x DDInter1342 (Ondansetron)",
-        "retrieved_at": "2026-07-11T22:19:47.371Z"
+        "retrieved_at": "2026-07-12T08:28:16.814Z"
       },
       {
         "id": "ddinter:DDInter1744:DDInter1533",
@@ -921,7 +936,7 @@
           "Promethazine"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_D.csv row: DDInter1744 (Tamoxifen) x DDInter1533 (Promethazine)",
-        "retrieved_at": "2026-07-11T22:19:47.371Z"
+        "retrieved_at": "2026-07-12T08:28:16.814Z"
       },
       {
         "id": "ddinter:DDInter14:DDInter1744",
@@ -937,7 +952,7 @@
           "Tamoxifen"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_L.csv row: DDInter14 (Acetaminophen) x DDInter1744 (Tamoxifen)",
-        "retrieved_at": "2026-07-11T22:19:47.371Z"
+        "retrieved_at": "2026-07-12T08:28:16.814Z"
       },
       {
         "id": "ddinter:DDInter1951:DDInter645",
@@ -953,7 +968,7 @@
           "Enoxaparin"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_B.csv row: DDInter1951 (Warfarin) x DDInter645 (Enoxaparin)",
-        "retrieved_at": "2026-07-11T22:19:47.371Z"
+        "retrieved_at": "2026-07-12T08:28:16.814Z"
       },
       {
         "id": "ddinter:DDInter1951:DDInter317",
@@ -969,7 +984,7 @@
           "Cefepime"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_B.csv row: DDInter1951 (Warfarin) x DDInter317 (Cefepime)",
-        "retrieved_at": "2026-07-11T22:19:47.371Z"
+        "retrieved_at": "2026-07-12T08:28:16.814Z"
       },
       {
         "id": "ddinter:DDInter1951:DDInter314",
@@ -985,7 +1000,7 @@
           "Cefazolin"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_B.csv row: DDInter1951 (Warfarin) x DDInter314 (Cefazolin)",
-        "retrieved_at": "2026-07-11T22:19:47.371Z"
+        "retrieved_at": "2026-07-12T08:28:16.814Z"
       },
       {
         "id": "ddinter:DDInter1951:DDInter398",
@@ -1001,11 +1016,11 @@
           "Clindamycin"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_B.csv row: DDInter1951 (Warfarin) x DDInter398 (Clindamycin)",
-        "retrieved_at": "2026-07-11T22:19:47.371Z"
+        "retrieved_at": "2026-07-12T08:28:16.814Z"
       },
       {
         "id": "ddinter:DDInter1951:DDInter1197",
-        "claim_text": "DDInter severity for warfarin + metoclopramide dihydrochloride: Unknown",
+        "claim_text": "DDInter severity for warfarin + metoclopramide: Unknown",
         "source_name": "DDInter",
         "source_id": "DDInter1951/DDInter1197",
         "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
@@ -1017,7 +1032,7 @@
           "Metoclopramide"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_A.csv row: DDInter1951 (Warfarin) x DDInter1197 (Metoclopramide)",
-        "retrieved_at": "2026-07-11T22:19:47.371Z"
+        "retrieved_at": "2026-07-12T08:28:16.814Z"
       },
       {
         "id": "ddinter:DDInter1951:DDInter1342",
@@ -1033,7 +1048,7 @@
           "Ondansetron"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_A.csv row: DDInter1951 (Warfarin) x DDInter1342 (Ondansetron)",
-        "retrieved_at": "2026-07-11T22:19:47.371Z"
+        "retrieved_at": "2026-07-12T08:28:16.814Z"
       },
       {
         "id": "ddinter:DDInter1951:DDInter1533",
@@ -1049,7 +1064,7 @@
           "Promethazine"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_B.csv row: DDInter1951 (Warfarin) x DDInter1533 (Promethazine)",
-        "retrieved_at": "2026-07-11T22:19:47.371Z"
+        "retrieved_at": "2026-07-12T08:28:16.814Z"
       },
       {
         "id": "ddinter:DDInter14:DDInter1951",
@@ -1065,7 +1080,7 @@
           "Warfarin"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_B.csv row: DDInter14 (Acetaminophen) x DDInter1951 (Warfarin)",
-        "retrieved_at": "2026-07-11T22:19:47.371Z"
+        "retrieved_at": "2026-07-12T08:28:16.814Z"
       },
       {
         "id": "ddinter:DDInter398:DDInter317",
@@ -1081,11 +1096,11 @@
           "Cefepime"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_D.csv row: DDInter398 (Clindamycin) x DDInter317 (Cefepime)",
-        "retrieved_at": "2026-07-11T22:19:47.371Z"
+        "retrieved_at": "2026-07-12T08:28:16.814Z"
       },
       {
         "id": "ddinter:DDInter1197:DDInter317",
-        "claim_text": "DDInter severity for cefepime 1 GM Injection + metoclopramide dihydrochloride: Unknown",
+        "claim_text": "DDInter severity for cefepime 1 GM Injection + metoclopramide: Unknown",
         "source_name": "DDInter",
         "source_id": "DDInter1197/DDInter317",
         "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
@@ -1097,7 +1112,7 @@
           "Cefepime"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_A.csv row: DDInter1197 (Metoclopramide) x DDInter317 (Cefepime)",
-        "retrieved_at": "2026-07-11T22:19:47.371Z"
+        "retrieved_at": "2026-07-12T08:28:16.814Z"
       },
       {
         "id": "ddinter:DDInter1342:DDInter317",
@@ -1113,7 +1128,7 @@
           "Cefepime"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_A.csv row: DDInter1342 (Ondansetron) x DDInter317 (Cefepime)",
-        "retrieved_at": "2026-07-11T22:19:47.371Z"
+        "retrieved_at": "2026-07-12T08:28:16.814Z"
       },
       {
         "id": "ddinter:DDInter1533:DDInter317",
@@ -1129,7 +1144,7 @@
           "Cefepime"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_D.csv row: DDInter1533 (Promethazine) x DDInter317 (Cefepime)",
-        "retrieved_at": "2026-07-11T22:19:47.371Z"
+        "retrieved_at": "2026-07-12T08:28:16.814Z"
       },
       {
         "id": "ddinter:DDInter398:DDInter314",
@@ -1145,11 +1160,11 @@
           "Cefazolin"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_D.csv row: DDInter398 (Clindamycin) x DDInter314 (Cefazolin)",
-        "retrieved_at": "2026-07-11T22:19:47.371Z"
+        "retrieved_at": "2026-07-12T08:28:16.814Z"
       },
       {
         "id": "ddinter:DDInter1197:DDInter314",
-        "claim_text": "DDInter severity for ceFAZolin 1 GM Injection + metoclopramide dihydrochloride: Unknown",
+        "claim_text": "DDInter severity for ceFAZolin 1 GM Injection + metoclopramide: Unknown",
         "source_name": "DDInter",
         "source_id": "DDInter1197/DDInter314",
         "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
@@ -1161,7 +1176,7 @@
           "Cefazolin"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_A.csv row: DDInter1197 (Metoclopramide) x DDInter314 (Cefazolin)",
-        "retrieved_at": "2026-07-11T22:19:47.371Z"
+        "retrieved_at": "2026-07-12T08:28:16.814Z"
       },
       {
         "id": "ddinter:DDInter1342:DDInter314",
@@ -1177,7 +1192,7 @@
           "Cefazolin"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_A.csv row: DDInter1342 (Ondansetron) x DDInter314 (Cefazolin)",
-        "retrieved_at": "2026-07-11T22:19:47.371Z"
+        "retrieved_at": "2026-07-12T08:28:16.814Z"
       },
       {
         "id": "ddinter:DDInter1533:DDInter314",
@@ -1193,11 +1208,11 @@
           "Cefazolin"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_D.csv row: DDInter1533 (Promethazine) x DDInter314 (Cefazolin)",
-        "retrieved_at": "2026-07-11T22:19:47.371Z"
+        "retrieved_at": "2026-07-12T08:28:16.814Z"
       },
       {
         "id": "ddinter:DDInter398:DDInter1197",
-        "claim_text": "DDInter severity for clindamycin + metoclopramide dihydrochloride: Unknown",
+        "claim_text": "DDInter severity for clindamycin + metoclopramide: Unknown",
         "source_name": "DDInter",
         "source_id": "DDInter398/DDInter1197",
         "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
@@ -1209,7 +1224,7 @@
           "Metoclopramide"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_A.csv row: DDInter398 (Clindamycin) x DDInter1197 (Metoclopramide)",
-        "retrieved_at": "2026-07-11T22:19:47.371Z"
+        "retrieved_at": "2026-07-12T08:28:16.814Z"
       },
       {
         "id": "ddinter:DDInter1342:DDInter398",
@@ -1225,7 +1240,7 @@
           "Clindamycin"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_A.csv row: DDInter1342 (Ondansetron) x DDInter398 (Clindamycin)",
-        "retrieved_at": "2026-07-11T22:19:47.371Z"
+        "retrieved_at": "2026-07-12T08:28:16.814Z"
       },
       {
         "id": "ddinter:DDInter1533:DDInter398",
@@ -1241,7 +1256,7 @@
           "Clindamycin"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_D.csv row: DDInter1533 (Promethazine) x DDInter398 (Clindamycin)",
-        "retrieved_at": "2026-07-11T22:19:47.371Z"
+        "retrieved_at": "2026-07-12T08:28:16.814Z"
       },
       {
         "id": "ddinter:DDInter14:DDInter398",
@@ -1257,11 +1272,11 @@
           "Clindamycin"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_D.csv row: DDInter14 (Acetaminophen) x DDInter398 (Clindamycin)",
-        "retrieved_at": "2026-07-11T22:19:47.371Z"
+        "retrieved_at": "2026-07-12T08:28:16.814Z"
       },
       {
         "id": "ddinter:DDInter1342:DDInter1197",
-        "claim_text": "DDInter severity for metoclopramide dihydrochloride + ondansetron: Unknown",
+        "claim_text": "DDInter severity for metoclopramide + ondansetron: Unknown",
         "source_name": "DDInter",
         "source_id": "DDInter1342/DDInter1197",
         "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
@@ -1273,11 +1288,11 @@
           "Metoclopramide"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_A.csv row: DDInter1342 (Ondansetron) x DDInter1197 (Metoclopramide)",
-        "retrieved_at": "2026-07-11T22:19:47.371Z"
+        "retrieved_at": "2026-07-12T08:28:16.814Z"
       },
       {
         "id": "ddinter:DDInter1533:DDInter1197",
-        "claim_text": "DDInter severity for metoclopramide dihydrochloride + promethazine: Major",
+        "claim_text": "DDInter severity for metoclopramide + promethazine: Major",
         "source_name": "DDInter",
         "source_id": "DDInter1533/DDInter1197",
         "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
@@ -1289,11 +1304,11 @@
           "Metoclopramide"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_A.csv row: DDInter1533 (Promethazine) x DDInter1197 (Metoclopramide)",
-        "retrieved_at": "2026-07-11T22:19:47.371Z"
+        "retrieved_at": "2026-07-12T08:28:16.814Z"
       },
       {
         "id": "ddinter:DDInter884:DDInter1197",
-        "claim_text": "DDInter severity for metoclopramide dihydrochloride + acetaminophen / hydrocodone: Moderate",
+        "claim_text": "DDInter severity for metoclopramide + acetaminophen / hydrocodone: Moderate",
         "source_name": "DDInter",
         "source_id": "DDInter884/DDInter1197",
         "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8728114/",
@@ -1305,7 +1320,7 @@
           "Metoclopramide"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_A.csv row: DDInter884 (Hydrocodone) x DDInter1197 (Metoclopramide)",
-        "retrieved_at": "2026-07-11T22:19:47.371Z"
+        "retrieved_at": "2026-07-12T08:28:16.814Z"
       },
       {
         "id": "ddinter:DDInter1342:DDInter1533",
@@ -1321,7 +1336,7 @@
           "Promethazine"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_A.csv row: DDInter1342 (Ondansetron) x DDInter1533 (Promethazine)",
-        "retrieved_at": "2026-07-11T22:19:47.371Z"
+        "retrieved_at": "2026-07-12T08:28:16.814Z"
       },
       {
         "id": "ddinter:DDInter1342:DDInter884",
@@ -1337,7 +1352,7 @@
           "Hydrocodone"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_A.csv row: DDInter1342 (Ondansetron) x DDInter884 (Hydrocodone)",
-        "retrieved_at": "2026-07-11T22:19:47.371Z"
+        "retrieved_at": "2026-07-12T08:28:16.814Z"
       },
       {
         "id": "ddinter:DDInter884:DDInter1533",
@@ -1353,7 +1368,7 @@
           "Promethazine"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_D.csv row: DDInter884 (Hydrocodone) x DDInter1533 (Promethazine)",
-        "retrieved_at": "2026-07-11T22:19:47.371Z"
+        "retrieved_at": "2026-07-12T08:28:16.814Z"
       },
       {
         "id": "faers:11289:haemorrhage",
@@ -1371,25 +1386,21 @@
         "retrieved_at": "2026-07-10T23:00:00.000Z"
       }
     ],
-    "unverified_removed": [],
-    "generated_at": "2026-07-11T22:19:47.371Z",
-    "pipeline": {
-      "mode": "audited-replay",
-      "model": "Claude Opus 4.8",
-      "stages": [
-        "ingest",
-        "retrieve",
-        "synthesize",
-        "verify"
-      ],
-      "ddinter": {
-        "source_rows": 222383,
-        "unique_pairs": 160235,
-        "unique_drugs": 1939,
-        "source_files": 8
+    "unverified_removed": [
+      {
+        "claim_text": "Should the overlapping antiemetics metoclopramide, promethazine, and ondansetron all be continued concurrently, or is consolidation to fewer agents preferred?",
+        "reason": "Narrative reviewer: Asserts metoclopramide, promethazine, and ondansetron are overlapping antiemetics warranting consolidation; no evidence connects these three agents or supports consolidation to fewer agents. The available interaction evidence (promethazine-metoclopramide Major, ondansetron-promethazine Moderate) does not establish an overlap/consolidation rationale as premised."
       }
-    },
+    ],
+    "generated_at": "2026-07-12T08:28:16.814Z",
     "research_candidates": [
+      {
+        "tier": "unresolved-concern",
+        "drugs": [],
+        "reason": "Narrative reviewer: Asserts metoclopramide, promethazine, and ondansetron are overlapping antiemetics warranting consolidation; no evidence connects these three agents or supports consolidation to fewer agents. The available interaction evidence (promethazine-metoclopramide Major, ondansetron-promethazine Moderate) does not establish an overlap/consolidation rationale as premised.",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Should the overlapping antiemetics metoclopramide, promethazine, and ondansetron all be continued concurrently, or is consolidation to fewer agents preferred?\"",
+        "source": "adversarial verifier"
+      },
       {
         "tier": "known-unknown",
         "drugs": [
@@ -1429,19 +1440,25 @@
         "reason": "DDInter documents the Warfarin + Clindamycin pair but assigns no severity level.",
         "question": "Does concurrent Warfarin and Clindamycin carry a clinically significant interaction? The pair is catalogued without a graded severity.",
         "source": "DDInter DDInter1951/DDInter398"
-      },
-      {
-        "tier": "known-unknown",
-        "drugs": [
-          "Warfarin",
-          "Metoclopramide"
-        ],
-        "reason": "DDInter documents the Warfarin + Metoclopramide pair but assigns no severity level.",
-        "question": "Does concurrent Warfarin and Metoclopramide carry a clinically significant interaction? The pair is catalogued without a graded severity.",
-        "source": "DDInter DDInter1951/DDInter1197"
       }
     ],
-    "research_total_known_unknown": 20
+    "research_total_known_unknown": 20,
+    "pipeline": {
+      "mode": "audited-replay",
+      "model": "Claude Opus 4.8",
+      "stages": [
+        "ingest",
+        "retrieve",
+        "synthesize",
+        "verify"
+      ],
+      "ddinter": {
+        "source_rows": 222383,
+        "unique_pairs": 160235,
+        "unique_drugs": 1939,
+        "source_files": 8
+      }
+    }
   },
-  "generatedAt": "2026-07-11T22:19:47.371Z"
+  "generatedAt": "2026-07-12T08:28:16.814Z"
 }

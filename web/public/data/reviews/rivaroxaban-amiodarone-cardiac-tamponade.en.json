@@ -3,18 +3,18 @@
   "locale": "en",
   "intake": {
     "case": {
-      "note": "87-year-old male with paroxysmal atrial fibrillation, recent pulseless ventricular tachycardia with ICD in situ, and nonischemic cardiomyopathy (EF 35%) presented with intermittent chest pain and light headedness of 2 days duration. Case reports spontaneous cardiac tamponade induced by concomitant use of rivaroxaban and amiodarone. PMC6109521 / PMID 30159173.",
+      "note": "Extracted from PMC6109521 / PMID 30159173. 87-year-old male with paroxysmal atrial fibrillation on rivaroxaban and amiodarone presenting with spontaneous cardiac tamponade attributed to concomitant use of both agents.",
       "medications": [
         {
-          "raw": "rivaroxaban 20 mg daily",
-          "episode": "spontaneous cardiac tamponade induced by concomitant use of rivaroxaban and amiodarone",
-          "start": "on 20 mg of rivaroxaban daily (chronic, prior to presentation)",
+          "raw": "Rivaroxaban 20 mg daily",
+          "episode": "Spontaneous cardiac tamponade during concomitant use of rivaroxaban and amiodarone",
+          "start": "on 20 mg of rivaroxaban daily (chronic, for paroxysmal atrial fibrillation)",
           "source_span": "paroxysmal atrial fibrillation on 20 mg of rivaroxaban daily",
           "status": "active"
         },
         {
-          "raw": "amiodarone 200 mg daily",
-          "episode": "spontaneous cardiac tamponade induced by concomitant use of rivaroxaban and amiodarone",
+          "raw": "Amiodarone 200 mg daily",
+          "episode": "Spontaneous cardiac tamponade during concomitant use of rivaroxaban and amiodarone",
           "start": "commenced on 200 mg amiodarone daily four months prior to presentation",
           "source_span": "he was commenced on 200 mg amiodarone daily four months prior to presentation",
           "status": "active"
@@ -22,52 +22,53 @@
       ],
       "allergies": [],
       "diagnoses": [
-        "paroxysmal atrial fibrillation",
-        "recent pulseless ventricular tachycardia with implantable cardiac defibrillator in situ",
-        "nonischemic cardiomyopathy (ejection fraction 35%)",
-        "spontaneous cardiac tamponade"
+        "Paroxysmal atrial fibrillation",
+        "Recent pulseless ventricular tachycardia with implantable cardiac defibrillator in situ",
+        "Nonischemic cardiomyopathy (ejection fraction 35%)",
+        "Spontaneous cardiac tamponade",
+        "Syncope due to pulseless ventricular tachycardia"
       ],
       "labs": [
         {
-          "name": "blood pressure systolic",
+          "name": "Blood pressure systolic",
           "value": 89,
           "unit": "mmHg"
         },
         {
-          "name": "blood pressure diastolic",
+          "name": "Blood pressure diastolic",
           "value": 60,
           "unit": "mmHg"
         },
         {
-          "name": "pulse rate",
+          "name": "Pulse rate",
           "value": 59,
           "unit": "/min"
         },
         {
-          "name": "temperature",
+          "name": "Temperature",
           "value": 98.2,
           "unit": "°F"
         },
         {
-          "name": "respiratory rate",
+          "name": "Respiratory rate",
           "value": 14,
           "unit": "breaths/min"
         },
         {
-          "name": "oxygen saturation",
+          "name": "Oxygen saturation",
           "value": 100,
           "unit": "%"
         }
       ]
     },
     "ambiguities": [],
-    "sourceSummary": "Single PMC case report (PMC6109521) of an 87-year-old male with spontaneous cardiac tamponade attributed to concomitant rivaroxaban and amiodarone. Both medications were active during the target episode: chronic rivaroxaban 20 mg daily and amiodarone 200 mg daily started four months before presentation."
+    "sourceSummary": "Single published case report (PMC6109521) of an 87-year-old male with cardiac tamponade attributed to concomitant rivaroxaban and amiodarone. Both medications were active during the target episode: rivaroxaban chronically and amiodarone started four months prior. Vital signs preserved exactly; no reference ranges provided."
   },
   "report": {
     "patient": {
       "medications": [
         {
-          "raw": "rivaroxaban 20 mg daily",
+          "raw": "Rivaroxaban 20 mg daily",
           "rxcui": "1114195",
           "name": "rivaroxaban",
           "resolution": "exact",
@@ -78,12 +79,12 @@
             }
           ],
           "status": "active",
-          "episode": "spontaneous cardiac tamponade induced by concomitant use of rivaroxaban and amiodarone",
-          "start": "on 20 mg of rivaroxaban daily (chronic, prior to presentation)",
+          "episode": "Spontaneous cardiac tamponade during concomitant use of rivaroxaban and amiodarone",
+          "start": "on 20 mg of rivaroxaban daily (chronic, for paroxysmal atrial fibrillation)",
           "source_span": "paroxysmal atrial fibrillation on 20 mg of rivaroxaban daily"
         },
         {
-          "raw": "amiodarone 200 mg daily",
+          "raw": "Amiodarone 200 mg daily",
           "rxcui": "703",
           "name": "amiodarone",
           "resolution": "exact",
@@ -94,53 +95,54 @@
             }
           ],
           "status": "active",
-          "episode": "spontaneous cardiac tamponade induced by concomitant use of rivaroxaban and amiodarone",
+          "episode": "Spontaneous cardiac tamponade during concomitant use of rivaroxaban and amiodarone",
           "start": "commenced on 200 mg amiodarone daily four months prior to presentation",
           "source_span": "he was commenced on 200 mg amiodarone daily four months prior to presentation"
         }
       ],
       "allergies": [],
       "diagnoses": [
-        "paroxysmal atrial fibrillation",
-        "recent pulseless ventricular tachycardia with implantable cardiac defibrillator in situ",
-        "nonischemic cardiomyopathy (ejection fraction 35%)",
-        "spontaneous cardiac tamponade"
+        "Paroxysmal atrial fibrillation",
+        "Recent pulseless ventricular tachycardia with implantable cardiac defibrillator in situ",
+        "Nonischemic cardiomyopathy (ejection fraction 35%)",
+        "Spontaneous cardiac tamponade",
+        "Syncope due to pulseless ventricular tachycardia"
       ],
       "labs": [
         {
-          "name": "blood pressure systolic",
+          "name": "Blood pressure systolic",
           "value": 89,
           "unit": "mmHg"
         },
         {
-          "name": "blood pressure diastolic",
+          "name": "Blood pressure diastolic",
           "value": 60,
           "unit": "mmHg"
         },
         {
-          "name": "pulse rate",
+          "name": "Pulse rate",
           "value": 59,
           "unit": "/min"
         },
         {
-          "name": "temperature",
+          "name": "Temperature",
           "value": 98.2,
           "unit": "°F"
         },
         {
-          "name": "respiratory rate",
+          "name": "Respiratory rate",
           "value": 14,
           "unit": "breaths/min"
         },
         {
-          "name": "oxygen saturation",
+          "name": "Oxygen saturation",
           "value": 100,
           "unit": "%"
         }
       ],
-      "note": "87-year-old male with paroxysmal atrial fibrillation, recent pulseless ventricular tachycardia with ICD in situ, and nonischemic cardiomyopathy (EF 35%) presented with intermittent chest pain and light headedness of 2 days duration. Case reports spontaneous cardiac tamponade induced by concomitant use of rivaroxaban and amiodarone. PMC6109521 / PMID 30159173."
+      "note": "Extracted from PMC6109521 / PMID 30159173. 87-year-old male with paroxysmal atrial fibrillation on rivaroxaban and amiodarone presenting with spontaneous cardiac tamponade attributed to concomitant use of both agents."
     },
-    "patient_summary": "87-year-old male with paroxysmal atrial fibrillation, recent pulseless ventricular tachycardia with an implantable cardiac defibrillator in situ, and nonischemic cardiomyopathy (ejection fraction 35%), presenting with intermittent chest pain and light headedness. Active medications are rivaroxaban 20 mg daily (chronic) and amiodarone 200 mg daily (started four months prior). Recorded vitals include systolic blood pressure 89 mmHg, diastolic blood pressure 60 mmHg, pulse rate 59 /min, temperature 98.2 °F, respiratory rate 14 breaths/min, and oxygen saturation 100%.",
+    "patient_summary": "87-year-old male with paroxysmal atrial fibrillation, recent pulseless ventricular tachycardia with an implantable cardiac defibrillator, and nonischemic cardiomyopathy (ejection fraction 35%). He takes rivaroxaban 20 mg daily and amiodarone 200 mg daily, the latter started four months before presentation, and presented with spontaneous cardiac tamponade. Recorded vitals include systolic blood pressure 89 mmHg, diastolic blood pressure 60 mmHg, and pulse rate 59/min.",
     "findings": [
       {
         "status": "flagged",
@@ -157,37 +159,37 @@
         ]
       },
       {
-        "status": "flagged",
-        "severity": "major",
-        "drugs": [
-          "amiodarone"
-        ],
-        "headline": "Amiodarone carries a boxed warning for pulmonary, hepatic, and cardiac toxicity",
-        "mechanism": "The amiodarone boxed warning states that amiodarone can cause pulmonary toxicity, hepatotoxicity, and can exacerbate arrhythmias, and that its use is accompanied by substantial toxicity.",
-        "why_this_patient": "This patient is on amiodarone 200 mg daily started four months prior, and the boxed warning applies to ongoing amiodarone therapy.",
-        "evidence_ids": [
-          "label:703:boxed"
-        ],
-        "monitoring": "The boxed warning directs baseline and periodic liver transaminases and periodic chest X-ray, and initiation in a clinical setting where continuous electrocardiograms and cardiac resuscitation are available."
-      },
-      {
-        "status": "flagged",
-        "severity": "major",
+        "status": "informational",
+        "severity": "minor",
         "drugs": [
           "rivaroxaban"
         ],
         "headline": "Premature discontinuation of rivaroxaban increases thrombotic risk",
-        "mechanism": "The rivaroxaban boxed warning states that premature discontinuation of any oral anticoagulant, including rivaroxaban, increases the risk of thrombotic events, and that if anticoagulation is discontinued for a reason other than pathological bleeding or completion of therapy, coverage with another anticoagulant should be considered.",
-        "why_this_patient": "This patient is on chronic rivaroxaban 20 mg daily for atrial fibrillation, so any decision to interrupt it engages this boxed-warning risk.",
+        "mechanism": "The rivaroxaban boxed warning states that premature discontinuation of any oral anticoagulant, including rivaroxaban, increases the risk of thrombotic events, and advises considering coverage with another anticoagulant if it is stopped for a reason other than pathological bleeding or completion of therapy.",
+        "why_this_patient": "This patient takes rivaroxaban for paroxysmal atrial fibrillation and presented with spontaneous cardiac tamponade, a setting where decisions about continuing or stopping anticoagulation may arise.",
         "evidence_ids": [
           "label:1114195:boxed"
         ],
-        "monitoring": "The boxed warning advises considering coverage with another anticoagulant if rivaroxaban is stopped for a reason other than pathological bleeding or completion of a course of therapy."
+        "monitoring": "If anticoagulation with rivaroxaban is discontinued for a reason other than pathological bleeding or completion of a course of therapy, consider coverage with another anticoagulant."
+      },
+      {
+        "status": "informational",
+        "severity": "major",
+        "drugs": [
+          "amiodarone"
+        ],
+        "headline": "Amiodarone carries boxed warnings for pulmonary, hepatic, and cardiac toxicity",
+        "mechanism": "The amiodarone boxed warning states it is intended only for life-threatening arrhythmias because its use is accompanied by substantial toxicity, including pulmonary toxicity, hepatotoxicity, and proarrhythmic effects.",
+        "why_this_patient": "This patient takes amiodarone 200 mg daily, started four months before presentation, for arrhythmia in the setting of recent pulseless ventricular tachycardia.",
+        "evidence_ids": [
+          "label:703:boxed"
+        ],
+        "monitoring": "Obtain baseline chest X-ray and pulmonary-function tests at initiation and repeat history, physical exam, and chest X-ray every 3 to 6 months; obtain baseline and periodic liver transaminases."
       }
     ],
     "questions_for_clinician": [
-      "Given the structured Moderate rating for the amiodarone and rivaroxaban combination, do you want to reassess the plan to continue both agents concurrently?",
-      "If rivaroxaban is interrupted, will coverage with another anticoagulant be arranged as described in the rivaroxaban boxed warning?"
+      "Given the concomitant use of rivaroxaban and amiodarone, do you want a plan for evaluating any signs or symptoms of blood loss in this patient?",
+      "In the setting of spontaneous cardiac tamponade, has a decision been made about whether to continue or interrupt rivaroxaban, and if interrupted, whether alternative anticoagulant coverage is appropriate?"
     ],
     "evidence": [
       {
@@ -260,16 +262,13 @@
           "Rivaroxaban"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_B.csv row: DDInter76 (Amiodarone) x DDInter1609 (Rivaroxaban)",
-        "retrieved_at": "2026-07-11T22:19:04.887Z"
+        "retrieved_at": "2026-07-12T08:23:16.484Z"
       }
     ],
-    "unverified_removed": [
-      {
-        "claim_text": "Have baseline and periodic liver transaminases and chest imaging been arranged as directed by the amiodarone boxed warning?",
-        "reason": "Narrative reviewer: The amiodarone boxed warning directs baseline and periodic liver transaminases and chest imaging; however, the boxed warning specifies chest X-ray at initiation and every 3 to 6 months, not generic 'chest imaging,' but the transaminase monitoring is supported — the combined phrasing requesting these as a directed pair is only partially supported (chest X-ray, not chest imaging generically)."
-      }
-    ],
-    "generated_at": "2026-07-11T22:19:04.887Z",
+    "unverified_removed": [],
+    "generated_at": "2026-07-12T08:23:16.484Z",
+    "research_candidates": [],
+    "research_total_known_unknown": 0,
     "pipeline": {
       "mode": "audited-replay",
       "model": "Claude Opus 4.8",
@@ -285,17 +284,7 @@
         "unique_drugs": 1939,
         "source_files": 8
       }
-    },
-    "research_candidates": [
-      {
-        "tier": "unresolved-concern",
-        "drugs": [],
-        "reason": "Narrative reviewer: The amiodarone boxed warning directs baseline and periodic liver transaminases and chest imaging; however, the boxed warning specifies chest X-ray at initiation and every 3 to 6 months, not generic 'chest imaging,' but the transaminase monitoring is supported — the combined phrasing requesting these as a directed pair is only partially supported (chest X-ray, not chest imaging generically).",
-        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Have baseline and periodic liver transaminases and chest imaging been arranged as directed by the amiodarone boxed warning?\"",
-        "source": "adversarial verifier"
-      }
-    ],
-    "research_total_known_unknown": 0
+    }
   },
-  "generatedAt": "2026-07-11T22:19:04.887Z"
+  "generatedAt": "2026-07-12T08:23:16.484Z"
 }

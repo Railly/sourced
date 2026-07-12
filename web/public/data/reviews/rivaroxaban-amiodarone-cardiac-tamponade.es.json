@@ -3,18 +3,18 @@
   "locale": "es",
   "intake": {
     "case": {
-      "note": "87-year-old male with paroxysmal atrial fibrillation, recent pulseless ventricular tachycardia with ICD in situ, and nonischemic cardiomyopathy (EF 35%) presented with intermittent chest pain and light headedness of 2 days duration. Case reports spontaneous cardiac tamponade induced by concomitant use of rivaroxaban and amiodarone. PMC6109521 / PMID 30159173.",
+      "note": "87-year-old male with paroxysmal atrial fibrillation, recent pulseless ventricular tachycardia with ICD, and nonischemic cardiomyopathy (EF 35%). Presented with 2 days of intermittent exertional chest pain and light headedness. Episode reviewed: spontaneous cardiac tamponade attributed to concomitant rivaroxaban and amiodarone use.",
       "medications": [
         {
           "raw": "Rivaroxaban 20 mg daily",
-          "episode": "Spontaneous cardiac tamponade induced by concomitant use of rivaroxaban and amiodarone",
-          "start": "on 20 mg of rivaroxaban daily (medical history, prior to presentation)",
+          "episode": "Spontaneous cardiac tamponade during concomitant use of rivaroxaban and amiodarone",
+          "start": "on 20 mg of rivaroxaban daily (chronic for paroxysmal atrial fibrillation)",
           "source_span": "paroxysmal atrial fibrillation on 20 mg of rivaroxaban daily",
           "status": "active"
         },
         {
           "raw": "Amiodarone 200 mg daily",
-          "episode": "Spontaneous cardiac tamponade induced by concomitant use of rivaroxaban and amiodarone",
+          "episode": "Spontaneous cardiac tamponade during concomitant use of rivaroxaban and amiodarone",
           "start": "commenced on 200 mg amiodarone daily four months prior to presentation",
           "source_span": "he was commenced on 200 mg amiodarone daily four months prior to presentation",
           "status": "active"
@@ -25,19 +25,13 @@
         "Paroxysmal atrial fibrillation",
         "Recent pulseless ventricular tachycardia with implantable cardiac defibrillator in situ",
         "Nonischemic cardiomyopathy (ejection fraction 35%)",
-        "Spontaneous cardiac tamponade",
-        "Intermittent chest pain and light headedness of 2 days duration"
+        "Spontaneous cardiac tamponade"
       ],
       "labs": [
         {
-          "name": "Blood pressure systolic",
+          "name": "Blood pressure",
           "value": 89,
-          "unit": "mmHg"
-        },
-        {
-          "name": "Blood pressure diastolic",
-          "value": 60,
-          "unit": "mmHg"
+          "unit": "mmHg (89/60)"
         },
         {
           "name": "Pulse rate",
@@ -57,12 +51,18 @@
         {
           "name": "Oxygen saturation",
           "value": 100,
-          "unit": "%"
+          "unit": "% on ambient air"
         }
       ]
     },
-    "ambiguities": [],
-    "sourceSummary": "Reporte de caso (PMC6109521 / PMID 30159173) de un varón de 87 años con taponamiento cardíaco espontáneo atribuido al uso concomitante de rivaroxabán y amiodarona. Ambos medicamentos se marcaron como activos por presentarse durante el episodio. Los signos vitales se conservaron exactamente como aparecen en la fuente."
+    "ambiguities": [
+      {
+        "id": "amb-bp-transcription",
+        "field": "labs",
+        "question": "La presión arterial se registró como 89/60 mmHg; ¿puede confirmar el valor diastólico de 60 mmHg, ya que solo se capturó el sistólico como valor numérico?"
+      }
+    ],
+    "sourceSummary": "Reporte de caso único (PMC6109521) de un varón de 87 años con taponamiento cardíaco espontáneo atribuido al uso concomitante de rivaroxabán y amiodarona. Ambos medicamentos estaban activos durante el episodio: rivaroxabán 20 mg al día (crónico) y amiodarona 200 mg al día iniciada cuatro meses antes. Se incluyen signos vitales tal como se indicaron."
   },
   "report": {
     "patient": {
@@ -79,8 +79,8 @@
             }
           ],
           "status": "active",
-          "episode": "Spontaneous cardiac tamponade induced by concomitant use of rivaroxaban and amiodarone",
-          "start": "on 20 mg of rivaroxaban daily (medical history, prior to presentation)",
+          "episode": "Spontaneous cardiac tamponade during concomitant use of rivaroxaban and amiodarone",
+          "start": "on 20 mg of rivaroxaban daily (chronic for paroxysmal atrial fibrillation)",
           "source_span": "paroxysmal atrial fibrillation on 20 mg of rivaroxaban daily"
         },
         {
@@ -95,7 +95,7 @@
             }
           ],
           "status": "active",
-          "episode": "Spontaneous cardiac tamponade induced by concomitant use of rivaroxaban and amiodarone",
+          "episode": "Spontaneous cardiac tamponade during concomitant use of rivaroxaban and amiodarone",
           "start": "commenced on 200 mg amiodarone daily four months prior to presentation",
           "source_span": "he was commenced on 200 mg amiodarone daily four months prior to presentation"
         }
@@ -105,19 +105,13 @@
         "Paroxysmal atrial fibrillation",
         "Recent pulseless ventricular tachycardia with implantable cardiac defibrillator in situ",
         "Nonischemic cardiomyopathy (ejection fraction 35%)",
-        "Spontaneous cardiac tamponade",
-        "Intermittent chest pain and light headedness of 2 days duration"
+        "Spontaneous cardiac tamponade"
       ],
       "labs": [
         {
-          "name": "Blood pressure systolic",
+          "name": "Blood pressure",
           "value": 89,
-          "unit": "mmHg"
-        },
-        {
-          "name": "Blood pressure diastolic",
-          "value": 60,
-          "unit": "mmHg"
+          "unit": "mmHg (89/60)"
         },
         {
           "name": "Pulse rate",
@@ -137,12 +131,12 @@
         {
           "name": "Oxygen saturation",
           "value": 100,
-          "unit": "%"
+          "unit": "% on ambient air"
         }
       ],
-      "note": "87-year-old male with paroxysmal atrial fibrillation, recent pulseless ventricular tachycardia with ICD in situ, and nonischemic cardiomyopathy (EF 35%) presented with intermittent chest pain and light headedness of 2 days duration. Case reports spontaneous cardiac tamponade induced by concomitant use of rivaroxaban and amiodarone. PMC6109521 / PMID 30159173."
+      "note": "87-year-old male with paroxysmal atrial fibrillation, recent pulseless ventricular tachycardia with ICD, and nonischemic cardiomyopathy (EF 35%). Presented with 2 days of intermittent exertional chest pain and light headedness. Episode reviewed: spontaneous cardiac tamponade attributed to concomitant rivaroxaban and amiodarone use."
     },
-    "patient_summary": "Hombre de 87 años con fibrilación auricular paroxística, taquicardia ventricular sin pulso reciente con desfibrilador cardíaco implantable colocado y miocardiopatía no isquémica (fracción de eyección 35%). Se presentó con dolor torácico intermitente y aturdimiento de 2 días de duración. Medicación activa: rivaroxaban 20 mg al día y amiodarone 200 mg al día. Signos vitales al presentarse: presión arterial sistólica 89 mmHg, diastólica 60 mmHg, frecuencia de pulso 59/min, temperatura 98.2 °F, frecuencia respiratoria 14 respiraciones/min y saturación de oxígeno 100%.",
+    "patient_summary": "Varón de 87 años con fibrilación auricular paroxística, taquicardia ventricular sin pulso reciente con desfibrilador cardíaco implantable, y miocardiopatía no isquémica (fracción de eyección 35%). Toma rivaroxabán 20 mg al día y amiodarona 200 mg al día, esta última iniciada cuatro meses antes de la presentación. Presentó dolor torácico de esfuerzo intermitente y mareo durante 2 días. Se documentó un episodio de taponamiento cardíaco espontáneo atribuido al uso concomitante de rivaroxabán y amiodarona. Presión arterial 89/60 mmHg, frecuencia de pulso 59/min, temperatura 98.2 °F, frecuencia respiratoria 14 respiraciones/min, saturación de oxígeno 100% en aire ambiente.",
     "findings": [
       {
         "status": "flagged",
@@ -157,12 +151,39 @@
         "evidence_ids": [
           "ddinter:DDInter76:DDInter1609"
         ]
+      },
+      {
+        "status": "informational",
+        "severity": "major",
+        "drugs": [
+          "rivaroxaban"
+        ],
+        "headline": "La suspensión prematura del rivaroxabán aumenta el riesgo de eventos trombóticos",
+        "mechanism": "Según la advertencia enmarcada, la suspensión prematura de cualquier anticoagulante oral, incluido el rivaroxabán, aumenta el riesgo de eventos trombóticos. Si se suspende la anticoagulación por un motivo distinto al sangrado patológico o la finalización del tratamiento, considerar cobertura con otro anticoagulante.",
+        "why_this_patient": "El paciente toma rivaroxaban de forma crónica para la fibrilación auricular paroxística; ante el episodio de taponamiento cardíaco, cualquier decisión sobre la interrupción del anticoagulante podría implicar este riesgo.",
+        "evidence_ids": [
+          "label:1114195:boxed"
+        ],
+        "monitoring": "Considerar cobertura con otro anticoagulante si se suspende el rivaroxabán por un motivo distinto al sangrado patológico o la finalización del tratamiento."
+      },
+      {
+        "status": "informational",
+        "severity": "major",
+        "drugs": [
+          "amiodarone"
+        ],
+        "headline": "La amiodarona conlleva toxicidad pulmonar, hepática y cardíaca según su advertencia enmarcada",
+        "mechanism": "La amiodarona puede causar toxicidad pulmonar, hepatotoxicidad y puede exacerbar arritmias. Su uso se acompaña de toxicidad sustancial, parte de ella potencialmente mortal.",
+        "why_this_patient": "El paciente fue iniciado con amiodarone 200 mg al día cuatro meses antes de la presentación por arritmias, contexto en el que aplica la vigilancia de toxicidad descrita en la advertencia.",
+        "evidence_ids": [
+          "label:703:boxed"
+        ],
+        "monitoring": "Obtener radiografía de tórax y pruebas de función pulmonar de base y repetir la historia, exploración y radiografía de tórax cada 3 a 6 meses; obtener transaminasas hepáticas de base y periódicas."
       }
     ],
     "questions_for_clinician": [
-      "¿Rivaroxaban 20 mg al día y amiodarone 200 mg al día son ambas órdenes activas simultáneas confirmadas o corresponden a órdenes distintas que deben conciliarse?",
-      "Dado que la interacción rivaroxaban + amiodarone está clasificada como Moderate, ¿cómo desea manejar la continuación conjunta de ambos medicamentos en este paciente?",
-      "¿Desea vigilar signos o síntomas de pérdida de sangre en este paciente mientras recibe rivaroxaban junto con amiodarone?"
+      "¿Existe un plan de vigilancia de signos o síntomas de pérdida de sangre mientras el paciente reciba ambos fármacos?",
+      "Si se considerara suspender el rivaroxabán, ¿se ha valorado la cobertura con otro anticoagulante según la advertencia enmarcada?"
     ],
     "evidence": [
       {
@@ -235,11 +256,26 @@
           "Rivaroxaban"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_B.csv row: DDInter76 (Amiodarone) x DDInter1609 (Rivaroxaban)",
-        "retrieved_at": "2026-07-11T22:29:40.607Z"
+        "retrieved_at": "2026-07-12T08:24:13.091Z"
       }
     ],
-    "unverified_removed": [],
-    "generated_at": "2026-07-11T22:29:40.607Z",
+    "unverified_removed": [
+      {
+        "claim_text": "¿Se desea continuar el uso concomitante de rivaroxabán y amiodarona dada la clasificación de gravedad Moderate de la fuente y el episodio de taponamiento cardíaco revisado?",
+        "reason": "Revisor narrativo: La pregunta afirma una clasificación de gravedad 'Moderate' vinculada explícitamente a la decisión de continuar ambos fármacos; aunque DDInter indica Level: Moderate, ninguna evidencia conecta esa clasificación con la acción de continuar/suspender el uso concomitante ni con el episodio de taponamiento cardíaco."
+      }
+    ],
+    "generated_at": "2026-07-12T08:24:13.091Z",
+    "research_candidates": [
+      {
+        "tier": "unresolved-concern",
+        "drugs": [],
+        "reason": "Revisor narrativo: La pregunta afirma una clasificación de gravedad 'Moderate' vinculada explícitamente a la decisión de continuar ambos fármacos; aunque DDInter indica Level: Moderate, ninguna evidencia conecta esa clasificación con la acción de continuar/suspender el uso concomitante ni con el episodio de taponamiento cardíaco.",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"¿Se desea continuar el uso concomitante de rivaroxabán y amiodarona dada la clasificación de gravedad Moderate de la fuente y el episodio de taponamiento cardíaco revisado?\"",
+        "source": "adversarial verifier"
+      }
+    ],
+    "research_total_known_unknown": 0,
     "pipeline": {
       "mode": "audited-replay",
       "model": "Claude Opus 4.8",
@@ -255,9 +291,7 @@
         "unique_drugs": 1939,
         "source_files": 8
       }
-    },
-    "research_candidates": [],
-    "research_total_known_unknown": 0
+    }
   },
-  "generatedAt": "2026-07-11T22:29:40.607Z"
+  "generatedAt": "2026-07-12T08:24:13.091Z"
 }
