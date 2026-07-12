@@ -7,7 +7,7 @@ test("English is the explicit translation default", () => {
 
 test("Spanish translations interpolate values", () => {
   expect(translate("es", "packet.sharedAmbiguityBody", { first: "warfarina", second: "Coumadin" }))
-    .toBe("warfarina y Coumadin comparten una sola aclaración.");
+    .toBe("warfarina y Coumadin podrían ser el mismo medicamento. Confirma si son una orden o entradas separadas.");
 });
 
 test("language instructions preserve clinical source data", () => {
