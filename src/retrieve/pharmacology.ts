@@ -3,11 +3,11 @@ import type { EvidenceObject, Finding, Medication } from "../types/index.ts";
 import type { OpenFdaLabel } from "./index.ts";
 
 /**
- * A source-grounded pharmacology profile for one drug, extracted from its FDA
- * label. This lets Sourced surface a real mechanism (e.g. "amiodarone inhibits
- * CYP2C9 → higher warfarin exposure", or additive QT/anticholinergic burden) by
- * cross-referencing labels, instead of a bare DDInter severity — while every
- * claim still quotes the label that stated it.
+ * A source-grounded CYP450 pharmacology profile for one drug, extracted from its
+ * FDA label. This lets Sourced surface a real mechanism (e.g. "amiodarone
+ * inhibits CYP2C9 → higher warfarin exposure") by cross-referencing labels,
+ * instead of a bare DDInter severity — while every claim still quotes the label
+ * that stated it.
  *
  * Extraction is done by a model reading ONLY the label text because a regex
  * cannot tell "warfarin inhibits CYP3A4" from "CYP3A4 inhibitors raise warfarin"
@@ -42,8 +42,6 @@ const profileSchema = jsonSchema<{
     drug: string;
     cyp_inhibits: Array<{ enzyme: string; quote: string }>;
     cyp_substrate_of: Array<{ enzyme: string; quote: string }>;
-    qt_prolonging: { value: boolean; quote: string };
-    anticholinergic: { value: boolean; quote: string };
   }>;
 }>({
   type: "object",
@@ -54,7 +52,7 @@ const profileSchema = jsonSchema<{
       type: "array",
       items: {
         type: "object",
-        required: ["drug", "cyp_inhibits", "cyp_substrate_of", "qt_prolonging", "anticholinergic"],
+        required: ["drug", "cyp_inhibits", "cyp_substrate_of"],
         additionalProperties: false,
         properties: {
           drug: { type: "string" },
@@ -66,8 +64,6 @@ const profileSchema = jsonSchema<{
             type: "array",
             items: { type: "object", required: ["enzyme", "quote"], additionalProperties: false, properties: { enzyme: { type: "string" }, quote: { type: "string" } } },
           },
-          qt_prolonging: { type: "object", required: ["value", "quote"], additionalProperties: false, properties: { value: { type: "boolean" }, quote: { type: "string" } } },
-          anticholinergic: { type: "object", required: ["value", "quote"], additionalProperties: false, properties: { value: { type: "boolean" }, quote: { type: "string" } } },
         },
       },
     },
@@ -75,10 +71,10 @@ const profileSchema = jsonSchema<{
 });
 
 const SYSTEM = [
-  "You extract a drug's OWN pharmacology strictly from its supplied FDA label text. You are a reader of the provided source, not a knowledge base — never use outside knowledge.",
+  "You extract a drug's OWN CYP450 pharmacology strictly from its supplied FDA label text. You are a reader of the provided source, not a knowledge base — never use outside knowledge.",
   "For each drug, report only what its label states ABOUT THAT DRUG. Critically distinguish the drug's own role from statements about OTHER drugs: 'X is a CYP2C9 inhibitor' means X inhibits; 'CYP3A4 inhibitors increase X' or 'X is metabolized by CYP3A4' means X is a SUBSTRATE, not an inhibitor. Getting this backwards is a serious error.",
-  "cyp_inhibits: enzymes THIS drug inhibits (normalize as 2C9, 3A4, 1A2, 2D6, etc.). cyp_substrate_of: enzymes THIS drug is a substrate of / metabolized by. qt_prolonging: true only if the label states THIS drug prolongs QT or carries a QT/torsades warning. anticholinergic: true only if the label states THIS drug has anticholinergic activity.",
-  "Every entry must include a short VERBATIM quote copied exactly from the supplied label text (no paraphrase). If the label does not support a claim, omit it (empty arrays / value:false with an empty quote).",
+  "cyp_inhibits: enzymes THIS drug inhibits (normalize as 2C9, 3A4, 1A2, 2D6, etc.). cyp_substrate_of: enzymes THIS drug is a substrate of / metabolized by.",
+  "Every entry must include a short VERBATIM quote copied exactly from the supplied label text (no paraphrase). If the label does not support a claim, use empty arrays.",
 ].join(" ");
 
 /**
@@ -92,7 +88,7 @@ export async function extractProfiles(
   if (entries.length === 0) return [];
   const payload = entries.map(({ med, label }) => ({ drug: med.name, label: labelText(label) }));
 
-  let object: { drugs: Array<{ drug: string; cyp_inhibits: Array<{ enzyme: string; quote: string }>; cyp_substrate_of: Array<{ enzyme: string; quote: string }>; qt_prolonging: { value: boolean; quote: string }; anticholinergic: { value: boolean; quote: string } }> };
+  let object: { drugs: Array<{ drug: string; cyp_inhibits: Array<{ enzyme: string; quote: string }>; cyp_substrate_of: Array<{ enzyme: string; quote: string }> }> };
   try {
     object = (await generateObject({
       model: GATEWAY_MODEL,
@@ -141,9 +137,8 @@ export async function extractProfiles(
 
 /**
  * Cross-references pharmacology profiles across active drugs to produce
- * mechanism-named evidence: CYP inhibitor↔substrate pairs, additive QT
- * prolongation, and additive anticholinergic burden. Deterministic; every
- * evidence object quotes the label sentence that states the mechanism.
+ * mechanism-named CYP inhibitor↔substrate evidence. Deterministic; every
+ * evidence object quotes the label sentence that states the inhibition.
  */
 export function crossReferencePharmacology(profiles: PharmacologyProfile[], now: string): EvidenceObject[] {
   const evidence: EvidenceObject[] = [];
