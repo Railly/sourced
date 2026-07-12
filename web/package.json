@@ -10,7 +10,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "build:reviews": "RXNAV_RECORD=1 bun run scripts/build-published-reviews.ts"
+    "build:reviews": "RXNAV_RECORD=1 bun run scripts/build-published-reviews.ts",
+    "build:golden": "bun run scripts/build-golden-review.ts"
   },
   "dependencies": {
     "@ai-sdk/gateway": "^4.0.16",

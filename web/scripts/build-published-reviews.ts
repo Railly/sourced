@@ -67,10 +67,12 @@ async function main(): Promise<void> {
   mkdirSync(outDir, { recursive: true });
   const activeLocales = onlyLocale ? [onlyLocale] : locales;
 
+  // The golden review is pinned to the vetted, mechanism-rich report.json
+  // (EN) and its faithful localization (localize-golden-es.ts). It is never
+  // re-synthesized here: the synthesis step is inconsistent at binding the FDA
+  // CYP2C9 mechanism for warfarin + amiodarone, and the golden is the on-camera
+  // case that must stay strong. Regenerate it with `bun run build:golden`.
   for (const locale of activeLocales) {
-    if (!onlyCase || onlyCase === "golden") {
-      await buildOne("golden", locale, null);
-    }
     for (const item of publishedCases) {
       if (onlyCase && onlyCase !== item.id) continue;
       const textPath = resolve(casesTextDir, `${item.id}.md`);

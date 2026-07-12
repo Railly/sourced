@@ -114,7 +114,7 @@
       ],
       "note": "Paciente de 72 anos, insuficiencia cardiaca con fraccion de eyeccion reducida y fibrilacion auricular. Alta hospitalaria tras descompensacion. Se inicia amiodarona por FA de reciente diagnostico y cotrimoxazol por ITU. Anticoagulado con warfarina de larga data. Control de INR pendiente."
     },
-    "patient_summary": "Paciente de 72 años con insuficiencia cardíaca (fracción de eyección reducida) y fibrilación auricular, dado de alta recientemente tras una descompensación. Anticoagulación de larga data con warfarina, con amiodarona iniciada recientemente para la fibrilación auricular y cotrimoxazol iniciado para una infección del tracto urinario; también figura furosemida. El INR actual es de 2.6 (referencia 2 a 3), y la creatinina es de 1.4 mg/dL (referencia 0.7 a 1.3). La lista de medicamentos también muestra una segunda entrada que contiene warfarina (Coumadin) marcada para conciliación. Se documenta una alergia a la penicilina. Se indica que el seguimiento del INR está pendiente.",
+    "patient_summary": "Paciente de 72 años con insuficiencia cardíaca (fracción de eyección reducida) y fibrilación auricular, dado de alta recientemente tras una descompensación. Anticoagulación de larga data con warfarina, con amiodarona recién iniciada para la fibrilación auricular y cotrimoxazol iniciado para una infección del tracto urinario; también figura furosemida en la lista. El INR actual es de 2.6 (referencia 2 a 3), y la creatinina es de 1.4 mg/dL (referencia 0.7 a 1.3). La lista de medicamentos también muestra una segunda entrada que contiene warfarina (Coumadin) marcada para conciliación. Hay documentada una alergia a la penicilina. El seguimiento del INR figura como pendiente.",
     "findings": [
       {
         "status": "flagged",
@@ -124,8 +124,8 @@
           "amiodarone"
         ],
         "headline": "La amiodarona puede potenciar la warfarina y aumentar el riesgo de sangrado",
-        "mechanism": "La amiodarona potencia la respuesta anticoagulante a la warfarina; la coadministración aumenta el tiempo de protrombina en un 100% después de 3 a 4 días, y la ficha técnica aconseja reducir la dosis de warfarina en un tercio a la mitad y monitorizar los tiempos de protrombina. La amiodarona también figura como inhibidor de CYP2C9 y CYP3A4 para la warfarina, y este par se clasifica como Mayor.",
-        "why_this_patient": "La amiodarona se inició recientemente mientras este paciente continúa con warfarina de larga data, y el seguimiento del INR está pendiente. Dado que el aumento del tiempo de protrombina citado se desarrolla después de 3 a 4 días, el INR actual de 2.6 (referencia 2 a 3) puede aumentar en los próximos días.",
+        "mechanism": "La amiodarona potencia la respuesta anticoagulante a la warfarina; la coadministración aumenta el tiempo de protrombina en un 100% después de 3 a 4 días, y la ficha técnica aconseja reducir la dosis de warfarina en un tercio a la mitad y monitorizar los tiempos de protrombina. La amiodarona también figura como inhibidor de CYP2C9 y CYP3A4 para la warfarina, y esta combinación está clasificada como Mayor.",
+        "why_this_patient": "La amiodarona se inició recientemente mientras esta paciente continúa con warfarina de larga data, y el seguimiento del INR está pendiente. Dado que el aumento del tiempo de protrombina citado se desarrolla después de 3 a 4 días, el INR actual de 2.6 (referencia 2 a 3) puede elevarse en los próximos días.",
         "evidence_ids": [
           "ddinter:DDInter1951:DDInter76",
           "label:703:interactions",
@@ -133,7 +133,7 @@
           "label:11289:boxed",
           "faers:11289:haemorrhage"
         ],
-        "monitoring": "Realizar una monitorización más frecuente del INR al iniciar la amiodarona, y considerar la reducción de la dosis de warfarina indicada en la ficha técnica de un tercio a la mitad con monitorización del tiempo de protrombina."
+        "monitoring": "Realizar una monitorización más frecuente del INR al iniciar la amiodarona, y considerar la reducción de dosis de warfarina indicada en la ficha técnica de un tercio a la mitad con monitorización del tiempo de protrombina."
       },
       {
         "status": "flagged",
@@ -143,8 +143,8 @@
           "sulfamethoxazole / trimethoprim"
         ],
         "headline": "El cotrimoxazol puede aumentar el efecto de la warfarina y el riesgo de sangrado",
-        "mechanism": "El cotrimoxazol figura como inhibidor de CYP2C9 de la warfarina, y los inhibidores de CYP2C9 tienen el potencial de aumentar el efecto (aumentar el INR) de la warfarina al aumentar la exposición a la warfarina. La ficha técnica de la warfarina aconseja una monitorización más frecuente del INR al iniciar antibióticos, y este par se clasifica como Mayor.",
-        "why_this_patient": "El cotrimoxazol se inició recientemente para una infección del tracto urinario mientras este paciente continúa con warfarina de larga data, y el seguimiento del INR está pendiente. El INR actual de 2.6 (referencia 2 a 3) podría aumentar tras iniciar este antibiótico.",
+        "mechanism": "El cotrimoxazol figura como inhibidor de CYP2C9 de la warfarina, y los inhibidores de CYP2C9 tienen el potencial de aumentar el efecto (aumentar el INR) de la warfarina al incrementar la exposición a la warfarina. La ficha técnica de la warfarina aconseja una monitorización más frecuente del INR al iniciar antibióticos, y esta combinación está clasificada como Mayor.",
+        "why_this_patient": "El cotrimoxazol se inició recientemente para una infección del tracto urinario mientras esta paciente continúa con warfarina de larga data, y el seguimiento del INR está pendiente. El INR actual de 2.6 (referencia 2 a 3) podría elevarse después de iniciar este antibiótico.",
         "evidence_ids": [
           "ddinter:DDInter1951:DDInter1724",
           "label:11289:interactions",
@@ -155,8 +155,8 @@
       }
     ],
     "questions_for_clinician": [
-      "La lista muestra dos entradas que contienen warfarina (warfarina 5mg y Coumadin, marcada para conciliación) — ¿se trata de una única orden prevista o de dos órdenes separadas?",
-      "Dado que tanto la amiodarona como el cotrimoxazol se iniciaron recientemente, ¿cuándo está previsto el control pendiente del INR?"
+      "La lista muestra dos entradas que contienen warfarina (warfarina 5mg y Coumadin, marcada para conciliación) — ¿se trata de una sola prescripción prevista o de dos prescripciones separadas?",
+      "Dado que tanto la amiodarona como el cotrimoxazol se iniciaron recientemente, ¿cuándo está prevista la reevaluación pendiente del INR?"
     ],
     "evidence": [
       {
@@ -284,7 +284,7 @@
       }
     ],
     "unverified_removed": [],
-    "generated_at": "2026-07-12T05:25:14.763Z",
+    "generated_at": "2026-07-12T05:29:05.911Z",
     "pipeline": {
       "mode": "audited-replay",
       "model": "Claude Opus 4.8",
@@ -302,5 +302,5 @@
       }
     }
   },
-  "generatedAt": "2026-07-12T05:25:14.763Z"
+  "generatedAt": "2026-07-12T05:29:05.911Z"
 }
