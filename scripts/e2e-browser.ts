@@ -33,6 +33,7 @@ interface BrowserState {
   pipelineStatus: string;
   pipelineHistory: string[];
   verified: boolean;
+  researchCount: number;
   overflow: number;
   citationCount: number;
   reportFindingCount: number | null;
@@ -171,6 +172,7 @@ async function state(): Promise<BrowserState> {
       pipelineStatus: pipeline?.getAttribute('data-pipeline-status') ?? '',
       pipelineHistory: (pipeline?.getAttribute('data-pipeline-history') ?? '').split(',').filter(Boolean),
       verified: Boolean(document.querySelector('[data-testid="verified-review"]')),
+      researchCount: document.querySelectorAll('#research-queue li').length,
       overflow: document.documentElement.scrollHeight - document.documentElement.clientHeight,
       citationCount: document.querySelectorAll('[data-testid="evidence-citation"]').length,
       reportFindingCount: (() => {
@@ -381,6 +383,13 @@ async function run(): Promise<void> {
     reportFindingCount: review.reportFindingCount,
   });
   if (review.overflow > 0) throw new Error(`Document overflow after review: ${review.overflow}px`);
+  // The research queue must render exactly the routed candidates the offline
+  // review carries, so the "routed to research" beat is real, not decorative.
+  const expectedReview = await Bun.file(join(root, "web", "public", "data", "reviews", `${selected.id}.en.json`)).json() as { report: { research_candidates?: unknown[] } };
+  const expectedResearch = expectedReview.report.research_candidates?.length ?? 0;
+  if (review.researchCount !== expectedResearch) {
+    throw new Error(`Research queue rendered ${review.researchCount} candidates, expected ${expectedResearch}`);
+  }
   const audit = await auditBrowser([`/data/reviews/${selected.id}.`], ["/api/intake", "/api/review-ui"]);
   let screenshot = "";
   let screenshotError = "";
