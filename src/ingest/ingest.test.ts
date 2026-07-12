@@ -91,6 +91,30 @@ test("fails loudly on gibberish — no hallucinated rxcui", async () => {
   expect(p.medications[0]?.resolution).toBe("unresolved");
 });
 
+test("rejects a fuzzy approximate match with no shared drug stem", async () => {
+  // RxNav approximate-matches "new antiretroviral regimen" to an unrelated
+  // analgesic brand; the stem guard must reject it rather than hallucinate.
+  const p = await ingest({
+    medications: [{ raw: "new antiretroviral regimen" }],
+    allergies: [],
+    diagnoses: [],
+    labs: [],
+  });
+  expect(p.medications[0]?.rxcui).toBeNull();
+  expect(p.medications[0]?.resolution).toBe("unresolved");
+});
+
+test("resolves phytonadione to vitamin K, not a fuzzy analgesic brand", async () => {
+  const p = await ingest({
+    medications: [{ raw: "Phytonadione (vitamin-K) 2.5 mg by mouth" }],
+    allergies: [],
+    diagnoses: [],
+    labs: [],
+  });
+  expect(p.medications[0]?.name.toLowerCase()).toContain("vitamin k");
+  expect(p.medications[0]?.rxcui).toBeTruthy();
+});
+
 test("empty / whitespace med resolves to unresolved, not a crash", async () => {
   const p = await ingest({
     note: "",

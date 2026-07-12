@@ -154,25 +154,15 @@ export function PatientPacketEditor({
         {duplicateWarning ? (
           <div
             id="shared-medication-ambiguity"
-            className="mb-3 flex flex-col gap-3 rounded-lg border border-moderate-border bg-moderate-bg px-4 py-3 sm:flex-row sm:items-center sm:justify-between"
+            className="mb-3 flex items-start gap-3 rounded-lg border border-moderate-border bg-moderate-bg px-4 py-3"
           >
-            <div className="flex min-w-0 items-start gap-3">
-              <WarningCircle className="mt-0.5 h-5 w-5 shrink-0 text-moderate" weight="regular" />
-              <div>
-                <p className="text-[11.5px] font-semibold text-ink">{t("packet.sharedAmbiguityTitle")}</p>
-                <p className="mt-0.5 text-[10.5px] leading-relaxed text-ink-muted">
-                  {t("packet.sharedAmbiguityGeneric")}
-                </p>
-              </div>
+            <WarningCircle className="mt-0.5 h-5 w-5 shrink-0 text-moderate" weight="regular" />
+            <div>
+              <p className="text-[11.5px] font-semibold text-ink">{t("packet.sharedAmbiguityTitle")}</p>
+              <p className="mt-0.5 text-[10.5px] leading-relaxed text-ink-muted">
+                {t("packet.sharedAmbiguityGeneric")}
+              </p>
             </div>
-            <button
-              type="button"
-              data-testid="review-shared-clarification"
-              onClick={onAmbiguityClick}
-              className="shrink-0 rounded-md border border-moderate-border bg-paper-raised px-3 py-2 text-[10.5px] font-semibold text-moderate hover:bg-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-moderate"
-            >
-              {t("packet.reviewClarification")}
-            </button>
           </div>
         ) : null}
         <div className="divide-y divide-hairline border-y border-hairline">

@@ -747,17 +747,19 @@ export function AgentWorkspace({
               {phase === "clarifying" ? (
                 <>
                   <div className="mb-3 flex flex-wrap items-center gap-2">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        const ambiguity = ambiguities[0];
-                        if (ambiguity) void askEve(ambiguity, serializeReviewCase(draft));
-                      }}
-                      disabled={!ambiguities[0] || agentBusy}
-                      className="inline-flex items-center gap-1.5 rounded-md border border-hairline-strong bg-paper px-3 py-2 text-[11px] font-semibold hover:border-info hover:text-info disabled:cursor-not-allowed disabled:opacity-45"
-                    >
-                      <Copy className="h-3.5 w-3.5" weight="regular" /> {t("workspace.askAgain")}
-                    </button>
+                    {!offline ? (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const ambiguity = ambiguities[0];
+                          if (ambiguity) void askEve(ambiguity, serializeReviewCase(draft));
+                        }}
+                        disabled={!ambiguities[0] || agentBusy}
+                        className="inline-flex items-center gap-1.5 rounded-md border border-hairline-strong bg-paper px-3 py-2 text-[11px] font-semibold hover:border-info hover:text-info disabled:cursor-not-allowed disabled:opacity-45"
+                      >
+                        <Copy className="h-3.5 w-3.5" weight="regular" /> {t("workspace.askAgain")}
+                      </button>
+                    ) : null}
                     <button
                       type="button"
                       data-testid="keep-unknown"

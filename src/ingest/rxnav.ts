@@ -94,6 +94,7 @@ export function extractDrugName(raw: string): string {
   cleaned = cleaned.replace(/\d+(\.\d+)?\s*\/\s*\d+(\.\d+)?\s*(mg|mcg|g|ml|iu|units?)\b/gi, " ");
   cleaned = cleaned.replace(/\d+(\.\d+)?\s*[-–]\s*\d+(\.\d+)?\s*(mg|mcg|g|ml|iu|units?)\b/gi, " ");
   cleaned = cleaned.replace(/\d+(\.\d+)?\s*(mg|mcg|g|ml|iu|units?)\b/gi, " ");
+  cleaned = cleaned.replace(/\bby\s+mouth\b/gi, " ");
   cleaned = cleaned.replace(/\b(?:once|twice|three times|four times)\s+(?:a|per)\s+day\b/gi, " ");
   cleaned = cleaned.replace(/\bevery\s+\d+\s*(?:hours?|hrs?)\b/gi, " ");
   cleaned = cleaned.replace(/\b(?:daily|bid|tid|qid|qhs|prn|iv|po|oral|dose pack)\b/gi, " ");
@@ -200,6 +201,35 @@ async function tryExactMatch(term: string): Promise<{ rxcui: string; name: strin
   return { rxcui, name };
 }
 
+/**
+ * A trusted approximate match shares a real word stem with the search term.
+ * RxNav's approximateTerm will otherwise fuzzy-map free text to unrelated
+ * branded products (e.g. "phytonadione" → "By Ache", "antiretroviral regimen"
+ * → "Anacin Aspirin Regimen"), which is a dangerous false medication in a
+ * safety tool. This still accepts cross-language stems like amiodarona ↔
+ * amiodarone (shared "amiodaron" prefix). Common formulation words are ignored
+ * so a shared "regimen"/"tablet" alone never validates a match.
+ */
+const STEM_STOPWORDS = new Set([
+  "regimen", "tablet", "tablets", "capsule", "capsules", "solution", "oral",
+  "pill", "pills", "brand", "extended", "release", "combination", "new",
+]);
+
+function tokenStems(value: string): string[] {
+  return (value.toLowerCase().match(/[a-z]{4,}/g) ?? []).filter((token) => !STEM_STOPWORDS.has(token));
+}
+
+function sharesStem(term: string, candidateName: string): boolean {
+  const candidateTokens = tokenStems(candidateName);
+  return tokenStems(term).some((termToken) =>
+    candidateTokens.some((candidateToken) => {
+      const shorter = Math.min(termToken.length, candidateToken.length);
+      const prefix = Math.min(shorter, 5);
+      return termToken.slice(0, prefix) === candidateToken.slice(0, prefix) && shorter >= 5;
+    }),
+  );
+}
+
 async function tryApproximateMatch(term: string): Promise<{ rxcui: string; name: string } | null> {
   const url = `${RXNAV_BASE}/approximateTerm.json?term=${encodeURIComponent(term)}&maxEntries=1`;
   const data = await fetchJson<ApproximateTermResponse>(url);
@@ -211,6 +241,9 @@ async function tryApproximateMatch(term: string): Promise<{ rxcui: string; name:
 
   const name = candidate.name ?? (await fetchRxNormName(candidate.rxcui));
   if (!name) return null;
+
+  // Reject fuzzy matches that don't share a drug-name stem with the query.
+  if (!sharesStem(term, name)) return null;
 
   return { rxcui: candidate.rxcui, name };
 }

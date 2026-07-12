@@ -17,6 +17,9 @@ const drugs = [
   "Coumadin",
   "warfarin",
   "Bromfed DM syrup (brompheniramine 2 mg, pseudoephedrine 30 mg, dextromethorphan 10 mg per 5 mL), 5 mL every 6 hours",
+  "Phytonadione (vitamin-K) 2.5 mg by mouth",
+  "new antiretroviral regimen",
+  "clozapine",
 ];
 
 for (const raw of drugs) {

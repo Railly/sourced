@@ -1174,6 +1174,13 @@
       ]
     }
   },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=clozapine&search=2": {
+    "idGroup": {
+      "rxnormId": [
+        "2626"
+      ]
+    }
+  },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Clozapine%20total%20of%201&search=2": {
     "idGroup": {}
   },
@@ -1469,6 +1476,13 @@
     "idGroup": {
       "rxnormId": [
         "8299"
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Phytonadione&search=2": {
+    "idGroup": {
+      "rxnormId": [
+        "8308"
       ]
     }
   },
@@ -2712,6 +2726,38 @@
       ]
     }
   },
+  "https://rxnav.nlm.nih.gov/REST/rxcui/2626/property.json?propName=RxNorm%20Name": {
+    "propConceptGroup": {
+      "propConcept": [
+        {
+          "propCategory": "NAMES",
+          "propName": "RxNorm Name",
+          "propValue": "clozapine"
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui/2626/related.json?tty=IN": {
+    "relatedGroup": {
+      "rxcui": null,
+      "conceptGroup": [
+        {
+          "tty": "IN",
+          "conceptProperties": [
+            {
+              "rxcui": "2626",
+              "name": "clozapine",
+              "synonym": "",
+              "tty": "IN",
+              "language": "ENG",
+              "suppress": "N",
+              "umlscui": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
   "https://rxnav.nlm.nih.gov/REST/rxcui/267035/property.json?propName=RxNorm%20Name": {
     "propConceptGroup": {
       "propConcept": [
@@ -3877,6 +3923,38 @@
               "rxcui": "8299",
               "name": "physostigmine",
               "synonym": "",
+              "tty": "IN",
+              "language": "ENG",
+              "suppress": "N",
+              "umlscui": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui/8308/property.json?propName=RxNorm%20Name": {
+    "propConceptGroup": {
+      "propConcept": [
+        {
+          "propCategory": "NAMES",
+          "propName": "RxNorm Name",
+          "propValue": "vitamin K1"
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui/8308/related.json?tty=IN": {
+    "relatedGroup": {
+      "rxcui": null,
+      "conceptGroup": [
+        {
+          "tty": "IN",
+          "conceptProperties": [
+            {
+              "rxcui": "8308",
+              "name": "vitamin K1",
+              "synonym": "vitamin K 1",
               "tty": "IN",
               "language": "ENG",
               "suppress": "N",
