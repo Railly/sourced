@@ -91,6 +91,9 @@ async function fetchJson<T>(url: string): Promise<T> {
 export function extractDrugName(raw: string): string {
   let cleaned = raw;
   cleaned = cleaned.replace(/\([^)]*\)/g, " ");
+  cleaned = cleaned.replace(/,\s*total\s+of\b/gi, " ");
+  cleaned = cleaned.replace(/\btotal\s+of\b/gi, " ");
+  cleaned = cleaned.replace(/\b\d{1,3}(?:,\d{3})+\s*(mg|mcg|g|ml|iu|units?)\b/gi, " ");
   cleaned = cleaned.replace(/\d+(\.\d+)?\s*\/\s*\d+(\.\d+)?\s*(mg|mcg|g|ml|iu|units?)\b/gi, " ");
   cleaned = cleaned.replace(/\d+(\.\d+)?\s*[-–]\s*\d+(\.\d+)?\s*(mg|mcg|g|ml|iu|units?)\b/gi, " ");
   cleaned = cleaned.replace(/\d+(\.\d+)?\s*(mg|mcg|g|ml|iu|units?)\b/gi, " ");

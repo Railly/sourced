@@ -14,6 +14,28 @@
       ]
     }
   },
+  "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=aldactone%20OD&maxEntries=1": {
+    "approximateGroup": {
+      "inputTerm": null,
+      "candidate": [
+        {
+          "rxcui": "151317",
+          "rxaui": "999826",
+          "score": "14.540348052978516",
+          "rank": "1",
+          "source": "MMSL"
+        },
+        {
+          "rxcui": "151317",
+          "rxaui": "999827",
+          "score": "14.540348052978516",
+          "rank": "1",
+          "name": "Aldactone",
+          "source": "RXNORM"
+        }
+      ]
+    }
+  },
   "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=amiodarone%20OD&maxEntries=1": {
     "approximateGroup": {
       "inputTerm": null,
@@ -97,6 +119,186 @@
       ]
     }
   },
+  "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=Brentuximab%20followed%20by%20Brentuximab%20Vedotin&maxEntries=1": {
+    "approximateGroup": {
+      "inputTerm": null,
+      "candidate": [
+        {
+          "rxcui": "1147320",
+          "rxaui": "10290364",
+          "score": "25.80490493774414",
+          "rank": "1",
+          "name": "Brentuximab Vedotin",
+          "source": "USP"
+        },
+        {
+          "rxcui": "1147320",
+          "rxaui": "10326791",
+          "score": "25.80490493774414",
+          "rank": "1",
+          "source": "GS"
+        },
+        {
+          "rxcui": "1147320",
+          "rxaui": "12733662",
+          "score": "25.80490493774414",
+          "rank": "1",
+          "name": "brentuximab vedotin",
+          "source": "ATC"
+        },
+        {
+          "rxcui": "1147320",
+          "rxaui": "3804268",
+          "score": "25.80490493774414",
+          "rank": "1",
+          "name": "brentuximab vedotin",
+          "source": "RXNORM"
+        },
+        {
+          "rxcui": "1147320",
+          "rxaui": "3811354",
+          "score": "25.80490493774414",
+          "rank": "1",
+          "source": "NDDF"
+        },
+        {
+          "rxcui": "1147320",
+          "rxaui": "3861746",
+          "score": "25.80490493774414",
+          "rank": "1",
+          "source": "MMSL"
+        },
+        {
+          "rxcui": "1147320",
+          "rxaui": "3868647",
+          "score": "25.80490493774414",
+          "rank": "1",
+          "name": "BRENTUXIMAB VEDOTIN",
+          "source": "VANDF"
+        },
+        {
+          "rxcui": "1147320",
+          "rxaui": "8395033",
+          "score": "25.80490493774414",
+          "rank": "1",
+          "name": "Brentuximab vedotin",
+          "source": "DRUGBANK"
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=Bromfed%20DM%20%E2%80%94%20brompheniramine&maxEntries=1": {
+    "approximateGroup": {
+      "inputTerm": null,
+      "candidate": [
+        {
+          "rxcui": "756496",
+          "rxaui": "12321012",
+          "score": "17.19780921936035",
+          "rank": "1",
+          "name": "brompheniramine / dextromethorphan / pseudoephedrine Oral Solution [Bromfed DM]",
+          "source": "RXNORM"
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=Bromfed%20DM%20%E2%80%94%20dextromethorphan&maxEntries=1": {
+    "approximateGroup": {
+      "inputTerm": null,
+      "candidate": [
+        {
+          "rxcui": "215741",
+          "rxaui": "1175668",
+          "score": "19.309146881103516",
+          "rank": "1",
+          "source": "MMSL"
+        },
+        {
+          "rxcui": "215741",
+          "rxaui": "1175669",
+          "score": "19.309146881103516",
+          "rank": "1",
+          "name": "Bromfed DM",
+          "source": "RXNORM"
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=Bromfed%20DM%20%E2%80%94%20pseudoephedrine&maxEntries=1": {
+    "approximateGroup": {
+      "inputTerm": null,
+      "candidate": [
+        {
+          "rxcui": "215741",
+          "rxaui": "1175668",
+          "score": "16.487701416015625",
+          "rank": "1",
+          "source": "MMSL"
+        },
+        {
+          "rxcui": "215741",
+          "rxaui": "1175669",
+          "score": "16.487701416015625",
+          "rank": "1",
+          "name": "Bromfed DM",
+          "source": "RXNORM"
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=Brompheniramine%20per&maxEntries=1": {
+    "approximateGroup": {
+      "inputTerm": null,
+      "candidate": [
+        {
+          "rxcui": "1767",
+          "rxaui": "10328497",
+          "score": "11.253912925720215",
+          "rank": "1",
+          "source": "GS"
+        },
+        {
+          "rxcui": "1767",
+          "rxaui": "12253850",
+          "score": "11.253912925720215",
+          "rank": "1",
+          "name": "brompheniramine",
+          "source": "RXNORM"
+        },
+        {
+          "rxcui": "1767",
+          "rxaui": "2068692",
+          "score": "11.253912925720215",
+          "rank": "1",
+          "name": "BROMPHENIRAMINE",
+          "source": "VANDF"
+        },
+        {
+          "rxcui": "1767",
+          "rxaui": "3619759",
+          "score": "11.253912925720215",
+          "rank": "1",
+          "source": "NDDF"
+        },
+        {
+          "rxcui": "1767",
+          "rxaui": "5478970",
+          "score": "11.253912925720215",
+          "rank": "1",
+          "name": "brompheniramine",
+          "source": "ATC"
+        },
+        {
+          "rxcui": "1767",
+          "rxaui": "8405007",
+          "score": "11.253912925720215",
+          "rank": "1",
+          "name": "Brompheniramine",
+          "source": "DRUGBANK"
+        }
+      ]
+    }
+  },
   "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=Cefazolin%201%20gm&maxEntries=1": {
     "approximateGroup": {
       "inputTerm": null,
@@ -143,6 +345,119 @@
       ]
     }
   },
+  "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=Clozapine%201&maxEntries=1": {
+    "approximateGroup": {
+      "inputTerm": null,
+      "candidate": [
+        {
+          "rxcui": "2626",
+          "rxaui": "10281043",
+          "score": "10.515503883361816",
+          "rank": "1",
+          "name": "Clozapine",
+          "source": "USP"
+        },
+        {
+          "rxcui": "2626",
+          "rxaui": "10325295",
+          "score": "10.515503883361816",
+          "rank": "1",
+          "source": "GS"
+        },
+        {
+          "rxcui": "2626",
+          "rxaui": "12253272",
+          "score": "10.515503883361816",
+          "rank": "1",
+          "name": "clozapine",
+          "source": "RXNORM"
+        },
+        {
+          "rxcui": "2626",
+          "rxaui": "2069745",
+          "score": "10.515503883361816",
+          "rank": "1",
+          "name": "CLOZAPINE",
+          "source": "VANDF"
+        },
+        {
+          "rxcui": "2626",
+          "rxaui": "2995193",
+          "score": "10.515503883361816",
+          "rank": "1",
+          "name": "CLOZAPINE",
+          "source": "MTHSPL"
+        },
+        {
+          "rxcui": "2626",
+          "rxaui": "3723592",
+          "score": "10.515503883361816",
+          "rank": "1",
+          "name": "cloZAPine",
+          "source": "RXNORM"
+        },
+        {
+          "rxcui": "2626",
+          "rxaui": "3807510",
+          "score": "10.515503883361816",
+          "rank": "1",
+          "source": "MMSL"
+        },
+        {
+          "rxcui": "2626",
+          "rxaui": "3809240",
+          "score": "10.515503883361816",
+          "rank": "1",
+          "source": "MMSL"
+        },
+        {
+          "rxcui": "2626",
+          "rxaui": "4649173",
+          "score": "10.515503883361816",
+          "rank": "1",
+          "source": "NDDF"
+        },
+        {
+          "rxcui": "2626",
+          "rxaui": "5479426",
+          "score": "10.515503883361816",
+          "rank": "1",
+          "name": "clozapine",
+          "source": "ATC"
+        },
+        {
+          "rxcui": "2626",
+          "rxaui": "79101",
+          "score": "10.515503883361816",
+          "rank": "1",
+          "source": "SNOMEDCT_US"
+        },
+        {
+          "rxcui": "2626",
+          "rxaui": "79107",
+          "score": "10.515503883361816",
+          "rank": "1",
+          "source": "MMSL"
+        },
+        {
+          "rxcui": "2626",
+          "rxaui": "8497830",
+          "score": "10.515503883361816",
+          "rank": "1",
+          "name": "Clozapine",
+          "source": "DRUGBANK"
+        },
+        {
+          "rxcui": "2626",
+          "rxaui": "8692377",
+          "score": "10.515503883361816",
+          "rank": "1",
+          "name": "Clozapin",
+          "source": "DRUGBANK"
+        }
+      ]
+    }
+  },
   "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=Clozapine%20total%20of%201&maxEntries=1": {
     "approximateGroup": {
       "inputTerm": null,
@@ -162,6 +477,136 @@
           "rank": "1",
           "name": "Ivax brand of cloZAPine",
           "source": "RXNORM"
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=corticosteroids&maxEntries=1": {
+    "approximateGroup": {
+      "inputTerm": null,
+      "candidate": [
+        {
+          "rxcui": "1453443",
+          "rxaui": "5477526",
+          "score": "6.664100646972656",
+          "rank": "1",
+          "name": "CORTICOSTEROIDS",
+          "source": "ATC"
+        },
+        {
+          "rxcui": "1427675",
+          "rxaui": "5477527",
+          "score": "6.664100646972656",
+          "rank": "1",
+          "name": "CORTICOSTEROIDS",
+          "source": "ATC"
+        },
+        {
+          "rxcui": "1427676",
+          "rxaui": "5477584",
+          "score": "6.664100646972656",
+          "rank": "1",
+          "name": "Corticosteroids",
+          "source": "ATC"
+        },
+        {
+          "rxcui": "1428444",
+          "rxaui": "5477585",
+          "score": "6.664100646972656",
+          "rank": "1",
+          "name": "Corticosteroids",
+          "source": "ATC"
+        },
+        {
+          "rxcui": "1453443",
+          "rxaui": "5477586",
+          "score": "6.664100646972656",
+          "rank": "1",
+          "name": "Corticosteroids",
+          "source": "ATC"
+        },
+        {
+          "rxcui": "1427675",
+          "rxaui": "5477587",
+          "score": "6.664100646972656",
+          "rank": "1",
+          "name": "Corticosteroids",
+          "source": "ATC"
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=Dextromethorphan%20per&maxEntries=1": {
+    "approximateGroup": {
+      "inputTerm": null,
+      "candidate": [
+        {
+          "rxcui": "3289",
+          "rxaui": "10281317",
+          "score": "10.062370300292969",
+          "rank": "1",
+          "name": "Dextromethorphan",
+          "source": "USP"
+        },
+        {
+          "rxcui": "3289",
+          "rxaui": "10326933",
+          "score": "10.062370300292969",
+          "rank": "1",
+          "source": "GS"
+        },
+        {
+          "rxcui": "3289",
+          "rxaui": "12252097",
+          "score": "10.062370300292969",
+          "rank": "1",
+          "name": "dextromethorphan",
+          "source": "RXNORM"
+        },
+        {
+          "rxcui": "3289",
+          "rxaui": "2070102",
+          "score": "10.062370300292969",
+          "rank": "1",
+          "name": "DEXTROMETHORPHAN",
+          "source": "VANDF"
+        },
+        {
+          "rxcui": "3289",
+          "rxaui": "2364943",
+          "score": "10.062370300292969",
+          "rank": "1",
+          "source": "MMSL"
+        },
+        {
+          "rxcui": "3289",
+          "rxaui": "3605250",
+          "score": "10.062370300292969",
+          "rank": "1",
+          "source": "NDDF"
+        },
+        {
+          "rxcui": "3289",
+          "rxaui": "5479675",
+          "score": "10.062370300292969",
+          "rank": "1",
+          "name": "dextromethorphan",
+          "source": "ATC"
+        },
+        {
+          "rxcui": "3289",
+          "rxaui": "8371033",
+          "score": "10.062370300292969",
+          "rank": "1",
+          "name": "Dextromethorphan",
+          "source": "DRUGBANK"
+        },
+        {
+          "rxcui": "3289",
+          "rxaui": "99291",
+          "score": "10.062370300292969",
+          "rank": "1",
+          "source": "MMSL"
         }
       ]
     }
@@ -241,6 +686,28 @@
       ]
     }
   },
+  "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=ecosprin%20OD&maxEntries=1": {
+    "approximateGroup": {
+      "inputTerm": null,
+      "candidate": [
+        {
+          "rxcui": "202544",
+          "rxaui": "1136077",
+          "score": "3.598085880279541",
+          "rank": "1",
+          "source": "MMSL"
+        },
+        {
+          "rxcui": "202544",
+          "rxaui": "1136078",
+          "score": "3.598085880279541",
+          "rank": "1",
+          "name": "Easprin",
+          "source": "RXNORM"
+        }
+      ]
+    }
+  },
   "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=Enoxaparin%20treatment%20doses&maxEntries=1": {
     "approximateGroup": {
       "inputTerm": null,
@@ -290,6 +757,43 @@
           "rank": "1",
           "name": "Enoxaparin",
           "source": "DRUGBANK"
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=Epinephrine%202%20doses&maxEntries=1": {
+    "approximateGroup": {
+      "inputTerm": null,
+      "candidate": [
+        {
+          "rxcui": "746206",
+          "rxaui": "12265210",
+          "score": "10.525091228961946",
+          "rank": "1",
+          "name": "epinephrine Metered Dose Inhaler",
+          "source": "RXNORM"
+        },
+        {
+          "rxcui": "746206",
+          "rxaui": "3732092",
+          "score": "10.525091228961946",
+          "rank": "1",
+          "name": "EPINEPHrine Metered Dose Inhaler",
+          "source": "RXNORM"
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=Fluoro-Deoxyglucose%20PET%2FCT&maxEntries=1": {
+    "approximateGroup": {
+      "inputTerm": null,
+      "candidate": [
+        {
+          "rxcui": "1733674",
+          "rxaui": "10327861",
+          "score": "15.090310096740723",
+          "rank": "1",
+          "source": "GS"
         }
       ]
     }
@@ -369,6 +873,21 @@
       ]
     }
   },
+  "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=furosemide%20with%20spironolactone%20BD&maxEntries=1": {
+    "approximateGroup": {
+      "inputTerm": null,
+      "candidate": [
+        {
+          "rxcui": "392462",
+          "rxaui": "12353605",
+          "score": "16.55673599243164",
+          "rank": "1",
+          "name": "furosemide / spironolactone",
+          "source": "RXNORM"
+        }
+      ]
+    }
+  },
   "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=Hydrochlorothiazide%20component%20of%20olmesartan-hydrochlorothiazide&maxEntries=1": {
     "approximateGroup": {
       "inputTerm": null,
@@ -379,6 +898,59 @@
           "score": "19.39744666863728",
           "rank": "1",
           "source": "NDDF"
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=Hydrocodone%2FAPAP%201%20tab&maxEntries=1": {
+    "approximateGroup": {
+      "inputTerm": null,
+      "candidate": [
+        {
+          "rxcui": "370641",
+          "rxaui": "12263714",
+          "score": "10.81966495513916",
+          "rank": "1",
+          "name": "acetaminophen / hydrocodone Oral Tablet",
+          "source": "RXNORM"
+        },
+        {
+          "rxcui": "370641",
+          "rxaui": "12379882",
+          "score": "10.81966495513916",
+          "rank": "1",
+          "name": "acetaminophen / HYDROcodone Oral Tablet",
+          "source": "RXNORM"
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=Hydrocodone%2FAPAP%20tab&maxEntries=1": {
+    "approximateGroup": {
+      "inputTerm": null,
+      "candidate": [
+        {
+          "rxcui": "370641",
+          "rxaui": "12263714",
+          "score": "12.813255122661591",
+          "rank": "1",
+          "name": "acetaminophen / hydrocodone Oral Tablet",
+          "source": "RXNORM"
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=Hydrocodone%2FAPAP%20tabs&maxEntries=1": {
+    "approximateGroup": {
+      "inputTerm": null,
+      "candidate": [
+        {
+          "rxcui": "370641",
+          "rxaui": "12263714",
+          "score": "12.813255122661591",
+          "rank": "1",
+          "name": "acetaminophen / hydrocodone Oral Tablet",
+          "source": "RXNORM"
         }
       ]
     }
@@ -596,6 +1168,21 @@
       ]
     }
   },
+  "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=Metoclopramide%20x%202&maxEntries=1": {
+    "approximateGroup": {
+      "inputTerm": null,
+      "candidate": [
+        {
+          "rxcui": "334428",
+          "rxaui": "12277645",
+          "score": "10.798921988010408",
+          "rank": "1",
+          "name": "metoclopramide 2 MG/ML",
+          "source": "RXNORM"
+        }
+      ]
+    }
+  },
   "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=new%20antiretroviral%20regimen&maxEntries=1": {
     "approximateGroup": {
       "inputTerm": null,
@@ -704,6 +1291,21 @@
           "rank": "1",
           "name": "Furosemide",
           "source": "DRUGBANK"
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=Ondansetron%20x%201&maxEntries=1": {
+    "approximateGroup": {
+      "inputTerm": null,
+      "candidate": [
+        {
+          "rxcui": "446957",
+          "rxaui": "12272368",
+          "score": "10.218938496589661",
+          "rank": "1",
+          "name": "ondansetron 1 MG/ML",
+          "source": "RXNORM"
         }
       ]
     }
@@ -835,6 +1437,195 @@
           "score": "14.816937446594238",
           "rank": "1",
           "name": "Polyethylene glycol",
+          "source": "DRUGBANK"
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=Promethazine%20x%201&maxEntries=1": {
+    "approximateGroup": {
+      "inputTerm": null,
+      "candidate": [
+        {
+          "rxcui": "8745",
+          "rxaui": "10326775",
+          "score": "9.90141773223877",
+          "rank": "1",
+          "source": "GS"
+        },
+        {
+          "rxcui": "8745",
+          "rxaui": "12253948",
+          "score": "9.90141773223877",
+          "rank": "1",
+          "name": "promethazine",
+          "source": "RXNORM"
+        },
+        {
+          "rxcui": "8745",
+          "rxaui": "2074042",
+          "score": "9.90141773223877",
+          "rank": "1",
+          "name": "PROMETHAZINE",
+          "source": "VANDF"
+        },
+        {
+          "rxcui": "8745",
+          "rxaui": "280315",
+          "score": "9.90141773223877",
+          "rank": "1",
+          "source": "SNOMEDCT_US"
+        },
+        {
+          "rxcui": "8745",
+          "rxaui": "280322",
+          "score": "9.90141773223877",
+          "rank": "1",
+          "source": "MMSL"
+        },
+        {
+          "rxcui": "8745",
+          "rxaui": "3640323",
+          "score": "9.90141773223877",
+          "rank": "1",
+          "source": "NDDF"
+        },
+        {
+          "rxcui": "8745",
+          "rxaui": "5481971",
+          "score": "9.90141773223877",
+          "rank": "1",
+          "name": "promethazine",
+          "source": "ATC"
+        },
+        {
+          "rxcui": "8745",
+          "rxaui": "5481972",
+          "score": "9.90141773223877",
+          "rank": "1",
+          "name": "promethazine",
+          "source": "ATC"
+        },
+        {
+          "rxcui": "8745",
+          "rxaui": "6395786",
+          "score": "9.90141773223877",
+          "rank": "1",
+          "name": "PROMETHAZINE",
+          "source": "MTHSPL"
+        },
+        {
+          "rxcui": "8745",
+          "rxaui": "6395826",
+          "score": "9.90141773223877",
+          "rank": "1",
+          "name": "Promethazine",
+          "source": "MTHSPL"
+        },
+        {
+          "rxcui": "8745",
+          "rxaui": "6396418",
+          "score": "9.90141773223877",
+          "rank": "1",
+          "name": "promethazine",
+          "source": "MTHSPL"
+        },
+        {
+          "rxcui": "8745",
+          "rxaui": "8273839",
+          "score": "9.90141773223877",
+          "rank": "1",
+          "name": "Promethazine",
+          "source": "DRUGBANK"
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=prothrombin%20complex%20concentrate%20%2Fkg&maxEntries=1": {
+    "approximateGroup": {
+      "inputTerm": null,
+      "candidate": [
+        {
+          "rxcui": "1670383",
+          "rxaui": "8694381",
+          "score": "17.81761360168457",
+          "rank": "1",
+          "name": "Prothrombin complex concentrate",
+          "source": "DRUGBANK"
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=Prothrombin%20complex%20concentrate%20%2Fkg&maxEntries=1": {
+    "approximateGroup": {
+      "inputTerm": null,
+      "candidate": [
+        {
+          "rxcui": "1670383",
+          "rxaui": "8694381",
+          "score": "17.81761360168457",
+          "rank": "1",
+          "name": "Prothrombin complex concentrate",
+          "source": "DRUGBANK"
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=Pseudoephedrine%20per&maxEntries=1": {
+    "approximateGroup": {
+      "inputTerm": null,
+      "candidate": [
+        {
+          "rxcui": "8896",
+          "rxaui": "10328756",
+          "score": "10.152168273925781",
+          "rank": "1",
+          "source": "GS"
+        },
+        {
+          "rxcui": "8896",
+          "rxaui": "12253361",
+          "score": "10.152168273925781",
+          "rank": "1",
+          "name": "pseudoephedrine",
+          "source": "RXNORM"
+        },
+        {
+          "rxcui": "8896",
+          "rxaui": "285096",
+          "score": "10.152168273925781",
+          "rank": "1",
+          "name": "PSEUDOEPHEDRINE",
+          "source": "VANDF"
+        },
+        {
+          "rxcui": "8896",
+          "rxaui": "285099",
+          "score": "10.152168273925781",
+          "rank": "1",
+          "source": "MMSL"
+        },
+        {
+          "rxcui": "8896",
+          "rxaui": "3605358",
+          "score": "10.152168273925781",
+          "rank": "1",
+          "source": "NDDF"
+        },
+        {
+          "rxcui": "8896",
+          "rxaui": "5482019",
+          "score": "10.152168273925781",
+          "rank": "1",
+          "name": "pseudoephedrine",
+          "source": "ATC"
+        },
+        {
+          "rxcui": "8896",
+          "rxaui": "8642312",
+          "score": "10.152168273925781",
+          "rank": "1",
+          "name": "Pseudoephedrine",
           "source": "DRUGBANK"
         }
       ]
@@ -1020,6 +1811,90 @@
       ]
     }
   },
+  "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=Topricin%20cream%20ingredients%20revealed%20belladonna&maxEntries=1": {
+    "approximateGroup": {
+      "inputTerm": null,
+      "candidate": [
+        {
+          "rxcui": "89781",
+          "rxaui": "691983",
+          "score": "11.94654369354248",
+          "rank": "1",
+          "name": "BELLADONNA",
+          "source": "VANDF"
+        },
+        {
+          "rxcui": "1728761",
+          "rxaui": "7718821",
+          "score": "11.94654369354248",
+          "rank": "1",
+          "name": "B-Donna",
+          "source": "RXNORM"
+        },
+        {
+          "rxcui": "89781",
+          "rxaui": "9712904",
+          "score": "11.94654369354248",
+          "rank": "1",
+          "name": "Belladonna",
+          "source": "DRUGBANK"
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=treatment%20doses%20of%20enoxaparin&maxEntries=1": {
+    "approximateGroup": {
+      "inputTerm": null,
+      "candidate": [
+        {
+          "rxcui": "67108",
+          "rxaui": "12250589",
+          "score": "12.656088829040527",
+          "rank": "1",
+          "name": "enoxaparin",
+          "source": "RXNORM"
+        },
+        {
+          "rxcui": "67108",
+          "rxaui": "12723522",
+          "score": "12.656088829040527",
+          "rank": "1",
+          "source": "GS"
+        },
+        {
+          "rxcui": "67108",
+          "rxaui": "2070724",
+          "score": "12.656088829040527",
+          "rank": "1",
+          "name": "ENOXAPARIN",
+          "source": "VANDF"
+        },
+        {
+          "rxcui": "67108",
+          "rxaui": "5479924",
+          "score": "12.656088829040527",
+          "rank": "1",
+          "name": "enoxaparin",
+          "source": "ATC"
+        },
+        {
+          "rxcui": "67108",
+          "rxaui": "6804357",
+          "score": "12.656088829040527",
+          "rank": "1",
+          "source": "NDDF"
+        },
+        {
+          "rxcui": "67108",
+          "rxaui": "8650638",
+          "score": "12.656088829040527",
+          "rank": "1",
+          "name": "Enoxaparin",
+          "source": "DRUGBANK"
+        }
+      ]
+    }
+  },
   "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=two%20doses%20of%20intravenous%20neostigmine&maxEntries=1": {
     "approximateGroup": {
       "inputTerm": null,
@@ -1123,6 +1998,96 @@
           "rank": "1",
           "name": "vancomycin 1 GM Injection",
           "source": "RXNORM"
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=Vitamin-K%20one%20dose&maxEntries=1": {
+    "approximateGroup": {
+      "inputTerm": null,
+      "candidate": [
+        {
+          "rxcui": "11258",
+          "rxaui": "10327944",
+          "score": "20.16239356994629",
+          "rank": "1",
+          "source": "GS"
+        },
+        {
+          "rxcui": "11258",
+          "rxaui": "12252827",
+          "score": "20.16239356994629",
+          "rank": "1",
+          "name": "vitamin K",
+          "source": "RXNORM"
+        },
+        {
+          "rxcui": "11258",
+          "rxaui": "2075243",
+          "score": "20.16239356994629",
+          "rank": "1",
+          "name": "VITAMIN K",
+          "source": "VANDF"
+        },
+        {
+          "rxcui": "11258",
+          "rxaui": "5083476",
+          "score": "20.16239356994629",
+          "rank": "1",
+          "source": "MMSL"
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=warfarin%20alternating%20between%20to&maxEntries=1": {
+    "approximateGroup": {
+      "inputTerm": null,
+      "candidate": [
+        {
+          "rxcui": "11289",
+          "rxaui": "10327847",
+          "score": "12.007678985595703",
+          "rank": "1",
+          "source": "GS"
+        },
+        {
+          "rxcui": "11289",
+          "rxaui": "12253984",
+          "score": "12.007678985595703",
+          "rank": "1",
+          "name": "warfarin",
+          "source": "RXNORM"
+        },
+        {
+          "rxcui": "11289",
+          "rxaui": "2075376",
+          "score": "12.007678985595703",
+          "rank": "1",
+          "name": "WARFARIN",
+          "source": "VANDF"
+        },
+        {
+          "rxcui": "11289",
+          "rxaui": "5482898",
+          "score": "12.007678985595703",
+          "rank": "1",
+          "name": "warfarin",
+          "source": "ATC"
+        },
+        {
+          "rxcui": "11289",
+          "rxaui": "6809178",
+          "score": "12.007678985595703",
+          "rank": "1",
+          "source": "NDDF"
+        },
+        {
+          "rxcui": "11289",
+          "rxaui": "8544269",
+          "score": "12.007678985595703",
+          "rank": "1",
+          "name": "Warfarin",
+          "source": "DRUGBANK"
         }
       ]
     }
@@ -1257,6 +2222,9 @@
       ]
     }
   },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=aldactone%20OD&search=2": {
+    "idGroup": {}
+  },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=alprazolam&search=2": {
     "idGroup": {
       "rxnormId": [
@@ -1309,6 +2277,13 @@
       ]
     }
   },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Apixaban&search=2": {
+    "idGroup": {
+      "rxnormId": [
+        "1364430"
+      ]
+    }
+  },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=ASA&search=2": {
     "idGroup": {
       "rxnormId": [
@@ -1347,6 +2322,9 @@
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Brentuximab%20and%20Bendamustine&search=2": {
     "idGroup": {}
   },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Brentuximab%20followed%20by%20Brentuximab%20Vedotin&search=2": {
+    "idGroup": {}
+  },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Brentuximab%20vedotin&search=2": {
     "idGroup": {
       "rxnormId": [
@@ -1368,6 +2346,15 @@
       ]
     }
   },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Bromfed%20DM%20%E2%80%94%20brompheniramine&search=2": {
+    "idGroup": {}
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Bromfed%20DM%20%E2%80%94%20dextromethorphan&search=2": {
+    "idGroup": {}
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Bromfed%20DM%20%E2%80%94%20pseudoephedrine&search=2": {
+    "idGroup": {}
+  },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=brompheniramine&search=2": {
     "idGroup": {
       "rxnormId": [
@@ -1381,6 +2368,9 @@
         "1767"
       ]
     }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Brompheniramine%20per&search=2": {
+    "idGroup": {}
   },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Cefazolin&search=2": {
     "idGroup": {
@@ -1401,6 +2391,13 @@
   },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Cefepime%201%20gm&search=2": {
     "idGroup": {}
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=ceftriaxone&search=2": {
+    "idGroup": {
+      "rxnormId": [
+        "2193"
+      ]
+    }
   },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Ceftriaxone&search=2": {
     "idGroup": {
@@ -1444,6 +2441,9 @@
       ]
     }
   },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Clozapine%201&search=2": {
+    "idGroup": {}
+  },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Clozapine%20total%20of%201&search=2": {
     "idGroup": {}
   },
@@ -1453,6 +2453,9 @@
         "2653"
       ]
     }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=corticosteroids&search=2": {
+    "idGroup": {}
   },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Coumadin&search=2": {
     "idGroup": {
@@ -1496,10 +2499,20 @@
       ]
     }
   },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Dextromethorphan%20per&search=2": {
+    "idGroup": {}
+  },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=digoxin%20OD&search=2": {
     "idGroup": {}
   },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=diltiazem&search=2": {
+    "idGroup": {
+      "rxnormId": [
+        "3443"
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Diltiazem&search=2": {
     "idGroup": {
       "rxnormId": [
         "3443"
@@ -1527,10 +2540,20 @@
       ]
     }
   },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=ecosprin%20OD&search=2": {
+    "idGroup": {}
+  },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=enalapril&search=2": {
     "idGroup": {
       "rxnormId": [
         "3827"
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Enoxaparin&search=2": {
+    "idGroup": {
+      "rxnormId": [
+        "67108"
       ]
     }
   },
@@ -1544,6 +2567,12 @@
       ]
     }
   },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Epinephrine%202%20doses&search=2": {
+    "idGroup": {}
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Fluoro-Deoxyglucose%20PET%2FCT&search=2": {
+    "idGroup": {}
+  },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=furosemida&search=2": {
     "idGroup": {
       "rxnormId": [
@@ -1551,7 +2580,24 @@
       ]
     }
   },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=furosemide&search=2": {
+    "idGroup": {
+      "rxnormId": [
+        "4603"
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Furosemide&search=2": {
+    "idGroup": {
+      "rxnormId": [
+        "4603"
+      ]
+    }
+  },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=furosemide%20once&search=2": {
+    "idGroup": {}
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=furosemide%20with%20spironolactone%20BD&search=2": {
     "idGroup": {}
   },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Genvoya&search=2": {
@@ -1568,6 +2614,13 @@
       ]
     }
   },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Hydrochlorothiazide&search=2": {
+    "idGroup": {
+      "rxnormId": [
+        "5487"
+      ]
+    }
+  },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Hydrochlorothiazide%20component%20of%20olmesartan-hydrochlorothiazide&search=2": {
     "idGroup": {}
   },
@@ -1577,6 +2630,15 @@
         "214182"
       ]
     }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Hydrocodone%2FAPAP%201%20tab&search=2": {
+    "idGroup": {}
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Hydrocodone%2FAPAP%20tab&search=2": {
+    "idGroup": {}
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Hydrocodone%2FAPAP%20tabs&search=2": {
+    "idGroup": {}
   },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=ibuprofen&search=2": {
     "idGroup": {
@@ -1650,6 +2712,13 @@
       ]
     }
   },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=magnesium%20sulfate&search=2": {
+    "idGroup": {
+      "rxnormId": [
+        "6585"
+      ]
+    }
+  },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Magnesium%20sulfate&search=2": {
     "idGroup": {
       "rxnormId": [
@@ -1708,6 +2777,9 @@
       ]
     }
   },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Metoclopramide%20x%202&search=2": {
+    "idGroup": {}
+  },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=metoprolol&search=2": {
     "idGroup": {
       "rxnormId": [
@@ -1716,6 +2788,13 @@
     }
   },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=metoprolol%20succinate&search=2": {
+    "idGroup": {
+      "rxnormId": [
+        "221124"
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Metoprolol%20succinate&search=2": {
     "idGroup": {
       "rxnormId": [
         "221124"
@@ -1752,12 +2831,22 @@
       ]
     }
   },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Olmesartan&search=2": {
+    "idGroup": {
+      "rxnormId": [
+        "321064"
+      ]
+    }
+  },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Ondansetron&search=2": {
     "idGroup": {
       "rxnormId": [
         "26225"
       ]
     }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Ondansetron%20x%201&search=2": {
+    "idGroup": {}
   },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Pembrolizumab&search=2": {
     "idGroup": {
@@ -1789,8 +2878,22 @@
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Phytonadione%20x%201&search=2": {
     "idGroup": {}
   },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=polyethylene%20glycol&search=2": {
+    "idGroup": {
+      "rxnormId": [
+        "8516"
+      ]
+    }
+  },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=polyethylene%20glycol%20administered%20via%20nasogastric%20tube%20and%20per%20rectum&search=2": {
     "idGroup": {}
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=potassium%20chloride&search=2": {
+    "idGroup": {
+      "rxnormId": [
+        "8591"
+      ]
+    }
   },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Potassium%20chloride&search=2": {
     "idGroup": {
@@ -1813,6 +2916,9 @@
       ]
     }
   },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Promethazine%20x%201&search=2": {
+    "idGroup": {}
+  },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=propranolol&search=2": {
     "idGroup": {
       "rxnormId": [
@@ -1827,6 +2933,12 @@
       ]
     }
   },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=prothrombin%20complex%20concentrate%20%2Fkg&search=2": {
+    "idGroup": {}
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Prothrombin%20complex%20concentrate%20%2Fkg&search=2": {
+    "idGroup": {}
+  },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=pseudoephedrine&search=2": {
     "idGroup": {
       "rxnormId": [
@@ -1840,6 +2952,9 @@
         "8896"
       ]
     }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Pseudoephedrine%20per&search=2": {
+    "idGroup": {}
   },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=ramipril%20HS&search=2": {
     "idGroup": {}
@@ -1923,6 +3038,12 @@
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Topricin%20cream%20containing%20belladonna&search=2": {
     "idGroup": {}
   },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Topricin%20cream%20ingredients%20revealed%20belladonna&search=2": {
+    "idGroup": {}
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=treatment%20doses%20of%20enoxaparin&search=2": {
+    "idGroup": {}
+  },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=two%20doses%20of%20intravenous%20neostigmine&search=2": {
     "idGroup": {}
   },
@@ -1939,12 +3060,32 @@
       ]
     }
   },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=vitamin-K&search=2": {
+    "idGroup": {
+      "rxnormId": [
+        "11258"
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Vitamin-K%20one%20dose&search=2": {
+    "idGroup": {}
+  },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=warfarin&search=2": {
     "idGroup": {
       "rxnormId": [
         "11289"
       ]
     }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Warfarin&search=2": {
+    "idGroup": {
+      "rxnormId": [
+        "11289"
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=warfarin%20alternating%20between%20to&search=2": {
+    "idGroup": {}
   },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Warfarin%20alternating%20between%20to&search=2": {
     "idGroup": {}
@@ -2085,6 +3226,38 @@
             {
               "rxcui": "11198",
               "name": "vinblastine",
+              "synonym": "",
+              "tty": "IN",
+              "language": "ENG",
+              "suppress": "N",
+              "umlscui": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui/11258/property.json?propName=RxNorm%20Name": {
+    "propConceptGroup": {
+      "propConcept": [
+        {
+          "propCategory": "NAMES",
+          "propName": "RxNorm Name",
+          "propValue": "vitamin K"
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui/11258/related.json?tty=IN": {
+    "relatedGroup": {
+      "rxcui": null,
+      "conceptGroup": [
+        {
+          "tty": "IN",
+          "conceptProperties": [
+            {
+              "rxcui": "11258",
+              "name": "vitamin K",
               "synonym": "",
               "tty": "IN",
               "language": "ENG",
@@ -2374,6 +3547,48 @@
       ]
     }
   },
+  "https://rxnav.nlm.nih.gov/REST/rxcui/1453443/related.json?tty=IN": {
+    "relatedGroup": {
+      "rxcui": null,
+      "conceptGroup": [
+        {
+          "tty": "IN"
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui/151317/property.json?propName=RxNorm%20Name": {
+    "propConceptGroup": {
+      "propConcept": [
+        {
+          "propCategory": "NAMES",
+          "propName": "RxNorm Name",
+          "propValue": "Aldactone"
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui/151317/related.json?tty=IN": {
+    "relatedGroup": {
+      "rxcui": null,
+      "conceptGroup": [
+        {
+          "tty": "IN",
+          "conceptProperties": [
+            {
+              "rxcui": "9997",
+              "name": "spironolactone",
+              "synonym": "",
+              "tty": "IN",
+              "language": "ENG",
+              "suppress": "N",
+              "umlscui": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
   "https://rxnav.nlm.nih.gov/REST/rxcui/154/property.json?propName=RxNorm%20Name": {
     "propConceptGroup": {
       "propConcept": [
@@ -2614,6 +3829,38 @@
             {
               "rxcui": "276237",
               "name": "emtricitabine",
+              "synonym": "",
+              "tty": "IN",
+              "language": "ENG",
+              "suppress": "N",
+              "umlscui": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui/1733674/property.json?propName=RxNorm%20Name": {
+    "propConceptGroup": {
+      "propConcept": [
+        {
+          "propCategory": "NAMES",
+          "propName": "RxNorm Name",
+          "propValue": "2-deoxyglucose"
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui/1733674/related.json?tty=IN": {
+    "relatedGroup": {
+      "rxcui": null,
+      "conceptGroup": [
+        {
+          "tty": "IN",
+          "conceptProperties": [
+            {
+              "rxcui": "1733674",
+              "name": "2-deoxyglucose",
               "synonym": "",
               "tty": "IN",
               "language": "ENG",
@@ -3239,6 +4486,38 @@
       ]
     }
   },
+  "https://rxnav.nlm.nih.gov/REST/rxcui/321064/property.json?propName=RxNorm%20Name": {
+    "propConceptGroup": {
+      "propConcept": [
+        {
+          "propCategory": "NAMES",
+          "propName": "RxNorm Name",
+          "propValue": "olmesartan"
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui/321064/related.json?tty=IN": {
+    "relatedGroup": {
+      "rxcui": null,
+      "conceptGroup": [
+        {
+          "tty": "IN",
+          "conceptProperties": [
+            {
+              "rxcui": "321064",
+              "name": "olmesartan",
+              "synonym": "",
+              "tty": "IN",
+              "language": "ENG",
+              "suppress": "N",
+              "umlscui": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
   "https://rxnav.nlm.nih.gov/REST/rxcui/3264/property.json?propName=RxNorm%20Name": {
     "propConceptGroup": {
       "propConcept": [
@@ -3331,6 +4610,16 @@
               "umlscui": ""
             }
           ]
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui/334428/related.json?tty=IN": {
+    "relatedGroup": {
+      "rxcui": null,
+      "conceptGroup": [
+        {
+          "tty": "IN"
         }
       ]
     }
@@ -3579,6 +4868,36 @@
       ]
     }
   },
+  "https://rxnav.nlm.nih.gov/REST/rxcui/370641/related.json?tty=IN": {
+    "relatedGroup": {
+      "rxcui": null,
+      "conceptGroup": [
+        {
+          "tty": "IN",
+          "conceptProperties": [
+            {
+              "rxcui": "161",
+              "name": "acetaminophen",
+              "synonym": "",
+              "tty": "IN",
+              "language": "ENG",
+              "suppress": "N",
+              "umlscui": ""
+            },
+            {
+              "rxcui": "5489",
+              "name": "hydrocodone",
+              "synonym": "",
+              "tty": "IN",
+              "language": "ENG",
+              "suppress": "N",
+              "umlscui": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
   "https://rxnav.nlm.nih.gov/REST/rxcui/3827/property.json?propName=RxNorm%20Name": {
     "propConceptGroup": {
       "propConcept": [
@@ -3600,6 +4919,36 @@
             {
               "rxcui": "3827",
               "name": "enalapril",
+              "synonym": "",
+              "tty": "IN",
+              "language": "ENG",
+              "suppress": "N",
+              "umlscui": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui/392462/related.json?tty=IN": {
+    "relatedGroup": {
+      "rxcui": null,
+      "conceptGroup": [
+        {
+          "tty": "IN",
+          "conceptProperties": [
+            {
+              "rxcui": "4603",
+              "name": "furosemide",
+              "synonym": "",
+              "tty": "IN",
+              "language": "ENG",
+              "suppress": "N",
+              "umlscui": ""
+            },
+            {
+              "rxcui": "9997",
+              "name": "spironolactone",
               "synonym": "",
               "tty": "IN",
               "language": "ENG",
@@ -3716,6 +5065,16 @@
       ]
     }
   },
+  "https://rxnav.nlm.nih.gov/REST/rxcui/446957/related.json?tty=IN": {
+    "relatedGroup": {
+      "rxcui": null,
+      "conceptGroup": [
+        {
+          "tty": "IN"
+        }
+      ]
+    }
+  },
   "https://rxnav.nlm.nih.gov/REST/rxcui/4603/property.json?propName=RxNorm%20Name": {
     "propConceptGroup": {
       "propConcept": [
@@ -3737,6 +5096,38 @@
             {
               "rxcui": "4603",
               "name": "furosemide",
+              "synonym": "",
+              "tty": "IN",
+              "language": "ENG",
+              "suppress": "N",
+              "umlscui": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui/5487/property.json?propName=RxNorm%20Name": {
+    "propConceptGroup": {
+      "propConcept": [
+        {
+          "propCategory": "NAMES",
+          "propName": "RxNorm Name",
+          "propValue": "hydrochlorothiazide"
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui/5487/related.json?tty=IN": {
+    "relatedGroup": {
+      "rxcui": null,
+      "conceptGroup": [
+        {
+          "tty": "IN",
+          "conceptProperties": [
+            {
+              "rxcui": "5487",
+              "name": "hydrochlorothiazide",
               "synonym": "",
               "tty": "IN",
               "language": "ENG",
@@ -3922,6 +5313,17 @@
               "umlscui": ""
             }
           ]
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui/67108/property.json?propName=RxNorm%20Name": {
+    "propConceptGroup": {
+      "propConcept": [
+        {
+          "propCategory": "NAMES",
+          "propName": "RxNorm Name",
+          "propValue": "enoxaparin"
         }
       ]
     }
@@ -4245,6 +5647,66 @@
       ]
     }
   },
+  "https://rxnav.nlm.nih.gov/REST/rxcui/746206/related.json?tty=IN": {
+    "relatedGroup": {
+      "rxcui": null,
+      "conceptGroup": [
+        {
+          "tty": "IN",
+          "conceptProperties": [
+            {
+              "rxcui": "3992",
+              "name": "epinephrine",
+              "synonym": "",
+              "tty": "IN",
+              "language": "ENG",
+              "suppress": "N",
+              "umlscui": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui/756496/related.json?tty=IN": {
+    "relatedGroup": {
+      "rxcui": null,
+      "conceptGroup": [
+        {
+          "tty": "IN",
+          "conceptProperties": [
+            {
+              "rxcui": "1767",
+              "name": "brompheniramine",
+              "synonym": "",
+              "tty": "IN",
+              "language": "ENG",
+              "suppress": "N",
+              "umlscui": ""
+            },
+            {
+              "rxcui": "3289",
+              "name": "dextromethorphan",
+              "synonym": "",
+              "tty": "IN",
+              "language": "ENG",
+              "suppress": "N",
+              "umlscui": ""
+            },
+            {
+              "rxcui": "8896",
+              "name": "pseudoephedrine",
+              "synonym": "",
+              "tty": "IN",
+              "language": "ENG",
+              "suppress": "N",
+              "umlscui": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
   "https://rxnav.nlm.nih.gov/REST/rxcui/817496/property.json?propName=RxNorm%20Name": {
     "propConceptGroup": {
       "propConcept": [
@@ -4346,6 +5808,17 @@
               "umlscui": ""
             }
           ]
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui/8516/property.json?propName=RxNorm%20Name": {
+    "propConceptGroup": {
+      "propConcept": [
+        {
+          "propCategory": "NAMES",
+          "propName": "RxNorm Name",
+          "propValue": "polyethylene glycols"
         }
       ]
     }
