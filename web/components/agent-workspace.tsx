@@ -20,6 +20,7 @@ import { SafeReviewLens, buildFallbackSpec } from "@/components/genui/review-len
 import { MultimodalComposer } from "@/components/multimodal-composer";
 import { PatientPacketEditor } from "@/components/patient-packet-editor";
 import { PublishedCaseGallery, type PublishedCase } from "@/components/published-case-gallery";
+import { ResearchQueue } from "@/components/research-queue";
 import { WorkspaceStageRail, type WorkspacePhase } from "@/components/workspace-stage-rail";
 import type { LensMode } from "@/lib/genui/spec";
 import { languageInstruction, type Locale, useI18n } from "@/lib/i18n";
@@ -881,6 +882,14 @@ export function AgentWorkspace({
                 ) : (
                   <div data-testid={phase === "complete" ? "verified-review" : "review-canvas"}>
                     <LiveReviewCanvas spec={(staticSpec ?? ui.spec) as Spec | null} streaming={ui.isStreaming || (phase === "reviewing" && offline)} />
+                    {phase === "complete" && report?.research_candidates?.length ? (
+                      <div className="mt-5">
+                        <ResearchQueue
+                          candidates={report.research_candidates}
+                          totalKnownUnknown={report.research_total_known_unknown}
+                        />
+                      </div>
+                    ) : null}
                     {phase === "reviewing" && error ? (
                       <button
                         type="button"

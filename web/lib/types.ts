@@ -67,6 +67,14 @@ export interface UnverifiedClaim {
   reason: string;
 }
 
+export interface ResearchCandidate {
+  tier: "known-unknown" | "unresolved-concern";
+  drugs: string[];
+  reason: string;
+  question: string;
+  source: string;
+}
+
 export interface SafetyReport {
   patient?: PatientContext;
   patient_summary: string;
@@ -74,6 +82,8 @@ export interface SafetyReport {
   questions_for_clinician: string[];
   evidence: EvidenceObject[];
   unverified_removed: UnverifiedClaim[];
+  research_candidates?: ResearchCandidate[];
+  research_total_known_unknown?: number;
   generated_at: string;
   pipeline?: {
     mode: "live" | "audited-replay";

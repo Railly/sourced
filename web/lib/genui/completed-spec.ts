@@ -1,6 +1,17 @@
 import type { Spec } from "@json-render/core";
 import type { SafetyReport } from "@/lib/types";
 
+function pipelineDetail(report: SafetyReport, locale: "en" | "es"): string {
+  const verified = report.findings.length;
+  const routed = report.research_candidates?.length ?? 0;
+  if (locale === "es") {
+    const base = `${verified} hallazgos verificados publicados`;
+    return routed > 0 ? `${base} · ${routed} enviados a investigación` : base;
+  }
+  const base = `${verified} verified findings published`;
+  return routed > 0 ? `${base} · ${routed} routed to research` : base;
+}
+
 /**
  * Rebuilds the exact json-render Spec that the live /api/review-ui stream
  * produces at completion, from an already-verified SafetyReport. Showcase
@@ -35,9 +46,7 @@ export function buildCompletedReviewSpec(report: SafetyReport, locale: "en" | "e
       props: {
         stage: "verify",
         status: "completed",
-        detail: locale === "es"
-          ? `${report.findings.length} hallazgos verificados publicados`
-          : `${report.findings.length} verified findings published`,
+        detail: pipelineDetail(report, locale),
       },
       children: [],
     },
