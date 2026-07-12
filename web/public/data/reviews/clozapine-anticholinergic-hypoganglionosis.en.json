@@ -3,55 +3,55 @@
   "locale": "en",
   "intake": {
     "case": {
-      "note": "45-year-old male with schizoaffective disorder and chronic constipation presented with acute encephalopathy while taking clozapine 1,200 mg daily plus multiple anticholinergic medications. Working diagnosis of anticholinergic toxicity; clozapine held. Developed ileus/acquired hypoganglionosis, treated with neostigmine and ultimately total colectomy. Clozapine later restarted at lower dose.",
+      "note": "45-year-old male with schizoaffective disorder and chronic constipation presenting with acute encephalopathy, working diagnosis of anticholinergic toxicity, later found to have acquired hypoganglionosis. Clozapine held on arrival; later slowly restarted after colectomy.",
       "medications": [
         {
           "raw": "Clozapine, total of 1,200 mg daily",
-          "episode": "Home medication taken during the episode; clozapine level elevated at presentation; held on admission",
-          "start": "started on the clozapine therapy years ago in his adulthood",
-          "end": "patient's home clozapine was held (on admission); later restarted at lower dose",
+          "episode": "Home medication taken during episode of acute encephalopathy/anticholinergic toxicity; held on arrival, later restarted",
+          "start": "started on clozapine therapy years ago in adulthood",
+          "end": "home clozapine was held on arrival",
           "source_span": "His home medications included a total of 1,200 mg of clozapine daily.",
           "status": "active"
         },
         {
-          "raw": "risperidone",
-          "episode": "Home medication also being taken during the episode",
+          "raw": "Risperidone",
+          "episode": "Home medication taken during episode",
           "source_span": "He was also taking risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine.",
           "status": "active"
         },
         {
-          "raw": "propranolol",
-          "episode": "Home medication also being taken during the episode",
+          "raw": "Propranolol",
+          "episode": "Home medication taken during episode",
           "source_span": "He was also taking risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine.",
           "status": "active"
         },
         {
-          "raw": "linaclotide",
-          "episode": "Home medication also being taken during the episode",
+          "raw": "Linaclotide",
+          "episode": "Home medication taken during episode",
           "source_span": "He was also taking risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine.",
           "status": "active"
         },
         {
-          "raw": "benztropine",
-          "episode": "Home medication also being taken during the episode",
+          "raw": "Benztropine",
+          "episode": "Home medication taken during episode",
           "source_span": "He was also taking risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine.",
           "status": "active"
         },
         {
-          "raw": "alprazolam",
-          "episode": "Home medication also being taken during the episode",
+          "raw": "Alprazolam",
+          "episode": "Home medication taken during episode",
           "source_span": "He was also taking risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine.",
           "status": "active"
         },
         {
-          "raw": "diphenhydramine",
-          "episode": "Home medication also being taken during the episode",
+          "raw": "Diphenhydramine",
+          "episode": "Home medication taken during episode",
           "source_span": "He was also taking risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine.",
           "status": "active"
         },
         {
-          "raw": "intravenous neostigmine, two doses",
-          "episode": "Treatment doses given in ICU for stool evacuation during the episode",
+          "raw": "Intravenous neostigmine, two doses",
+          "episode": "ICU treatment for stool evacuation during hospitalization",
           "source_span": "treated with two doses of intravenous neostigmine with significant evacuation of stool",
           "status": "one-time"
         }
@@ -62,54 +62,42 @@
         "chronic constipation",
         "acute encephalopathy",
         "anticholinergic toxicity (working diagnosis)",
-        "ileus",
-        "acquired hypoganglionosis",
-        "urinary retention"
+        "urinary retention",
+        "ileus (concerning for)",
+        "acquired hypoganglionosis"
       ],
       "labs": [
         {
-          "name": "clozapine level",
+          "name": "Clozapine level",
           "value": 735,
-          "unit": "mcg/L",
-          "refLow": 25,
-          "refHigh": 440
+          "unit": "mcg/L"
         },
         {
-          "name": "norclozapine level",
+          "name": "Norclozapine level",
           "value": 449,
           "unit": "mcg/L",
           "refLow": 25,
           "refHigh": 440
         },
         {
-          "name": "hemoglobin",
+          "name": "Hemoglobin",
           "value": 11.8,
           "unit": "g/dL"
         },
         {
-          "name": "temperature",
+          "name": "Temperature",
           "value": 38.5,
           "unit": "°Celsius"
         },
         {
-          "name": "repeat serum clozapine level",
+          "name": "Repeat serum clozapine level",
           "value": 433,
           "unit": "mcg/L"
         },
         {
-          "name": "repeat norclozapine level",
+          "name": "Repeat norclozapine level",
           "value": 121,
           "unit": "mcg/L"
-        },
-        {
-          "name": "proximal colon dilatation",
-          "value": 8.4,
-          "unit": "cm"
-        },
-        {
-          "name": "rectosigmoid colon dilatation",
-          "value": 7,
-          "unit": "cm"
         }
       ]
     },
@@ -117,10 +105,20 @@
       {
         "id": "amb-clozapine-duration",
         "field": "medications[0].start",
-        "question": "The source states clozapine was started 'years ago in his adulthood' but the exact duration and current dose duration is unclear ('It is unclear how long he was taking this dose'). Can you confirm the start timing?"
+        "question": "The source states clozapine was started 'years ago in adulthood' but the exact duration and how long the 1,200 mg daily dose was taken is unclear. Can you confirm the clozapine start timing relative to the episode?"
+      },
+      {
+        "id": "amb-benztropine-span",
+        "field": "medications[4].raw",
+        "question": "Benztropine appears in the home medication list but was not among the pre-identified lexicon strings; please confirm it should be included as an active home medication."
+      },
+      {
+        "id": "amb-anticholinergic-duplicates",
+        "field": "medications",
+        "question": "Multiple medications with anticholinergic effects (clozapine, benztropine, diphenhydramine) were concurrently active; please confirm whether this overlap should be flagged for the safety review."
       }
     ],
-    "sourceSummary": "Single published case report (PMC7333039) of a 45-year-old male on chronic high-dose clozapine and multiple anticholinergic home medications who developed acute encephalopathy and acquired hypoganglionosis/ileus. Clozapine held on admission, neostigmine given as treatment, and clozapine later restarted at a lower dose."
+    "sourceSummary": "Single published case report (PMC7333039) of a 45-year-old male on chronic high-dose clozapine and other home medications presenting with acute encephalopathy and later acquired hypoganglionosis. Home medications were active during the episode; clozapine was held then restarted. IV neostigmine was given as one-time ICU treatment. Labs preserved verbatim."
   },
   "report": {
     "patient": {
@@ -132,13 +130,13 @@
           "resolution": "approximate",
           "ingredients": [],
           "status": "active",
-          "episode": "Home medication taken during the episode; clozapine level elevated at presentation; held on admission",
-          "start": "started on the clozapine therapy years ago in his adulthood",
-          "end": "patient's home clozapine was held (on admission); later restarted at lower dose",
+          "episode": "Home medication taken during episode of acute encephalopathy/anticholinergic toxicity; held on arrival, later restarted",
+          "start": "started on clozapine therapy years ago in adulthood",
+          "end": "home clozapine was held on arrival",
           "source_span": "His home medications included a total of 1,200 mg of clozapine daily."
         },
         {
-          "raw": "risperidone",
+          "raw": "Risperidone",
           "rxcui": "35636",
           "name": "risperidone",
           "resolution": "exact",
@@ -149,11 +147,11 @@
             }
           ],
           "status": "active",
-          "episode": "Home medication also being taken during the episode",
+          "episode": "Home medication taken during episode",
           "source_span": "He was also taking risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine."
         },
         {
-          "raw": "propranolol",
+          "raw": "Propranolol",
           "rxcui": "8787",
           "name": "propranolol",
           "resolution": "exact",
@@ -164,11 +162,11 @@
             }
           ],
           "status": "active",
-          "episode": "Home medication also being taken during the episode",
+          "episode": "Home medication taken during episode",
           "source_span": "He was also taking risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine."
         },
         {
-          "raw": "linaclotide",
+          "raw": "Linaclotide",
           "rxcui": "1307404",
           "name": "linaclotide",
           "resolution": "exact",
@@ -179,11 +177,11 @@
             }
           ],
           "status": "active",
-          "episode": "Home medication also being taken during the episode",
+          "episode": "Home medication taken during episode",
           "source_span": "He was also taking risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine."
         },
         {
-          "raw": "benztropine",
+          "raw": "Benztropine",
           "rxcui": "1424",
           "name": "benztropine",
           "resolution": "exact",
@@ -194,11 +192,11 @@
             }
           ],
           "status": "active",
-          "episode": "Home medication also being taken during the episode",
+          "episode": "Home medication taken during episode",
           "source_span": "He was also taking risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine."
         },
         {
-          "raw": "alprazolam",
+          "raw": "Alprazolam",
           "rxcui": "596",
           "name": "alprazolam",
           "resolution": "exact",
@@ -209,11 +207,11 @@
             }
           ],
           "status": "active",
-          "episode": "Home medication also being taken during the episode",
+          "episode": "Home medication taken during episode",
           "source_span": "He was also taking risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine."
         },
         {
-          "raw": "diphenhydramine",
+          "raw": "Diphenhydramine",
           "rxcui": "3498",
           "name": "diphenhydramine",
           "resolution": "exact",
@@ -224,11 +222,11 @@
             }
           ],
           "status": "active",
-          "episode": "Home medication also being taken during the episode",
+          "episode": "Home medication taken during episode",
           "source_span": "He was also taking risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine."
         },
         {
-          "raw": "intravenous neostigmine, two doses",
+          "raw": "Intravenous neostigmine, two doses",
           "rxcui": "7315",
           "name": "neostigmine",
           "resolution": "approximate",
@@ -239,7 +237,7 @@
             }
           ],
           "status": "one-time",
-          "episode": "Treatment doses given in ICU for stool evacuation during the episode",
+          "episode": "ICU treatment for stool evacuation during hospitalization",
           "source_span": "treated with two doses of intravenous neostigmine with significant evacuation of stool"
         }
       ],
@@ -249,59 +247,47 @@
         "chronic constipation",
         "acute encephalopathy",
         "anticholinergic toxicity (working diagnosis)",
-        "ileus",
-        "acquired hypoganglionosis",
-        "urinary retention"
+        "urinary retention",
+        "ileus (concerning for)",
+        "acquired hypoganglionosis"
       ],
       "labs": [
         {
-          "name": "clozapine level",
+          "name": "Clozapine level",
           "value": 735,
-          "unit": "mcg/L",
-          "refLow": 25,
-          "refHigh": 440
+          "unit": "mcg/L"
         },
         {
-          "name": "norclozapine level",
+          "name": "Norclozapine level",
           "value": 449,
           "unit": "mcg/L",
           "refLow": 25,
           "refHigh": 440
         },
         {
-          "name": "hemoglobin",
+          "name": "Hemoglobin",
           "value": 11.8,
           "unit": "g/dL"
         },
         {
-          "name": "temperature",
+          "name": "Temperature",
           "value": 38.5,
           "unit": "°Celsius"
         },
         {
-          "name": "repeat serum clozapine level",
+          "name": "Repeat serum clozapine level",
           "value": 433,
           "unit": "mcg/L"
         },
         {
-          "name": "repeat norclozapine level",
+          "name": "Repeat norclozapine level",
           "value": 121,
           "unit": "mcg/L"
-        },
-        {
-          "name": "proximal colon dilatation",
-          "value": 8.4,
-          "unit": "cm"
-        },
-        {
-          "name": "rectosigmoid colon dilatation",
-          "value": 7,
-          "unit": "cm"
         }
       ],
-      "note": "45-year-old male with schizoaffective disorder and chronic constipation presented with acute encephalopathy while taking clozapine 1,200 mg daily plus multiple anticholinergic medications. Working diagnosis of anticholinergic toxicity; clozapine held. Developed ileus/acquired hypoganglionosis, treated with neostigmine and ultimately total colectomy. Clozapine later restarted at lower dose."
+      "note": "45-year-old male with schizoaffective disorder and chronic constipation presenting with acute encephalopathy, working diagnosis of anticholinergic toxicity, later found to have acquired hypoganglionosis. Clozapine held on arrival; later slowly restarted after colectomy."
     },
-    "patient_summary": "45-year-old male with schizoaffective disorder and chronic constipation who presented with acute encephalopathy while taking clozapine 1,200 mg daily plus risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine. Working diagnosis was anticholinergic toxicity; clozapine was held on admission and later restarted at a lower dose. He developed ileus and acquired hypoganglionosis, was treated with two doses of intravenous neostigmine, and ultimately underwent total colectomy. Clozapine level was 735 mcg/L (reference 25–440) and norclozapine 449 mcg/L (reference 25–440) at presentation, with a repeat serum clozapine level of 433 mcg/L and repeat norclozapine of 121 mcg/L.",
+    "patient_summary": "45-year-old male with schizoaffective disorder and chronic constipation who presented with acute encephalopathy, a working diagnosis of anticholinergic toxicity, and was later found to have acquired hypoganglionosis. Home medications during the episode included clozapine, risperidone, propranolol, linaclotide, benztropine, alprazolam, and diphenhydramine. Clozapine was held on arrival and later slowly restarted after colectomy. Reported labs include a clozapine level of 735 mcg/L, norclozapine level of 449 mcg/L (reference 25 to 440 mcg/L), hemoglobin 11.8 g/dL, temperature 38.5 °Celsius, a repeat serum clozapine level of 433 mcg/L, and a repeat norclozapine level of 121 mcg/L. Findings below are limited to the supplied interaction and label evidence.",
     "findings": [
       {
         "status": "flagged",
@@ -347,7 +333,9 @@
       }
     ],
     "questions_for_clinician": [
-      "Should the concomitant use of alprazolam and diphenhydramine be reviewed, given the alprazolam label advice to limit dosage and duration during concomitant use with CNS depressants?"
+      "The record lists clozapine and risperidone together as home antipsychotics during the episode; are these separate active orders or a single intended order, and should they be reconciled?",
+      "Diphenhydramine appears in three separate flagged Moderate interactions with risperidone, propranolol, and alprazolam; do you want to review whether diphenhydramine should be continued given these flags?",
+      "Given the working diagnosis of anticholinergic toxicity, do you want to review the concurrent use of the anticholinergic agents benztropine and diphenhydramine listed among the home medications?"
     ],
     "evidence": [
       {
@@ -490,7 +478,7 @@
           "Diphenhydramine"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_D.csv row: DDInter1605 (Risperidone) x DDInter569 (Diphenhydramine)",
-        "retrieved_at": "2026-07-11T22:23:33.216Z"
+        "retrieved_at": "2026-07-12T07:00:16.815Z"
       },
       {
         "id": "ddinter:DDInter1539:DDInter569",
@@ -506,7 +494,7 @@
           "Diphenhydramine"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_D.csv row: DDInter1539 (Propranolol) x DDInter569 (Diphenhydramine)",
-        "retrieved_at": "2026-07-11T22:23:33.216Z"
+        "retrieved_at": "2026-07-12T07:00:16.815Z"
       },
       {
         "id": "ddinter:DDInter54:DDInter569",
@@ -522,16 +510,26 @@
           "Diphenhydramine"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_D.csv row: DDInter54 (Alprazolam) x DDInter569 (Diphenhydramine)",
-        "retrieved_at": "2026-07-11T22:23:33.216Z"
+        "retrieved_at": "2026-07-12T07:00:16.815Z"
       }
     ],
     "unverified_removed": [
       {
-        "claim_text": "Are the risperidone, propranolol, alprazolam, and diphenhydramine home medications intended to continue together, given the Moderate interaction level flagged for each with diphenhydramine?",
-        "reason": "Narrative reviewer: A Moderate interaction with diphenhydramine is flagged for alprazolam, risperidone, and propranolol, but no interaction between propranolol and alprazolam or other combinations is asserted; however, the specific claim that each of risperidone, propranolol, and alprazolam has a Moderate interaction with diphenhydramine is supported — the unsupported element is framing all four as intended to continue together with mutual Moderate flags, whereas diphenhydramine's own interaction level to itself is not applicable"
+        "claim_text": "Benztropine label lists antipsychotic drugs as a drug interaction",
+        "reason": "Reviewer: claim not supported by cited sources: The finding names risperidone as the interacting antipsychotic, but the cited source only lists 'phenothiazines or haloperidol' as examples of antipsychotic drugs; risperidone is not named or entailed by the quoted text.; The finding acknowledges the label names antipsychotic drugs generally rather than risperidone specifically, yet still asserts a benztropine–risperidone interaction; the cited source does not support that risperidone specifically is an interacting drug."
       }
     ],
-    "generated_at": "2026-07-11T22:23:33.216Z",
+    "generated_at": "2026-07-12T07:00:16.815Z",
+    "research_candidates": [
+      {
+        "tier": "unresolved-concern",
+        "drugs": [],
+        "reason": "Reviewer: claim not supported by cited sources: The finding names risperidone as the interacting antipsychotic, but the cited source only lists 'phenothiazines or haloperidol' as examples of antipsychotic drugs; risperidone is not named or entailed by the quoted text.; The finding acknowledges the label names antipsychotic drugs generally rather than risperidone specifically, yet still asserts a benztropine–risperidone interaction; the cited source does not support that risperidone specifically is an interacting drug.",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Benztropine label lists antipsychotic drugs as a drug interaction\"",
+        "source": "adversarial verifier"
+      }
+    ],
+    "research_total_known_unknown": 0,
     "pipeline": {
       "mode": "audited-replay",
       "model": "Claude Opus 4.8",
@@ -547,17 +545,7 @@
         "unique_drugs": 1939,
         "source_files": 8
       }
-    },
-    "research_candidates": [
-      {
-        "tier": "unresolved-concern",
-        "drugs": [],
-        "reason": "Narrative reviewer: A Moderate interaction with diphenhydramine is flagged for alprazolam, risperidone, and propranolol, but no interaction between propranolol and alprazolam or other combinations is asserted; however, the specific claim that each of risperidone, propranolol, and alprazolam has a Moderate interaction with diphenhydramine is supported — the unsupported element is framing all four as intended to continue together with mutual Moderate flags, whereas diphenhydramine's own interaction level to itself is not applicable",
-        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Are the risperidone, propranolol, alprazolam, and diphenhydramine home medications intended to continue together, given the Moderate interaction level flagged for each with diphenhydramine?\"",
-        "source": "adversarial verifier"
-      }
-    ],
-    "research_total_known_unknown": 0
+    }
   },
-  "generatedAt": "2026-07-11T22:23:33.216Z"
+  "generatedAt": "2026-07-12T07:00:16.815Z"
 }

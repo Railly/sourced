@@ -3,26 +3,26 @@
   "locale": "en",
   "intake": {
     "case": {
-      "note": "Case report PMC6390564 / PMID 30808332. 54-year-old man with HIV who developed severe rhabdomyolysis-induced anuric acute kidney injury (AKI) requiring renal replacement therapy following introduction of Genvoya concomitantly with simvastatin, in the context of recently diagnosed hepatitis C and hepatitis A. Haemodialysis continued over 5 weeks with progressive improvement. Five months later a new antiretroviral regimen was started and well tolerated.",
+      "note": "Case report PMC6390564 / PMID 30808332. 54-year-old man with HIV who developed severe rhabdomyolysis-induced anuric acute kidney injury (AKI) requiring renal replacement therapy following introduction of Genvoya concomitantly with simvastatin, in the context of recently diagnosed hepatitis C and hepatitis A. Haemodialysis continued over 5 weeks followed by progressive improvement. Five months later, a new antiretroviral regimen was started and well tolerated.",
       "medications": [
         {
           "raw": "Genvoya",
           "episode": "rhabdomyolysis-induced acute kidney injury following concomitant use of Genvoya and simvastatin",
-          "start": "following introduction of Genvoya concomitantly with simvastatin",
+          "start": "introduction of Genvoya concomitantly with simvastatin",
           "source_span": "following introduction of Genvoya® concomitantly with simvastatin",
           "status": "active"
         },
         {
           "raw": "simvastatin",
           "episode": "rhabdomyolysis-induced acute kidney injury following concomitant use of Genvoya and simvastatin",
-          "start": "introduction of Genvoya® concomitantly with simvastatin",
-          "source_span": "concomitant use of Genvoya and simvastatin",
+          "start": "introduction of Genvoya concomitantly with simvastatin",
+          "source_span": "following introduction of Genvoya® concomitantly with simvastatin",
           "status": "active"
         },
         {
           "raw": "new antiretroviral regimen",
-          "episode": "started five months later, after the AKI episode",
-          "start": "Five months later",
+          "episode": "five months later, after the AKI episode",
+          "start": "Five months later, a new antiretroviral regimen was started",
           "source_span": "Five months later, a new antiretroviral regimen was started and has been well tolerated",
           "status": "historical"
         }
@@ -38,17 +38,17 @@
     },
     "ambiguities": [
       {
-        "id": "amb-genvoya-identity",
-        "field": "medications[0].raw",
-        "question": "Genvoya is a combination antiretroviral product (elvitegravir/cobicistat/emtricitabine/tenofovir alafenamide). The source does not list individual ingredients. Should the component ingredients be recorded separately, or retained as the brand name only?"
+        "id": "amb-new-arv-identity",
+        "field": "medications[].raw",
+        "question": "The source refers to a 'new antiretroviral regimen' started five months later without naming the specific agents. Can you confirm the medication identity/components of this regimen?"
       },
       {
-        "id": "amb-new-regimen-identity",
-        "field": "medications[2].raw",
-        "question": "The source states a 'new antiretroviral regimen' was started five months later but does not name the specific agents. Can the clinician confirm the specific medications in that later regimen?"
+        "id": "amb-new-arv-status",
+        "field": "medications[].status",
+        "question": "The 'new antiretroviral regimen' was started five months after the AKI episode (post-episode). It is classified as historical relative to the target episode; please confirm this is outside the review scope for the rhabdomyolysis/AKI event."
       }
     ],
-    "sourceSummary": "Single published case report (PMC6390564) of a 54-year-old HIV patient who developed rhabdomyolysis-induced acute kidney injury after concomitant use of Genvoya and simvastatin. Both named agents are treated as active during the episode per the title framing. A later new antiretroviral regimen is recorded as historical relative to the AKI episode. No doses, labs, or reference ranges were stated in the source."
+    "sourceSummary": "Single published case report (PMC6390564) of a 54-year-old man with HIV who developed rhabdomyolysis-induced acute kidney injury after concomitant Genvoya and simvastatin. Both named therapies are marked active for the episode. A later unnamed antiretroviral regimen started five months after is marked historical relative to the episode."
   },
   "report": {
     "patient": {
@@ -78,7 +78,7 @@
           ],
           "status": "active",
           "episode": "rhabdomyolysis-induced acute kidney injury following concomitant use of Genvoya and simvastatin",
-          "start": "following introduction of Genvoya concomitantly with simvastatin",
+          "start": "introduction of Genvoya concomitantly with simvastatin",
           "source_span": "following introduction of Genvoya® concomitantly with simvastatin"
         },
         {
@@ -94,23 +94,17 @@
           ],
           "status": "active",
           "episode": "rhabdomyolysis-induced acute kidney injury following concomitant use of Genvoya and simvastatin",
-          "start": "introduction of Genvoya® concomitantly with simvastatin",
-          "source_span": "concomitant use of Genvoya and simvastatin"
+          "start": "introduction of Genvoya concomitantly with simvastatin",
+          "source_span": "following introduction of Genvoya® concomitantly with simvastatin"
         },
         {
           "raw": "new antiretroviral regimen",
-          "rxcui": "1174229",
-          "name": "Anacin Aspirin Regimen Pill",
-          "resolution": "approximate",
-          "ingredients": [
-            {
-              "rxcui": "1191",
-              "name": "aspirin"
-            }
-          ],
+          "name": "new antiretroviral regimen",
+          "rxcui": null,
+          "resolution": "unresolved",
           "status": "historical",
-          "episode": "started five months later, after the AKI episode",
-          "start": "Five months later",
+          "episode": "five months later, after the AKI episode",
+          "start": "Five months later, a new antiretroviral regimen was started",
           "source_span": "Five months later, a new antiretroviral regimen was started and has been well tolerated"
         }
       ],
@@ -122,9 +116,9 @@
         "hepatitis A"
       ],
       "labs": [],
-      "note": "Case report PMC6390564 / PMID 30808332. 54-year-old man with HIV who developed severe rhabdomyolysis-induced anuric acute kidney injury (AKI) requiring renal replacement therapy following introduction of Genvoya concomitantly with simvastatin, in the context of recently diagnosed hepatitis C and hepatitis A. Haemodialysis continued over 5 weeks with progressive improvement. Five months later a new antiretroviral regimen was started and well tolerated."
+      "note": "Case report PMC6390564 / PMID 30808332. 54-year-old man with HIV who developed severe rhabdomyolysis-induced anuric acute kidney injury (AKI) requiring renal replacement therapy following introduction of Genvoya concomitantly with simvastatin, in the context of recently diagnosed hepatitis C and hepatitis A. Haemodialysis continued over 5 weeks followed by progressive improvement. Five months later, a new antiretroviral regimen was started and well tolerated."
     },
-    "patient_summary": "54-year-old man with HIV taking Genvoya (cobicistat, elvitegravir, tenofovir alafenamide, emtricitabine) together with simvastatin, who developed severe rhabdomyolysis-induced anuric acute kidney injury requiring renal replacement therapy after the two were introduced concomitantly, in the setting of recently diagnosed hepatitis C and hepatitis A. Haemodialysis continued over 5 weeks with improvement, and a new antiretroviral regimen was later started and well tolerated.",
+    "patient_summary": "54-year-old man with HIV who developed severe rhabdomyolysis-induced anuric acute kidney injury requiring renal replacement therapy after Genvoya (containing cobicistat, elvitegravir, tenofovir alafenamide, and emtricitabine) was introduced concomitantly with simvastatin, in the setting of recently diagnosed hepatitis C and hepatitis A. Haemodialysis continued over 5 weeks with progressive improvement, and a new antiretroviral regimen was later started and well tolerated.",
     "findings": [
       {
         "status": "red-flag",
@@ -142,8 +136,7 @@
       }
     ],
     "questions_for_clinician": [
-      "Was simvastatin intended to be co-prescribed with the cobicistat-containing Genvoya, or should the statin have been suspended or substituted while cobicistat was in use?",
-      "Is the historical entry recorded as a new antiretroviral regimen a separate confirmed order distinct from the Genvoya entry, or was it captured in error during reconciliation?"
+      "Are Genvoya and simvastatin currently intended to be taken together, or has one been stopped, given the reported concomitant use and the Major-severity simvastatin + cobicistat interaction?"
     ],
     "evidence": [
       {
@@ -272,20 +265,59 @@
           "Cobicistat"
         ],
         "retrieval_query": "local DDInter ddinter_downloads_code_A.csv row: DDInter1675 (Simvastatin) x DDInter424 (Cobicistat)",
-        "retrieved_at": "2026-07-11T22:21:44.054Z"
+        "retrieved_at": "2026-07-12T06:58:45.710Z"
       }
     ],
     "unverified_removed": [
       {
-        "claim_text": "Discontinuing emtricitabine- and tenofovir-containing therapy may cause severe acute exacerbation of hepatitis B",
-        "reason": "Reviewer: claim not supported by cited sources: The finding's severity is labeled moderate, but the quoted sources describe severe acute exacerbations of hepatitis B, which entails major severity, not moderate.; The why_this_patient reasoning cites documented hepatitis coinfection as relevant, but the patient context lists hepatitis C and hepatitis A only, not hepatitis B; the boxed warnings apply specifically to HBV-infected individuals, so the risk is not supported for this patient.; The elvitegravir source attributes the hepatitis B exacerbation risk to discontinuation of EMTRIVA (emtricitabine) or VIREAD (tenofovir) components; it does not establish elvitegravir itself as a cause of the exacerbation."
+        "claim_text": "Cobicistat is a CYP3A inhibitor that can increase concentrations of co-administered CYP3A substrates",
+        "reason": "Evidence label:1306284:interactions exposes supporting text that is not present in its quoted source field."
       },
       {
-        "claim_text": "Does this patient have documented hepatitis B coinfection status, and is hepatic function being monitored around any change or discontinuation of the emtricitabine- and tenofovir-containing regimen?",
-        "reason": "Narrative reviewer: The premise that hepatitis B coinfection status is relevant to this patient is not established; the patient context documents HIV, rhabdomyolysis-induced AKI, hepatitis C, and hepatitis A, but no mention of hepatitis B."
+        "claim_text": "Boxed warning: severe acute exacerbation of hepatitis B can occur after discontinuing emtricitabine or tenofovir",
+        "reason": "Evidence label:1306286:boxed is anchored to elvitegravir, outside finding.drugs."
+      },
+      {
+        "claim_text": "Does the patient's hepatitis B coinfection status warrant the close hepatic monitoring described in the boxed warnings if emtricitabine or tenofovir alafenamide are discontinued?",
+        "reason": "Narrative reviewer: The patient has hepatitis B coinfection - the context lists HIV, hepatitis C, and hepatitis A, but not hepatitis B (HBV)."
+      },
+      {
+        "claim_text": "Can you confirm the composition of the new antiretroviral regimen started five months later so its interaction profile can be screened separately?",
+        "reason": "Narrative reviewer: question not fully supported"
       }
     ],
-    "generated_at": "2026-07-11T22:21:44.054Z",
+    "generated_at": "2026-07-12T06:58:45.710Z",
+    "research_candidates": [
+      {
+        "tier": "unresolved-concern",
+        "drugs": [],
+        "reason": "Evidence label:1306284:interactions exposes supporting text that is not present in its quoted source field.",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Cobicistat is a CYP3A inhibitor that can increase concentrations of co-administered CYP3A substrates\"",
+        "source": "adversarial verifier"
+      },
+      {
+        "tier": "unresolved-concern",
+        "drugs": [],
+        "reason": "Evidence label:1306286:boxed is anchored to elvitegravir, outside finding.drugs.",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Boxed warning: severe acute exacerbation of hepatitis B can occur after discontinuing emtricitabine or tenofovir\"",
+        "source": "adversarial verifier"
+      },
+      {
+        "tier": "unresolved-concern",
+        "drugs": [],
+        "reason": "Narrative reviewer: The patient has hepatitis B coinfection - the context lists HIV, hepatitis C, and hepatitis A, but not hepatitis B (HBV).",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Does the patient's hepatitis B coinfection status warrant the close hepatic monitoring described in the boxed warnings if emtricitabine or tenofovir alafenamide are discontinued?\"",
+        "source": "adversarial verifier"
+      },
+      {
+        "tier": "unresolved-concern",
+        "drugs": [],
+        "reason": "Narrative reviewer: question not fully supported",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Can you confirm the composition of the new antiretroviral regimen started five months later so its interaction profile can be screened separately?\"",
+        "source": "adversarial verifier"
+      }
+    ],
+    "research_total_known_unknown": 0,
     "pipeline": {
       "mode": "audited-replay",
       "model": "Claude Opus 4.8",
@@ -301,24 +333,7 @@
         "unique_drugs": 1939,
         "source_files": 8
       }
-    },
-    "research_candidates": [
-      {
-        "tier": "unresolved-concern",
-        "drugs": [],
-        "reason": "Reviewer: claim not supported by cited sources: The finding's severity is labeled moderate, but the quoted sources describe severe acute exacerbations of hepatitis B, which entails major severity, not moderate.; The why_this_patient reasoning cites documented hepatitis coinfection as relevant, but the patient context lists hepatitis C and hepatitis A only, not hepatitis B; the boxed warnings apply specifically to HBV-infected individuals, so the risk is not supported for this patient.; The elvitegravir source attributes the hepatitis B exacerbation risk to discontinuation of EMTRIVA (emtricitabine) or VIREAD (tenofovir) components; it does not establish elvitegravir itself as a cause of the exacerbation.",
-        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Discontinuing emtricitabine- and tenofovir-containing therapy may cause severe acute exacerbation of hepatitis B\"",
-        "source": "adversarial verifier"
-      },
-      {
-        "tier": "unresolved-concern",
-        "drugs": [],
-        "reason": "Narrative reviewer: The premise that hepatitis B coinfection status is relevant to this patient is not established; the patient context documents HIV, rhabdomyolysis-induced AKI, hepatitis C, and hepatitis A, but no mention of hepatitis B.",
-        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Does this patient have documented hepatitis B coinfection status, and is hepatic function being monitored around any change or discontinuation of the emtricitabine- and tenofovir-containing regimen?\"",
-        "source": "adversarial verifier"
-      }
-    ],
-    "research_total_known_unknown": 0
+    }
   },
-  "generatedAt": "2026-07-11T22:21:44.054Z"
+  "generatedAt": "2026-07-12T06:58:45.710Z"
 }

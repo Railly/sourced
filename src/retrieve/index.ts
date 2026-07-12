@@ -17,7 +17,7 @@ export type { DdinterCoverage, DdinterDataset, DdinterRow } from "./ddinter.ts";
 
 const OPENFDA_LABEL = "https://api.fda.gov/drug/label.json";
 const OPENFDA_EVENT = "https://api.fda.gov/drug/event.json";
-interface OpenFdaLabel {
+export interface OpenFdaLabel {
   set_id?: string;
   effective_time?: string;
   version?: string;
@@ -25,6 +25,9 @@ interface OpenFdaLabel {
   drug_interactions?: string[];
   drug_and_or_laboratory_test_interactions?: string[];
   boxed_warning?: string[];
+  clinical_pharmacology?: string[];
+  warnings?: string[];
+  warnings_and_cautions?: string[];
 }
 
 function labelNameScore(label: OpenFdaLabel, medicationName: string): number {
@@ -112,15 +115,22 @@ function sourceVersion(label: OpenFdaLabel): string | undefined {
 }
 
 /** openFDA drug_interactions section (PLR §7) for one drug. Verbatim, citable. */
-async function labelInteractions(
-  med: Medication,
-  relatedTerms: string[],
-  now: string,
-): Promise<EvidenceObject[]> {
+async function fetchLabel(med: Medication, now: string): Promise<{ label: OpenFdaLabel; query: string; retrievedAt: string } | null> {
   const query = `${OPENFDA_LABEL}?search=openfda.generic_name:"${encodeURIComponent(med.name)}"&limit=20`;
   const response = await getSourceJson(query, now);
-  const result = selectBestLabel(response?.data?.results, med.name);
-  if (!result) return [];
+  const label = selectBestLabel(response?.data?.results, med.name);
+  if (!label) return null;
+  return { label, query, retrievedAt: response?.retrievedAt ?? now };
+}
+
+function labelInteractions(
+  med: Medication,
+  fetched: { label: OpenFdaLabel; query: string; retrievedAt: string },
+  relatedTerms: string[],
+  now: string,
+): EvidenceObject[] {
+  const { label: result, query, retrievedAt } = fetched;
+  const response = { retrievedAt };
 
   const setId: string = result.set_id ?? "unknown";
   const splUrl = `https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=${setId}`;
@@ -244,6 +254,7 @@ async function faersSignal(
 export interface RetrievalResult {
   evidence: EvidenceObject[];
   ddinter: DdinterDataset;
+  labels: Array<{ med: Medication; label: OpenFdaLabel }>;
 }
 
 export function selectActiveMedicationsForRetrieval(patient: PatientContext): Medication[] {
@@ -295,12 +306,17 @@ export async function retrieve(
   const ddinter = await loadDdinter(ddinterCsvPath);
   const evidence: EvidenceObject[] = [];
 
-  // Per-drug: FDA label interactions + boxed warnings.
+  // Per-drug: FDA label interactions + boxed warnings; collect labels for
+  // pharmacology cross-referencing.
+  const labelled: Array<{ med: Medication; label: OpenFdaLabel }> = [];
   for (const med of labelTargets) {
+    const fetched = await fetchLabel(med, now);
+    if (!fetched) continue;
+    labelled.push({ med, label: fetched.label });
     const relatedTerms = labelTargets
       .filter((candidate) => candidate.rxcui !== med.rxcui || candidate.name !== med.name)
       .flatMap((candidate) => medicationComponents(candidate));
-    evidence.push(...(await labelInteractions(med, relatedTerms, now)));
+    evidence.push(...labelInteractions(med, fetched, relatedTerms, now));
   }
 
   // Per-pair: DDInter severity.
@@ -316,5 +332,5 @@ export async function retrieve(
     if (sig) evidence.push(sig);
   }
 
-  return { evidence: [...new Map(evidence.map((item) => [item.id, item])).values()], ddinter };
+  return { evidence: [...new Map(evidence.map((item) => [item.id, item])).values()], ddinter, labels: labelled };
 }

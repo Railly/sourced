@@ -535,6 +535,67 @@
       ]
     }
   },
+  "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=Intravenous%20neostigmine%20two%20doses&maxEntries=1": {
+    "approximateGroup": {
+      "inputTerm": null,
+      "candidate": [
+        {
+          "rxcui": "7315",
+          "rxaui": "10327224",
+          "score": "12.813285827636719",
+          "rank": "1",
+          "source": "GS"
+        },
+        {
+          "rxcui": "7315",
+          "rxaui": "12251049",
+          "score": "12.813285827636719",
+          "rank": "1",
+          "name": "neostigmine",
+          "source": "RXNORM"
+        },
+        {
+          "rxcui": "7315",
+          "rxaui": "2072514",
+          "score": "12.813285827636719",
+          "rank": "1",
+          "name": "NEOSTIGMINE",
+          "source": "VANDF"
+        },
+        {
+          "rxcui": "7315",
+          "rxaui": "3640304",
+          "score": "12.813285827636719",
+          "rank": "1",
+          "source": "NDDF"
+        },
+        {
+          "rxcui": "7315",
+          "rxaui": "5481362",
+          "score": "12.813285827636719",
+          "rank": "1",
+          "name": "neostigmine",
+          "source": "ATC"
+        },
+        {
+          "rxcui": "7315",
+          "rxaui": "5481363",
+          "score": "12.813285827636719",
+          "rank": "1",
+          "name": "neostigmine",
+          "source": "ATC"
+        },
+        {
+          "rxcui": "7315",
+          "rxaui": "8648202",
+          "score": "12.813285827636719",
+          "rank": "1",
+          "name": "Neostigmine",
+          "source": "DRUGBANK"
+        }
+      ]
+    }
+  },
   "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=new%20antiretroviral%20regimen&maxEntries=1": {
     "approximateGroup": {
       "inputTerm": null,
@@ -701,6 +762,80 @@
           "score": "9.864218759536742",
           "rank": "1",
           "source": "MMSL"
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=Phytonadione%20x%201&maxEntries=1": {
+    "approximateGroup": {
+      "inputTerm": null,
+      "candidate": [
+        {
+          "rxcui": "2477558",
+          "rxaui": "12533862",
+          "score": "8.211373350000382",
+          "rank": "1",
+          "source": "MMSL"
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=polyethylene%20glycol%20administered%20via%20nasogastric%20tube%20and%20per%20rectum&maxEntries=1": {
+    "approximateGroup": {
+      "inputTerm": null,
+      "candidate": [
+        {
+          "rxcui": "8516",
+          "rxaui": "10284239",
+          "score": "14.816937446594238",
+          "rank": "1",
+          "name": "Polyethylene Glycol",
+          "source": "USP"
+        },
+        {
+          "rxcui": "8516",
+          "rxaui": "10323945",
+          "score": "14.816937446594238",
+          "rank": "1",
+          "source": "GS"
+        },
+        {
+          "rxcui": "8516",
+          "rxaui": "12253941",
+          "score": "14.816937446594238",
+          "rank": "1",
+          "name": "polyethylene glycols",
+          "source": "RXNORM"
+        },
+        {
+          "rxcui": "8516",
+          "rxaui": "2073035",
+          "score": "14.816937446594238",
+          "rank": "1",
+          "name": "POLYETHYLENE GLYCOL",
+          "source": "VANDF"
+        },
+        {
+          "rxcui": "8516",
+          "rxaui": "4229028",
+          "score": "14.816937446594238",
+          "rank": "1",
+          "source": "NDDF"
+        },
+        {
+          "rxcui": "8516",
+          "rxaui": "6411206",
+          "score": "14.816937446594238",
+          "rank": "1",
+          "source": "NDDF"
+        },
+        {
+          "rxcui": "8516",
+          "rxaui": "8294466",
+          "score": "14.816937446594238",
+          "rank": "1",
+          "name": "Polyethylene glycol",
+          "source": "DRUGBANK"
         }
       ]
     }
@@ -885,6 +1020,67 @@
       ]
     }
   },
+  "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=two%20doses%20of%20intravenous%20neostigmine&maxEntries=1": {
+    "approximateGroup": {
+      "inputTerm": null,
+      "candidate": [
+        {
+          "rxcui": "7315",
+          "rxaui": "10327224",
+          "score": "12.813285827636719",
+          "rank": "1",
+          "source": "GS"
+        },
+        {
+          "rxcui": "7315",
+          "rxaui": "12251049",
+          "score": "12.813285827636719",
+          "rank": "1",
+          "name": "neostigmine",
+          "source": "RXNORM"
+        },
+        {
+          "rxcui": "7315",
+          "rxaui": "2072514",
+          "score": "12.813285827636719",
+          "rank": "1",
+          "name": "NEOSTIGMINE",
+          "source": "VANDF"
+        },
+        {
+          "rxcui": "7315",
+          "rxaui": "3640304",
+          "score": "12.813285827636719",
+          "rank": "1",
+          "source": "NDDF"
+        },
+        {
+          "rxcui": "7315",
+          "rxaui": "5481362",
+          "score": "12.813285827636719",
+          "rank": "1",
+          "name": "neostigmine",
+          "source": "ATC"
+        },
+        {
+          "rxcui": "7315",
+          "rxaui": "5481363",
+          "score": "12.813285827636719",
+          "rank": "1",
+          "name": "neostigmine",
+          "source": "ATC"
+        },
+        {
+          "rxcui": "7315",
+          "rxaui": "8648202",
+          "score": "12.813285827636719",
+          "rank": "1",
+          "name": "Neostigmine",
+          "source": "DRUGBANK"
+        }
+      ]
+    }
+  },
   "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=Vancomycin%201%20gm&maxEntries=1": {
     "approximateGroup": {
       "inputTerm": null,
@@ -927,6 +1123,59 @@
           "rank": "1",
           "name": "vancomycin 1 GM Injection",
           "source": "RXNORM"
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=Warfarin%20alternating%20between%20to&maxEntries=1": {
+    "approximateGroup": {
+      "inputTerm": null,
+      "candidate": [
+        {
+          "rxcui": "11289",
+          "rxaui": "10327847",
+          "score": "12.007678985595703",
+          "rank": "1",
+          "source": "GS"
+        },
+        {
+          "rxcui": "11289",
+          "rxaui": "12253984",
+          "score": "12.007678985595703",
+          "rank": "1",
+          "name": "warfarin",
+          "source": "RXNORM"
+        },
+        {
+          "rxcui": "11289",
+          "rxaui": "2075376",
+          "score": "12.007678985595703",
+          "rank": "1",
+          "name": "WARFARIN",
+          "source": "VANDF"
+        },
+        {
+          "rxcui": "11289",
+          "rxaui": "5482898",
+          "score": "12.007678985595703",
+          "rank": "1",
+          "name": "warfarin",
+          "source": "ATC"
+        },
+        {
+          "rxcui": "11289",
+          "rxaui": "6809178",
+          "score": "12.007678985595703",
+          "rank": "1",
+          "source": "NDDF"
+        },
+        {
+          "rxcui": "11289",
+          "rxaui": "8544269",
+          "score": "12.007678985595703",
+          "rank": "1",
+          "name": "Warfarin",
+          "source": "DRUGBANK"
         }
       ]
     }
@@ -1015,6 +1264,13 @@
       ]
     }
   },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Alprazolam&search=2": {
+    "idGroup": {
+      "rxnormId": [
+        "596"
+      ]
+    }
+  },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=amiodarona&search=2": {
     "idGroup": {
       "rxnormId": [
@@ -1068,6 +1324,13 @@
     }
   },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=benztropine&search=2": {
+    "idGroup": {
+      "rxnormId": [
+        "1424"
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Benztropine&search=2": {
     "idGroup": {
       "rxnormId": [
         "1424"
@@ -1184,6 +1447,13 @@
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Clozapine%20total%20of%201&search=2": {
     "idGroup": {}
   },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=cocaine&search=2": {
+    "idGroup": {
+      "rxnormId": [
+        "2653"
+      ]
+    }
+  },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Coumadin&search=2": {
     "idGroup": {
       "rxnormId": [
@@ -1243,6 +1513,13 @@
       ]
     }
   },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Diphenhydramine&search=2": {
+    "idGroup": {
+      "rxnormId": [
+        "3498"
+      ]
+    }
+  },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Doxorubicin&search=2": {
     "idGroup": {
       "rxnormId": [
@@ -1281,6 +1558,13 @@
     "idGroup": {
       "rxnormId": [
         "1721614"
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=heroin&search=2": {
+    "idGroup": {
+      "rxnormId": [
+        "3304"
       ]
     }
   },
@@ -1342,7 +1626,17 @@
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=intravenous%20neostigmine%20two%20doses&search=2": {
     "idGroup": {}
   },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Intravenous%20neostigmine%20two%20doses&search=2": {
+    "idGroup": {}
+  },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=linaclotide&search=2": {
+    "idGroup": {
+      "rxnormId": [
+        "1307404"
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Linaclotide&search=2": {
     "idGroup": {
       "rxnormId": [
         "1307404"
@@ -1492,6 +1786,12 @@
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Phytonadione%20by%20mouth%20x%201&search=2": {
     "idGroup": {}
   },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Phytonadione%20x%201&search=2": {
+    "idGroup": {}
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=polyethylene%20glycol%20administered%20via%20nasogastric%20tube%20and%20per%20rectum&search=2": {
+    "idGroup": {}
+  },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Potassium%20chloride&search=2": {
     "idGroup": {
       "rxnormId": [
@@ -1551,6 +1851,13 @@
       ]
     }
   },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Risperidone&search=2": {
+    "idGroup": {
+      "rxnormId": [
+        "35636"
+      ]
+    }
+  },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=rivaroxaban&search=2": {
     "idGroup": {
       "rxnormId": [
@@ -1600,6 +1907,13 @@
       ]
     }
   },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Tamoxifen&search=2": {
+    "idGroup": {
+      "rxnormId": [
+        "10324"
+      ]
+    }
+  },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Tamoxifen%20by%20mouth&search=2": {
     "idGroup": {}
   },
@@ -1607,6 +1921,9 @@
     "idGroup": {}
   },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Topricin%20cream%20containing%20belladonna&search=2": {
+    "idGroup": {}
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=two%20doses%20of%20intravenous%20neostigmine&search=2": {
     "idGroup": {}
   },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Vancomycin%201%20gm&search=2": {
@@ -1628,6 +1945,9 @@
         "11289"
       ]
     }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Warfarin%20alternating%20between%20to&search=2": {
+    "idGroup": {}
   },
   "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=Warfarin%20alternating%20between%20to%20by%20mouth&search=2": {
     "idGroup": {}
@@ -2630,6 +2950,7 @@
       ]
     }
   },
+  "https://rxnav.nlm.nih.gov/REST/rxcui/2477558/property.json?propName=RxNorm%20Name": {},
   "https://rxnav.nlm.nih.gov/REST/rxcui/2555/property.json?propName=RxNorm%20Name": {
     "propConceptGroup": {
       "propConcept": [
@@ -2748,6 +3069,38 @@
               "rxcui": "2626",
               "name": "clozapine",
               "synonym": "",
+              "tty": "IN",
+              "language": "ENG",
+              "suppress": "N",
+              "umlscui": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui/2653/property.json?propName=RxNorm%20Name": {
+    "propConceptGroup": {
+      "propConcept": [
+        {
+          "propCategory": "NAMES",
+          "propName": "RxNorm Name",
+          "propValue": "cocaine"
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui/2653/related.json?tty=IN": {
+    "relatedGroup": {
+      "rxcui": null,
+      "conceptGroup": [
+        {
+          "tty": "IN",
+          "conceptProperties": [
+            {
+              "rxcui": "2653",
+              "name": "cocaine",
+              "synonym": "benzoylmethylecgonine",
               "tty": "IN",
               "language": "ENG",
               "suppress": "N",
@@ -2940,6 +3293,38 @@
               "rxcui": "3289",
               "name": "dextromethorphan",
               "synonym": "",
+              "tty": "IN",
+              "language": "ENG",
+              "suppress": "N",
+              "umlscui": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui/3304/property.json?propName=RxNorm%20Name": {
+    "propConceptGroup": {
+      "propConcept": [
+        {
+          "propCategory": "NAMES",
+          "propName": "RxNorm Name",
+          "propValue": "heroin"
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui/3304/related.json?tty=IN": {
+    "relatedGroup": {
+      "rxcui": null,
+      "conceptGroup": [
+        {
+          "tty": "IN",
+          "conceptProperties": [
+            {
+              "rxcui": "3304",
+              "name": "heroin",
+              "synonym": "diamorphine",
               "tty": "IN",
               "language": "ENG",
               "suppress": "N",
@@ -3955,6 +4340,27 @@
               "rxcui": "8308",
               "name": "vitamin K1",
               "synonym": "vitamin K 1",
+              "tty": "IN",
+              "language": "ENG",
+              "suppress": "N",
+              "umlscui": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "https://rxnav.nlm.nih.gov/REST/rxcui/8516/related.json?tty=IN": {
+    "relatedGroup": {
+      "rxcui": null,
+      "conceptGroup": [
+        {
+          "tty": "IN",
+          "conceptProperties": [
+            {
+              "rxcui": "8516",
+              "name": "polyethylene glycols",
+              "synonym": "macrogol",
               "tty": "IN",
               "language": "ENG",
               "suppress": "N",

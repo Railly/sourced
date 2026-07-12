@@ -1,6 +1,7 @@
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { ingest } from "./ingest/index.ts";
+import { crossReferencePharmacology, enrichFindingsMechanism, extractProfiles } from "./retrieve/pharmacology.ts";
 import { attachResearchCandidates } from "./research/index.ts";
 import { retrieve } from "./retrieve/index.ts";
 import { synthesize } from "./synthesize/index.ts";
@@ -33,6 +34,8 @@ interface RunReviewOptions {
   onStage?: (event: ReviewStageEvent) => void | Promise<void>;
   synthesizeReport?: typeof synthesize;
   verifyReport?: typeof verify;
+  extractProfiles?: typeof extractProfiles;
+  pharmacology?: boolean;
   locale?: ReviewLocale;
 }
 
@@ -85,16 +88,31 @@ export async function runVerifiedReview(
 
   await emit(options.onStage, { stage: "retrieve", status: "running" });
   const retrieval = await retrieve(patient, ddinterPath, now);
+
+  // Mechanism enrichment: a source-bound model reads the retrieved FDA labels
+  // and names the pharmacology (CYP inhibitor↔substrate, additive QT/anticholinergic)
+  // so findings state a real mechanism, not a bare DDInter severity. Every added
+  // claim still quotes the label. Deterministic retrieval stays LLM-free above;
+  // this step only reads sources already retrieved. Off in tests via option.
+  const evidence = [...retrieval.evidence];
+  if (options.pharmacology !== false) {
+    const profiles = await (options.extractProfiles ?? extractProfiles)(retrieval.labels);
+    evidence.push(...crossReferencePharmacology(profiles, now));
+  }
+
   await emit(options.onStage, {
     stage: "retrieve",
     status: "completed",
     detail: locale === "es"
-      ? `${retrieval.evidence.length} objetos de evidencia citables`
-      : `${retrieval.evidence.length} citable evidence objects`,
+      ? `${evidence.length} objetos de evidencia citables`
+      : `${evidence.length} citable evidence objects`,
   });
 
   await emit(options.onStage, { stage: "synthesize", status: "running" });
-  const draft = await synthesizeReport(patient, retrieval.evidence, now, locale);
+  const synthesized = await synthesizeReport(patient, evidence, now, locale);
+  // Deterministically name the real mechanism on any finding whose pair matches
+  // a source-bound CYP/QT/anticholinergic evidence object.
+  const draft = { ...synthesized, findings: enrichFindingsMechanism(synthesized.findings, evidence) };
   await emit(options.onStage, {
     stage: "synthesize",
     status: "completed",
@@ -104,7 +122,7 @@ export async function runVerifiedReview(
   });
 
   await emit(options.onStage, { stage: "verify", status: "running" });
-  const verified = await verifyReport(draft, retrieval.evidence, { patient, locale });
+  const verified = await verifyReport(draft, evidence, { patient, locale });
   const withResearch = attachResearchCandidates(verified, patient, retrieval.ddinter);
   const report: SafetyReport = {
     ...withResearch,
