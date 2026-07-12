@@ -10,6 +10,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "test": "bun test lib",
     "build:reviews": "RXNAV_RECORD=1 bun run scripts/build-published-reviews.ts",
     "build:golden": "bun run scripts/build-golden-review.ts"
   },

@@ -27,7 +27,7 @@ jobs:
       - name: Typecheck core
         run: bun run typecheck
       - name: Test core and cached artifacts
-        run: bun test
+        run: bun test src scripts
       - name: Verify ingest runs offline from the committed RxNav cache
         run: bun run test:hermetic
       - name: Verify bundled data integrity
@@ -43,6 +43,9 @@ jobs:
       - name: Typecheck web
         working-directory: web
         run: bunx tsc --noEmit
+      - name: Test web
+        working-directory: web
+        run: bun test lib
       - name: Lint web
         working-directory: web
         run: bun run lint
