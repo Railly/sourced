@@ -95,6 +95,20 @@ export interface Finding {
   evidence_ids: string[]; // must be non-empty; each maps to an EvidenceObject
 }
 
+/**
+ * A safety question Sourced surfaced but could not resolve from cited sources:
+ * a pair the interaction database documents without a severity, or a concern
+ * the adversarial verifier flagged but could not trace. Instead of dropping
+ * these, Sourced routes them to the research track as candidate questions.
+ */
+export interface ResearchCandidate {
+  tier: "known-unknown" | "unresolved-concern"; // documented-but-unquantified vs flagged-but-untraceable
+  drugs: string[]; // the pair or the drugs the concern involves
+  reason: string; // why it could not be resolved from cited sources
+  question: string; // the research question handed to the next stage
+  source: string; // where the gap was detected (DDInter row id or adversarial verifier)
+}
+
 export interface SafetyReport {
   patient?: PatientContext;
   patient_summary: string;
@@ -102,6 +116,8 @@ export interface SafetyReport {
   questions_for_clinician: string[];
   evidence: EvidenceObject[]; // the full audit ledger
   unverified_removed: { claim_text: string; reason: string }[]; // what the reviewer rejected
+  research_candidates?: ResearchCandidate[]; // gaps routed to the research track
+  research_total_known_unknown?: number; // full count before any display cap
   generated_at: string;
   pipeline?: PipelineRun;
 }

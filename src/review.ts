@@ -1,6 +1,7 @@
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { ingest } from "./ingest/index.ts";
+import { attachResearchCandidates } from "./research/index.ts";
 import { retrieve } from "./retrieve/index.ts";
 import { synthesize } from "./synthesize/index.ts";
 import type { EvidenceObject, Finding, PatientContext, ReviewLocale, SafetyReport } from "./types/index.ts";
@@ -104,8 +105,9 @@ export async function runVerifiedReview(
 
   await emit(options.onStage, { stage: "verify", status: "running" });
   const verified = await verifyReport(draft, retrieval.evidence, { patient, locale });
+  const withResearch = attachResearchCandidates(verified, patient, retrieval.ddinter);
   const report: SafetyReport = {
-    ...verified,
+    ...withResearch,
     patient,
     pipeline: {
       mode: "live",
