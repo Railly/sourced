@@ -1,4 +1,5 @@
 import { generateObject, NoObjectGeneratedError } from "ai";
+import { canRunLiveModel, resolveModel } from "@core/model";
 import ddinterDrugNames from "@/lib/data/ddinter-drugs.json";
 import rxnormAliasData from "@/lib/data/rxnorm-aliases.json";
 import {
@@ -20,9 +21,9 @@ export type IntakeLocale = "en" | "es";
 /** A caller-facing intake failure whose message is safe to show verbatim. */
 export class SourceInputError extends Error {}
 
-/** True when a runtime model call can be made (gateway key or Vercel OIDC). */
+/** True when a runtime model call can be made (gateway key, OIDC, or Anthropic key). */
 export function hasModelAccess(): boolean {
-  return Boolean(process.env.AI_GATEWAY_API_KEY || process.env.VERCEL_OIDC_TOKEN);
+  return canRunLiveModel();
 }
 
 /**
@@ -32,8 +33,8 @@ export function hasModelAccess(): boolean {
  */
 export function modelAccessMessage(locale: IntakeLocale): string {
   return locale === "es"
-    ? "La extracción en vivo necesita una clave de gateway de IA. Abre un caso publicado para explorar una revisión auditada sin conexión."
-    : "Live extraction needs an AI gateway key. Open a published case to explore an audited review offline.";
+    ? "La extracción en vivo necesita una clave de modelo (gateway o Anthropic). Abre un caso publicado para explorar una revisión auditada sin conexión."
+    : "Live extraction needs a model key (gateway or Anthropic). Open a published case to explore an audited review offline.";
 }
 
 function localized(locale: IntakeLocale, english: string, spanish: string): string {
@@ -101,7 +102,7 @@ export async function extractIntake(source: string, locale: IntakeLocale): Promi
   for (let attempt = 0; attempt < 2 && !object; attempt += 1) {
     try {
       const candidate = (await generateObject({
-        model: "anthropic/claude-opus-4.8",
+        model: resolveModel("anthropic/claude-opus-4.8"),
         abortSignal: AbortSignal.timeout(55_000),
         schema: intakeExtractionSchema,
         system: systemPrompt(locale),

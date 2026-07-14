@@ -1,4 +1,5 @@
 import { generateObject, jsonSchema } from "ai";
+import { resolveModel } from "../model.ts";
 import type { EvidenceObject, Finding, Medication } from "../types/index.ts";
 import type { OpenFdaLabel } from "./index.ts";
 
@@ -91,7 +92,7 @@ export async function extractProfiles(
   let object: { drugs: Array<{ drug: string; cyp_inhibits: Array<{ enzyme: string; quote: string }>; cyp_substrate_of: Array<{ enzyme: string; quote: string }> }> };
   try {
     object = (await generateObject({
-      model: GATEWAY_MODEL,
+      model: resolveModel(GATEWAY_MODEL),
       abortSignal: AbortSignal.timeout(55_000),
       schema: profileSchema,
       system: SYSTEM,

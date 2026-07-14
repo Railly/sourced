@@ -1,4 +1,5 @@
 import { generateText } from "ai";
+import { resolveModel } from "@core/model";
 import type { ResearchCandidate } from "@/lib/types";
 
 const TIER_FRAMING: Record<ResearchCandidate["tier"], string> = {
@@ -23,7 +24,7 @@ export async function generateResearchBrief(input: {
   const drugs = candidate.drugs.length > 0 ? candidate.drugs.join(" + ") : "the medications in question";
 
   const { text } = await generateText({
-    model: "anthropic/claude-opus-4.8",
+    model: resolveModel("anthropic/claude-opus-4.8"),
     abortSignal: AbortSignal.timeout(30_000),
     system:
       "You write research briefs for Claude Science, an AI workbench for scientists with access to primary literature and structured databases (PubMed, DrugBank, ChEMBL, ClinVar, UniProt, and drug-label/pharmacokinetic sources). You are handed a medication-safety question that a provenance-first tool (Sourced) could not resolve from its cited sources. Turn it into ONE precise, self-contained research brief that a scientific agent can act on. Requirements: state the specific pharmacological question; give the de-identified patient context if provided; name what has already been checked and why it was inconclusive; suggest concrete investigative angles (CYP450 and transporter pathways, pharmacokinetic interaction data, case reports, mechanism); and end with output constraints: every claim must be source-backed and cited, quantify severity and mechanism only where evidence supports it, and explicitly flag what remains uncertain. Do not fabricate any interaction, severity, dose, or mechanism. Write in clear scientific English, 120-200 words, no preamble, no markdown headers.",
