@@ -7,3 +7,8 @@ web/.next/
 err.log
 web/.shots/
 data/cache/
+
+# Local-only case (not PMC/CC licensed, not in the published corpus)
+data/case-reports/text/tizanidine-ciprofloxacin-hallucinations.md
+web/public/cases/tizanidine-ciprofloxacin-hallucinations.pdf
+web/public/data/reviews/tizanidine-ciprofloxacin-hallucinations.*.json
