@@ -81,6 +81,26 @@ function candidateOccurrence(source: string, name: string): SourceMedicationCand
     }
     offset = lowerSource.indexOf(lowerName, offset + lowerName.length);
   }
+  // Cross-language / ortographic fallback: the extractor normalizes drug names
+  // to their canonical (usually English) form, but the source may spell them in
+  // another language (e.g. "tizanidine" vs Spanish "tizanidina"). Anchor on a
+  // shared stem (first 6+ letters, at a word boundary) so the med still traces
+  // to the source without weakening the "must appear in source" guarantee.
+  const stem = lowerName.replace(/[^a-z]/g, "").slice(0, Math.max(6, Math.floor(lowerName.length * 0.7)));
+  if (stem.length >= 6) {
+    let stemOffset = lowerSource.indexOf(stem);
+    while (stemOffset >= 0) {
+      const before = source[stemOffset - 1];
+      if (!wordCharacter(before)) {
+        // Extend to the end of the source word to quote it as written.
+        let end = stemOffset + stem.length;
+        while (end < source.length && wordCharacter(source[end])) end += 1;
+        const excerpt = excerptAt(source, stemOffset, end - stemOffset);
+        if (stemOffset < 800 || exposurePattern.test(excerpt)) return { name, excerpt, offset: stemOffset };
+      }
+      stemOffset = lowerSource.indexOf(stem, stemOffset + stem.length);
+    }
+  }
   return null;
 }
 
@@ -419,8 +439,18 @@ export function validateSourceAnchoredIntake(
   }
 
   const medicationEvidence = validatedMedicationRaw.map((raw) => normalizeText(raw));
+  // A source candidate is covered when a validated med contains its name, OR
+  // shares its stem (first 6+ letters). The stem check tolerates the extractor
+  // normalizing a drug to its canonical form ("tizanidine") while the source
+  // spells it in another language ("tizanidina") — same drug, same evidence.
+  const sharesStem = (raw: string, candidateName: string): boolean => {
+    const name = normalizeText(candidateName).replace(/[^a-z]/g, "");
+    if (name.length < 6) return raw.includes(name);
+    const stem = name.slice(0, Math.max(6, Math.floor(name.length * 0.7)));
+    return raw.replace(/[^a-z]/g, "").includes(stem);
+  };
   const missingCandidates = candidates.filter(
-    (candidate) => !medicationEvidence.some((raw) => raw.includes(normalizeText(candidate.name))),
+    (candidate) => !medicationEvidence.some((raw) => raw.includes(normalizeText(candidate.name)) || sharesStem(raw, candidate.name)),
   );
   if (missingCandidates.length > 0) {
     issues.push(`Missing source medication candidates: ${missingCandidates.map((candidate) => candidate.name).join(", ")}`);
