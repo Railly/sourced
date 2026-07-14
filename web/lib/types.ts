@@ -73,6 +73,7 @@ export interface ResearchCandidate {
   reason: string;
   question: string;
   source: string;
+  clinically_central?: boolean;
 }
 
 export interface SafetyReport {

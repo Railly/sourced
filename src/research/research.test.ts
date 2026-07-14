@@ -62,6 +62,33 @@ test("caps the displayed queue but preserves the full known-unknown count", () =
   expect(derived.totalKnownUnknown).toBe(8);
 });
 
+test("routes the clinically central unknown ahead of a peripheral one", () => {
+  // Acute presentation: a MAJOR serotonergic finding (sertraline+dextromethorphan)
+  // anchors the event. A DDInter Unknown that shares those acute drugs must rank
+  // ahead of, and be marked central over, a peripheral untraceable concern.
+  const dd = dataset([
+    { idA: "D1", drugA: "Dextromethorphan", idB: "F1", drugB: "Fluconazole", level: "Unknown" },
+  ]);
+  const patientCtx: PatientContext = {
+    ...patient(["sertraline", "dextromethorphan", "fluconazole"]),
+    diagnoses: ["serotonin syndrome"],
+  };
+  const derived = deriveResearchCandidates(
+    patientCtx,
+    report({
+      findings: [{ status: "flagged", severity: "major", drugs: ["Sertraline", "Dextromethorphan"], headline: "Serotonergic risk", mechanism: "m", why_this_patient: "w", evidence_ids: ["e"] }],
+      unverified_removed: [{ claim_text: "Ranitidine raises metformin exposure", reason: "not traceable" }],
+    }),
+    dd,
+  );
+  const first = derived.candidates[0];
+  expect(first?.drugs).toContain("Dextromethorphan");
+  expect(first?.clinically_central).toBe(true);
+  // Exactly one candidate is central; the peripheral concern is present but not.
+  expect(derived.candidates.filter((c) => c.clinically_central)).toHaveLength(1);
+  expect(derived.candidates.some((c) => c.question.includes("Ranitidine"))).toBe(true);
+});
+
 test("skips a pair already covered by a finding", () => {
   const dd = dataset([{ idA: "D1", drugA: "Warfarin", idB: "D2", drugB: "Furosemide", level: "Unknown" }]);
   const derived = deriveResearchCandidates(

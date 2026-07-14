@@ -127,7 +127,7 @@ export async function runVerifiedReview(
   const citedMechanismIds = new Set(enrichedFindings.flatMap((f) => f.evidence_ids).filter((id) => id.startsWith("cyp:")));
   const mechanismEvidence = evidence.filter((item) => citedMechanismIds.has(item.id) && !rawVerified.evidence.some((existing) => existing.id === item.id));
   const verified = { ...rawVerified, findings: enrichedFindings, evidence: [...rawVerified.evidence, ...mechanismEvidence] };
-  const withResearch = attachResearchCandidates(verified, patient, retrieval.ddinter);
+  const withResearch = attachResearchCandidates(verified, patient, retrieval.ddinter, undefined, locale);
   const report: SafetyReport = {
     ...withResearch,
     patient,

@@ -107,6 +107,7 @@ export interface ResearchCandidate {
   reason: string; // why it could not be resolved from cited sources
   question: string; // the research question handed to the next stage
   source: string; // where the gap was detected (DDInter row id or adversarial verifier)
+  clinically_central?: boolean; // ties to the patient's acute presentation (ranked first)
 }
 
 export interface SafetyReport {
