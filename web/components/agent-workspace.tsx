@@ -9,8 +9,8 @@ import {
   CircleNotch,
   Copy,
   FilePdf,
-  Question,
   Sparkle,
+  WarningCircle,
 } from "@phosphor-icons/react";
 import { useEveAgent, type EveMessage } from "eve/react";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -244,9 +244,10 @@ export function AgentWorkspace({
   useEffect(() => {
     if (deeplinked.current) return;
     deeplinked.current = true;
+    const deeplinkLocale: Locale = langParam === "es" ? "es" : "en";
     if (langParam === "en" || langParam === "es") setLocale(langParam);
     const target = caseParam ? publishedCases.find((item) => item.id === caseParam) : undefined;
-    if (target) void loadPublishedCase(target);
+    if (target) void loadPublishedCase(target, deeplinkLocale);
     // eslint-disable-next-line react-hooks/exhaustive-deps -- run once on mount
   }, []);
 
@@ -301,10 +302,14 @@ export function AgentWorkspace({
 
   function focusPacketConfirmation(): void {
     setMobilePane("canvas");
+    setEditingPacket(true);
     requestAnimationFrame(() => {
       const target = document.getElementById("confirm-packet");
-      target?.scrollIntoView({ behavior: "smooth", block: "center" });
-      target?.focus({ preventScroll: true });
+      if (!target) return;
+      target.scrollIntoView({ behavior: "smooth", block: "center" });
+      target.focus({ preventScroll: true });
+      target.classList.add("confirm-pulse");
+      window.setTimeout(() => target.classList.remove("confirm-pulse"), 1800);
     });
   }
 
@@ -351,7 +356,10 @@ export function AgentWorkspace({
     }
   }
 
-  async function loadPublishedCase(item: PublishedCase): Promise<void> {
+  async function loadPublishedCase(item: PublishedCase, localeOverride?: Locale): Promise<void> {
+    // On deep-link mount, setLocale() has not applied yet, so the caller passes
+    // the target locale explicitly. Otherwise use the active locale state.
+    const effectiveLocale = localeOverride ?? locale;
     void setCaseParam(item.id);
     setGalleryOpen(false);
     setEditingPacket(false);
@@ -365,7 +373,7 @@ export function AgentWorkspace({
 
     // Published cases are precomputed and served as static, audited artifacts:
     // the review is deterministic and needs no runtime model call or API key.
-    const precomputed = await loadPrecomputedReview(item.id, locale);
+    const precomputed = await loadPrecomputedReview(item.id, effectiveLocale);
     if (precomputed?.intake) {
       setPhase("extracting");
       setSourceName(`${item.id}.pdf`);
@@ -544,9 +552,8 @@ export function AgentWorkspace({
             <span className="hidden text-[13px] font-medium text-ink-muted sm:block">{t("app.subtitle")}</span>
             {!split ? (
               <nav className="ml-2 hidden items-center gap-4 lg:flex" aria-label={t("nav.label")}>
-                <a href="#how-it-works" className="text-[12.5px] font-medium text-ink-muted hover:text-info">{t("nav.method")}</a>
                 <a href="#data" className="text-[12.5px] font-medium text-ink-muted hover:text-info">{t("nav.data")}</a>
-                <a href="#provenance" className="text-[12.5px] font-medium text-ink-muted hover:text-info">{t("nav.provenance")}</a>
+                <a href="#how-it-works" className="text-[12.5px] font-medium text-ink-muted hover:text-info">{t("nav.method")}</a>
                 <a href="#claude-science" className="text-[12.5px] font-medium text-ink-muted hover:text-info">{t("nav.science")}</a>
               </nav>
             ) : null}
@@ -664,15 +671,12 @@ export function AgentWorkspace({
           </div>
           <section className={`${mobilePane === "eve" ? "flex" : "hidden"} min-h-0 flex-1 flex-col border-b border-hairline bg-paper-raised lg:flex lg:border-b-0 lg:border-r`}>
             <div className="min-h-0 flex-1 overflow-y-auto px-5 py-6 sm:px-7">
-              <div className="flex items-center gap-3">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full border border-info-border bg-info-bg font-serif-display text-[15px] text-info">S</span>
-                <div>
-                  <p className="text-[13px] font-semibold text-ink">{t("workspace.assistant")}</p>
-                  <p className="text-[10.5px] text-ink-faint">{t("workspace.orchestrator")}</p>
-                </div>
+              <div className="flex items-center gap-2">
+                <span className="flex h-5 w-5 items-center justify-center rounded-md border border-info-border bg-info-bg font-serif-display text-[10px] leading-none text-info">S</span>
+                <p className="text-[10.5px] font-semibold uppercase tracking-[0.14em] text-ink-faint">{t("workspace.assistant")}</p>
               </div>
 
-              <div className="mt-7">
+              <div className="mt-4">
                 <h1 className="font-serif-display text-[27px] leading-tight">{workspaceTitle}</h1>
                 {phase === "clarifying" ? (
                   <div
@@ -680,17 +684,17 @@ export function AgentWorkspace({
                     tabIndex={-1}
                     data-ambiguity-id={ambiguities[0]?.id}
                     data-ambiguity-question={ambiguities[0]?.question}
-                    className="mt-4 flex min-h-[250px] gap-3 rounded-lg border border-info-border bg-info-bg/35 px-4 py-4 outline-none focus-visible:ring-2 focus-visible:ring-info sm:min-h-[190px]"
+                    className="mt-4 flex min-h-[250px] gap-3 rounded-lg border border-moderate-border bg-moderate-bg px-4 py-4 outline-none focus-visible:ring-2 focus-visible:ring-moderate sm:min-h-[190px]"
                     aria-live="polite"
                     aria-busy={agentBusy}
                   >
                     {agentBusy ? (
-                      <CircleNotch className="mt-0.5 h-5 w-5 shrink-0 animate-spin text-info motion-reduce:animate-none" weight="bold" />
+                      <CircleNotch className="mt-0.5 h-5 w-5 shrink-0 animate-spin text-moderate motion-reduce:animate-none" weight="bold" />
                     ) : (
-                      <Question className="mt-0.5 h-5 w-5 shrink-0 text-info" weight="regular" />
+                      <WarningCircle className="mt-0.5 h-5 w-5 shrink-0 text-moderate" weight="fill" />
                     )}
                     <div className="min-w-0 flex-1">
-                      <p className="text-[9.5px] font-semibold uppercase tracking-[0.12em] text-info">
+                      <p className="text-[9.5px] font-semibold uppercase tracking-[0.12em] text-moderate">
                         {agentBusy
                           ? t("workspace.ambiguityAnalyzing")
                           : t("workspace.actionRequired", {
@@ -705,8 +709,8 @@ export function AgentWorkspace({
                             {t("workspace.checkingQuestion")}
                           </p>
                           <div className="mt-4 space-y-2" aria-hidden="true">
-                            <span className="block h-2 w-full animate-pulse rounded bg-info-border/70 motion-reduce:animate-none" />
-                            <span className="block h-2 w-3/4 animate-pulse rounded bg-info-border/45 motion-reduce:animate-none" />
+                            <span className="block h-2 w-full animate-pulse rounded bg-moderate-border/70 motion-reduce:animate-none" />
+                            <span className="block h-2 w-3/4 animate-pulse rounded bg-moderate-border/45 motion-reduce:animate-none" />
                           </div>
                         </div>
                       ) : (
@@ -721,7 +725,7 @@ export function AgentWorkspace({
                             type="button"
                             data-testid="edit-structured-packet"
                             onClick={focusPacketEditor}
-                            className="mt-3 rounded text-[11px] font-semibold text-info hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-info"
+                            className="mt-3 rounded text-[11px] font-semibold text-moderate hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-moderate"
                           >
                             {t("workspace.editMedications")}
                           </button>
@@ -808,7 +812,7 @@ export function AgentWorkspace({
                     submitLabel={t("workspace.saveAnswer")}
                     busyLabel={t("workspace.preparingQuestionShort")}
                     placeholder={t("workspace.answerPlaceholder")}
-                    disabledReason={working ? t("workspace.waitQuestion") : input.trim() ? undefined : t("workspace.answerRequired")}
+                    disabledReason={working ? t("workspace.waitQuestion") : undefined}
                   />
                 </>
               ) : phase === "confirming" ? (

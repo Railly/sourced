@@ -1,126 +1,155 @@
 "use client";
 
-import { Database, Flask, ListChecks, ShieldCheck } from "@phosphor-icons/react";
-import type { ReactNode } from "react";
+import { ArrowRight } from "@phosphor-icons/react";
+import { ClaudeScienceMark } from "@/components/claude-science-mark";
 import { useI18n } from "@/lib/i18n";
 
-interface Section {
-  id: string;
-  icon: ReactNode;
-  heading: { en: string; es: string };
-  body: { en: string[]; es: string[] };
+export const LANDING_SECTION_IDS = ["data", "how-it-works", "claude-science"];
+
+interface Copy {
+  en: string;
+  es: string;
 }
 
-const SECTIONS: Section[] = [
+function pick(copy: Copy, lang: "en" | "es") {
+  return copy[lang];
+}
+
+const STATS: Array<{ value: string; label: Copy }> = [
+  { value: "222,383", label: { en: "interaction rows", es: "filas de interacción" } },
+  { value: "160,235", label: { en: "graded drug pairs", es: "pares con severidad" } },
+  { value: "4", label: { en: "cited data sources", es: "fuentes citadas" } },
+  { value: "2", label: { en: "adversarial agents", es: "agentes adversariales" } },
+];
+
+const SOURCES: Array<{ name: string; note: Copy }> = [
+  { name: "DDInter 2.0", note: { en: "graded pair severity", es: "severidad por par" } },
+  { name: "openFDA labels", note: { en: "FDA mechanism text", es: "mecanismo FDA" } },
+  { name: "openFDA FAERS", note: { en: "adverse-event signal", es: "señal de eventos adversos" } },
+  { name: "RxNorm / RxNav", note: { en: "name normalization", es: "normalización de nombres" } },
+];
+
+const PIPELINE: Array<{ step: string; title: Copy; body: Copy }> = [
   {
-    id: "provenance",
-    icon: <ShieldCheck className="h-5 w-5 text-info" weight="regular" />,
-    heading: { en: "Every claim traces to a source", es: "Cada afirmación tiene su fuente" },
+    step: "01",
+    title: { en: "Ingest", es: "Ingest" },
     body: {
-      en: [
-        "Sourced reviews a patient's medications for interaction risk and returns a ranked, cited report. It does not diagnose or prescribe.",
-        "We never ask the model for a clinical fact. Interactions, severities, and mechanisms come from cited sources and are re-checked by a second, adversarial verifier agent before they reach a clinician. Anything untraceable is refused.",
-      ],
-      es: [
-        "Sourced revisa los medicamentos de un paciente en busca de riesgo de interacción y devuelve un informe rankeado y citado. No diagnostica ni prescribe.",
-        "Nunca le pedimos al modelo un dato clínico. Interacciones, severidades y mecanismos vienen de fuentes citadas y un segundo agente verificador adversarial los re-chequea antes de llegar al clínico. Lo no trazable se rechaza.",
-      ],
+      en: "Meds normalize to RxCUI. Unresolved names fail loud, never guessed.",
+      es: "Los meds se normalizan a RxCUI. Los no resueltos fallan fuerte, nunca se adivinan.",
     },
   },
   {
-    id: "data",
-    icon: <Database className="h-5 w-5 text-info" weight="regular" />,
-    heading: { en: "Built on real clinical data, not model memory", es: "Sobre datos clínicos reales, no memoria del modelo" },
+    step: "02",
+    title: { en: "Retrieve", es: "Retrieve" },
     body: {
-      en: [
-        "DDInter 2.0 — 222,383 interaction rows across 160,235 drug pairs, 1,939 drugs, with graded severity.",
-        "openFDA drug labels — FDA-authoritative mechanism text and boxed warnings.",
-        "openFDA FAERS — real-world adverse-event co-report signal.",
-        "RxNorm / RxNav — drug name normalization, including Spanish to English.",
-        "12 real, de-identified case reports from PMC Open Access ground the showcase in actual clinical scenarios.",
-      ],
-      es: [
-        "DDInter 2.0 — 222.383 filas de interacción sobre 160.235 pares, 1.939 fármacos, con severidad graduada.",
-        "Etiquetas de openFDA — mecanismo autoritativo de la FDA y advertencias de recuadro.",
-        "openFDA FAERS — señal de co-reportes de eventos adversos del mundo real.",
-        "RxNorm / RxNav — normalización de nombres, incluido español a inglés.",
-        "12 case reports reales y desidentificados de PMC Open Access anclan el showcase en escenarios clínicos reales.",
-      ],
+      en: "DDInter, labels and FAERS pulled deterministically. Zero LLM. Each result cited.",
+      es: "DDInter, etiquetas y FAERS de forma determinística. Sin LLM. Cada resultado citado.",
     },
   },
   {
-    id: "how-it-works",
-    icon: <ListChecks className="h-5 w-5 text-info" weight="regular" />,
-    heading: { en: "A four-stage pipeline, not a single prompt", es: "Un pipeline de cuatro etapas, no un solo prompt" },
+    step: "03",
+    title: { en: "Enrich", es: "Enrich" },
     body: {
-      en: [
-        "Ingest: medications normalize to RxCUI; unresolved names fail loud rather than get guessed.",
-        "Retrieve: DDInter, openFDA labels, and FAERS are pulled deterministically, zero LLM, each result a cited evidence object.",
-        "Enrich: a model reads the retrieved FDA labels and names the real pharmacology (CYP inhibitor/substrate, additive QT, anticholinergic burden), quoting the label directly.",
-        "Synthesize and verify: Opus 4.8 ranks findings for this patient; a separate adversarial agent strips any claim it cannot trace to a source.",
-      ],
-      es: [
-        "Ingest: los medicamentos se normalizan a RxCUI; los nombres no resueltos fallan ruidosamente en vez de adivinarse.",
-        "Retrieve: DDInter, etiquetas de openFDA y FAERS se recuperan determinísticamente, sin LLM, cada resultado un objeto de evidencia citado.",
-        "Enrich: un modelo lee las etiquetas FDA recuperadas y nombra la farmacología real (inhibidor/sustrato CYP, QT aditivo, carga anticolinérgica), citando la etiqueta.",
-        "Synthesize y verify: Opus 4.8 rankea los hallazgos para este paciente; un agente adversarial separado remueve lo que no traza a una fuente.",
-      ],
+      en: "A model reads the labels and names the CYP mechanism, quoting the source.",
+      es: "Un modelo lee las etiquetas y nombra el mecanismo CYP, citando la fuente.",
     },
   },
   {
-    id: "claude-science",
-    icon: <Flask className="h-5 w-5 text-info" weight="regular" />,
-    heading: { en: "When Sourced hits a gap, it routes to research", es: "Cuando Sourced llega a un vacío, lo enruta a investigación" },
+    step: "04",
+    title: { en: "Verify", es: "Verify" },
     body: {
-      en: [
-        "Some drug pairs are documented without a graded severity. Some flagged concerns cannot be traced to an existing source. Sourced does not drop these silently.",
-        "It generates a precise research brief with Opus and routes it to Claude Science via its local API, opening a live research session across 60+ scientific databases.",
-        "Sourced finds the boundary of its own knowledge. Claude Science crosses it.",
-      ],
-      es: [
-        "Algunos pares están documentados sin severidad graduada. Algunas dudas marcadas no se pueden trazar a una fuente. Sourced no las descarta en silencio.",
-        "Genera un brief de investigación preciso con Opus y lo enruta a Claude Science por su API local, abriendo una sesión de investigación viva sobre 60+ bases científicas.",
-        "Sourced encuentra el borde de su propio conocimiento. Claude Science lo cruza.",
-      ],
+      en: "Opus ranks findings. A second agent strips anything it cannot trace.",
+      es: "Opus rankea. Un segundo agente remueve lo que no puede trazar.",
     },
   },
 ];
 
-export const LANDING_SECTION_IDS = SECTIONS.map((section) => section.id);
+const HEADING = {
+  data: { en: "Real clinical data, not model memory", es: "Datos clínicos reales, no memoria del modelo" },
+  pipeline: { en: "Four stages, one cited trail", es: "Cuatro etapas, un rastro citado" },
+  science: { en: "Hits a gap, routes to research", es: "Llega a un vacío, enruta a investigación" },
+  scienceBody: {
+    en: "Some pairs have no graded severity. Sourced writes a research brief with Opus and opens it in Claude Science, live across 60+ scientific databases.",
+    es: "Algunos pares no tienen severidad graduada. Sourced escribe un brief con Opus y lo abre en Claude Science, en vivo sobre 60+ bases científicas.",
+  },
+  disclaimer: {
+    en: "Showcase patients are synthetic or from published, de-identified, open-access case reports. A research and workflow tool, not a certified clinical device.",
+    es: "Los pacientes del showcase son sintéticos o de case reports publicados, desidentificados y de acceso abierto. Herramienta de investigación y flujo, no dispositivo clínico certificado.",
+  },
+};
+
+function Label({ children }: { children: React.ReactNode }) {
+  return <p className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-ink-faint">{children}</p>;
+}
 
 export function LandingSections() {
   const { locale } = useI18n();
-  const lang = locale === "es" ? "es" : "en";
+  const lang: "en" | "es" = locale === "es" ? "es" : "en";
+
   return (
     <div className="mx-auto w-full max-w-4xl px-5 pb-24 sm:px-8">
-      <div className="border-t border-hairline pt-14">
-        {SECTIONS.map((section) => (
-          <section key={section.id} id={section.id} className="scroll-mt-24 border-b border-hairline py-10 first:pt-0">
-            <div className="grid gap-4 sm:grid-cols-[minmax(0,0.9fr)_minmax(0,1.4fr)] sm:gap-10">
-              <div className="flex items-start gap-3">
-                <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-info-border bg-info-bg">
-                  {section.icon}
-                </span>
-                <h2 className="font-serif-display text-[22px] leading-tight tracking-[-0.01em] text-ink">
-                  {section.heading[lang]}
-                </h2>
-              </div>
-              <div className="space-y-3">
-                {section.body[lang].map((paragraph, index) => (
-                  <p key={index} className="text-[13.5px] leading-relaxed text-ink-muted">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-            </div>
-          </section>
+      <div className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-hairline bg-hairline sm:grid-cols-4">
+        {STATS.map((stat) => (
+          <div key={stat.value} className="bg-paper-raised px-5 py-6">
+            <p className="font-serif-display text-[30px] leading-none tracking-[-0.02em] text-ink sm:text-[34px]">
+              {stat.value}
+            </p>
+            <p className="mt-2 text-[12px] leading-snug text-ink-muted">{pick(stat.label, lang)}</p>
+          </div>
         ))}
       </div>
-      <p className="mt-8 text-center text-[11.5px] leading-relaxed text-ink-faint">
-        {lang === "es"
-          ? "Los contextos de paciente del showcase son sintéticos o de case reports publicados, desidentificados y de acceso abierto. Sourced es una herramienta de investigación y flujo de trabajo, no un dispositivo clínico certificado."
-          : "All patient contexts in the showcase are synthetic or drawn from published, de-identified, open-access case reports. Sourced is a research and workflow tool, not a certified clinical decision support device."}
-      </p>
+
+      <section id="data" className="scroll-mt-24 pt-16">
+        <Label>{lang === "es" ? "Fuentes" : "Data sources"}</Label>
+        <h2 className="mt-2 font-serif-display text-[24px] leading-tight tracking-[-0.01em] text-ink">
+          {pick(HEADING.data, lang)}
+        </h2>
+        <div className="mt-6 grid gap-px overflow-hidden rounded-xl border border-hairline bg-hairline sm:grid-cols-2">
+          {SOURCES.map((source) => (
+            <div key={source.name} className="flex items-baseline justify-between gap-4 bg-paper-raised px-5 py-4">
+              <span className="font-mono text-[13px] text-ink">{source.name}</span>
+              <span className="text-right text-[12px] text-ink-faint">{pick(source.note, lang)}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="how-it-works" className="scroll-mt-24 pt-16">
+        <Label>{lang === "es" ? "Pipeline" : "Pipeline"}</Label>
+        <h2 className="mt-2 font-serif-display text-[24px] leading-tight tracking-[-0.01em] text-ink">
+          {pick(HEADING.pipeline, lang)}
+        </h2>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {PIPELINE.map((stage) => (
+            <div key={stage.step} className="rounded-xl border border-hairline bg-paper-raised px-5 py-5">
+              <p className="font-mono text-[12px] text-ink-faint">{stage.step}</p>
+              <p className="mt-2 font-serif-display text-[17px] tracking-[-0.01em] text-ink">{pick(stage.title, lang)}</p>
+              <p className="mt-2 text-[12.5px] leading-relaxed text-ink-muted">{pick(stage.body, lang)}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="claude-science" className="scroll-mt-24 pt-16">
+        <div className="rounded-xl border border-info-border bg-info-bg px-6 py-7 sm:px-8">
+          <div className="flex items-center gap-2.5">
+            <ClaudeScienceMark className="h-6 w-6" />
+            <Label>Claude Science</Label>
+          </div>
+          <h2 className="mt-3 max-w-2xl font-serif-display text-[24px] leading-tight tracking-[-0.01em] text-ink">
+            {pick(HEADING.science, lang)}
+          </h2>
+          <p className="mt-3 max-w-2xl text-[13.5px] leading-relaxed text-ink-muted">
+            {pick(HEADING.scienceBody, lang)}
+          </p>
+          <span className="mt-5 inline-flex items-center gap-1.5 font-mono text-[11.5px] uppercase tracking-[0.14em] text-info">
+            {lang === "es" ? "Brief generado con Opus" : "Brief generated with Opus"}
+            <ArrowRight className="h-3.5 w-3.5" weight="bold" />
+          </span>
+        </div>
+      </section>
+
+      <p className="mt-14 max-w-2xl text-[11.5px] leading-relaxed text-ink-faint">{pick(HEADING.disclaimer, lang)}</p>
     </div>
   );
 }

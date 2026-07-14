@@ -23,6 +23,19 @@ import { labUnitOptions } from "@/lib/workspace-ux";
 const fieldClass =
   "w-full min-w-0 rounded border border-hairline bg-paper-raised px-2 py-1.5 text-[12.5px] text-ink outline-none placeholder:text-ink-faint hover:border-hairline-strong focus:border-info focus:ring-2 focus:ring-info-border";
 
+// Dose, form, frequency and filler words that appear in medication labels but
+// are NOT drug identities. Excluded from clarification-row matching so a dose
+// phrase in a question ("40-25 mg daily") never lights up unrelated rows.
+const MED_STOPWORDS = new Set([
+  "daily", "twice", "once", "every", "hours", "night", "morning", "bedtime", "weekly", "prn",
+  "tablet", "tablets", "capsule", "capsules", "syrup", "solution", "cream", "patch", "inhaler",
+  "spray", "drops", "injection", "vial", "pack", "dose", "doses", "pill", "pills", "liquid",
+  "daría", "diaria", "diario", "veces", "cada", "noche", "comprimido", "jarabe", "cápsula",
+  "product", "combination", "combined", "ingredient", "ingredients", "producto", "combinado",
+  "included", "prescribed", "extracted", "considered", "medication", "medications", "medicament",
+  "along", "with", "included", "other", "using", "given",
+]);
+
 const medicationStatuses: MedicationStatus[] = [
   "active",
   "historical",
@@ -74,6 +87,37 @@ export function PatientPacketEditor({
     /duplicate|duplicad|duplicidad|same.?drug|same medication|mismo medicamento|misma droga/i.test(item.question),
   );
 
+  // Which packet sections an open clarification touches, so the affected zone is
+  // called out (not just in the assistant pane). Derived from the ambiguity's
+  // structured field first, falling back to the question text.
+  const flagged = { medications: false, patient: false, labs: false };
+  const medQuestions: string[] = [];
+  for (const item of ambiguities) {
+    const hay = `${item.field ?? ""} ${item.question}`.toLowerCase();
+    if (/med|drug|dose|regimen|coumadin|warfar|tablet|farmac|medicament/.test(hay)) {
+      flagged.medications = true;
+      medQuestions.push(item.question.toLowerCase());
+    }
+    if (/diagnos|allerg|history|condition|patient|alergi|antecedent/.test(hay)) flagged.patient = true;
+    if (/lab|creatinine|inr|potassium|sodium|value|creatinina|potasio|sodio/.test(hay)) flagged.labs = true;
+  }
+
+  // Highlight only the specific rows a clarification names, not the whole
+  // section. A row is flagged when a DRUG-NAME word from its own label appears
+  // in a medication clarification question. Dose, form and frequency words
+  // ("daily", "mg", "dose", "syrup", "tablet"...) are excluded, otherwise a
+  // question like "40-25 mg daily" would light up every "... mg daily" row.
+  // Accents are stripped so "olmesartán" (question) matches "olmesartan" (row).
+  const deburr = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+  const questionText = medQuestions.map(deburr);
+  const medicationRowFlagged = (name: string): boolean => {
+    if (questionText.length === 0) return false;
+    const words = (deburr(name).match(/[a-z]{5,}/g) ?? []).filter((word) => !MED_STOPWORDS.has(word));
+    return words.some((word) => questionText.some((question) => question.includes(word)));
+  };
+  const rowFlagClass =
+    "-mx-2 rounded-md bg-moderate-bg px-2 ring-1 ring-inset ring-moderate-border";
+
   return (
     <div
       id="packet-editor"
@@ -104,8 +148,13 @@ export function PatientPacketEditor({
 
       <section className="border-b border-hairline py-5">
         <div className="mb-3 flex items-center gap-2">
-          <IdentificationCard className="h-4 w-4 text-ink-muted" weight="regular" />
+          <IdentificationCard className={`h-4 w-4 ${flagged.patient ? "text-moderate" : "text-ink-muted"}`} weight="regular" />
           <h2 className="text-[12.5px] font-semibold text-ink">{t("packet.patientContext")}</h2>
+          {flagged.patient ? (
+            <span className="rounded-full border border-moderate-border bg-moderate-bg px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-moderate">
+              {t("packet.needsReview")}
+            </span>
+          ) : null}
           <span className="ml-auto flex items-center gap-1 text-[10px] text-ink-faint">
             <PencilSimple className="h-3 w-3" weight="regular" /> {t("packet.editable")}
           </span>
@@ -142,11 +191,16 @@ export function PatientPacketEditor({
 
       <section className="border-b border-hairline py-5">
         <div className="mb-3 flex items-center gap-2">
-          <Pill className="h-4 w-4 text-ink-muted" weight="regular" />
+          <Pill className={`h-4 w-4 ${flagged.medications ? "text-moderate" : "text-ink-muted"}`} weight="regular" />
           <h2 className="text-[12.5px] font-semibold text-ink">{t("packet.medications")}</h2>
           <span className="rounded-full border border-hairline-strong bg-paper px-2 py-0.5 text-[9.5px] font-semibold text-ink-muted">
             {t("packet.extracted", { count: draft.medications.filter(Boolean).length })}
           </span>
+          {flagged.medications ? (
+            <span className="rounded-full border border-moderate-border bg-moderate-bg px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-moderate">
+              {t("packet.needsReview")}
+            </span>
+          ) : null}
         </div>
         {duplicateWarning ? (
           <div
@@ -168,8 +222,9 @@ export function PatientPacketEditor({
           ) : null}
           {draft.medications.map((medication, index) => {
             const details = draft.medicationDetails[index] ?? activeMedicationDraft();
+            const rowFlagged = medicationRowFlagged(medication);
             return (
-              <div key={index} className="py-2.5">
+              <div key={index} className={`py-2.5 ${rowFlagged ? rowFlagClass : ""}`}>
                 <div className="grid grid-cols-[1.5rem_minmax(0,1fr)_auto] items-center gap-2 sm:flex sm:gap-3">
                   <span className="row-span-2 flex h-6 w-6 shrink-0 items-center justify-center sm:row-span-1">
                     <span className="h-2 w-2 rounded-full bg-ink-faint" aria-hidden="true" />
@@ -240,11 +295,16 @@ export function PatientPacketEditor({
 
       <section className="py-5">
         <div className="mb-3 flex items-center gap-2">
-          <Flask className="h-4 w-4 text-ink-muted" weight="regular" />
+          <Flask className={`h-4 w-4 ${flagged.labs ? "text-moderate" : "text-ink-muted"}`} weight="regular" />
           <h2 className="text-[12.5px] font-semibold text-ink">{t("packet.keyLabs")}</h2>
           <span className="rounded-full border border-verified-border bg-verified-bg px-2 py-0.5 text-[9.5px] font-semibold text-verified">
             {t("packet.extracted", { count: draft.labs.filter((lab) => lab.name && lab.value).length })}
           </span>
+          {flagged.labs ? (
+            <span className="rounded-full border border-moderate-border bg-moderate-bg px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-moderate">
+              {t("packet.needsReview")}
+            </span>
+          ) : null}
         </div>
         <div className="divide-y divide-hairline border-y border-hairline">
           {draft.labs.length === 0 ? (

@@ -15,6 +15,67 @@ const SOURCE_LABEL: Record<EvidenceObject["source_name"], string> = {
   MedlinePlus: "MedlinePlus",
 };
 
+type Translate = ReturnType<typeof useI18n>["t"];
+
+// Localizes a DDInter severity word (Major/Moderate/Minor/Unknown) for display.
+// The stored value is the canonical English level the verifier checks; only the
+// rendered label is translated. Unknown severity words pass through verbatim.
+function severityLabel(value: string, t: Translate): string {
+  const key = value.trim().toLowerCase();
+  if (key === "major" || key === "moderate" || key === "minor" || key === "unknown") {
+    return t(`severity.${key}`);
+  }
+  return value.trim();
+}
+
+// DDInter records are stored in a raw column form (`Drug_A: X; Drug_B: Y;
+// Level: Z`) that reads like a database dump. Detect that exact shape and lay
+// it out as readable key/value pairs. This is presentation only over a known,
+// structured record: drug names stay verbatim, the severity WORD is localized,
+// and the raw string stays available verbatim under "Full text".
+function ddinterFields(passage: string, t: Translate): Array<{ label: string; value: string }> | null {
+  const match = passage.match(
+    /^\s*Drug_A:\s*(.+?);\s*Drug_B:\s*(.+?);\s*Level:\s*(.+?)\s*$/i,
+  );
+  if (!match) return null;
+  return [
+    { label: t("evidence.drugA"), value: match[1]!.trim() },
+    { label: t("evidence.drugB"), value: match[2]!.trim() },
+    { label: t("evidence.severity"), value: severityLabel(match[3]!.trim(), t) },
+  ];
+}
+
+function SupportingPassage({ passage, t }: { passage: string; t: Translate }) {
+  const fields = ddinterFields(passage, t);
+  if (fields) {
+    return (
+      <dl className="mt-2 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5 rounded-md border border-info-border bg-info-bg px-4 py-3">
+        {fields.map((field) => (
+          <div key={field.label} className="contents">
+            <dt className="text-[11px] font-medium text-ink-faint">{field.label}</dt>
+            <dd className="text-[12.5px] font-semibold text-ink">{field.value}</dd>
+          </div>
+        ))}
+      </dl>
+    );
+  }
+  return (
+    <blockquote className="mt-2 rounded-md border border-info-border bg-info-bg px-4 py-3 font-mono-source text-[12px] leading-relaxed text-ink">
+      {passage}
+    </blockquote>
+  );
+}
+
+// The evidence subtitle. A DDInter claim_text ("DDInter severity for X + Y: Z")
+// is a synthetic summary we generate, so it is re-rendered in the active locale
+// with the severity word localized. Any other claim_text (verbatim source
+// text) is shown as-is.
+function claimSubtitle(claimText: string, t: Translate): string {
+  const match = claimText.match(/^DDInter severity for (.+?) \+ (.+?): (.+)$/);
+  if (!match) return claimText;
+  return t("evidence.ddinterClaim", { a: match[1]!, b: match[2]!, level: severityLabel(match[3]!, t) });
+}
+
 export function EvidenceCitation({
   evidence,
   index,
@@ -51,7 +112,7 @@ export function EvidenceCitation({
           <span className="text-[11px] font-semibold tracking-wide uppercase text-ink-faint shrink-0">
             {SOURCE_LABEL[evidence.source_name]}
           </span>
-          <span className="block min-w-0 truncate text-[12.5px] text-ink-muted">{evidence.claim_text}</span>
+          <span className="block min-w-0 truncate text-[12.5px] text-ink-muted">{claimSubtitle(evidence.claim_text, t)}</span>
         </span>
         <svg
           aria-hidden="true"
@@ -87,9 +148,7 @@ export function EvidenceCitation({
                 <p className="text-[10px] font-semibold uppercase tracking-wide text-ink-faint">
                   {t("evidence.supportingPassage")}
                 </p>
-                <blockquote className="mt-2 rounded-md border border-info-border bg-info-bg px-4 py-3 font-mono-source text-[12px] leading-relaxed text-ink">
-                  {passage}
-                </blockquote>
+                <SupportingPassage passage={passage} t={t} />
               </div>
             ) : null}
             {evidence.quoted_text && evidence.quoted_text !== passage ? (
