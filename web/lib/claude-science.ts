@@ -119,7 +119,9 @@ export async function routeToClaudeScience(input: {
   return {
     projectId: project.project_id,
     frameId: frame.frame_id,
-    projectUrl: `${BASE}/projects/${project.project_id}`,
+    // Deep link straight to the running research frame, not just the project
+    // shell, so "Open session" lands on the live agent output.
+    projectUrl: `${BASE}/projects/${project.project_id}/frames/${frame.frame_id}`,
   };
 }
 
