@@ -1,11 +1,14 @@
 "use client";
 
-import { ArrowUpRight, CircleNotch, Flask } from "@phosphor-icons/react";
+import { ArrowUpRight, CircleNotch, Flask, GithubLogo, Lock } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import type { ResearchCandidate } from "@/lib/types";
 import { useI18n } from "@/lib/i18n";
 
+const REPO_URL = "https://github.com/Railly/sourced";
+
 type RouteState = { status: "idle" | "routing" | "done" | "error"; url?: string; message?: string };
+type Availability = "checking" | "available" | "unavailable";
 
 export function ResearchQueue({
   candidates,
@@ -17,17 +20,20 @@ export function ResearchQueue({
   patientSummary?: string;
 }) {
   const { t } = useI18n();
-  const [available, setAvailable] = useState(false);
+  const [availability, setAvailability] = useState<Availability>("checking");
   const [routes, setRoutes] = useState<Record<number, RouteState>>({});
+  const available = availability === "available";
 
   useEffect(() => {
     let active = true;
     fetch("/api/route-to-science")
       .then((response) => response.json())
       .then((data: { available?: boolean }) => {
-        if (active) setAvailable(Boolean(data.available));
+        if (active) setAvailability(data.available ? "available" : "unavailable");
       })
-      .catch(() => {});
+      .catch(() => {
+        if (active) setAvailability("unavailable");
+      });
     return () => {
       active = false;
     };
@@ -79,8 +85,16 @@ export function ResearchQueue({
         {candidates.map((item, index) => {
           const state = routes[index] ?? { status: "idle" as const };
           return (
-            <li key={`${item.source}-${index}`} className="rounded-lg border border-hairline bg-paper-raised px-4 py-3">
+            <li
+              key={`${item.source}-${index}`}
+              className={`rounded-lg border bg-paper-raised px-4 py-3 ${item.clinically_central ? "border-moderate-border ring-1 ring-inset ring-moderate-border" : "border-hairline"}`}
+            >
               <div className="flex flex-wrap items-center gap-2">
+                {item.clinically_central ? (
+                  <span className="rounded-full bg-moderate-bg px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-moderate">
+                    {t("research.central")}
+                  </span>
+                ) : null}
                 <span className="rounded-full bg-info-bg px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-info">
                   {item.tier === "known-unknown" ? t("research.tierKnownUnknown") : t("research.tierUnresolved")}
                 </span>
@@ -124,6 +138,31 @@ export function ResearchQueue({
                   {state.status === "error" ? (
                     <span className="text-[11.5px] text-major" role="alert">{state.message}</span>
                   ) : null}
+                </div>
+              ) : availability === "unavailable" ? (
+                <div className="mt-3 flex flex-wrap items-center gap-2">
+                  <button
+                    type="button"
+                    disabled
+                    aria-disabled="true"
+                    title={t("science.localOnly")}
+                    className="inline-flex cursor-not-allowed items-center gap-1.5 rounded-md border border-hairline-strong bg-paper px-3 py-1.5 text-[12px] font-semibold text-ink-faint"
+                  >
+                    <Lock aria-hidden="true" weight="regular" className="h-3.5 w-3.5" />
+                    {t("science.route")}
+                  </button>
+                  <span className="inline-flex items-center gap-1 text-[11.5px] text-ink-muted">
+                    {t("science.localOnly")}
+                    <a
+                      href={REPO_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 font-semibold text-info hover:underline"
+                    >
+                      <GithubLogo aria-hidden="true" weight="fill" className="h-3.5 w-3.5" />
+                      {t("science.cloneRepo")}
+                    </a>
+                  </span>
                 </div>
               ) : null}
             </li>
