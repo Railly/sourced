@@ -800,41 +800,15 @@
     "generated_at": "2026-07-12T08:26:38.072Z",
     "research_candidates": [
       {
-        "tier": "unresolved-concern",
-        "drugs": [],
-        "reason": "Revisor: la afirmación no está respaldada por las fuentes citadas: La instrucción de monitorización 'Monitor patients closely, when the combination cannot be avoided' aparece en la sección 7.3 (inhibidores de CYP2D6), no en la sección 7.4 sobre digitálicos y otros fármacos que disminuyen la frecuencia cardíaca; la etiqueta no incluye una instrucción de monitorización específica para la combinación de metoprolol con glucósidos digitálicos.",
-        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Metoprolol con digitálicos puede aumentar el riesgo de bradicardia\"",
-        "source": "adversarial verifier"
-      },
-      {
         "tier": "known-unknown",
         "drugs": [
           "Spironolactone",
           "Acenocoumarol"
         ],
-        "reason": "DDInter documents the Spironolactone + Acenocoumarol pair but assigns no severity level.",
-        "question": "Does concurrent Spironolactone and Acenocoumarol carry a clinically significant interaction? The pair is catalogued without a graded severity.",
-        "source": "DDInter DDInter1707/DDInter13"
-      },
-      {
-        "tier": "known-unknown",
-        "drugs": [
-          "Furosemide",
-          "Acenocoumarol"
-        ],
-        "reason": "DDInter documents the Furosemide + Acenocoumarol pair but assigns no severity level.",
-        "question": "Does concurrent Furosemide and Acenocoumarol carry a clinically significant interaction? The pair is catalogued without a graded severity.",
-        "source": "DDInter DDInter790/DDInter13"
-      },
-      {
-        "tier": "known-unknown",
-        "drugs": [
-          "Metoprolol",
-          "Acenocoumarol"
-        ],
-        "reason": "DDInter documents the Metoprolol + Acenocoumarol pair but assigns no severity level.",
-        "question": "Does concurrent Metoprolol and Acenocoumarol carry a clinically significant interaction? The pair is catalogued without a graded severity.",
-        "source": "DDInter DDInter1200/DDInter13"
+        "reason": "DDInter documenta el par Spironolactone + Acenocoumarol pero no le asigna un nivel de gravedad.",
+        "question": "¿La combinación de Spironolactone y Acenocoumarol conlleva una interacción clínicamente significativa? El par está catalogado sin gravedad graduada.",
+        "source": "DDInter DDInter1707/DDInter13",
+        "clinically_central": false
       },
       {
         "tier": "known-unknown",
@@ -842,9 +816,42 @@
           "Ramipril",
           "Acenocoumarol"
         ],
-        "reason": "DDInter documents the Ramipril + Acenocoumarol pair but assigns no severity level.",
-        "question": "Does concurrent Ramipril and Acenocoumarol carry a clinically significant interaction? The pair is catalogued without a graded severity.",
-        "source": "DDInter DDInter1565/DDInter13"
+        "reason": "DDInter documenta el par Ramipril + Acenocoumarol pero no le asigna un nivel de gravedad.",
+        "question": "¿La combinación de Ramipril y Acenocoumarol conlleva una interacción clínicamente significativa? El par está catalogado sin gravedad graduada.",
+        "source": "DDInter DDInter1565/DDInter13",
+        "clinically_central": false
+      },
+      {
+        "tier": "unresolved-concern",
+        "drugs": [
+          "metoprolol"
+        ],
+        "reason": "Revisor: la afirmación no está respaldada por las fuentes citadas: La instrucción de monitorización 'Monitor patients closely, when the combination cannot be avoided' aparece en la sección 7.3 (inhibidores de CYP2D6), no en la sección 7.4 sobre digitálicos y otros fármacos que disminuyen la frecuencia cardíaca; la etiqueta no incluye una instrucción de monitorización específica para la combinación de metoprolol con glucósidos digitálicos.",
+        "question": "¿Puede confirmarse o descartarse esta duda señalada contra evidencia primaria? \"Metoprolol con digitálicos puede aumentar el riesgo de bradicardia\"",
+        "source": "verificador adversarial",
+        "clinically_central": false
+      },
+      {
+        "tier": "known-unknown",
+        "drugs": [
+          "Furosemide",
+          "Acenocoumarol"
+        ],
+        "reason": "DDInter documenta el par Furosemide + Acenocoumarol pero no le asigna un nivel de gravedad.",
+        "question": "¿La combinación de Furosemide y Acenocoumarol conlleva una interacción clínicamente significativa? El par está catalogado sin gravedad graduada.",
+        "source": "DDInter DDInter790/DDInter13",
+        "clinically_central": false
+      },
+      {
+        "tier": "known-unknown",
+        "drugs": [
+          "Metoprolol",
+          "Acenocoumarol"
+        ],
+        "reason": "DDInter documenta el par Metoprolol + Acenocoumarol pero no le asigna un nivel de gravedad.",
+        "question": "¿La combinación de Metoprolol y Acenocoumarol conlleva una interacción clínicamente significativa? El par está catalogado sin gravedad graduada.",
+        "source": "DDInter DDInter1200/DDInter13",
+        "clinically_central": false
       }
     ],
     "research_total_known_unknown": 6,

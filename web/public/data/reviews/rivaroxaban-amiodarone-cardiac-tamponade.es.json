@@ -269,10 +269,14 @@
     "research_candidates": [
       {
         "tier": "unresolved-concern",
-        "drugs": [],
+        "drugs": [
+          "rivaroxaban",
+          "amiodarone"
+        ],
         "reason": "Revisor narrativo: La pregunta afirma una clasificación de gravedad 'Moderate' vinculada explícitamente a la decisión de continuar ambos fármacos; aunque DDInter indica Level: Moderate, ninguna evidencia conecta esa clasificación con la acción de continuar/suspender el uso concomitante ni con el episodio de taponamiento cardíaco.",
-        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"¿Se desea continuar el uso concomitante de rivaroxabán y amiodarona dada la clasificación de gravedad Moderate de la fuente y el episodio de taponamiento cardíaco revisado?\"",
-        "source": "adversarial verifier"
+        "question": "¿Puede confirmarse o descartarse esta duda señalada contra evidencia primaria? \"¿Se desea continuar el uso concomitante de rivaroxabán y amiodarona dada la clasificación de gravedad Moderate de la fuente y el episodio de taponamiento cardíaco revisado?\"",
+        "source": "verificador adversarial",
+        "clinically_central": true
       }
     ],
     "research_total_known_unknown": 0,

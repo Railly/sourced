@@ -139,24 +139,39 @@
     "research_candidates": [
       {
         "tier": "unresolved-concern",
-        "drugs": [],
+        "drugs": [
+          "aspirin",
+          "ibuprofen",
+          "epinephrine",
+          "acetaminophen",
+          "celecoxib"
+        ],
         "reason": "Narrative reviewer: The summary asserts the patient underwent an oral aspirin challenge, but the patient context does not state this; the aspirin source span only references tolerance of ibuprofen, naproxen, and acetaminophen with no aspirin challenge described.; The claim that all listed medications are documented as one-time diagnostic-challenge or acute-treatment agents is not supported by the evidence, which is empty; medication statuses labeled 'one-time' are not corroborated by quoted evidence.",
         "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"A 45 year old woman was referred to Allergy and Immunology after an acute reaction (dyspnea, lip swelling, generalized urticaria) following ibuprofen use, treated with intramuscular epinephrine. She subsequently underwent an oral aspirin challenge and passed acetaminophen and celecoxib challenges. The listed medications (aspirin, ibuprofen, epinephrine, acetaminophen, celecoxib) are documented as one-time diagnostic-challenge or acute-treatment agents rather than ongoing concurrent therapy.\"",
-        "source": "adversarial verifier"
+        "source": "adversarial verifier",
+        "clinically_central": false
       },
       {
         "tier": "unresolved-concern",
-        "drugs": [],
+        "drugs": [
+          "aspirin",
+          "ibuprofen",
+          "epinephrine",
+          "acetaminophen",
+          "celecoxib"
+        ],
         "reason": "Narrative reviewer: Premise that the note indicates all agents were one-time challenge or acute-treatment doses is not supported by any quoted evidence (evidence is empty).",
         "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Are any of the listed agents (aspirin, ibuprofen, epinephrine, acetaminophen, celecoxib) intended as ongoing medications, or were they all one-time challenge or acute-treatment doses as the note indicates?\"",
-        "source": "adversarial verifier"
+        "source": "adversarial verifier",
+        "clinically_central": false
       },
       {
         "tier": "unresolved-concern",
         "drugs": [],
         "reason": "Narrative reviewer: The requested action to update allergy or intolerance documentation based on challenge results has no quoted evidence connecting the challenge results to a documentation update; evidence is empty.",
         "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Should any allergy or intolerance documentation be updated in the record based on the challenge results described?\"",
-        "source": "adversarial verifier"
+        "source": "adversarial verifier",
+        "clinically_central": false
       }
     ],
     "research_total_known_unknown": 0,

@@ -379,17 +379,25 @@
     "research_candidates": [
       {
         "tier": "unresolved-concern",
-        "drugs": [],
+        "drugs": [
+          "insulin lispro",
+          "insulin glargine"
+        ],
         "reason": "Finding references unresolved or non-active medication(s): dexamethasone.",
         "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Corticosteroid may decrease the blood glucose lowering effect of insulin lispro\"",
-        "source": "adversarial verifier"
+        "source": "adversarial verifier",
+        "clinically_central": false
       },
       {
         "tier": "unresolved-concern",
-        "drugs": [],
+        "drugs": [
+          "insulin lispro",
+          "insulin glargine"
+        ],
         "reason": "Finding references unresolved or non-active medication(s): dexamethasone.",
         "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Corticosteroid may decrease the blood glucose lowering effect of insulin glargine\"",
-        "source": "adversarial verifier"
+        "source": "adversarial verifier",
+        "clinically_central": false
       }
     ],
     "research_total_known_unknown": 0,

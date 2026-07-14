@@ -803,10 +803,14 @@
     "research_candidates": [
       {
         "tier": "unresolved-concern",
-        "drugs": [],
+        "drugs": [
+          "sertraline",
+          "propranolol"
+        ],
         "reason": "Reviewer: claim not supported by cited sources: The finding claims propranolol is identified as a CYP2D6 substrate, but the quoted source text lists CYP2D6 substrate examples as propafenone, flecainide, atomoxetine, desipramine, dextromethorphan, metoprolol, nebivolol, perphenazine, thioridazine, tolterodine, and venlafaxine — propranolol is NOT among them and is not entailed by the quoted text.",
         "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"CYP2D6: sertraline may increase propranolol exposure\"",
-        "source": "adversarial verifier"
+        "source": "adversarial verifier",
+        "clinically_central": true
       },
       {
         "tier": "known-unknown",
@@ -816,7 +820,8 @@
         ],
         "reason": "DDInter documents the Methimazole + Sertraline pair but assigns no severity level.",
         "question": "Does concurrent Methimazole and Sertraline carry a clinically significant interaction? The pair is catalogued without a graded severity.",
-        "source": "DDInter DDInter1170/DDInter1662"
+        "source": "DDInter DDInter1170/DDInter1662",
+        "clinically_central": false
       },
       {
         "tier": "known-unknown",
@@ -826,17 +831,8 @@
         ],
         "reason": "DDInter documents the Methylprednisolone + Sertraline pair but assigns no severity level.",
         "question": "Does concurrent Methylprednisolone and Sertraline carry a clinically significant interaction? The pair is catalogued without a graded severity.",
-        "source": "DDInter DDInter1191/DDInter1662"
-      },
-      {
-        "tier": "known-unknown",
-        "drugs": [
-          "Methimazole",
-          "Hydrochlorothiazide"
-        ],
-        "reason": "DDInter documents the Methimazole + Hydrochlorothiazide pair but assigns no severity level.",
-        "question": "Does concurrent Methimazole and Hydrochlorothiazide carry a clinically significant interaction? The pair is catalogued without a graded severity.",
-        "source": "DDInter DDInter1170/DDInter883"
+        "source": "DDInter DDInter1191/DDInter1662",
+        "clinically_central": false
       },
       {
         "tier": "known-unknown",
@@ -846,7 +842,19 @@
         ],
         "reason": "DDInter documents the Dextromethorphan + Methylprednisolone pair but assigns no severity level.",
         "question": "Does concurrent Dextromethorphan and Methylprednisolone carry a clinically significant interaction? The pair is catalogued without a graded severity.",
-        "source": "DDInter DDInter527/DDInter1191"
+        "source": "DDInter DDInter527/DDInter1191",
+        "clinically_central": false
+      },
+      {
+        "tier": "known-unknown",
+        "drugs": [
+          "Methimazole",
+          "Hydrochlorothiazide"
+        ],
+        "reason": "DDInter documents the Methimazole + Hydrochlorothiazide pair but assigns no severity level.",
+        "question": "Does concurrent Methimazole and Hydrochlorothiazide carry a clinically significant interaction? The pair is catalogued without a graded severity.",
+        "source": "DDInter DDInter1170/DDInter883",
+        "clinically_central": false
       }
     ],
     "research_total_known_unknown": 4,

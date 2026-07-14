@@ -1272,10 +1272,15 @@
     "research_candidates": [
       {
         "tier": "unresolved-concern",
-        "drugs": [],
+        "drugs": [
+          "warfarin",
+          "cefepime 1 GM Injection",
+          "ceFAZolin 1 GM Injection"
+        ],
         "reason": "Revisor narrativo: que la ficha técnica de la warfarina recomienda una monitorización más frecuente del INR con antibióticos combinada específicamente con cefepima y cefazolina como acción relevante; la evidencia solo indica interacción de nivel moderado, sin conectar explícitamente cefepima/cefazolina con la acción de continuación o monitorización recomendada",
-        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"¿Se pretende continuar la administración de cefepima y cefazolina de forma concomitante con la warfarina, dado que la ficha técnica de la warfarina recomienda una monitorización más frecuente del INR con antibióticos?\"",
-        "source": "adversarial verifier"
+        "question": "¿Puede confirmarse o descartarse esta duda señalada contra evidencia primaria? \"¿Se pretende continuar la administración de cefepima y cefazolina de forma concomitante con la warfarina, dado que la ficha técnica de la warfarina recomienda una monitorización más frecuente del INR con antibióticos?\"",
+        "source": "verificador adversarial",
+        "clinically_central": true
       },
       {
         "tier": "known-unknown",
@@ -1283,9 +1288,10 @@
           "Tamoxifen",
           "Clindamycin"
         ],
-        "reason": "DDInter documents the Tamoxifen + Clindamycin pair but assigns no severity level.",
-        "question": "Does concurrent Tamoxifen and Clindamycin carry a clinically significant interaction? The pair is catalogued without a graded severity.",
-        "source": "DDInter DDInter1744/DDInter398"
+        "reason": "DDInter documenta el par Tamoxifen + Clindamycin pero no le asigna un nivel de gravedad.",
+        "question": "¿La combinación de Tamoxifen y Clindamycin conlleva una interacción clínicamente significativa? El par está catalogado sin gravedad graduada.",
+        "source": "DDInter DDInter1744/DDInter398",
+        "clinically_central": false
       },
       {
         "tier": "known-unknown",
@@ -1293,9 +1299,10 @@
           "Acetaminophen",
           "Tamoxifen"
         ],
-        "reason": "DDInter documents the Acetaminophen + Tamoxifen pair but assigns no severity level.",
-        "question": "Does concurrent Acetaminophen and Tamoxifen carry a clinically significant interaction? The pair is catalogued without a graded severity.",
-        "source": "DDInter DDInter14/DDInter1744"
+        "reason": "DDInter documenta el par Acetaminophen + Tamoxifen pero no le asigna un nivel de gravedad.",
+        "question": "¿La combinación de Acetaminophen y Tamoxifen conlleva una interacción clínicamente significativa? El par está catalogado sin gravedad graduada.",
+        "source": "DDInter DDInter14/DDInter1744",
+        "clinically_central": false
       },
       {
         "tier": "known-unknown",
@@ -1303,9 +1310,10 @@
           "Warfarin",
           "Clindamycin"
         ],
-        "reason": "DDInter documents the Warfarin + Clindamycin pair but assigns no severity level.",
-        "question": "Does concurrent Warfarin and Clindamycin carry a clinically significant interaction? The pair is catalogued without a graded severity.",
-        "source": "DDInter DDInter1951/DDInter398"
+        "reason": "DDInter documenta el par Warfarin + Clindamycin pero no le asigna un nivel de gravedad.",
+        "question": "¿La combinación de Warfarin y Clindamycin conlleva una interacción clínicamente significativa? El par está catalogado sin gravedad graduada.",
+        "source": "DDInter DDInter1951/DDInter398",
+        "clinically_central": false
       },
       {
         "tier": "known-unknown",
@@ -1313,9 +1321,10 @@
           "Warfarin",
           "Ondansetron"
         ],
-        "reason": "DDInter documents the Warfarin + Ondansetron pair but assigns no severity level.",
-        "question": "Does concurrent Warfarin and Ondansetron carry a clinically significant interaction? The pair is catalogued without a graded severity.",
-        "source": "DDInter DDInter1951/DDInter1342"
+        "reason": "DDInter documenta el par Warfarin + Ondansetron pero no le asigna un nivel de gravedad.",
+        "question": "¿La combinación de Warfarin y Ondansetron conlleva una interacción clínicamente significativa? El par está catalogado sin gravedad graduada.",
+        "source": "DDInter DDInter1951/DDInter1342",
+        "clinically_central": false
       }
     ],
     "research_total_known_unknown": 14,

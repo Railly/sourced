@@ -260,17 +260,23 @@
     "research_candidates": [
       {
         "tier": "unresolved-concern",
-        "drugs": [],
-        "reason": "Revisor: la afirmación no está respaldada por las fuentes citadas: El paciente no tiene diagnóstico de hepatitis B (VHB) en el contexto clínico; tiene hepatitis C y hepatitis A. Las advertencias en recuadro se refieren específicamente a pacientes coinfectados con VIH-1 y VHB, por lo que la relevancia para este paciente no está respaldada.; No hay evidencia en el contexto del paciente de que los componentes de Genvoya (emtricitabina, tenofovir alafenamida) hayan sido interrumpidos; el contexto describe la introducción de Genvoya y un cambio de régimen cinco meses después, pero no confirma la interrupción de estos componentes específicos en el marco de la advertencia.; La afirmación why_this_patient de que la advertencia 'podría ser relevante para su seguimiento hepático' no está respaldada porque el paciente no está identificado como infectado por VHB.",
-        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Posibles exacerbaciones agudas graves de hepatitis B tras interrumpir componentes de Genvoya\"",
-        "source": "adversarial verifier"
+        "drugs": [
+          "simvastatin"
+        ],
+        "reason": "Revisor narrativo: la etiqueta de simvastatina indica que su uso concomitante con productos que contienen cobicistat está contraindicado (la etiqueta clasifica los productos con cobicistat como inhibidores potentes de CYP3A4 y su uso concomitante como contraindicado, pero no menciona explícitamente 'productos que contienen cobicistat' como contraindicados en esos términos); ¿se ha considerado un plan alternativo para el manejo lipídico? (la acción de plan alternativo para manejo lipídico no está explícitamente respaldada por la evidencia citada)",
+        "question": "¿Puede confirmarse o descartarse esta duda señalada contra evidencia primaria? \"Dado que la etiqueta de simvastatina indica que su uso concomitante con productos que contienen cobicistat está contraindicado, ¿se ha considerado un plan alternativo para el manejo lipídico?\"",
+        "source": "verificador adversarial",
+        "clinically_central": true
       },
       {
         "tier": "unresolved-concern",
-        "drugs": [],
-        "reason": "Revisor narrativo: la etiqueta de simvastatina indica que su uso concomitante con productos que contienen cobicistat está contraindicado (la etiqueta clasifica los productos con cobicistat como inhibidores potentes de CYP3A4 y su uso concomitante como contraindicado, pero no menciona explícitamente 'productos que contienen cobicistat' como contraindicados en esos términos); ¿se ha considerado un plan alternativo para el manejo lipídico? (la acción de plan alternativo para manejo lipídico no está explícitamente respaldada por la evidencia citada)",
-        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Dado que la etiqueta de simvastatina indica que su uso concomitante con productos que contienen cobicistat está contraindicado, ¿se ha considerado un plan alternativo para el manejo lipídico?\"",
-        "source": "adversarial verifier"
+        "drugs": [
+          "Genvoya"
+        ],
+        "reason": "Revisor: la afirmación no está respaldada por las fuentes citadas: El paciente no tiene diagnóstico de hepatitis B (VHB) en el contexto clínico; tiene hepatitis C y hepatitis A. Las advertencias en recuadro se refieren específicamente a pacientes coinfectados con VIH-1 y VHB, por lo que la relevancia para este paciente no está respaldada.; No hay evidencia en el contexto del paciente de que los componentes de Genvoya (emtricitabina, tenofovir alafenamida) hayan sido interrumpidos; el contexto describe la introducción de Genvoya y un cambio de régimen cinco meses después, pero no confirma la interrupción de estos componentes específicos en el marco de la advertencia.; La afirmación why_this_patient de que la advertencia 'podría ser relevante para su seguimiento hepático' no está respaldada porque el paciente no está identificado como infectado por VHB.",
+        "question": "¿Puede confirmarse o descartarse esta duda señalada contra evidencia primaria? \"Posibles exacerbaciones agudas graves de hepatitis B tras interrumpir componentes de Genvoya\"",
+        "source": "verificador adversarial",
+        "clinically_central": false
       }
     ],
     "research_total_known_unknown": 0,

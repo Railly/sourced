@@ -532,17 +532,25 @@
     "research_candidates": [
       {
         "tier": "unresolved-concern",
-        "drugs": [],
+        "drugs": [
+          "amiodarone",
+          "apixaban"
+        ],
         "reason": "Revisor narrativo: El etiquetado de apixaban describe reducción de dosis con inhibidores combinados de P-gp y CYP3A4 fuertes, pero la pregunta implica que amiodarona es tal inhibidor combinado fuerte; la evidencia solo indica que amiodarona inhibe P-gp y CYP3A (entre otros) sin calificarla como inhibidor fuerte de CYP3A4, por lo que no se conecta explícitamente amiodarona con la reducción de dosis descrita para inhibidores fuertes combinados.",
-        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"¿Está previsto continuar la coadministración de amiodarona y apixaban, dado que DDInter clasifica este par como Moderate y el etiquetado de apixaban describe reducción de dosis con inhibidores combinados de P-gp y CYP3A4 fuertes?\"",
-        "source": "adversarial verifier"
+        "question": "¿Puede confirmarse o descartarse esta duda señalada contra evidencia primaria? \"¿Está previsto continuar la coadministración de amiodarona y apixaban, dado que DDInter clasifica este par como Moderate y el etiquetado de apixaban describe reducción de dosis con inhibidores combinados de P-gp y CYP3A4 fuertes?\"",
+        "source": "verificador adversarial",
+        "clinically_central": true
       },
       {
         "tier": "unresolved-concern",
-        "drugs": [],
+        "drugs": [
+          "amiodarone",
+          "metoprolol succinate"
+        ],
         "reason": "Revisor narrativo: El etiquetado de metoprolol indica monitorización cuando la combinación con un inhibidor de CYP2D6 no puede evitarse (label:6918:interactions describe strong CYP2D6 inhibitors como quinidina, fluoxetina, paroxetina, propafenona); no hay evidencia que clasifique la amiodarona como inhibidor de CYP2D6 dentro del etiquetado de metoprolol, y aunque cyp:703:6918 indica que amiodarona inhibe CYP2D6, no conecta explícitamente esta interacción con la acción de vigilancia adicional del metoprolol succinato.",
-        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"¿Se planea vigilancia adicional del metoprolol succinato durante el uso concurrente con amiodarona, según indica el etiquetado de metoprolol cuando la combinación con un inhibidor de CYP2D6 no puede evitarse?\"",
-        "source": "adversarial verifier"
+        "question": "¿Puede confirmarse o descartarse esta duda señalada contra evidencia primaria? \"¿Se planea vigilancia adicional del metoprolol succinato durante el uso concurrente con amiodarona, según indica el etiquetado de metoprolol cuando la combinación con un inhibidor de CYP2D6 no puede evitarse?\"",
+        "source": "verificador adversarial",
+        "clinically_central": false
       }
     ],
     "research_total_known_unknown": 0,

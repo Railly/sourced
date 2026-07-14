@@ -774,10 +774,14 @@
     "research_candidates": [
       {
         "tier": "unresolved-concern",
-        "drugs": [],
+        "drugs": [
+          "sertraline",
+          "propranolol"
+        ],
         "reason": "Revisor: la afirmación no está respaldada por las fuentes citadas: La etiqueta enumera como sustratos de CYP2D6: propafenona, flecainida, atomoxetina, desipramina, dextrometorfano, metoprolol, nebivolol, perfenazina, tioridazina, tolterodina y venlafaxina; el propranolol NO aparece en el texto citado como sustrato de CYP2D6, por lo que la afirmación de que el propranolol es sustrato de CYP2D6 y que la sertralina aumenta su exposición no está respaldada por las fuentes citadas.",
-        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"La sertralina puede aumentar la exposición al propranolol por inhibición de CYP2D6\"",
-        "source": "adversarial verifier"
+        "question": "¿Puede confirmarse o descartarse esta duda señalada contra evidencia primaria? \"La sertralina puede aumentar la exposición al propranolol por inhibición de CYP2D6\"",
+        "source": "verificador adversarial",
+        "clinically_central": true
       },
       {
         "tier": "known-unknown",
@@ -785,9 +789,10 @@
           "Methimazole",
           "Sertraline"
         ],
-        "reason": "DDInter documents the Methimazole + Sertraline pair but assigns no severity level.",
-        "question": "Does concurrent Methimazole and Sertraline carry a clinically significant interaction? The pair is catalogued without a graded severity.",
-        "source": "DDInter DDInter1170/DDInter1662"
+        "reason": "DDInter documenta el par Methimazole + Sertraline pero no le asigna un nivel de gravedad.",
+        "question": "¿La combinación de Methimazole y Sertraline conlleva una interacción clínicamente significativa? El par está catalogado sin gravedad graduada.",
+        "source": "DDInter DDInter1170/DDInter1662",
+        "clinically_central": false
       },
       {
         "tier": "known-unknown",
@@ -795,19 +800,10 @@
           "Methylprednisolone",
           "Sertraline"
         ],
-        "reason": "DDInter documents the Methylprednisolone + Sertraline pair but assigns no severity level.",
-        "question": "Does concurrent Methylprednisolone and Sertraline carry a clinically significant interaction? The pair is catalogued without a graded severity.",
-        "source": "DDInter DDInter1191/DDInter1662"
-      },
-      {
-        "tier": "known-unknown",
-        "drugs": [
-          "Methimazole",
-          "Hydrochlorothiazide"
-        ],
-        "reason": "DDInter documents the Methimazole + Hydrochlorothiazide pair but assigns no severity level.",
-        "question": "Does concurrent Methimazole and Hydrochlorothiazide carry a clinically significant interaction? The pair is catalogued without a graded severity.",
-        "source": "DDInter DDInter1170/DDInter883"
+        "reason": "DDInter documenta el par Methylprednisolone + Sertraline pero no le asigna un nivel de gravedad.",
+        "question": "¿La combinación de Methylprednisolone y Sertraline conlleva una interacción clínicamente significativa? El par está catalogado sin gravedad graduada.",
+        "source": "DDInter DDInter1191/DDInter1662",
+        "clinically_central": false
       },
       {
         "tier": "known-unknown",
@@ -815,9 +811,21 @@
           "Dextromethorphan",
           "Methylprednisolone"
         ],
-        "reason": "DDInter documents the Dextromethorphan + Methylprednisolone pair but assigns no severity level.",
-        "question": "Does concurrent Dextromethorphan and Methylprednisolone carry a clinically significant interaction? The pair is catalogued without a graded severity.",
-        "source": "DDInter DDInter527/DDInter1191"
+        "reason": "DDInter documenta el par Dextromethorphan + Methylprednisolone pero no le asigna un nivel de gravedad.",
+        "question": "¿La combinación de Dextromethorphan y Methylprednisolone conlleva una interacción clínicamente significativa? El par está catalogado sin gravedad graduada.",
+        "source": "DDInter DDInter527/DDInter1191",
+        "clinically_central": false
+      },
+      {
+        "tier": "known-unknown",
+        "drugs": [
+          "Methimazole",
+          "Hydrochlorothiazide"
+        ],
+        "reason": "DDInter documenta el par Methimazole + Hydrochlorothiazide pero no le asigna un nivel de gravedad.",
+        "question": "¿La combinación de Methimazole y Hydrochlorothiazide conlleva una interacción clínicamente significativa? El par está catalogado sin gravedad graduada.",
+        "source": "DDInter DDInter1170/DDInter883",
+        "clinically_central": false
       }
     ],
     "research_total_known_unknown": 4,

@@ -367,24 +367,34 @@
     "research_candidates": [
       {
         "tier": "unresolved-concern",
-        "drugs": [],
-        "reason": "Finding references unresolved or non-active medication(s): lorazepam.",
-        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Belladonna label warns of additive risks when combined with benzodiazepines or other CNS depressants\"",
-        "source": "adversarial verifier"
-      },
-      {
-        "tier": "unresolved-concern",
-        "drugs": [],
+        "drugs": [
+          "BELLADONNA",
+          "lorazepam"
+        ],
         "reason": "Narrative reviewer: The belladonna evidence describes additive CNS depressant risk in the context of benzodiazepines and other CNS depressants; however this is from a belladonna and opium suppository label describing opioid-related risks, and the patient's belladonna exposure is via Topricin topical cream (containing belladonna extract, not the opium-containing suppository). The evidence's additive CNS depression/respiratory depression risk is tied to opioid content not established for the patient's product.",
         "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Given that lorazepam was administered once and the belladonna label describes additive CNS depressant risk, should the patient be monitored closely for respiratory depression and sedation as the label advises?\"",
-        "source": "adversarial verifier"
+        "source": "adversarial verifier",
+        "clinically_central": false
       },
       {
         "tier": "unresolved-concern",
-        "drugs": [],
+        "drugs": [
+          "BELLADONNA"
+        ],
         "reason": "Narrative reviewer: No quoted evidence connects discontinuation of Topricin cream to stopping belladonna exposure; there is no evidence supporting the discontinuation action for the topical product.",
         "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Is Topricin cream being discontinued so that belladonna exposure is stopped?\"",
-        "source": "adversarial verifier"
+        "source": "adversarial verifier",
+        "clinically_central": false
+      },
+      {
+        "tier": "unresolved-concern",
+        "drugs": [
+          "BELLADONNA"
+        ],
+        "reason": "Finding references unresolved or non-active medication(s): lorazepam.",
+        "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Belladonna label warns of additive risks when combined with benzodiazepines or other CNS depressants\"",
+        "source": "adversarial verifier",
+        "clinically_central": false
       }
     ],
     "research_total_known_unknown": 0,

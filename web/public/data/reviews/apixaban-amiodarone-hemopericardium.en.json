@@ -530,10 +530,14 @@
     "research_candidates": [
       {
         "tier": "unresolved-concern",
-        "drugs": [],
+        "drugs": [
+          "amiodarone",
+          "apixaban"
+        ],
         "reason": "Narrative reviewer: Question asserts amiodarone is a combined P-gp and strong CYP3A4 inhibitor triggering the apixaban dose-reduction label guidance; the evidence states amiodarone inhibits P-gp and CYP3A but does not characterize it as a strong CYP3A4 inhibitor, so the label's combined P-gp and strong CYP3A4 inhibitor dose-reduction guidance is not explicitly connected to amiodarone.",
         "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Given the concurrent amiodarone and apixaban with hemopericardium, is any change to the apixaban dose indicated in line with the label guidance on combined P-gp and strong CYP3A4 inhibitors?\"",
-        "source": "adversarial verifier"
+        "source": "adversarial verifier",
+        "clinically_central": true
       }
     ],
     "research_total_known_unknown": 0,

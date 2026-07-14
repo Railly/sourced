@@ -496,9 +496,10 @@
           "Metronidazole",
           "Metoclopramide"
         ],
-        "reason": "DDInter documents the Metronidazole + Metoclopramide pair but assigns no severity level.",
-        "question": "Does concurrent Metronidazole and Metoclopramide carry a clinically significant interaction? The pair is catalogued without a graded severity.",
-        "source": "DDInter DDInter1202/DDInter1197"
+        "reason": "DDInter documenta el par Metronidazole + Metoclopramide pero no le asigna un nivel de gravedad.",
+        "question": "¿La combinación de Metronidazole y Metoclopramide conlleva una interacción clínicamente significativa? El par está catalogado sin gravedad graduada.",
+        "source": "DDInter DDInter1202/DDInter1197",
+        "clinically_central": false
       },
       {
         "tier": "known-unknown",
@@ -506,9 +507,10 @@
           "Ceftriaxone",
           "Metoclopramide"
         ],
-        "reason": "DDInter documents the Ceftriaxone + Metoclopramide pair but assigns no severity level.",
-        "question": "Does concurrent Ceftriaxone and Metoclopramide carry a clinically significant interaction? The pair is catalogued without a graded severity.",
-        "source": "DDInter DDInter334/DDInter1197"
+        "reason": "DDInter documenta el par Ceftriaxone + Metoclopramide pero no le asigna un nivel de gravedad.",
+        "question": "¿La combinación de Ceftriaxone y Metoclopramide conlleva una interacción clínicamente significativa? El par está catalogado sin gravedad graduada.",
+        "source": "DDInter DDInter334/DDInter1197",
+        "clinically_central": false
       },
       {
         "tier": "known-unknown",
@@ -516,9 +518,10 @@
           "Metronidazole",
           "Ceftriaxone"
         ],
-        "reason": "DDInter documents the Metronidazole + Ceftriaxone pair but assigns no severity level.",
-        "question": "Does concurrent Metronidazole and Ceftriaxone carry a clinically significant interaction? The pair is catalogued without a graded severity.",
-        "source": "DDInter DDInter1202/DDInter334"
+        "reason": "DDInter documenta el par Metronidazole + Ceftriaxone pero no le asigna un nivel de gravedad.",
+        "question": "¿La combinación de Metronidazole y Ceftriaxone conlleva una interacción clínicamente significativa? El par está catalogado sin gravedad graduada.",
+        "source": "DDInter DDInter1202/DDInter334",
+        "clinically_central": false
       }
     ],
     "research_total_known_unknown": 3,

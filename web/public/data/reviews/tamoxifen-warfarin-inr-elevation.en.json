@@ -1396,20 +1396,15 @@
     "research_candidates": [
       {
         "tier": "unresolved-concern",
-        "drugs": [],
+        "drugs": [
+          "metoclopramide",
+          "ondansetron",
+          "promethazine"
+        ],
         "reason": "Narrative reviewer: Asserts metoclopramide, promethazine, and ondansetron are overlapping antiemetics warranting consolidation; no evidence connects these three agents or supports consolidation to fewer agents. The available interaction evidence (promethazine-metoclopramide Major, ondansetron-promethazine Moderate) does not establish an overlap/consolidation rationale as premised.",
         "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Should the overlapping antiemetics metoclopramide, promethazine, and ondansetron all be continued concurrently, or is consolidation to fewer agents preferred?\"",
-        "source": "adversarial verifier"
-      },
-      {
-        "tier": "known-unknown",
-        "drugs": [
-          "Tamoxifen",
-          "Clindamycin"
-        ],
-        "reason": "DDInter documents the Tamoxifen + Clindamycin pair but assigns no severity level.",
-        "question": "Does concurrent Tamoxifen and Clindamycin carry a clinically significant interaction? The pair is catalogued without a graded severity.",
-        "source": "DDInter DDInter1744/DDInter398"
+        "source": "adversarial verifier",
+        "clinically_central": true
       },
       {
         "tier": "known-unknown",
@@ -1419,7 +1414,19 @@
         ],
         "reason": "DDInter documents the Tamoxifen + Metoclopramide pair but assigns no severity level.",
         "question": "Does concurrent Tamoxifen and Metoclopramide carry a clinically significant interaction? The pair is catalogued without a graded severity.",
-        "source": "DDInter DDInter1744/DDInter1197"
+        "source": "DDInter DDInter1744/DDInter1197",
+        "clinically_central": false
+      },
+      {
+        "tier": "known-unknown",
+        "drugs": [
+          "Tamoxifen",
+          "Clindamycin"
+        ],
+        "reason": "DDInter documents the Tamoxifen + Clindamycin pair but assigns no severity level.",
+        "question": "Does concurrent Tamoxifen and Clindamycin carry a clinically significant interaction? The pair is catalogued without a graded severity.",
+        "source": "DDInter DDInter1744/DDInter398",
+        "clinically_central": false
       },
       {
         "tier": "known-unknown",
@@ -1429,7 +1436,8 @@
         ],
         "reason": "DDInter documents the Acetaminophen + Tamoxifen pair but assigns no severity level.",
         "question": "Does concurrent Acetaminophen and Tamoxifen carry a clinically significant interaction? The pair is catalogued without a graded severity.",
-        "source": "DDInter DDInter14/DDInter1744"
+        "source": "DDInter DDInter14/DDInter1744",
+        "clinically_central": false
       },
       {
         "tier": "known-unknown",
@@ -1439,7 +1447,8 @@
         ],
         "reason": "DDInter documents the Warfarin + Clindamycin pair but assigns no severity level.",
         "question": "Does concurrent Warfarin and Clindamycin carry a clinically significant interaction? The pair is catalogued without a graded severity.",
-        "source": "DDInter DDInter1951/DDInter398"
+        "source": "DDInter DDInter1951/DDInter398",
+        "clinically_central": false
       }
     ],
     "research_total_known_unknown": 20,

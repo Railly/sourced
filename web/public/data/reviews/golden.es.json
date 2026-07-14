@@ -308,9 +308,10 @@
           "Warfarin",
           "Furosemide"
         ],
-        "reason": "DDInter documents the Warfarin + Furosemide pair but assigns no severity level.",
-        "question": "Does concurrent Warfarin and Furosemide carry a clinically significant interaction? The pair is catalogued without a graded severity.",
-        "source": "DDInter DDInter1951/DDInter790"
+        "reason": "DDInter documenta el par Warfarin + Furosemide pero no le asigna un nivel de gravedad.",
+        "question": "¿La combinación de Warfarin y Furosemide conlleva una interacción clínicamente significativa? El par está catalogado sin gravedad graduada.",
+        "source": "DDInter DDInter1951/DDInter790",
+        "clinically_central": true
       }
     ],
     "research_total_known_unknown": 1

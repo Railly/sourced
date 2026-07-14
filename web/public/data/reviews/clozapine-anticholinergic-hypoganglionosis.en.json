@@ -571,10 +571,13 @@
     "research_candidates": [
       {
         "tier": "unresolved-concern",
-        "drugs": [],
+        "drugs": [
+          "diphenhydramine"
+        ],
         "reason": "Reviewer: claim not supported by cited sources: The finding implies an MAO-inhibitor interaction, but no MAO inhibitor is present in the patient's medication list, so the MAO-inhibitor-related anticholinergic claim is not applicable to this patient.; The why_this_patient rationale connects diphenhydramine to anticholinergic toxicity, but the cited source only states MAO inhibitors intensify anticholinergic effects; there is no MAO inhibitor in the patient context to support this specific reasoning.",
         "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Diphenhydramine has additive CNS-depressant and MAO-inhibitor-related anticholinergic effects\"",
-        "source": "adversarial verifier"
+        "source": "adversarial verifier",
+        "clinically_central": true
       }
     ],
     "research_total_known_unknown": 0,

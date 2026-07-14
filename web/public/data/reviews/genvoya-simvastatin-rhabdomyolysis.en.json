@@ -247,7 +247,8 @@
         "drugs": [],
         "reason": "Reviewer: claim not supported by cited sources: The finding's why_this_patient reasoning asserts the patient 'has hepatitis coinfection' relevant to hepatitis B, but the patient context documents hepatitis C and hepatitis A only, not hepatitis B (HBV). The boxed warnings apply specifically to HBV coinfection, which is not established in the patient context.; The finding implies clinical relevance to this patient based on hepatitis coinfection, but no HBV infection is documented, so the boxed-warning applicability is not supported by patient context.",
         "question": "Can this flagged concern be confirmed or ruled out against primary evidence? \"Boxed warnings for posttreatment acute exacerbation of hepatitis B on discontinuation\"",
-        "source": "adversarial verifier"
+        "source": "adversarial verifier",
+        "clinically_central": true
       }
     ],
     "research_total_known_unknown": 0,
